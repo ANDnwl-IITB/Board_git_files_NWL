@@ -1,0 +1,27 @@
+Stuff that is needed to build the
+1p1e accelerator.
+
+component/
+	component with interfaces
+
+copy_vhdl_files.sh
+	ignore
+edn/
+	edn files of the processor
+	and engine_core (for ultrascale+
+	fpga's vcu118 (?), vcu128).
+
+README
+	this file
+
+scripts
+	compile order etc.
+
+vhdl/
+	VHDL files of design units.
+
+vhdl_libs/
+	libraries.
+
+
+TODO: FPGA part numbers for VCU118, VCU128. 

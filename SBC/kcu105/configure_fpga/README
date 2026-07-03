@@ -1,0 +1,39 @@
+Performing the Reset Sequence through
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+METHOD 1
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	Through TCL Script
+
+		1.Update the "path_to_folder" variable in vio_reset_seq.sh and in vio_reset_seq.tcl with the appropriate directory path for your system.After making the necessary changes, execute the script using:
+./vio_reset_seq.sh
+
+Note : In vio_reset_seq.tcl change path to .bit & .ltx files if necessary
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+METHOD 2
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+	 Vivado Hardware Manager GUI
+
+		1.Open Vivado -> Hardware Manager -> Open Target -> Auto Connect
+		2.Program FPGA with:
+			.bit file
+			.ltx file
+		3.Wait until DRAM calibration PASS (cal pass should become green)
+		4.Open:
+			hw_vio_1
+			hw_vio_2
+		5.In hw_vio_1:
+			make sure rst_125mhz_int_uc = 1 otherwise follow  Reprogramming the Bitstream through Vivado GUI sequence
+		6.In hw_vio_2: manually toggle
+			RESET_TO_PROCESSOR (0 ->1 -> 0)
+			RESET_TO_NIC       (0 ->1 -> 0)
+		7.In hw_vio_1: release reset
+			Set rst_125mhz_int_uc = 0
+
+	 Reprogramming the Bitstream through Vivado GUI:
+
+		Before reprogramming (dumping) the bitstream through the Vivado Hardware Manager GUI, ensure that the following signal is set to 1:
+			rst_125mhz_int_uc = 1
+
+		This step is important because the signal may remain at 0 after a previous programming cycle, which can affect proper reinitialization of the design. Setting the 				signal to 1 ensures that the FPGA enters a clean reset state before the new bitstream is programmed.
+
+

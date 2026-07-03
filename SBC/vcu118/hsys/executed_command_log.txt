@@ -1,0 +1,9 @@
+make -C ./processor_subsystem SIMULATOR=-s\ ghdl
+make -C ./acb_afb_complex SIMULATOR=-s\ ghdl
+make -C ./nic_subsystem/nic_mac_bridge/tx_deconcat_system SIMULATOR=-s\ ghdl
+make -C ./nic_subsystem/nic_mac_bridge/rx_concat_system SIMULATOR=-s\ ghdl
+make -C ./nic_subsystem/nic_mac_bridge SIMULATOR=-s\ ghdl
+make -C ./nic_subsystem/nic SIMULATOR=-s\ ghdl
+make -C ./nic_subsystem SIMULATOR=-s\ ghdl
+hierSys2Vhdl -s ghdl -o vhdl pipes.aa ./nic_subsystem/pipes.aa signals.aa ./nic_subsystem/signals.aa DualClockedFifos/DualClockedFifos.hsys ./GlueModules/GlueModules.hsys ./processor_subsystem/processor_1x1x32.hsys ./acb_afb_complex/acb_afb_complex.hsys ./GlueModules/GlueModules.hsys ./acb_sram/acb_sram.hsys ./nic_subsystem/nic_mac_bridge/tx_deconcat_system/tx_deconcat_system.hsys ./nic_subsystem/nic_mac_bridge/rx_concat_system/rx_concat_system.hsys ./nic_subsystem/nic_mac_bridge/nic_mac_pipe_reset/nic_mac_pipe_reset.hsys ./nic_subsystem/nic_mac_bridge/nic_mac_bridge.hsys ./nic_subsystem/nic/nic.hsys ./nic_subsystem/nic_subsystem.hsys ./DualClockedFifos/DualClockedFifos.hsys ./acb_dram_controller_bridge/acb_dram_controller_bridge.hsys ./kcu105_core.hsys 
+formatVhdlFiles.py vhdl

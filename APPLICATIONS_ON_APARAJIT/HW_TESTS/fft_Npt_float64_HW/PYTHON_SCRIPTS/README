@@ -1,0 +1,7 @@
+input_result_generator.py/ 
+	to generate data.map and result.txt for Npt FFT (use this data.map and place it in the mcode/ and data/ folder.if you are running for 1 thread only.)
+
+data_map_4x_replication.py/
+	to replicate data.map 4 times one after another. this is required while running on 4 threads. Copy data_4threads.map in data/ and mcode/ folder as data.map
+
+

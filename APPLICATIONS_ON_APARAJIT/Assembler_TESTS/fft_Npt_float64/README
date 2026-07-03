@@ -1,0 +1,102 @@
+FFT Verification Flow
+=====================
+
+
+Please Run the commands in order:-
+
+1.) python3 input_result_generator.py
+2.) python3 generate_mcode.py
+3.) ./run.sh fftN_new
+4.) python3 accuracy_out.py
+
+
+=====================
+Explanation Below
+=====================
+
+1. Generate FFT Inputs and Golden Outputs
+
+    python3 input_result_generator.py
+
+This script generates:
+
+    data.map    - Input samples and twiddle factors in float64 hex format.
+    input.txt   - Input samples and twiddle factors in decimal format.
+    results.txt - Golden FFT outputs in float64 hex format (bit-reversed order).
+    output.txt  - Golden FFT outputs in decimal format (bit-reversed order).
+
+Input samples are randomly generated float64 values in the range:
+
+    [-1000000.0, +1000000.0]
+
+data.map format:
+
+    0  : x[0].real
+    1  : x[0].imag
+    2  : x[1].real
+    3  : x[1].imag
+    ...
+    2N-1 : x[N-1].imag
+
+followed by twiddle factors:
+
+    2N     : W[0].real
+    2N + 1 : W[0].imag
+    ...
+    3N - 1 : W[N/2 - 1].imag
+
+Each entry is one float64 value (8 bytes).
+
+Total entries in data.map:
+
+    3N
+
+Total memory required:
+
+    3N * 8 bytes
+
+
+2. Generate FFT mcode
+
+python3 generate_mcode.py
+
+This script generates:
+
+fftN_new.mcode
+
+The script updates the FFT configuration parameters based on the user-provided FFT size N and generates the corresponding mcode file.
+
+
+3. Run FFT Assembly Program
+
+    ./run.sh fftN_new
+
+This assembles and runs the FFT implementation.
+
+The program reads inputs from data.map, performs the FFT computation,
+and compares the generated outputs against the golden outputs in
+results.txt.
+
+A log file named run.log is generated containing the comparison results.
+
+
+4. Generate Accuracy Report
+
+    python3 accuracy_out.py
+
+This script parses run.log and generates:
+
+    accuracy_report.txt
+
+It also prints a summary on the terminal showing:
+
+    - Max Relative Error (%)
+    - Average Relative Error (%)
+    - Max Absolute Error
+    - Average Absolute Error
+    - RMS Error
+
+accuracy_report.txt contains detailed per-sample accuracy information.
+
+==================================================================
+for a new run do ./clean.sh and follow the steps above

@@ -1,0 +1,7 @@
+branch_4bit_16x16.mcode: 
+ 	16 x16 of 4 bit elements
+	110 ticks - 7936 operations(mul + add) - 72.1 ops/tick
+branch_4bit_64x64.mcode:
+	64 x 64 of 4 bit elements
+        8300  ticks - 520192 operations(mul + add) - 62.6 ops/tick
+

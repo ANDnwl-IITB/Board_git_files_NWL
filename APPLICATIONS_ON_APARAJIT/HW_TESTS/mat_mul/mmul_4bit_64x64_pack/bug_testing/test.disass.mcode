@@ -1,0 +1,22 @@
+l_0: // pc=0x0
+    || 
+    $set     $r1    0    4
+    $set     $r6    0    3
+    $null
+    $null
+    $ld    ($u64)   $r2    [$r5 + 0]
+    $ld    ($u64)   $r3    [$r5 + 8]
+    $null
+    $null
+    ;
+l_8: // pc=0x8
+    || 
+    $null
+    $null
+    $null
+    $null
+    $st   ($u64)   [$r5  + 0]    $r1
+    $st   ($u64)   [$r5  + 8]    $r6
+    $null
+    $null
+    ;

@@ -1,0 +1,262 @@
+setting_init: // pc=0x0
+    || 
+    $set     $r20    0    127
+    $set     $r21    0    8192
+    $set     $r28    0    1
+    $set     $r26    0    7
+    $set     $r27    0    256
+    $set     $r31    0    512
+    $set     $r18    0    0
+    $null
+    ;
+set_pop1: // pc=0x8
+    || 
+    -            $r29    ($i64)    $r28        1
+    ;
+set_pop: // pc=0x9
+    || 
+    $set     $r31    0    512
+    ;
+pad_2__0: // pc=0xa
+    || 
+    $null
+    $null
+    ;
+set_pop2: // pc=0xc
+    || 
+    +            $r22    ($i64)    $r17        0
+    +            $r23    ($i64)    $r17        8
+    +            $r30    ($i64)    $r20        0
+    >>           $r31    ($i64)    $r31    $r18
+    ;
+update_r0: // pc=0x10
+    || 
+    *            $r31    ($i64)    $r31    $r29
+    +            $r24    ($i64)    $r17        16
+    +            $r25    ($i64)    $r17        24
+    >>           $r27    ($i64)    $r31        1
+    ;
+update_r27: // pc=0x14
+    || 
+    +            $r27    ($i64)    $r31    $r27
+    ;
+pad_1__2: // pc=0x15
+    || 
+    $null
+    ;
+final_r_update: // pc=0x16
+    || 
+    *            $r31    ($i64)    $r31        16
+    *            $r27    ($i64)    $r27        16
+    ;
+load_inp: // pc=0x18
+    || 
+    $null
+    $null
+    $null
+    $null
+    $ld    ($u256)   $r4    [$r31 + $r22    ++0]
+    $ld    ($u256)   $r8    [$r27 + $r22    ++0]
+    $ld    ($u256)   $r12    [$r21 + $r22    ++0]
+    $null
+    ;
+add_twid: // pc=0x20
+    || 
+    +            $r4    ($f64)    $r4    $r8
+    +            $r5    ($f64)    $r5    $r9
+    +            $r6    ($f64)    $r6    $r10
+    +            $r7    ($f64)    $r7    $r11
+    -            $r8    ($f64)    $r4    $r8
+    -            $r9    ($f64)    $r5    $r9
+    -            $r10    ($f64)    $r6    $r10
+    -            $r11    ($f64)    $r7    $r11
+    ;
+mult_twid: // pc=0x28
+    || 
+    *            $r8    ($f64)    $r8    $r12
+    *            $r1    ($f64)    $r9    $r13
+    *            $r9    ($f64)    $r8    $r13
+    *            $r2    ($f64)    $r9    $r12
+    *            $r10    ($f64)    $r10    $r14
+    *            $r3    ($f64)    $r11    $r15
+    *            $r11    ($f64)    $r10    $r15
+    *            $r16    ($f64)    $r11    $r14
+    ;
+add_twid1: // pc=0x30
+    || 
+    -            $r8    ($f64)    $r8    $r1
+    +            $r9    ($f64)    $r9    $r2
+    -            $r10    ($f64)    $r10    $r3
+    +            $r11    ($f64)    $r11    $r16
+    $st   ($u256)   [$r31  + $r22    ++0]    $r4
+    $null
+    $null
+    $null
+    ;
+sft_st: // pc=0x38
+    || 
+    ? ($i16)  $r30 >     --1    $goto    load_inp
+    +            $r22    ($i64)    $r22        32
+    +            $r23    ($i64)    $r23        32
+    $null
+    $st   ($u256)   [$r27  + $r22    ++0]    $r8
+    $null
+    $null
+    $null
+    ;
+set_update: // pc=0x40
+    || 
+    ? ($i16)  $r29 >     --1    $goto    set_pop
+    $null
+    $null
+    $null
+    $null
+    $null
+    $null
+    $null
+    ;
+set_twiddle: // pc=0x48
+    || 
+    +            $r1    ($i64)    $r17        0
+    $set     $r22    0    8192
+    $set     $r23    0    31
+    +            $r19    ($i64)    $r17        32
+    ;
+pad_4__4: // pc=0x4c
+    || 
+    $null
+    $null
+    $null
+    $null
+    ;
+twiddle_update: // pc=0x50
+    || 
+    $null
+    $null
+    $null
+    $null
+    $ld    ($u256)   $r4    [$r22 + $r1    ++0]
+    $ld    ($u256)   $r8    [$r22 + $r19    ++0]
+    $null
+    $null
+    ;
+mult_twid1: // pc=0x58
+    || 
+    *            $r4    ($f64)    $r4    $r4
+    *            $r5    ($f64)    $r5    $r5
+    *            $r6    ($f64)    $r6    $r6
+    *            $r7    ($f64)    $r7    $r7
+    *            $r2    ($f64)    $r4    $r5
+    *            $r3    ($f64)    $r7    $r6
+    *            $r12    ($f64)    $r8    $r9
+    *            $r13    ($f64)    $r11    $r10
+    ;
+mult_twid2: // pc=0x60
+    || 
+    *            $r8    ($f64)    $r8    $r8
+    *            $r9    ($f64)    $r9    $r9
+    *            $r10    ($f64)    $r10    $r10
+    *            $r11    ($f64)    $r11    $r11
+    ;
+pad_4__6: // pc=0x64
+    || 
+    $null
+    $null
+    $null
+    $null
+    ;
+add_sub_twid: // pc=0x68
+    || 
+    -            $r4    ($f64)    $r4    $r5
+    -            $r6    ($f64)    $r6    $r7
+    +            $r5    ($f64)    $r2    $r2
+    +            $r7    ($f64)    $r3    $r3
+    -            $r8    ($f64)    $r8    $r9
+    -            $r10    ($f64)    $r10    $r11
+    +            $r9    ($f64)    $r12    $r12
+    +            $r11    ($f64)    $r13    $r13
+    ;
+st_twiddle: // pc=0x70
+    || 
+    ? ($i16)  $r23 >     --1    $goto    twiddle_update
+    +            $r1    ($i64)    $r1        64
+    +            $r19    ($i64)    $r19        64
+    $null
+    $st   ($u256)   [$r22  + $r1    ++0]    $r4
+    $st   ($u256)   [$r22  + $r19    ++0]    $r8
+    $null
+    $null
+    ;
+final_loop_update: // pc=0x78
+    || 
+    ? ($i16)  $r26 >     --1    $goto    set_pop1
+    >>           $r20    ($i64)    $r20        1
+    *            $r28    ($i64)    $r28        2
+    +            $r18    ($i64)    $r18        1
+    $null
+    $null
+    $null
+    $null
+    ;
+setting_init2x2: // pc=0x80
+    || 
+    +            $r22    ($i64)    $r17        0
+    +            $r26    ($i64)    $r17        32
+    $set     $r0    0    0
+    $set     $r20    0    127
+    ;
+pad_4__8: // pc=0x84
+    || 
+    $null
+    $null
+    $null
+    $null
+    ;
+load_inp2x2: // pc=0x88
+    || 
+    $null
+    $null
+    $null
+    $null
+    $ld    ($u256)   $r4    [$r0 + $r22    ++0]
+    $ld    ($u256)   $r8    [$r0 + $r26    ++0]
+    $null
+    $null
+    ;
+buttfly2x2: // pc=0x90
+    || 
+    +            $r4    ($f64)    $r4    $r6
+    +            $r5    ($f64)    $r5    $r7
+    -            $r6    ($f64)    $r4    $r6
+    -            $r7    ($f64)    $r5    $r7
+    +            $r8    ($f64)    $r8    $r10
+    +            $r9    ($f64)    $r9    $r11
+    -            $r10    ($f64)    $r8    $r10
+    -            $r11    ($f64)    $r9    $r11
+    ;
+st_2x2: // pc=0x98
+    || 
+    +            $r22    ($i64)    $r22        64
+    +            $r23    ($i64)    $r23        64
+    +            $r24    ($i64)    $r24        64
+    +            $r25    ($i64)    $r25        64
+    $st   ($u256)   [$r0  + $r22    ++0]    $r4
+    $null
+    $null
+    $null
+    ;
+st_2x2_2: // pc=0xa0
+    || 
+    ? ($i16)  $r20 >     --1    $goto    load_inp2x2
+    +            $r26    ($i64)    $r26        64
+    +            $r27    ($i64)    $r27        64
+    +            $r28    ($i64)    $r28        64
+    $st   ($u256)   [$r0  + $r26    ++0]    $r8
+    +            $r29    ($i64)    $r29        64
+    $null
+    $null
+    ;
+halting: // pc=0xa8
+    || 
+    $halt
+    ;

@@ -1,0 +1,19 @@
+kcu105_core.hsys
+	Contains the SBC core hsys file (Created its not present by default)
+
+processor_subsystem/
+	Contains the Processor hsys file (in this case processor_1x1x32.hsys)
+
+acb_sram/
+	In this version of Build it contains only acb_sram block and core.
+
+pipes.aa/
+	This Contains the pipes declarations used in SBC core and Processor core.
+
+signals.aa/
+	This Contains the signal declarations used in SBC core and Processor core.
+
+In future other blocks such as acb_afb_complex etc., must be added in this location.
+
+Note: 
+	The Build.sh script must be executed inside Ajit-Toolchain inside docker as it contains Ahir related libraries.

@@ -1,0 +1,4 @@
+kcu105_fpga_top: kcu105_fpga_top__GC0, kcu105_core, 
+kcu105_core: kcu105_core__GC0, nic_subsystem, 
+nic_subsystem: nic_subsystem__GC0, nic, 
+nic: nic__GB2, nic__GB1, nic__GB0, 

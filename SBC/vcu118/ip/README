@@ -1,0 +1,15 @@
+clk_wiz_80/
+	Clock wizard ip which generates 80Mhz clock.
+
+vio_0/
+	Contains the vio connections.
+
+ila_uarts/
+	Contains ila for the serial (ila 2) and debug (ila 1).
+
+ila_dram/
+	contains ila to check the dram signals
+
+ddr4_0/
+	This is the Dram controller ip being used
+Incase you are using any other ip's such as DRAM, Ethernet (NIC) etc., add them in this directory.

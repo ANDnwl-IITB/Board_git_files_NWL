@@ -1,0 +1,5 @@
+marches_dram_pages:
+                It writes to the starting addresses of all pages and reads data from those addresses.
+                                                                                                                            
+marches_dram_full:
+		It  writes every word in memory during the write phase, and then reads from those words after the write phase completes.

@@ -1,0 +1,969 @@
+library ieee;
+use ieee.std_logic_1164.all;
+library ahir;
+use ahir.memory_subsystem_package.all;
+use ahir.types.all;
+use ahir.subprograms.all;
+use ahir.components.all;
+use ahir.basecomponents.all;
+use ahir.operatorpackage.all;
+use ahir.utilities.all;
+library GhdlLink;
+use GhdlLink.Utility_Package.all;
+use GhdlLink.Vhpi_Foreign.all;
+-->>>>>
+library kcu105_core_lib;
+--<<<<<
+entity kcu105_core_Test_Bench is -- 
+  -- 
+end entity;
+architecture VhpiLink of kcu105_core_Test_Bench is -- 
+  signal CLOCK_80_pipe_write_data : std_logic_vector(0 downto 0);
+  signal CLOCK_80_pipe_write_req  : std_logic_vector(0  downto 0) := (others => '0');
+  signal CLOCK_80_pipe_write_ack  : std_logic_vector(0  downto 0);
+  signal CLOCK_80: std_logic_vector(0 downto 0);
+  signal CLOCK_TO_DRAMCTRL_BRIDGE_pipe_write_data : std_logic_vector(0 downto 0);
+  signal CLOCK_TO_DRAMCTRL_BRIDGE_pipe_write_req  : std_logic_vector(0  downto 0) := (others => '0');
+  signal CLOCK_TO_DRAMCTRL_BRIDGE_pipe_write_ack  : std_logic_vector(0  downto 0);
+  signal CLOCK_TO_DRAMCTRL_BRIDGE: std_logic_vector(0 downto 0);
+  signal CLOCK_TO_NIC_pipe_write_data : std_logic_vector(0 downto 0);
+  signal CLOCK_TO_NIC_pipe_write_req  : std_logic_vector(0  downto 0) := (others => '0');
+  signal CLOCK_TO_NIC_pipe_write_ack  : std_logic_vector(0  downto 0);
+  signal CLOCK_TO_NIC: std_logic_vector(0 downto 0);
+  signal CONSOLE_to_SERIAL_RX_pipe_write_data : std_logic_vector(7 downto 0);
+  signal CONSOLE_to_SERIAL_RX_pipe_write_req  : std_logic_vector(0  downto 0) := (others => '0');
+  signal CONSOLE_to_SERIAL_RX_pipe_write_ack  : std_logic_vector(0  downto 0);
+  signal DRAM_CONTROLLER_TO_ACB_BRIDGE_pipe_write_data : std_logic_vector(521 downto 0);
+  signal DRAM_CONTROLLER_TO_ACB_BRIDGE_pipe_write_req  : std_logic_vector(0  downto 0) := (others => '0');
+  signal DRAM_CONTROLLER_TO_ACB_BRIDGE_pipe_write_ack  : std_logic_vector(0  downto 0);
+  signal DRAM_CONTROLLER_TO_ACB_BRIDGE: std_logic_vector(521 downto 0);
+  signal MAC_TO_NIC_pipe_write_data : std_logic_vector(9 downto 0);
+  signal MAC_TO_NIC_pipe_write_req  : std_logic_vector(0  downto 0) := (others => '0');
+  signal MAC_TO_NIC_pipe_write_ack  : std_logic_vector(0  downto 0);
+  signal MAX_ACB_TAP1_ADDR_pipe_write_data : std_logic_vector(35 downto 0);
+  signal MAX_ACB_TAP1_ADDR_pipe_write_req  : std_logic_vector(0  downto 0) := (others => '0');
+  signal MAX_ACB_TAP1_ADDR_pipe_write_ack  : std_logic_vector(0  downto 0);
+  signal MAX_ACB_TAP1_ADDR: std_logic_vector(35 downto 0);
+  signal MEM_INVALIDATE_pipe_write_data : std_logic_vector(31 downto 0);
+  signal MEM_INVALIDATE_pipe_write_req  : std_logic_vector(0  downto 0) := (others => '0');
+  signal MEM_INVALIDATE_pipe_write_ack  : std_logic_vector(0  downto 0);
+  signal MIN_ACB_TAP1_ADDR_pipe_write_data : std_logic_vector(35 downto 0);
+  signal MIN_ACB_TAP1_ADDR_pipe_write_req  : std_logic_vector(0  downto 0) := (others => '0');
+  signal MIN_ACB_TAP1_ADDR_pipe_write_ack  : std_logic_vector(0  downto 0);
+  signal MIN_ACB_TAP1_ADDR: std_logic_vector(35 downto 0);
+  signal RESET_TO_DRAMCTRL_BRIDGE_pipe_write_data : std_logic_vector(0 downto 0);
+  signal RESET_TO_DRAMCTRL_BRIDGE_pipe_write_req  : std_logic_vector(0  downto 0) := (others => '0');
+  signal RESET_TO_DRAMCTRL_BRIDGE_pipe_write_ack  : std_logic_vector(0  downto 0);
+  signal RESET_TO_DRAMCTRL_BRIDGE: std_logic_vector(0 downto 0);
+  signal RESET_TO_NIC_pipe_write_data : std_logic_vector(0 downto 0);
+  signal RESET_TO_NIC_pipe_write_req  : std_logic_vector(0  downto 0) := (others => '0');
+  signal RESET_TO_NIC_pipe_write_ack  : std_logic_vector(0  downto 0);
+  signal RESET_TO_NIC: std_logic_vector(0 downto 0);
+  signal RESET_TO_PROCESSOR_pipe_write_data : std_logic_vector(0 downto 0);
+  signal RESET_TO_PROCESSOR_pipe_write_req  : std_logic_vector(0  downto 0) := (others => '0');
+  signal RESET_TO_PROCESSOR_pipe_write_ack  : std_logic_vector(0  downto 0);
+  signal RESET_TO_PROCESSOR: std_logic_vector(0 downto 0);
+  signal SOC_MONITOR_to_DEBUG_pipe_write_data : std_logic_vector(7 downto 0);
+  signal SOC_MONITOR_to_DEBUG_pipe_write_req  : std_logic_vector(0  downto 0) := (others => '0');
+  signal SOC_MONITOR_to_DEBUG_pipe_write_ack  : std_logic_vector(0  downto 0);
+  signal THREAD_RESET_pipe_write_data : std_logic_vector(3 downto 0);
+  signal THREAD_RESET_pipe_write_req  : std_logic_vector(0  downto 0) := (others => '0');
+  signal THREAD_RESET_pipe_write_ack  : std_logic_vector(0  downto 0);
+  signal THREAD_RESET: std_logic_vector(3 downto 0);
+  signal ACB_BRIDGE_TO_DRAM_CONTROLLER_pipe_read_data : std_logic_vector(612 downto 0);
+  signal ACB_BRIDGE_TO_DRAM_CONTROLLER_pipe_read_req  : std_logic_vector(0  downto 0) := (others => '0');
+  signal ACB_BRIDGE_TO_DRAM_CONTROLLER_pipe_read_ack  : std_logic_vector(0  downto 0);
+  signal ACB_BRIDGE_TO_DRAM_CONTROLLER: std_logic_vector(612 downto 0) := (others => '0');
+  signal MEM_INVALIDATE_ACK_pipe_read_data : std_logic_vector(0 downto 0);
+  signal MEM_INVALIDATE_ACK_pipe_read_req  : std_logic_vector(0  downto 0) := (others => '0');
+  signal MEM_INVALIDATE_ACK_pipe_read_ack  : std_logic_vector(0  downto 0);
+  signal NIC_DEBUG_SIGNAL_pipe_read_data : std_logic_vector(255 downto 0);
+  signal NIC_DEBUG_SIGNAL_pipe_read_req  : std_logic_vector(0  downto 0) := (others => '0');
+  signal NIC_DEBUG_SIGNAL_pipe_read_ack  : std_logic_vector(0  downto 0);
+  signal NIC_DEBUG_SIGNAL: std_logic_vector(255 downto 0) := (others => '0');
+  signal NIC_MAC_RESETN_pipe_read_data : std_logic_vector(0 downto 0);
+  signal NIC_MAC_RESETN_pipe_read_req  : std_logic_vector(0  downto 0) := (others => '0');
+  signal NIC_MAC_RESETN_pipe_read_ack  : std_logic_vector(0  downto 0);
+  signal NIC_MAC_RESETN: std_logic_vector(0 downto 0) := (others => '0');
+  signal NIC_TO_MAC_pipe_read_data : std_logic_vector(9 downto 0);
+  signal NIC_TO_MAC_pipe_read_req  : std_logic_vector(0  downto 0) := (others => '0');
+  signal NIC_TO_MAC_pipe_read_ack  : std_logic_vector(0  downto 0);
+  signal PROCESSOR_MODE_pipe_read_data : std_logic_vector(15 downto 0);
+  signal PROCESSOR_MODE_pipe_read_req  : std_logic_vector(0  downto 0) := (others => '0');
+  signal PROCESSOR_MODE_pipe_read_ack  : std_logic_vector(0  downto 0);
+  signal PROCESSOR_MODE: std_logic_vector(15 downto 0) := (others => '0');
+  signal SERIAL_TX_to_CONSOLE_pipe_read_data : std_logic_vector(7 downto 0);
+  signal SERIAL_TX_to_CONSOLE_pipe_read_req  : std_logic_vector(0  downto 0) := (others => '0');
+  signal SERIAL_TX_to_CONSOLE_pipe_read_ack  : std_logic_vector(0  downto 0);
+  signal SOC_DEBUG_to_MONITOR_pipe_read_data : std_logic_vector(7 downto 0);
+  signal SOC_DEBUG_to_MONITOR_pipe_read_req  : std_logic_vector(0  downto 0) := (others => '0');
+  signal SOC_DEBUG_to_MONITOR_pipe_read_ack  : std_logic_vector(0  downto 0);
+  signal UART_BAUD_FREQ_pipe_read_data : std_logic_vector(31 downto 0);
+  signal UART_BAUD_FREQ_pipe_read_req  : std_logic_vector(0  downto 0) := (others => '0');
+  signal UART_BAUD_FREQ_pipe_read_ack  : std_logic_vector(0  downto 0);
+  signal UART_BAUD_FREQ: std_logic_vector(31 downto 0) := (others => '0');
+  signal UART_BAUD_LIMIT_pipe_read_data : std_logic_vector(31 downto 0);
+  signal UART_BAUD_LIMIT_pipe_read_req  : std_logic_vector(0  downto 0) := (others => '0');
+  signal UART_BAUD_LIMIT_pipe_read_ack  : std_logic_vector(0  downto 0);
+  signal UART_BAUD_LIMIT: std_logic_vector(31 downto 0) := (others => '0');
+  signal UART_SOFT_RESET_pipe_read_data : std_logic_vector(0 downto 0);
+  signal UART_SOFT_RESET_pipe_read_req  : std_logic_vector(0  downto 0) := (others => '0');
+  signal UART_SOFT_RESET_pipe_read_ack  : std_logic_vector(0  downto 0);
+  signal UART_SOFT_RESET: std_logic_vector(0 downto 0) := (others => '0');
+  signal clk : std_logic := '0'; 
+  signal reset: std_logic := '1'; 
+  component kcu105_core is -- 
+    port( -- 
+      CLOCK_80 : in std_logic_vector(0 downto 0);
+      CLOCK_TO_DRAMCTRL_BRIDGE : in std_logic_vector(0 downto 0);
+      CLOCK_TO_NIC : in std_logic_vector(0 downto 0);
+      CONSOLE_to_SERIAL_RX_pipe_write_data : in std_logic_vector(7 downto 0);
+      CONSOLE_to_SERIAL_RX_pipe_write_req  : in std_logic_vector(0  downto 0);
+      CONSOLE_to_SERIAL_RX_pipe_write_ack  : out std_logic_vector(0  downto 0);
+      DRAM_CONTROLLER_TO_ACB_BRIDGE : in std_logic_vector(521 downto 0);
+      MAC_TO_NIC_pipe_write_data : in std_logic_vector(9 downto 0);
+      MAC_TO_NIC_pipe_write_req  : in std_logic_vector(0  downto 0);
+      MAC_TO_NIC_pipe_write_ack  : out std_logic_vector(0  downto 0);
+      MAX_ACB_TAP1_ADDR : in std_logic_vector(35 downto 0);
+      MEM_INVALIDATE_pipe_write_data : in std_logic_vector(31 downto 0);
+      MEM_INVALIDATE_pipe_write_req  : in std_logic_vector(0  downto 0);
+      MEM_INVALIDATE_pipe_write_ack  : out std_logic_vector(0  downto 0);
+      MIN_ACB_TAP1_ADDR : in std_logic_vector(35 downto 0);
+      RESET_TO_DRAMCTRL_BRIDGE : in std_logic_vector(0 downto 0);
+      RESET_TO_NIC : in std_logic_vector(0 downto 0);
+      RESET_TO_PROCESSOR : in std_logic_vector(0 downto 0);
+      SOC_MONITOR_to_DEBUG_pipe_write_data : in std_logic_vector(7 downto 0);
+      SOC_MONITOR_to_DEBUG_pipe_write_req  : in std_logic_vector(0  downto 0);
+      SOC_MONITOR_to_DEBUG_pipe_write_ack  : out std_logic_vector(0  downto 0);
+      THREAD_RESET : in std_logic_vector(3 downto 0);
+      ACB_BRIDGE_TO_DRAM_CONTROLLER : out std_logic_vector(612 downto 0);
+      MEM_INVALIDATE_ACK_pipe_read_data : out std_logic_vector(0 downto 0);
+      MEM_INVALIDATE_ACK_pipe_read_req  : in std_logic_vector(0  downto 0);
+      MEM_INVALIDATE_ACK_pipe_read_ack  : out std_logic_vector(0  downto 0);
+      NIC_DEBUG_SIGNAL : out std_logic_vector(255 downto 0);
+      NIC_MAC_RESETN : out std_logic_vector(0 downto 0);
+      NIC_TO_MAC_pipe_read_data : out std_logic_vector(9 downto 0);
+      NIC_TO_MAC_pipe_read_req  : in std_logic_vector(0  downto 0);
+      NIC_TO_MAC_pipe_read_ack  : out std_logic_vector(0  downto 0);
+      PROCESSOR_MODE : out std_logic_vector(15 downto 0);
+      SERIAL_TX_to_CONSOLE_pipe_read_data : out std_logic_vector(7 downto 0);
+      SERIAL_TX_to_CONSOLE_pipe_read_req  : in std_logic_vector(0  downto 0);
+      SERIAL_TX_to_CONSOLE_pipe_read_ack  : out std_logic_vector(0  downto 0);
+      SOC_DEBUG_to_MONITOR_pipe_read_data : out std_logic_vector(7 downto 0);
+      SOC_DEBUG_to_MONITOR_pipe_read_req  : in std_logic_vector(0  downto 0);
+      SOC_DEBUG_to_MONITOR_pipe_read_ack  : out std_logic_vector(0  downto 0);
+      UART_BAUD_FREQ : out std_logic_vector(31 downto 0);
+      UART_BAUD_LIMIT : out std_logic_vector(31 downto 0);
+      UART_SOFT_RESET : out std_logic_vector(0 downto 0);
+      clk, reset: in std_logic 
+      -- 
+    );
+    --
+  end component;
+  -->>>>>
+  for dut :  kcu105_core -- 
+    use entity kcu105_core_lib.kcu105_core; -- 
+  --<<<<<
+  -- 
+begin --
+  -- clock/reset generation 
+  clk <= not clk after 5 ns;
+  process
+  begin --
+    Vhpi_Initialize;
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    wait for 5 ns;
+    reset <= '0';
+    while true loop --
+      wait until clk = '0';
+      Vhpi_Listen;
+      Vhpi_Send;
+      --
+    end loop;
+    wait;
+    --
+  end process;
+  CLOCK_80_pipe_write_ack(0) <= '1';
+  TruncateOrPad(CLOCK_80_pipe_write_data,CLOCK_80);
+  process
+  variable val_string, obj_ref: VhpiString;
+  begin --
+    wait until reset = '0';
+    -- let the DUT come out of reset.... give it 4 cycles.
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    while true loop -- 
+      wait until clk = '0';
+      wait for 1 ns; 
+      obj_ref := Pack_String_To_Vhpi_String("CLOCK_80 req");
+      Vhpi_Get_Port_Value(obj_ref,val_string,1);
+      CLOCK_80_pipe_write_req <= Unpack_String(val_string,1);
+      obj_ref := Pack_String_To_Vhpi_String("CLOCK_80 0");
+      Vhpi_Get_Port_Value(obj_ref,val_string,1);
+      wait for 1 ns;
+      if (CLOCK_80_pipe_write_req(0) = '1') then 
+      -- 
+        CLOCK_80_pipe_write_data <= Unpack_String(val_string,1);
+        -- 
+      end if;
+      wait until clk = '1';
+      obj_ref := Pack_String_To_Vhpi_String("CLOCK_80 ack");
+      val_string := Pack_SLV_To_Vhpi_String(CLOCK_80_pipe_write_ack);
+      Vhpi_Set_Port_Value(obj_ref,val_string,1);
+      -- 
+    end loop;
+    --
+  end process;
+  CLOCK_TO_DRAMCTRL_BRIDGE_pipe_write_ack(0) <= '1';
+  TruncateOrPad(CLOCK_TO_DRAMCTRL_BRIDGE_pipe_write_data,CLOCK_TO_DRAMCTRL_BRIDGE);
+  process
+  variable val_string, obj_ref: VhpiString;
+  begin --
+    wait until reset = '0';
+    -- let the DUT come out of reset.... give it 4 cycles.
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    while true loop -- 
+      wait until clk = '0';
+      wait for 1 ns; 
+      obj_ref := Pack_String_To_Vhpi_String("CLOCK_TO_DRAMCTRL_BRIDGE req");
+      Vhpi_Get_Port_Value(obj_ref,val_string,1);
+      CLOCK_TO_DRAMCTRL_BRIDGE_pipe_write_req <= Unpack_String(val_string,1);
+      obj_ref := Pack_String_To_Vhpi_String("CLOCK_TO_DRAMCTRL_BRIDGE 0");
+      Vhpi_Get_Port_Value(obj_ref,val_string,1);
+      wait for 1 ns;
+      if (CLOCK_TO_DRAMCTRL_BRIDGE_pipe_write_req(0) = '1') then 
+      -- 
+        CLOCK_TO_DRAMCTRL_BRIDGE_pipe_write_data <= Unpack_String(val_string,1);
+        -- 
+      end if;
+      wait until clk = '1';
+      obj_ref := Pack_String_To_Vhpi_String("CLOCK_TO_DRAMCTRL_BRIDGE ack");
+      val_string := Pack_SLV_To_Vhpi_String(CLOCK_TO_DRAMCTRL_BRIDGE_pipe_write_ack);
+      Vhpi_Set_Port_Value(obj_ref,val_string,1);
+      -- 
+    end loop;
+    --
+  end process;
+  CLOCK_TO_NIC_pipe_write_ack(0) <= '1';
+  TruncateOrPad(CLOCK_TO_NIC_pipe_write_data,CLOCK_TO_NIC);
+  process
+  variable val_string, obj_ref: VhpiString;
+  begin --
+    wait until reset = '0';
+    -- let the DUT come out of reset.... give it 4 cycles.
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    while true loop -- 
+      wait until clk = '0';
+      wait for 1 ns; 
+      obj_ref := Pack_String_To_Vhpi_String("CLOCK_TO_NIC req");
+      Vhpi_Get_Port_Value(obj_ref,val_string,1);
+      CLOCK_TO_NIC_pipe_write_req <= Unpack_String(val_string,1);
+      obj_ref := Pack_String_To_Vhpi_String("CLOCK_TO_NIC 0");
+      Vhpi_Get_Port_Value(obj_ref,val_string,1);
+      wait for 1 ns;
+      if (CLOCK_TO_NIC_pipe_write_req(0) = '1') then 
+      -- 
+        CLOCK_TO_NIC_pipe_write_data <= Unpack_String(val_string,1);
+        -- 
+      end if;
+      wait until clk = '1';
+      obj_ref := Pack_String_To_Vhpi_String("CLOCK_TO_NIC ack");
+      val_string := Pack_SLV_To_Vhpi_String(CLOCK_TO_NIC_pipe_write_ack);
+      Vhpi_Set_Port_Value(obj_ref,val_string,1);
+      -- 
+    end loop;
+    --
+  end process;
+  process
+  variable val_string, obj_ref: VhpiString;
+  begin --
+    wait until reset = '0';
+    -- let the DUT come out of reset.... give it 4 cycles.
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    while true loop -- 
+      wait until clk = '0';
+      wait for 1 ns; 
+      obj_ref := Pack_String_To_Vhpi_String("CONSOLE_to_SERIAL_RX req");
+      Vhpi_Get_Port_Value(obj_ref,val_string,1);
+      CONSOLE_to_SERIAL_RX_pipe_write_req <= Unpack_String(val_string,1);
+      obj_ref := Pack_String_To_Vhpi_String("CONSOLE_to_SERIAL_RX 0");
+      Vhpi_Get_Port_Value(obj_ref,val_string,8);
+      CONSOLE_to_SERIAL_RX_pipe_write_data <= Unpack_String(val_string,8);
+      wait until clk = '1';
+      obj_ref := Pack_String_To_Vhpi_String("CONSOLE_to_SERIAL_RX ack");
+      val_string := Pack_SLV_To_Vhpi_String(CONSOLE_to_SERIAL_RX_pipe_write_ack);
+      Vhpi_Set_Port_Value(obj_ref,val_string,1);
+      -- 
+    end loop;
+    --
+  end process;
+  DRAM_CONTROLLER_TO_ACB_BRIDGE_pipe_write_ack(0) <= '1';
+  TruncateOrPad(DRAM_CONTROLLER_TO_ACB_BRIDGE_pipe_write_data,DRAM_CONTROLLER_TO_ACB_BRIDGE);
+  process
+  variable val_string, obj_ref: VhpiString;
+  begin --
+    wait until reset = '0';
+    -- let the DUT come out of reset.... give it 4 cycles.
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    while true loop -- 
+      wait until clk = '0';
+      wait for 1 ns; 
+      obj_ref := Pack_String_To_Vhpi_String("DRAM_CONTROLLER_TO_ACB_BRIDGE req");
+      Vhpi_Get_Port_Value(obj_ref,val_string,1);
+      DRAM_CONTROLLER_TO_ACB_BRIDGE_pipe_write_req <= Unpack_String(val_string,1);
+      obj_ref := Pack_String_To_Vhpi_String("DRAM_CONTROLLER_TO_ACB_BRIDGE 0");
+      Vhpi_Get_Port_Value(obj_ref,val_string,522);
+      wait for 1 ns;
+      if (DRAM_CONTROLLER_TO_ACB_BRIDGE_pipe_write_req(0) = '1') then 
+      -- 
+        DRAM_CONTROLLER_TO_ACB_BRIDGE_pipe_write_data <= Unpack_String(val_string,522);
+        -- 
+      end if;
+      wait until clk = '1';
+      obj_ref := Pack_String_To_Vhpi_String("DRAM_CONTROLLER_TO_ACB_BRIDGE ack");
+      val_string := Pack_SLV_To_Vhpi_String(DRAM_CONTROLLER_TO_ACB_BRIDGE_pipe_write_ack);
+      Vhpi_Set_Port_Value(obj_ref,val_string,1);
+      -- 
+    end loop;
+    --
+  end process;
+  process
+  variable val_string, obj_ref: VhpiString;
+  begin --
+    wait until reset = '0';
+    -- let the DUT come out of reset.... give it 4 cycles.
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    while true loop -- 
+      wait until clk = '0';
+      wait for 1 ns; 
+      obj_ref := Pack_String_To_Vhpi_String("MAC_TO_NIC req");
+      Vhpi_Get_Port_Value(obj_ref,val_string,1);
+      MAC_TO_NIC_pipe_write_req <= Unpack_String(val_string,1);
+      obj_ref := Pack_String_To_Vhpi_String("MAC_TO_NIC 0");
+      Vhpi_Get_Port_Value(obj_ref,val_string,10);
+      MAC_TO_NIC_pipe_write_data <= Unpack_String(val_string,10);
+      wait until clk = '1';
+      obj_ref := Pack_String_To_Vhpi_String("MAC_TO_NIC ack");
+      val_string := Pack_SLV_To_Vhpi_String(MAC_TO_NIC_pipe_write_ack);
+      Vhpi_Set_Port_Value(obj_ref,val_string,1);
+      -- 
+    end loop;
+    --
+  end process;
+  MAX_ACB_TAP1_ADDR_pipe_write_ack(0) <= '1';
+  TruncateOrPad(MAX_ACB_TAP1_ADDR_pipe_write_data,MAX_ACB_TAP1_ADDR);
+  process
+  variable val_string, obj_ref: VhpiString;
+  begin --
+    wait until reset = '0';
+    -- let the DUT come out of reset.... give it 4 cycles.
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    while true loop -- 
+      wait until clk = '0';
+      wait for 1 ns; 
+      obj_ref := Pack_String_To_Vhpi_String("MAX_ACB_TAP1_ADDR req");
+      Vhpi_Get_Port_Value(obj_ref,val_string,1);
+      MAX_ACB_TAP1_ADDR_pipe_write_req <= Unpack_String(val_string,1);
+      obj_ref := Pack_String_To_Vhpi_String("MAX_ACB_TAP1_ADDR 0");
+      Vhpi_Get_Port_Value(obj_ref,val_string,36);
+      wait for 1 ns;
+      if (MAX_ACB_TAP1_ADDR_pipe_write_req(0) = '1') then 
+      -- 
+        MAX_ACB_TAP1_ADDR_pipe_write_data <= Unpack_String(val_string,36);
+        -- 
+      end if;
+      wait until clk = '1';
+      obj_ref := Pack_String_To_Vhpi_String("MAX_ACB_TAP1_ADDR ack");
+      val_string := Pack_SLV_To_Vhpi_String(MAX_ACB_TAP1_ADDR_pipe_write_ack);
+      Vhpi_Set_Port_Value(obj_ref,val_string,1);
+      -- 
+    end loop;
+    --
+  end process;
+  process
+  variable val_string, obj_ref: VhpiString;
+  begin --
+    wait until reset = '0';
+    -- let the DUT come out of reset.... give it 4 cycles.
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    while true loop -- 
+      wait until clk = '0';
+      wait for 1 ns; 
+      obj_ref := Pack_String_To_Vhpi_String("MEM_INVALIDATE req");
+      Vhpi_Get_Port_Value(obj_ref,val_string,1);
+      MEM_INVALIDATE_pipe_write_req <= Unpack_String(val_string,1);
+      obj_ref := Pack_String_To_Vhpi_String("MEM_INVALIDATE 0");
+      Vhpi_Get_Port_Value(obj_ref,val_string,32);
+      MEM_INVALIDATE_pipe_write_data <= Unpack_String(val_string,32);
+      wait until clk = '1';
+      obj_ref := Pack_String_To_Vhpi_String("MEM_INVALIDATE ack");
+      val_string := Pack_SLV_To_Vhpi_String(MEM_INVALIDATE_pipe_write_ack);
+      Vhpi_Set_Port_Value(obj_ref,val_string,1);
+      -- 
+    end loop;
+    --
+  end process;
+  MIN_ACB_TAP1_ADDR_pipe_write_ack(0) <= '1';
+  TruncateOrPad(MIN_ACB_TAP1_ADDR_pipe_write_data,MIN_ACB_TAP1_ADDR);
+  process
+  variable val_string, obj_ref: VhpiString;
+  begin --
+    wait until reset = '0';
+    -- let the DUT come out of reset.... give it 4 cycles.
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    while true loop -- 
+      wait until clk = '0';
+      wait for 1 ns; 
+      obj_ref := Pack_String_To_Vhpi_String("MIN_ACB_TAP1_ADDR req");
+      Vhpi_Get_Port_Value(obj_ref,val_string,1);
+      MIN_ACB_TAP1_ADDR_pipe_write_req <= Unpack_String(val_string,1);
+      obj_ref := Pack_String_To_Vhpi_String("MIN_ACB_TAP1_ADDR 0");
+      Vhpi_Get_Port_Value(obj_ref,val_string,36);
+      wait for 1 ns;
+      if (MIN_ACB_TAP1_ADDR_pipe_write_req(0) = '1') then 
+      -- 
+        MIN_ACB_TAP1_ADDR_pipe_write_data <= Unpack_String(val_string,36);
+        -- 
+      end if;
+      wait until clk = '1';
+      obj_ref := Pack_String_To_Vhpi_String("MIN_ACB_TAP1_ADDR ack");
+      val_string := Pack_SLV_To_Vhpi_String(MIN_ACB_TAP1_ADDR_pipe_write_ack);
+      Vhpi_Set_Port_Value(obj_ref,val_string,1);
+      -- 
+    end loop;
+    --
+  end process;
+  RESET_TO_DRAMCTRL_BRIDGE_pipe_write_ack(0) <= '1';
+  TruncateOrPad(RESET_TO_DRAMCTRL_BRIDGE_pipe_write_data,RESET_TO_DRAMCTRL_BRIDGE);
+  process
+  variable val_string, obj_ref: VhpiString;
+  begin --
+    wait until reset = '0';
+    -- let the DUT come out of reset.... give it 4 cycles.
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    while true loop -- 
+      wait until clk = '0';
+      wait for 1 ns; 
+      obj_ref := Pack_String_To_Vhpi_String("RESET_TO_DRAMCTRL_BRIDGE req");
+      Vhpi_Get_Port_Value(obj_ref,val_string,1);
+      RESET_TO_DRAMCTRL_BRIDGE_pipe_write_req <= Unpack_String(val_string,1);
+      obj_ref := Pack_String_To_Vhpi_String("RESET_TO_DRAMCTRL_BRIDGE 0");
+      Vhpi_Get_Port_Value(obj_ref,val_string,1);
+      wait for 1 ns;
+      if (RESET_TO_DRAMCTRL_BRIDGE_pipe_write_req(0) = '1') then 
+      -- 
+        RESET_TO_DRAMCTRL_BRIDGE_pipe_write_data <= Unpack_String(val_string,1);
+        -- 
+      end if;
+      wait until clk = '1';
+      obj_ref := Pack_String_To_Vhpi_String("RESET_TO_DRAMCTRL_BRIDGE ack");
+      val_string := Pack_SLV_To_Vhpi_String(RESET_TO_DRAMCTRL_BRIDGE_pipe_write_ack);
+      Vhpi_Set_Port_Value(obj_ref,val_string,1);
+      -- 
+    end loop;
+    --
+  end process;
+  RESET_TO_NIC_pipe_write_ack(0) <= '1';
+  TruncateOrPad(RESET_TO_NIC_pipe_write_data,RESET_TO_NIC);
+  process
+  variable val_string, obj_ref: VhpiString;
+  begin --
+    wait until reset = '0';
+    -- let the DUT come out of reset.... give it 4 cycles.
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    while true loop -- 
+      wait until clk = '0';
+      wait for 1 ns; 
+      obj_ref := Pack_String_To_Vhpi_String("RESET_TO_NIC req");
+      Vhpi_Get_Port_Value(obj_ref,val_string,1);
+      RESET_TO_NIC_pipe_write_req <= Unpack_String(val_string,1);
+      obj_ref := Pack_String_To_Vhpi_String("RESET_TO_NIC 0");
+      Vhpi_Get_Port_Value(obj_ref,val_string,1);
+      wait for 1 ns;
+      if (RESET_TO_NIC_pipe_write_req(0) = '1') then 
+      -- 
+        RESET_TO_NIC_pipe_write_data <= Unpack_String(val_string,1);
+        -- 
+      end if;
+      wait until clk = '1';
+      obj_ref := Pack_String_To_Vhpi_String("RESET_TO_NIC ack");
+      val_string := Pack_SLV_To_Vhpi_String(RESET_TO_NIC_pipe_write_ack);
+      Vhpi_Set_Port_Value(obj_ref,val_string,1);
+      -- 
+    end loop;
+    --
+  end process;
+  RESET_TO_PROCESSOR_pipe_write_ack(0) <= '1';
+  TruncateOrPad(RESET_TO_PROCESSOR_pipe_write_data,RESET_TO_PROCESSOR);
+  process
+  variable val_string, obj_ref: VhpiString;
+  begin --
+    wait until reset = '0';
+    -- let the DUT come out of reset.... give it 4 cycles.
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    while true loop -- 
+      wait until clk = '0';
+      wait for 1 ns; 
+      obj_ref := Pack_String_To_Vhpi_String("RESET_TO_PROCESSOR req");
+      Vhpi_Get_Port_Value(obj_ref,val_string,1);
+      RESET_TO_PROCESSOR_pipe_write_req <= Unpack_String(val_string,1);
+      obj_ref := Pack_String_To_Vhpi_String("RESET_TO_PROCESSOR 0");
+      Vhpi_Get_Port_Value(obj_ref,val_string,1);
+      wait for 1 ns;
+      if (RESET_TO_PROCESSOR_pipe_write_req(0) = '1') then 
+      -- 
+        RESET_TO_PROCESSOR_pipe_write_data <= Unpack_String(val_string,1);
+        -- 
+      end if;
+      wait until clk = '1';
+      obj_ref := Pack_String_To_Vhpi_String("RESET_TO_PROCESSOR ack");
+      val_string := Pack_SLV_To_Vhpi_String(RESET_TO_PROCESSOR_pipe_write_ack);
+      Vhpi_Set_Port_Value(obj_ref,val_string,1);
+      -- 
+    end loop;
+    --
+  end process;
+  process
+  variable val_string, obj_ref: VhpiString;
+  begin --
+    wait until reset = '0';
+    -- let the DUT come out of reset.... give it 4 cycles.
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    while true loop -- 
+      wait until clk = '0';
+      wait for 1 ns; 
+      obj_ref := Pack_String_To_Vhpi_String("SOC_MONITOR_to_DEBUG req");
+      Vhpi_Get_Port_Value(obj_ref,val_string,1);
+      SOC_MONITOR_to_DEBUG_pipe_write_req <= Unpack_String(val_string,1);
+      obj_ref := Pack_String_To_Vhpi_String("SOC_MONITOR_to_DEBUG 0");
+      Vhpi_Get_Port_Value(obj_ref,val_string,8);
+      SOC_MONITOR_to_DEBUG_pipe_write_data <= Unpack_String(val_string,8);
+      wait until clk = '1';
+      obj_ref := Pack_String_To_Vhpi_String("SOC_MONITOR_to_DEBUG ack");
+      val_string := Pack_SLV_To_Vhpi_String(SOC_MONITOR_to_DEBUG_pipe_write_ack);
+      Vhpi_Set_Port_Value(obj_ref,val_string,1);
+      -- 
+    end loop;
+    --
+  end process;
+  THREAD_RESET_pipe_write_ack(0) <= '1';
+  TruncateOrPad(THREAD_RESET_pipe_write_data,THREAD_RESET);
+  process
+  variable val_string, obj_ref: VhpiString;
+  begin --
+    wait until reset = '0';
+    -- let the DUT come out of reset.... give it 4 cycles.
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    while true loop -- 
+      wait until clk = '0';
+      wait for 1 ns; 
+      obj_ref := Pack_String_To_Vhpi_String("THREAD_RESET req");
+      Vhpi_Get_Port_Value(obj_ref,val_string,1);
+      THREAD_RESET_pipe_write_req <= Unpack_String(val_string,1);
+      obj_ref := Pack_String_To_Vhpi_String("THREAD_RESET 0");
+      Vhpi_Get_Port_Value(obj_ref,val_string,4);
+      wait for 1 ns;
+      if (THREAD_RESET_pipe_write_req(0) = '1') then 
+      -- 
+        THREAD_RESET_pipe_write_data <= Unpack_String(val_string,4);
+        -- 
+      end if;
+      wait until clk = '1';
+      obj_ref := Pack_String_To_Vhpi_String("THREAD_RESET ack");
+      val_string := Pack_SLV_To_Vhpi_String(THREAD_RESET_pipe_write_ack);
+      Vhpi_Set_Port_Value(obj_ref,val_string,1);
+      -- 
+    end loop;
+    --
+  end process;
+  ACB_BRIDGE_TO_DRAM_CONTROLLER_pipe_read_ack(0) <= '1';
+  TruncateOrPad(ACB_BRIDGE_TO_DRAM_CONTROLLER, ACB_BRIDGE_TO_DRAM_CONTROLLER_pipe_read_data);
+  process
+  variable val_string, obj_ref: VhpiString;
+  begin --
+    wait until reset = '0';
+    -- let the DUT come out of reset.... give it 4 cycles.
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    while true loop -- 
+      wait until clk = '0';
+      wait for 1 ns; 
+      obj_ref := Pack_String_To_Vhpi_String("ACB_BRIDGE_TO_DRAM_CONTROLLER req");
+      Vhpi_Get_Port_Value(obj_ref,val_string,1);
+      ACB_BRIDGE_TO_DRAM_CONTROLLER_pipe_read_req <= Unpack_String(val_string,1);
+      wait until clk = '1';
+      obj_ref := Pack_String_To_Vhpi_String("ACB_BRIDGE_TO_DRAM_CONTROLLER ack");
+      val_string := Pack_SLV_To_Vhpi_String(ACB_BRIDGE_TO_DRAM_CONTROLLER_pipe_read_ack);
+      Vhpi_Set_Port_Value(obj_ref,val_string,1);
+      obj_ref := Pack_String_To_Vhpi_String("ACB_BRIDGE_TO_DRAM_CONTROLLER 0");
+      val_string := Pack_SLV_To_Vhpi_String(ACB_BRIDGE_TO_DRAM_CONTROLLER_pipe_read_data);
+      Vhpi_Set_Port_Value(obj_ref,val_string,613);
+      -- 
+    end loop;
+    --
+  end process;
+  process
+  variable val_string, obj_ref: VhpiString;
+  begin --
+    wait until reset = '0';
+    -- let the DUT come out of reset.... give it 4 cycles.
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    while true loop -- 
+      wait until clk = '0';
+      wait for 1 ns; 
+      obj_ref := Pack_String_To_Vhpi_String("MEM_INVALIDATE_ACK req");
+      Vhpi_Get_Port_Value(obj_ref,val_string,1);
+      MEM_INVALIDATE_ACK_pipe_read_req <= Unpack_String(val_string,1);
+      wait until clk = '1';
+      obj_ref := Pack_String_To_Vhpi_String("MEM_INVALIDATE_ACK ack");
+      val_string := Pack_SLV_To_Vhpi_String(MEM_INVALIDATE_ACK_pipe_read_ack);
+      Vhpi_Set_Port_Value(obj_ref,val_string,1);
+      obj_ref := Pack_String_To_Vhpi_String("MEM_INVALIDATE_ACK 0");
+      val_string := Pack_SLV_To_Vhpi_String(MEM_INVALIDATE_ACK_pipe_read_data);
+      Vhpi_Set_Port_Value(obj_ref,val_string,1);
+      -- 
+    end loop;
+    --
+  end process;
+  NIC_DEBUG_SIGNAL_pipe_read_ack(0) <= '1';
+  TruncateOrPad(NIC_DEBUG_SIGNAL, NIC_DEBUG_SIGNAL_pipe_read_data);
+  process
+  variable val_string, obj_ref: VhpiString;
+  begin --
+    wait until reset = '0';
+    -- let the DUT come out of reset.... give it 4 cycles.
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    while true loop -- 
+      wait until clk = '0';
+      wait for 1 ns; 
+      obj_ref := Pack_String_To_Vhpi_String("NIC_DEBUG_SIGNAL req");
+      Vhpi_Get_Port_Value(obj_ref,val_string,1);
+      NIC_DEBUG_SIGNAL_pipe_read_req <= Unpack_String(val_string,1);
+      wait until clk = '1';
+      obj_ref := Pack_String_To_Vhpi_String("NIC_DEBUG_SIGNAL ack");
+      val_string := Pack_SLV_To_Vhpi_String(NIC_DEBUG_SIGNAL_pipe_read_ack);
+      Vhpi_Set_Port_Value(obj_ref,val_string,1);
+      obj_ref := Pack_String_To_Vhpi_String("NIC_DEBUG_SIGNAL 0");
+      val_string := Pack_SLV_To_Vhpi_String(NIC_DEBUG_SIGNAL_pipe_read_data);
+      Vhpi_Set_Port_Value(obj_ref,val_string,256);
+      -- 
+    end loop;
+    --
+  end process;
+  NIC_MAC_RESETN_pipe_read_ack(0) <= '1';
+  TruncateOrPad(NIC_MAC_RESETN, NIC_MAC_RESETN_pipe_read_data);
+  process
+  variable val_string, obj_ref: VhpiString;
+  begin --
+    wait until reset = '0';
+    -- let the DUT come out of reset.... give it 4 cycles.
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    while true loop -- 
+      wait until clk = '0';
+      wait for 1 ns; 
+      obj_ref := Pack_String_To_Vhpi_String("NIC_MAC_RESETN req");
+      Vhpi_Get_Port_Value(obj_ref,val_string,1);
+      NIC_MAC_RESETN_pipe_read_req <= Unpack_String(val_string,1);
+      wait until clk = '1';
+      obj_ref := Pack_String_To_Vhpi_String("NIC_MAC_RESETN ack");
+      val_string := Pack_SLV_To_Vhpi_String(NIC_MAC_RESETN_pipe_read_ack);
+      Vhpi_Set_Port_Value(obj_ref,val_string,1);
+      obj_ref := Pack_String_To_Vhpi_String("NIC_MAC_RESETN 0");
+      val_string := Pack_SLV_To_Vhpi_String(NIC_MAC_RESETN_pipe_read_data);
+      Vhpi_Set_Port_Value(obj_ref,val_string,1);
+      -- 
+    end loop;
+    --
+  end process;
+  process
+  variable val_string, obj_ref: VhpiString;
+  begin --
+    wait until reset = '0';
+    -- let the DUT come out of reset.... give it 4 cycles.
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    while true loop -- 
+      wait until clk = '0';
+      wait for 1 ns; 
+      obj_ref := Pack_String_To_Vhpi_String("NIC_TO_MAC req");
+      Vhpi_Get_Port_Value(obj_ref,val_string,1);
+      NIC_TO_MAC_pipe_read_req <= Unpack_String(val_string,1);
+      wait until clk = '1';
+      obj_ref := Pack_String_To_Vhpi_String("NIC_TO_MAC ack");
+      val_string := Pack_SLV_To_Vhpi_String(NIC_TO_MAC_pipe_read_ack);
+      Vhpi_Set_Port_Value(obj_ref,val_string,1);
+      obj_ref := Pack_String_To_Vhpi_String("NIC_TO_MAC 0");
+      val_string := Pack_SLV_To_Vhpi_String(NIC_TO_MAC_pipe_read_data);
+      Vhpi_Set_Port_Value(obj_ref,val_string,10);
+      -- 
+    end loop;
+    --
+  end process;
+  PROCESSOR_MODE_pipe_read_ack(0) <= '1';
+  TruncateOrPad(PROCESSOR_MODE, PROCESSOR_MODE_pipe_read_data);
+  process
+  variable val_string, obj_ref: VhpiString;
+  begin --
+    wait until reset = '0';
+    -- let the DUT come out of reset.... give it 4 cycles.
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    while true loop -- 
+      wait until clk = '0';
+      wait for 1 ns; 
+      obj_ref := Pack_String_To_Vhpi_String("PROCESSOR_MODE req");
+      Vhpi_Get_Port_Value(obj_ref,val_string,1);
+      PROCESSOR_MODE_pipe_read_req <= Unpack_String(val_string,1);
+      wait until clk = '1';
+      obj_ref := Pack_String_To_Vhpi_String("PROCESSOR_MODE ack");
+      val_string := Pack_SLV_To_Vhpi_String(PROCESSOR_MODE_pipe_read_ack);
+      Vhpi_Set_Port_Value(obj_ref,val_string,1);
+      obj_ref := Pack_String_To_Vhpi_String("PROCESSOR_MODE 0");
+      val_string := Pack_SLV_To_Vhpi_String(PROCESSOR_MODE_pipe_read_data);
+      Vhpi_Set_Port_Value(obj_ref,val_string,16);
+      -- 
+    end loop;
+    --
+  end process;
+  process
+  variable val_string, obj_ref: VhpiString;
+  begin --
+    wait until reset = '0';
+    -- let the DUT come out of reset.... give it 4 cycles.
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    while true loop -- 
+      wait until clk = '0';
+      wait for 1 ns; 
+      obj_ref := Pack_String_To_Vhpi_String("SERIAL_TX_to_CONSOLE req");
+      Vhpi_Get_Port_Value(obj_ref,val_string,1);
+      SERIAL_TX_to_CONSOLE_pipe_read_req <= Unpack_String(val_string,1);
+      wait until clk = '1';
+      obj_ref := Pack_String_To_Vhpi_String("SERIAL_TX_to_CONSOLE ack");
+      val_string := Pack_SLV_To_Vhpi_String(SERIAL_TX_to_CONSOLE_pipe_read_ack);
+      Vhpi_Set_Port_Value(obj_ref,val_string,1);
+      obj_ref := Pack_String_To_Vhpi_String("SERIAL_TX_to_CONSOLE 0");
+      val_string := Pack_SLV_To_Vhpi_String(SERIAL_TX_to_CONSOLE_pipe_read_data);
+      Vhpi_Set_Port_Value(obj_ref,val_string,8);
+      -- 
+    end loop;
+    --
+  end process;
+  process
+  variable val_string, obj_ref: VhpiString;
+  begin --
+    wait until reset = '0';
+    -- let the DUT come out of reset.... give it 4 cycles.
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    while true loop -- 
+      wait until clk = '0';
+      wait for 1 ns; 
+      obj_ref := Pack_String_To_Vhpi_String("SOC_DEBUG_to_MONITOR req");
+      Vhpi_Get_Port_Value(obj_ref,val_string,1);
+      SOC_DEBUG_to_MONITOR_pipe_read_req <= Unpack_String(val_string,1);
+      wait until clk = '1';
+      obj_ref := Pack_String_To_Vhpi_String("SOC_DEBUG_to_MONITOR ack");
+      val_string := Pack_SLV_To_Vhpi_String(SOC_DEBUG_to_MONITOR_pipe_read_ack);
+      Vhpi_Set_Port_Value(obj_ref,val_string,1);
+      obj_ref := Pack_String_To_Vhpi_String("SOC_DEBUG_to_MONITOR 0");
+      val_string := Pack_SLV_To_Vhpi_String(SOC_DEBUG_to_MONITOR_pipe_read_data);
+      Vhpi_Set_Port_Value(obj_ref,val_string,8);
+      -- 
+    end loop;
+    --
+  end process;
+  UART_BAUD_FREQ_pipe_read_ack(0) <= '1';
+  TruncateOrPad(UART_BAUD_FREQ, UART_BAUD_FREQ_pipe_read_data);
+  process
+  variable val_string, obj_ref: VhpiString;
+  begin --
+    wait until reset = '0';
+    -- let the DUT come out of reset.... give it 4 cycles.
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    while true loop -- 
+      wait until clk = '0';
+      wait for 1 ns; 
+      obj_ref := Pack_String_To_Vhpi_String("UART_BAUD_FREQ req");
+      Vhpi_Get_Port_Value(obj_ref,val_string,1);
+      UART_BAUD_FREQ_pipe_read_req <= Unpack_String(val_string,1);
+      wait until clk = '1';
+      obj_ref := Pack_String_To_Vhpi_String("UART_BAUD_FREQ ack");
+      val_string := Pack_SLV_To_Vhpi_String(UART_BAUD_FREQ_pipe_read_ack);
+      Vhpi_Set_Port_Value(obj_ref,val_string,1);
+      obj_ref := Pack_String_To_Vhpi_String("UART_BAUD_FREQ 0");
+      val_string := Pack_SLV_To_Vhpi_String(UART_BAUD_FREQ_pipe_read_data);
+      Vhpi_Set_Port_Value(obj_ref,val_string,32);
+      -- 
+    end loop;
+    --
+  end process;
+  UART_BAUD_LIMIT_pipe_read_ack(0) <= '1';
+  TruncateOrPad(UART_BAUD_LIMIT, UART_BAUD_LIMIT_pipe_read_data);
+  process
+  variable val_string, obj_ref: VhpiString;
+  begin --
+    wait until reset = '0';
+    -- let the DUT come out of reset.... give it 4 cycles.
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    while true loop -- 
+      wait until clk = '0';
+      wait for 1 ns; 
+      obj_ref := Pack_String_To_Vhpi_String("UART_BAUD_LIMIT req");
+      Vhpi_Get_Port_Value(obj_ref,val_string,1);
+      UART_BAUD_LIMIT_pipe_read_req <= Unpack_String(val_string,1);
+      wait until clk = '1';
+      obj_ref := Pack_String_To_Vhpi_String("UART_BAUD_LIMIT ack");
+      val_string := Pack_SLV_To_Vhpi_String(UART_BAUD_LIMIT_pipe_read_ack);
+      Vhpi_Set_Port_Value(obj_ref,val_string,1);
+      obj_ref := Pack_String_To_Vhpi_String("UART_BAUD_LIMIT 0");
+      val_string := Pack_SLV_To_Vhpi_String(UART_BAUD_LIMIT_pipe_read_data);
+      Vhpi_Set_Port_Value(obj_ref,val_string,32);
+      -- 
+    end loop;
+    --
+  end process;
+  UART_SOFT_RESET_pipe_read_ack(0) <= '1';
+  TruncateOrPad(UART_SOFT_RESET, UART_SOFT_RESET_pipe_read_data);
+  process
+  variable val_string, obj_ref: VhpiString;
+  begin --
+    wait until reset = '0';
+    -- let the DUT come out of reset.... give it 4 cycles.
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    wait until clk = '1';
+    while true loop -- 
+      wait until clk = '0';
+      wait for 1 ns; 
+      obj_ref := Pack_String_To_Vhpi_String("UART_SOFT_RESET req");
+      Vhpi_Get_Port_Value(obj_ref,val_string,1);
+      UART_SOFT_RESET_pipe_read_req <= Unpack_String(val_string,1);
+      wait until clk = '1';
+      obj_ref := Pack_String_To_Vhpi_String("UART_SOFT_RESET ack");
+      val_string := Pack_SLV_To_Vhpi_String(UART_SOFT_RESET_pipe_read_ack);
+      Vhpi_Set_Port_Value(obj_ref,val_string,1);
+      obj_ref := Pack_String_To_Vhpi_String("UART_SOFT_RESET 0");
+      val_string := Pack_SLV_To_Vhpi_String(UART_SOFT_RESET_pipe_read_data);
+      Vhpi_Set_Port_Value(obj_ref,val_string,1);
+      -- 
+    end loop;
+    --
+  end process;
+  dut: kcu105_core
+  port map ( --
+    CLOCK_80 => CLOCK_80,
+    CLOCK_TO_DRAMCTRL_BRIDGE => CLOCK_TO_DRAMCTRL_BRIDGE,
+    CLOCK_TO_NIC => CLOCK_TO_NIC,
+    CONSOLE_to_SERIAL_RX_pipe_write_data => CONSOLE_to_SERIAL_RX_pipe_write_data,
+    CONSOLE_to_SERIAL_RX_pipe_write_req => CONSOLE_to_SERIAL_RX_pipe_write_req,
+    CONSOLE_to_SERIAL_RX_pipe_write_ack => CONSOLE_to_SERIAL_RX_pipe_write_ack,
+    DRAM_CONTROLLER_TO_ACB_BRIDGE => DRAM_CONTROLLER_TO_ACB_BRIDGE,
+    MAC_TO_NIC_pipe_write_data => MAC_TO_NIC_pipe_write_data,
+    MAC_TO_NIC_pipe_write_req => MAC_TO_NIC_pipe_write_req,
+    MAC_TO_NIC_pipe_write_ack => MAC_TO_NIC_pipe_write_ack,
+    MAX_ACB_TAP1_ADDR => MAX_ACB_TAP1_ADDR,
+    MEM_INVALIDATE_pipe_write_data => MEM_INVALIDATE_pipe_write_data,
+    MEM_INVALIDATE_pipe_write_req => MEM_INVALIDATE_pipe_write_req,
+    MEM_INVALIDATE_pipe_write_ack => MEM_INVALIDATE_pipe_write_ack,
+    MIN_ACB_TAP1_ADDR => MIN_ACB_TAP1_ADDR,
+    RESET_TO_DRAMCTRL_BRIDGE => RESET_TO_DRAMCTRL_BRIDGE,
+    RESET_TO_NIC => RESET_TO_NIC,
+    RESET_TO_PROCESSOR => RESET_TO_PROCESSOR,
+    SOC_MONITOR_to_DEBUG_pipe_write_data => SOC_MONITOR_to_DEBUG_pipe_write_data,
+    SOC_MONITOR_to_DEBUG_pipe_write_req => SOC_MONITOR_to_DEBUG_pipe_write_req,
+    SOC_MONITOR_to_DEBUG_pipe_write_ack => SOC_MONITOR_to_DEBUG_pipe_write_ack,
+    THREAD_RESET => THREAD_RESET,
+    ACB_BRIDGE_TO_DRAM_CONTROLLER => ACB_BRIDGE_TO_DRAM_CONTROLLER,
+    MEM_INVALIDATE_ACK_pipe_read_data => MEM_INVALIDATE_ACK_pipe_read_data,
+    MEM_INVALIDATE_ACK_pipe_read_req => MEM_INVALIDATE_ACK_pipe_read_req,
+    MEM_INVALIDATE_ACK_pipe_read_ack => MEM_INVALIDATE_ACK_pipe_read_ack,
+    NIC_DEBUG_SIGNAL => NIC_DEBUG_SIGNAL,
+    NIC_MAC_RESETN => NIC_MAC_RESETN,
+    NIC_TO_MAC_pipe_read_data => NIC_TO_MAC_pipe_read_data,
+    NIC_TO_MAC_pipe_read_req => NIC_TO_MAC_pipe_read_req,
+    NIC_TO_MAC_pipe_read_ack => NIC_TO_MAC_pipe_read_ack,
+    PROCESSOR_MODE => PROCESSOR_MODE,
+    SERIAL_TX_to_CONSOLE_pipe_read_data => SERIAL_TX_to_CONSOLE_pipe_read_data,
+    SERIAL_TX_to_CONSOLE_pipe_read_req => SERIAL_TX_to_CONSOLE_pipe_read_req,
+    SERIAL_TX_to_CONSOLE_pipe_read_ack => SERIAL_TX_to_CONSOLE_pipe_read_ack,
+    SOC_DEBUG_to_MONITOR_pipe_read_data => SOC_DEBUG_to_MONITOR_pipe_read_data,
+    SOC_DEBUG_to_MONITOR_pipe_read_req => SOC_DEBUG_to_MONITOR_pipe_read_req,
+    SOC_DEBUG_to_MONITOR_pipe_read_ack => SOC_DEBUG_to_MONITOR_pipe_read_ack,
+    UART_BAUD_FREQ => UART_BAUD_FREQ,
+    UART_BAUD_LIMIT => UART_BAUD_LIMIT,
+    UART_SOFT_RESET => UART_SOFT_RESET,
+    clk => clk, reset => reset 
+    ); -- 
+  -- 
+end VhpiLink;

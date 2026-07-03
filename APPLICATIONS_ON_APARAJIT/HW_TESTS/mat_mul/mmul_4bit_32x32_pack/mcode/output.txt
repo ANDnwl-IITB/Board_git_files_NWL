@@ -1,0 +1,267 @@
+16×16 i4 Matmul Output  (i64 results, tiled storage order)
+=======================================================
+
+Q1 (rows 0–7, cols 0–7):
+  C[ 0][ 0] word=0x200020  val=       -70  hex=0xFFFFFFFFFFFFFFBA
+  C[ 0][ 1] word=0x200021  val=        22  hex=0x0000000000000016
+  C[ 0][ 2] word=0x200022  val=        17  hex=0x0000000000000011
+  C[ 0][ 3] word=0x200023  val=        25  hex=0x0000000000000019
+  C[ 0][ 4] word=0x200024  val=       -20  hex=0xFFFFFFFFFFFFFFEC
+  C[ 0][ 5] word=0x200025  val=      -113  hex=0xFFFFFFFFFFFFFF8F
+  C[ 0][ 6] word=0x200026  val=      -171  hex=0xFFFFFFFFFFFFFF55
+  C[ 0][ 7] word=0x200027  val=       -13  hex=0xFFFFFFFFFFFFFFF3
+  C[ 1][ 0] word=0x200028  val=        68  hex=0x0000000000000044
+  C[ 1][ 1] word=0x200029  val=       -39  hex=0xFFFFFFFFFFFFFFD9
+  C[ 1][ 2] word=0x20002A  val=       -34  hex=0xFFFFFFFFFFFFFFDE
+  C[ 1][ 3] word=0x20002B  val=        38  hex=0x0000000000000026
+  C[ 1][ 4] word=0x20002C  val=       -72  hex=0xFFFFFFFFFFFFFFB8
+  C[ 1][ 5] word=0x20002D  val=       118  hex=0x0000000000000076
+  C[ 1][ 6] word=0x20002E  val=        73  hex=0x0000000000000049
+  C[ 1][ 7] word=0x20002F  val=        65  hex=0x0000000000000041
+  C[ 2][ 0] word=0x200030  val=       -38  hex=0xFFFFFFFFFFFFFFDA
+  C[ 2][ 1] word=0x200031  val=        -7  hex=0xFFFFFFFFFFFFFFF9
+  C[ 2][ 2] word=0x200032  val=       -58  hex=0xFFFFFFFFFFFFFFC6
+  C[ 2][ 3] word=0x200033  val=      -110  hex=0xFFFFFFFFFFFFFF92
+  C[ 2][ 4] word=0x200034  val=        53  hex=0x0000000000000035
+  C[ 2][ 5] word=0x200035  val=      -144  hex=0xFFFFFFFFFFFFFF70
+  C[ 2][ 6] word=0x200036  val=        -5  hex=0xFFFFFFFFFFFFFFFB
+  C[ 2][ 7] word=0x200037  val=        34  hex=0x0000000000000022
+  C[ 3][ 0] word=0x200038  val=        19  hex=0x0000000000000013
+  C[ 3][ 1] word=0x200039  val=       -45  hex=0xFFFFFFFFFFFFFFD3
+  C[ 3][ 2] word=0x20003A  val=       -52  hex=0xFFFFFFFFFFFFFFCC
+  C[ 3][ 3] word=0x20003B  val=        70  hex=0x0000000000000046
+  C[ 3][ 4] word=0x20003C  val=       101  hex=0x0000000000000065
+  C[ 3][ 5] word=0x20003D  val=       130  hex=0x0000000000000082
+  C[ 3][ 6] word=0x20003E  val=        56  hex=0x0000000000000038
+  C[ 3][ 7] word=0x20003F  val=        51  hex=0x0000000000000033
+  C[ 4][ 0] word=0x200040  val=       101  hex=0x0000000000000065
+  C[ 4][ 1] word=0x200041  val=        68  hex=0x0000000000000044
+  C[ 4][ 2] word=0x200042  val=        12  hex=0x000000000000000C
+  C[ 4][ 3] word=0x200043  val=        76  hex=0x000000000000004C
+  C[ 4][ 4] word=0x200044  val=      -106  hex=0xFFFFFFFFFFFFFF96
+  C[ 4][ 5] word=0x200045  val=      -118  hex=0xFFFFFFFFFFFFFF8A
+  C[ 4][ 6] word=0x200046  val=        33  hex=0x0000000000000021
+  C[ 4][ 7] word=0x200047  val=       -15  hex=0xFFFFFFFFFFFFFFF1
+  C[ 5][ 0] word=0x200048  val=       -41  hex=0xFFFFFFFFFFFFFFD7
+  C[ 5][ 1] word=0x200049  val=        97  hex=0x0000000000000061
+  C[ 5][ 2] word=0x20004A  val=        14  hex=0x000000000000000E
+  C[ 5][ 3] word=0x20004B  val=        24  hex=0x0000000000000018
+  C[ 5][ 4] word=0x20004C  val=       101  hex=0x0000000000000065
+  C[ 5][ 5] word=0x20004D  val=      -189  hex=0xFFFFFFFFFFFFFF43
+  C[ 5][ 6] word=0x20004E  val=        39  hex=0x0000000000000027
+  C[ 5][ 7] word=0x20004F  val=        26  hex=0x000000000000001A
+  C[ 6][ 0] word=0x200050  val=        84  hex=0x0000000000000054
+  C[ 6][ 1] word=0x200051  val=        38  hex=0x0000000000000026
+  C[ 6][ 2] word=0x200052  val=        22  hex=0x0000000000000016
+  C[ 6][ 3] word=0x200053  val=        10  hex=0x000000000000000A
+  C[ 6][ 4] word=0x200054  val=      -127  hex=0xFFFFFFFFFFFFFF81
+  C[ 6][ 5] word=0x200055  val=       -41  hex=0xFFFFFFFFFFFFFFD7
+  C[ 6][ 6] word=0x200056  val=        86  hex=0x0000000000000056
+  C[ 6][ 7] word=0x200057  val=        -4  hex=0xFFFFFFFFFFFFFFFC
+  C[ 7][ 0] word=0x200058  val=       -83  hex=0xFFFFFFFFFFFFFFAD
+  C[ 7][ 1] word=0x200059  val=        75  hex=0x000000000000004B
+  C[ 7][ 2] word=0x20005A  val=       137  hex=0x0000000000000089
+  C[ 7][ 3] word=0x20005B  val=       154  hex=0x000000000000009A
+  C[ 7][ 4] word=0x20005C  val=        29  hex=0x000000000000001D
+  C[ 7][ 5] word=0x20005D  val=       -31  hex=0xFFFFFFFFFFFFFFE1
+  C[ 7][ 6] word=0x20005E  val=        50  hex=0x0000000000000032
+  C[ 7][ 7] word=0x20005F  val=        48  hex=0x0000000000000030
+
+Q2 (rows 0–7, cols 8–15):
+  C[ 0][ 8] word=0x200060  val=       -18  hex=0xFFFFFFFFFFFFFFEE
+  C[ 0][ 9] word=0x200061  val=       100  hex=0x0000000000000064
+  C[ 0][10] word=0x200062  val=        14  hex=0x000000000000000E
+  C[ 0][11] word=0x200063  val=       -17  hex=0xFFFFFFFFFFFFFFEF
+  C[ 0][12] word=0x200064  val=        33  hex=0x0000000000000021
+  C[ 0][13] word=0x200065  val=        45  hex=0x000000000000002D
+  C[ 0][14] word=0x200066  val=        41  hex=0x0000000000000029
+  C[ 0][15] word=0x200067  val=       -27  hex=0xFFFFFFFFFFFFFFE5
+  C[ 1][ 8] word=0x200068  val=       -17  hex=0xFFFFFFFFFFFFFFEF
+  C[ 1][ 9] word=0x200069  val=        17  hex=0x0000000000000011
+  C[ 1][10] word=0x20006A  val=       128  hex=0x0000000000000080
+  C[ 1][11] word=0x20006B  val=       -32  hex=0xFFFFFFFFFFFFFFE0
+  C[ 1][12] word=0x20006C  val=       136  hex=0x0000000000000088
+  C[ 1][13] word=0x20006D  val=        19  hex=0x0000000000000013
+  C[ 1][14] word=0x20006E  val=       -99  hex=0xFFFFFFFFFFFFFF9D
+  C[ 1][15] word=0x20006F  val=       -24  hex=0xFFFFFFFFFFFFFFE8
+  C[ 2][ 8] word=0x200070  val=       133  hex=0x0000000000000085
+  C[ 2][ 9] word=0x200071  val=      -130  hex=0xFFFFFFFFFFFFFF7E
+  C[ 2][10] word=0x200072  val=         0  hex=0x0000000000000000
+  C[ 2][11] word=0x200073  val=         4  hex=0x0000000000000004
+  C[ 2][12] word=0x200074  val=        16  hex=0x0000000000000010
+  C[ 2][13] word=0x200075  val=       -79  hex=0xFFFFFFFFFFFFFFB1
+  C[ 2][14] word=0x200076  val=        15  hex=0x000000000000000F
+  C[ 2][15] word=0x200077  val=       131  hex=0x0000000000000083
+  C[ 3][ 8] word=0x200078  val=        88  hex=0x0000000000000058
+  C[ 3][ 9] word=0x200079  val=      -122  hex=0xFFFFFFFFFFFFFF86
+  C[ 3][10] word=0x20007A  val=        19  hex=0x0000000000000013
+  C[ 3][11] word=0x20007B  val=      -114  hex=0xFFFFFFFFFFFFFF8E
+  C[ 3][12] word=0x20007C  val=        34  hex=0x0000000000000022
+  C[ 3][13] word=0x20007D  val=        -8  hex=0xFFFFFFFFFFFFFFF8
+  C[ 3][14] word=0x20007E  val=       -59  hex=0xFFFFFFFFFFFFFFC5
+  C[ 3][15] word=0x20007F  val=       171  hex=0x00000000000000AB
+  C[ 4][ 8] word=0x200080  val=        98  hex=0x0000000000000062
+  C[ 4][ 9] word=0x200081  val=       -93  hex=0xFFFFFFFFFFFFFFA3
+  C[ 4][10] word=0x200082  val=        72  hex=0x0000000000000048
+  C[ 4][11] word=0x200083  val=       118  hex=0x0000000000000076
+  C[ 4][12] word=0x200084  val=        50  hex=0x0000000000000032
+  C[ 4][13] word=0x200085  val=         2  hex=0x0000000000000002
+  C[ 4][14] word=0x200086  val=       -18  hex=0xFFFFFFFFFFFFFFEE
+  C[ 4][15] word=0x200087  val=        13  hex=0x000000000000000D
+  C[ 5][ 8] word=0x200088  val=        87  hex=0x0000000000000057
+  C[ 5][ 9] word=0x200089  val=       -54  hex=0xFFFFFFFFFFFFFFCA
+  C[ 5][10] word=0x20008A  val=       -31  hex=0xFFFFFFFFFFFFFFE1
+  C[ 5][11] word=0x20008B  val=       -61  hex=0xFFFFFFFFFFFFFFC3
+  C[ 5][12] word=0x20008C  val=       -98  hex=0xFFFFFFFFFFFFFF9E
+  C[ 5][13] word=0x20008D  val=        55  hex=0x0000000000000037
+  C[ 5][14] word=0x20008E  val=        10  hex=0x000000000000000A
+  C[ 5][15] word=0x20008F  val=        76  hex=0x000000000000004C
+  C[ 6][ 8] word=0x200090  val=       106  hex=0x000000000000006A
+  C[ 6][ 9] word=0x200091  val=       -93  hex=0xFFFFFFFFFFFFFFA3
+  C[ 6][10] word=0x200092  val=        26  hex=0x000000000000001A
+  C[ 6][11] word=0x200093  val=        26  hex=0x000000000000001A
+  C[ 6][12] word=0x200094  val=      -112  hex=0xFFFFFFFFFFFFFF90
+  C[ 6][13] word=0x200095  val=       -22  hex=0xFFFFFFFFFFFFFFEA
+  C[ 6][14] word=0x200096  val=       -35  hex=0xFFFFFFFFFFFFFFDD
+  C[ 6][15] word=0x200097  val=        31  hex=0x000000000000001F
+  C[ 7][ 8] word=0x200098  val=        80  hex=0x0000000000000050
+  C[ 7][ 9] word=0x200099  val=       -13  hex=0xFFFFFFFFFFFFFFF3
+  C[ 7][10] word=0x20009A  val=        20  hex=0x0000000000000014
+  C[ 7][11] word=0x20009B  val=       -13  hex=0xFFFFFFFFFFFFFFF3
+  C[ 7][12] word=0x20009C  val=        50  hex=0x0000000000000032
+  C[ 7][13] word=0x20009D  val=        32  hex=0x0000000000000020
+  C[ 7][14] word=0x20009E  val=         6  hex=0x0000000000000006
+  C[ 7][15] word=0x20009F  val=        13  hex=0x000000000000000D
+
+Q3 (rows 8–15, cols 0–7):
+  C[ 8][ 0] word=0x2000A0  val=       -11  hex=0xFFFFFFFFFFFFFFF5
+  C[ 8][ 1] word=0x2000A1  val=        99  hex=0x0000000000000063
+  C[ 8][ 2] word=0x2000A2  val=         5  hex=0x0000000000000005
+  C[ 8][ 3] word=0x2000A3  val=        31  hex=0x000000000000001F
+  C[ 8][ 4] word=0x2000A4  val=        79  hex=0x000000000000004F
+  C[ 8][ 5] word=0x2000A5  val=       -18  hex=0xFFFFFFFFFFFFFFEE
+  C[ 8][ 6] word=0x2000A6  val=      -114  hex=0xFFFFFFFFFFFFFF8E
+  C[ 8][ 7] word=0x2000A7  val=       182  hex=0x00000000000000B6
+  C[ 9][ 0] word=0x2000A8  val=        -8  hex=0xFFFFFFFFFFFFFFF8
+  C[ 9][ 1] word=0x2000A9  val=       -44  hex=0xFFFFFFFFFFFFFFD4
+  C[ 9][ 2] word=0x2000AA  val=        49  hex=0x0000000000000031
+  C[ 9][ 3] word=0x2000AB  val=       -90  hex=0xFFFFFFFFFFFFFFA6
+  C[ 9][ 4] word=0x2000AC  val=       -76  hex=0xFFFFFFFFFFFFFFB4
+  C[ 9][ 5] word=0x2000AD  val=      -145  hex=0xFFFFFFFFFFFFFF6F
+  C[ 9][ 6] word=0x2000AE  val=        35  hex=0x0000000000000023
+  C[ 9][ 7] word=0x2000AF  val=       115  hex=0x0000000000000073
+  C[10][ 0] word=0x2000B0  val=       -81  hex=0xFFFFFFFFFFFFFFAF
+  C[10][ 1] word=0x2000B1  val=      -147  hex=0xFFFFFFFFFFFFFF6D
+  C[10][ 2] word=0x2000B2  val=        76  hex=0x000000000000004C
+  C[10][ 3] word=0x2000B3  val=         7  hex=0x0000000000000007
+  C[10][ 4] word=0x2000B4  val=      -138  hex=0xFFFFFFFFFFFFFF76
+  C[10][ 5] word=0x2000B5  val=       -34  hex=0xFFFFFFFFFFFFFFDE
+  C[10][ 6] word=0x2000B6  val=        36  hex=0x0000000000000024
+  C[10][ 7] word=0x2000B7  val=        14  hex=0x000000000000000E
+  C[11][ 0] word=0x2000B8  val=       -39  hex=0xFFFFFFFFFFFFFFD9
+  C[11][ 1] word=0x2000B9  val=       -43  hex=0xFFFFFFFFFFFFFFD5
+  C[11][ 2] word=0x2000BA  val=        39  hex=0x0000000000000027
+  C[11][ 3] word=0x2000BB  val=        19  hex=0x0000000000000013
+  C[11][ 4] word=0x2000BC  val=        58  hex=0x000000000000003A
+  C[11][ 5] word=0x2000BD  val=        58  hex=0x000000000000003A
+  C[11][ 6] word=0x2000BE  val=       -94  hex=0xFFFFFFFFFFFFFFA2
+  C[11][ 7] word=0x2000BF  val=      -116  hex=0xFFFFFFFFFFFFFF8C
+  C[12][ 0] word=0x2000C0  val=       121  hex=0x0000000000000079
+  C[12][ 1] word=0x2000C1  val=       -49  hex=0xFFFFFFFFFFFFFFCF
+  C[12][ 2] word=0x2000C2  val=       -48  hex=0xFFFFFFFFFFFFFFD0
+  C[12][ 3] word=0x2000C3  val=        -5  hex=0xFFFFFFFFFFFFFFFB
+  C[12][ 4] word=0x2000C4  val=       -40  hex=0xFFFFFFFFFFFFFFD8
+  C[12][ 5] word=0x2000C5  val=       126  hex=0x000000000000007E
+  C[12][ 6] word=0x2000C6  val=        -3  hex=0xFFFFFFFFFFFFFFFD
+  C[12][ 7] word=0x2000C7  val=         6  hex=0x0000000000000006
+  C[13][ 0] word=0x2000C8  val=        60  hex=0x000000000000003C
+  C[13][ 1] word=0x2000C9  val=        15  hex=0x000000000000000F
+  C[13][ 2] word=0x2000CA  val=        59  hex=0x000000000000003B
+  C[13][ 3] word=0x2000CB  val=        32  hex=0x0000000000000020
+  C[13][ 4] word=0x2000CC  val=      -151  hex=0xFFFFFFFFFFFFFF69
+  C[13][ 5] word=0x2000CD  val=         6  hex=0x0000000000000006
+  C[13][ 6] word=0x2000CE  val=        83  hex=0x0000000000000053
+  C[13][ 7] word=0x2000CF  val=        40  hex=0x0000000000000028
+  C[14][ 0] word=0x2000D0  val=        -8  hex=0xFFFFFFFFFFFFFFF8
+  C[14][ 1] word=0x2000D1  val=        -8  hex=0xFFFFFFFFFFFFFFF8
+  C[14][ 2] word=0x2000D2  val=        52  hex=0x0000000000000034
+  C[14][ 3] word=0x2000D3  val=       -64  hex=0xFFFFFFFFFFFFFFC0
+  C[14][ 4] word=0x2000D4  val=       -54  hex=0xFFFFFFFFFFFFFFCA
+  C[14][ 5] word=0x2000D5  val=       -15  hex=0xFFFFFFFFFFFFFFF1
+  C[14][ 6] word=0x2000D6  val=       103  hex=0x0000000000000067
+  C[14][ 7] word=0x2000D7  val=        -9  hex=0xFFFFFFFFFFFFFFF7
+  C[15][ 0] word=0x2000D8  val=       -53  hex=0xFFFFFFFFFFFFFFCB
+  C[15][ 1] word=0x2000D9  val=         8  hex=0x0000000000000008
+  C[15][ 2] word=0x2000DA  val=        24  hex=0x0000000000000018
+  C[15][ 3] word=0x2000DB  val=       143  hex=0x000000000000008F
+  C[15][ 4] word=0x2000DC  val=       183  hex=0x00000000000000B7
+  C[15][ 5] word=0x2000DD  val=        40  hex=0x0000000000000028
+  C[15][ 6] word=0x2000DE  val=       114  hex=0x0000000000000072
+  C[15][ 7] word=0x2000DF  val=       -13  hex=0xFFFFFFFFFFFFFFF3
+
+Q4 (rows 8–15, cols 8–15):
+  C[ 8][ 8] word=0x2000E0  val=        21  hex=0x0000000000000015
+  C[ 8][ 9] word=0x2000E1  val=       -67  hex=0xFFFFFFFFFFFFFFBD
+  C[ 8][10] word=0x2000E2  val=        70  hex=0x0000000000000046
+  C[ 8][11] word=0x2000E3  val=      -186  hex=0xFFFFFFFFFFFFFF46
+  C[ 8][12] word=0x2000E4  val=        28  hex=0x000000000000001C
+  C[ 8][13] word=0x2000E5  val=       -32  hex=0xFFFFFFFFFFFFFFE0
+  C[ 8][14] word=0x2000E6  val=        12  hex=0x000000000000000C
+  C[ 8][15] word=0x2000E7  val=        68  hex=0x0000000000000044
+  C[ 9][ 8] word=0x2000E8  val=       185  hex=0x00000000000000B9
+  C[ 9][ 9] word=0x2000E9  val=       -60  hex=0xFFFFFFFFFFFFFFC4
+  C[ 9][10] word=0x2000EA  val=       210  hex=0x00000000000000D2
+  C[ 9][11] word=0x2000EB  val=      -156  hex=0xFFFFFFFFFFFFFF64
+  C[ 9][12] word=0x2000EC  val=        38  hex=0x0000000000000026
+  C[ 9][13] word=0x2000ED  val=       -56  hex=0xFFFFFFFFFFFFFFC8
+  C[ 9][14] word=0x2000EE  val=         0  hex=0x0000000000000000
+  C[ 9][15] word=0x2000EF  val=        19  hex=0x0000000000000013
+  C[10][ 8] word=0x2000F0  val=        81  hex=0x0000000000000051
+  C[10][ 9] word=0x2000F1  val=       192  hex=0x00000000000000C0
+  C[10][10] word=0x2000F2  val=       113  hex=0x0000000000000071
+  C[10][11] word=0x2000F3  val=       -48  hex=0xFFFFFFFFFFFFFFD0
+  C[10][12] word=0x2000F4  val=        13  hex=0x000000000000000D
+  C[10][13] word=0x2000F5  val=       -48  hex=0xFFFFFFFFFFFFFFD0
+  C[10][14] word=0x2000F6  val=       -22  hex=0xFFFFFFFFFFFFFFEA
+  C[10][15] word=0x2000F7  val=       -91  hex=0xFFFFFFFFFFFFFFA5
+  C[11][ 8] word=0x2000F8  val=        -3  hex=0xFFFFFFFFFFFFFFFD
+  C[11][ 9] word=0x2000F9  val=        50  hex=0x0000000000000032
+  C[11][10] word=0x2000FA  val=       -73  hex=0xFFFFFFFFFFFFFFB7
+  C[11][11] word=0x2000FB  val=        67  hex=0x0000000000000043
+  C[11][12] word=0x2000FC  val=        30  hex=0x000000000000001E
+  C[11][13] word=0x2000FD  val=       -30  hex=0xFFFFFFFFFFFFFFE2
+  C[11][14] word=0x2000FE  val=        17  hex=0x0000000000000011
+  C[11][15] word=0x2000FF  val=       -76  hex=0xFFFFFFFFFFFFFFB4
+  C[12][ 8] word=0x200100  val=       -13  hex=0xFFFFFFFFFFFFFFF3
+  C[12][ 9] word=0x200101  val=        99  hex=0x0000000000000063
+  C[12][10] word=0x200102  val=        46  hex=0x000000000000002E
+  C[12][11] word=0x200103  val=       -10  hex=0xFFFFFFFFFFFFFFF6
+  C[12][12] word=0x200104  val=       148  hex=0x0000000000000094
+  C[12][13] word=0x200105  val=      -119  hex=0xFFFFFFFFFFFFFF89
+  C[12][14] word=0x200106  val=      -138  hex=0xFFFFFFFFFFFFFF76
+  C[12][15] word=0x200107  val=       -66  hex=0xFFFFFFFFFFFFFFBE
+  C[13][ 8] word=0x200108  val=        44  hex=0x000000000000002C
+  C[13][ 9] word=0x200109  val=        77  hex=0x000000000000004D
+  C[13][10] word=0x20010A  val=        -5  hex=0xFFFFFFFFFFFFFFFB
+  C[13][11] word=0x20010B  val=       124  hex=0x000000000000007C
+  C[13][12] word=0x20010C  val=       -52  hex=0xFFFFFFFFFFFFFFCC
+  C[13][13] word=0x20010D  val=        14  hex=0x000000000000000E
+  C[13][14] word=0x20010E  val=        23  hex=0x0000000000000017
+  C[13][15] word=0x20010F  val=        53  hex=0x0000000000000035
+  C[14][ 8] word=0x200110  val=       -28  hex=0xFFFFFFFFFFFFFFE4
+  C[14][ 9] word=0x200111  val=         1  hex=0x0000000000000001
+  C[14][10] word=0x200112  val=        91  hex=0x000000000000005B
+  C[14][11] word=0x200113  val=       -17  hex=0xFFFFFFFFFFFFFFEF
+  C[14][12] word=0x200114  val=       -22  hex=0xFFFFFFFFFFFFFFEA
+  C[14][13] word=0x200115  val=        69  hex=0x0000000000000045
+  C[14][14] word=0x200116  val=       -12  hex=0xFFFFFFFFFFFFFFF4
+  C[14][15] word=0x200117  val=      -146  hex=0xFFFFFFFFFFFFFF6E
+  C[15][ 8] word=0x200118  val=        -2  hex=0xFFFFFFFFFFFFFFFE
+  C[15][ 9] word=0x200119  val=       -82  hex=0xFFFFFFFFFFFFFFAE
+  C[15][10] word=0x20011A  val=        17  hex=0x0000000000000011
+  C[15][11] word=0x20011B  val=        -7  hex=0xFFFFFFFFFFFFFFF9
+  C[15][12] word=0x20011C  val=        13  hex=0x000000000000000D
+  C[15][13] word=0x20011D  val=       111  hex=0x000000000000006F
+  C[15][14] word=0x20011E  val=        15  hex=0x000000000000000F
+  C[15][15] word=0x20011F  val=         5  hex=0x0000000000000005
+

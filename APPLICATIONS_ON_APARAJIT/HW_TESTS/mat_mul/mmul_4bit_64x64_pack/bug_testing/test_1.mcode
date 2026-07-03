@@ -1,0 +1,16 @@
+init:
+        ||
+        $set $r1  0  4       // temp: M_ctr = 8
+        $set $r2  0  560      // temp: base_A = 48
+        $set $r3  0  1072    // temp: base_B = 2096
+        $set $r5  0  0    // temp: base_C = 4144
+        $set $r6  0  3       // temp: N_ctr_init = 7
+        ;
+
+init2:
+        ||
+        $st ($u64) [$r5 + 0] $r2   // [0]  M_ctr = 7
+        $st ($u64) [$r5 + 8] $r3   // [24] N_ctr_init = 7
+
+        ;
+

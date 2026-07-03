@@ -1,0 +1,5 @@
+aparajit_lib		self_tuning_uart.vhdl
+aparajit_lib		configurable_uart.vhdl
+switches_lib		switch_1p1e_red.vhdl
+switches_lib		distributor_1p1e_red.vhdl
+aparajit_lib		aparajit_1p1e_red.vhdl

@@ -1,0 +1,12 @@
+Note:- you must have python3, numpy and must do source export.sh in the AjitHpcAccel folder before the below steps.
+
+
+Just follow these 2 steps:-
+
+1.) ./clean.sh
+2.) ./run_fft_verification.sh
+
+==========================================================
+run_fft_verification.sh combines all the steps in README.
+
+However it is recommended to once go through the original README as well. It will give a clearer idea about what steps are being followed.

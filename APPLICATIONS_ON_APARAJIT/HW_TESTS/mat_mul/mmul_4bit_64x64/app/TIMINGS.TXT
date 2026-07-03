@@ -1,0 +1,1 @@
+2121 ticks for 4 x 2048 x 2 mul/add operations..

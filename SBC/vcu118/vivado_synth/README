@@ -1,0 +1,9 @@
+run.sh/
+	Contains the run command to start executing bitgen.tcl. 
+	Make sure vivado location and bitgen.tcl file name is correct.
+
+bitgen.tcl/
+	Contains the bitgen.tcl file. 
+	Make sure you have the correct the board part id and also locations of the directories and ip's your using.
+
+Run the command ./run.sh and make sure errors are resolved. If it runs without error you must see a .bit and .ltx file generated successfully in this directory!!

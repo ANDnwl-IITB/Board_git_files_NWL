@@ -1,0 +1,506 @@
+init:
+        ||
+        $set $r1  0  4       // temp: M_ctr = 8
+        $set $r2  0  576      // temp: base_A = 48
+        $set $r3  0  1088    // temp: base_B = 2096
+       // $set $r5  0  0    // temp: base_C = 4144
+        $set $r6  0  3       // temp: N_ctr_init = 7
+        ;
+
+
+init2:
+        ||
+        $st ($u64) [$r5 +  0] $r1   // [0]  M_ctr = 7
+        $st ($u64) [$r5 + 24] $r6   // [24] N_ctr_init = 7
+	+ $r2 ($u64) $r5 $r2
+        + $r3 ($u64) $r5 $r3
+        + $r1 ($u64) $r5 64          // r1 = base_A = 48
+        ;
+
+init4:
+        ||
+        $st ($u64) [$r5 + 16] $r2   // [16] B_N_tile_base = base_B = 2096
+        $st ($u64) [$r5 +  8] $r1  
+        ;
+
+//--------------------------------------------------------------
+//  M-TILE LOOP HEAD  (entered by branchA)
+//  Reloads N_ctr and B_N_tile_base for the start of each M-tile row.
+//--------------------------------------------------------------
+loadA:
+        ||
+        $ld ($u64) $r2 [$r5 + 16]   // r2 = B_N_tile_base (reset to base_B)
+        $set $r4  0  3 
+        ;
+
+//--------------------------------------------------------------
+//  N-TILE LOOP HEAD  (entered by loadA and branchB2)
+//  Saves r1 (A K0-base) and r2 (B K0-base) for row-level restore.
+//--------------------------------------------------------------
+loadB:
+        ||
+        $st ($u64) [$r5 + 32] $r1   // [32] A_tile_k0 = r1
+        $st ($u64) [$r5 + 40] $r2   // [40] B_tile_k0 = r2
+        $st ($u64) [$r5 + 24] $r4
+        ;
+
+//--------------------------------------------------------------
+//  ROW 1  (uses r8 from r8-r11 group; A rows 0-3 of M-tile)
+//--------------------------------------------------------------
+restore1:
+        ||
+        $ld ($u64) $r1 [$r5 + 32]   // r1 = A_tile_k0 (K-iter 0 base)
+        $ld ($u64) $r2 [$r5 + 40]   // r2 = B_tile_k0
+        $set $r6  0  1               // K_ctr = 3 (4 K-iters: 3 down to 0)
+        $set $r4 0 64
+       ; 
+clear1:
+	||
+	* $r24 ($u64) $r24 0
+        * $r25 ($u64) $r25 0
+        * $r26 ($u64) $r26 0
+        * $r27 ($u64) $r27 0
+        * $r28 ($u64) $r28 0
+        * $r29 ($u64) $r29 0
+        * $r30 ($u64) $r30 0
+        * $r31 ($u64) $r31 0
+	;	
+kload1:
+	||
+	$ld ($u256) $r8  [$r0 + $r1]
+        $ld ($u256) $r12  [$r4 + $r1]
+        $ld ($u256) $r16 [$r2 + $r0]
+        $ld ($u256) $r20 [$r4 + $r2]
+	;
+	
+dot1:
+        ||
+        $dot $accumulate $r24 ($vi4) $r8 $r16
+        $dot $accumulate $r25 ($vi4) $r8 $r17
+        $dot $accumulate $r26 ($vi4) $r8 $r18
+        $dot $accumulate $r27 ($vi4) $r8 $r19
+        $dot $accumulate $r28 ($vi4) $r8 $r20
+        $dot $accumulate $r29 ($vi4) $r8 $r21
+        $dot $accumulate $r30 ($vi4) $r8 $r22
+        $dot $accumulate $r31 ($vi4) $r8 $r23
+        ;
+
+branchK1:
+        ||
+        + $r1 ($u64) $r1 32          // r1 += 32: next K-chunk of 4 rows
+        + $r2 ($u64) $r2 32          // r2 += 32: next K-chunk of 4 cols
+        ? ($u64) $r6 > --1 $goto kload1
+        ;
+
+store1:
+        ||
+        $st ($u256) [$r0 + $r3] $r24
+        $st ($u256) [ $r3 + 32] $r28
+        + $r3 ($u64) $r3 64
+        $ld ($u64) $r1 [$r5 + 32]   // r1 = A_tile_k0 (K-iter 0 base)
+        $ld ($u64) $r2 [$r5 + 40]   // r2 = B_tile_k0
+        $set $r6  0  1               // K_ctr = 3 (4 K-iters: 3 down to 0)
+        $set $r4 0 64
+        ;
+
+
+clear2:
+        ||
+        * $r24 ($u64) $r24 0
+        * $r25 ($u64) $r25 0
+        * $r26 ($u64) $r26 0
+        * $r27 ($u64) $r27 0
+        * $r28 ($u64) $r28 0
+        * $r29 ($u64) $r29 0
+        * $r30 ($u64) $r30 0
+        * $r31 ($u64) $r31 0
+	;
+
+kload2:
+        ||
+        $ld ($u256) $r8  [$r0 + $r1]
+        $ld ($u256) $r12  [$r4 + $r1]
+        $ld ($u256) $r16 [$r2 + $r0]
+        $ld ($u256) $r20 [$r4 + $r2]
+	;
+
+dot2:
+        ||
+        $dot $accumulate $r24 ($vi4) $r9 $r16
+        $dot $accumulate $r25 ($vi4) $r9 $r17
+        $dot $accumulate $r26 ($vi4) $r9 $r18
+        $dot $accumulate $r27 ($vi4) $r9 $r19
+        $dot $accumulate $r28 ($vi4) $r9 $r20
+        $dot $accumulate $r29 ($vi4) $r9 $r21
+        $dot $accumulate $r30 ($vi4) $r9 $r22
+        $dot $accumulate $r31 ($vi4) $r9 $r23
+        ;
+
+branchK2:
+        ||
+        + $r1 ($u64) $r1 32
+        + $r2 ($u64) $r2 32
+        ? ($u64) $r6 > --1 $goto kload2
+        ;
+
+store2:
+        ||
+        $st ($u256) [$r0 + $r3] $r24
+        $st ($u256) [ $r3 + 32] $r28
+        + $r3 ($u64) $r3 64
+        $ld ($u64) $r1 [$r5 + 32]   // r1 = A_tile_k0 (K-iter 0 base)
+        $ld ($u64) $r2 [$r5 + 40]   // r2 = B_tile_k0
+        $set $r6  0  1               // K_ctr = 3 (4 K-iters: 3 down to 0)
+        $set $r4 0 64
+        ;
+
+clear3:
+        ||
+        * $r24 ($u64) $r24 0
+        * $r25 ($u64) $r25 0
+        * $r26 ($u64) $r26 0
+        * $r27 ($u64) $r27 0
+        * $r28 ($u64) $r28 0
+        * $r29 ($u64) $r29 0
+        * $r30 ($u64) $r30 0
+        * $r31 ($u64) $r31 0
+        ;
+
+kload3:
+	||
+	$ld ($u256) $r8  [$r0 + $r1]
+        $ld ($u256) $r12  [$r4 + $r1]
+        $ld ($u256) $r16 [$r2 + $r0]
+        $ld ($u256) $r20 [$r4 + $r2]
+	;
+
+dot3:
+        ||
+        $dot $accumulate $r24 ($vi4) $r10 $r16
+        $dot $accumulate $r25 ($vi4) $r10 $r17
+        $dot $accumulate $r26 ($vi4) $r10 $r18
+        $dot $accumulate $r27 ($vi4) $r10 $r19
+        $dot $accumulate $r28 ($vi4) $r10 $r20
+        $dot $accumulate $r29 ($vi4) $r10 $r21
+        $dot $accumulate $r30 ($vi4) $r10 $r22
+        $dot $accumulate $r31 ($vi4) $r10 $r23
+        ;
+
+branchK3:
+        ||
+        + $r1 ($u64) $r1 32
+        + $r2 ($u64) $r2 32
+        ? ($u64) $r6 > --1 $goto kload3
+        ;
+
+store3:
+        ||
+        $st ($u256) [$r0 + $r3] $r24
+        $st ($u256) [ $r3 + 32] $r28
+        + $r3 ($u64) $r3 64
+        $ld ($u64) $r1 [$r5 + 32]   // r1 = A_tile_k0 (K-iter 0 base)
+        $ld ($u64) $r2 [$r5 + 40]   // r2 = B_tile_k0
+        $set $r6  0  1               // K_ctr = 3 (4 K-iters: 3 down to 0)
+        $set $r4 0 64
+        ;
+
+
+clear4:
+        ||
+        * $r24 ($u64) $r24 0
+        * $r25 ($u64) $r25 0
+        * $r26 ($u64) $r26 0
+        * $r27 ($u64) $r27 0
+        * $r28 ($u64) $r28 0
+        * $r29 ($u64) $r29 0
+        * $r30 ($u64) $r30 0
+        * $r31 ($u64) $r31 0
+        ;
+
+kload4:
+	||
+	$ld ($u256) $r8  [$r0 + $r1]
+        $ld ($u256) $r12  [$r4 + $r1]
+        $ld ($u256) $r16 [$r2 + $r0]
+        $ld ($u256) $r20 [$r4 + $r2]
+	;
+dot4:
+        ||
+        $dot $accumulate $r24 ($vi4) $r11 $r16
+        $dot $accumulate $r25 ($vi4) $r11 $r17
+        $dot $accumulate $r26 ($vi4) $r11 $r18
+        $dot $accumulate $r27 ($vi4) $r11 $r19
+        $dot $accumulate $r28 ($vi4) $r11 $r20
+        $dot $accumulate $r29 ($vi4) $r11 $r21
+        $dot $accumulate $r30 ($vi4) $r11 $r22
+        $dot $accumulate $r31 ($vi4) $r11 $r23
+        ;
+
+branchK4:
+        ||
+        + $r1 ($u64) $r1 32
+        + $r2 ($u64) $r2 32
+        ? ($u64) $r6 > --1 $goto kload4
+        ;
+
+store4:
+        ||
+        $st ($u256) [$r0 + $r3] $r24
+        $st ($u256) [ $r3 + 32] $r28
+        + $r3 ($u64) $r3 64
+        $ld ($u64) $r1 [$r5 + 32]   // r1 = A_tile_k0 (K-iter 0 base)
+        $ld ($u64) $r2 [$r5 + 40]   // r2 = B_tile_k0
+        $set $r6  0  1               // K_ctr = 3 (4 K-iters: 3 down to 0)
+        $set $r4 0 64
+        ;
+
+clear5:
+        ||
+        * $r24 ($u64) $r24 0
+        * $r25 ($u64) $r25 0
+        * $r26 ($u64) $r26 0
+        * $r27 ($u64) $r27 0
+        * $r28 ($u64) $r28 0
+        * $r29 ($u64) $r29 0
+        * $r30 ($u64) $r30 0
+        * $r31 ($u64) $r31 0
+        ;
+
+kload5:
+	||
+	$ld ($u256) $r8  [$r0 + $r1]
+        $ld ($u256) $r12  [$r4 + $r1]
+        $ld ($u256) $r16 [$r2 + $r0]
+        $ld ($u256) $r20 [$r4 + $r2]
+	;
+dot5:
+        ||
+        $dot $accumulate $r24 ($vi4) $r12 $r16
+        $dot $accumulate $r25 ($vi4) $r12 $r17
+        $dot $accumulate $r26 ($vi4) $r12 $r18
+        $dot $accumulate $r27 ($vi4) $r12 $r19
+        $dot $accumulate $r28 ($vi4) $r12 $r20
+        $dot $accumulate $r29 ($vi4) $r12 $r21
+        $dot $accumulate $r30 ($vi4) $r12 $r22
+        $dot $accumulate $r31 ($vi4) $r12 $r23
+        ;
+
+branchK5:
+        ||
+        + $r1 ($u64) $r1 32
+        + $r2 ($u64) $r2 32
+        ? ($u64) $r6 > --1 $goto kload5
+        ;
+
+store5:
+        ||
+        $st ($u256) [$r0 + $r3] $r24
+        $st ($u256) [ $r3 + 32] $r28
+        + $r3 ($u64) $r3 64
+        $ld ($u64) $r1 [$r5 + 32]   // r1 = A_tile_k0 (K-iter 0 base)
+        $ld ($u64) $r2 [$r5 + 40]   // r2 = B_tile_k0
+        $set $r6  0  1               // K_ctr = 3 (4 K-iters: 3 down to 0)
+        $set $r4 0 64
+        ;
+
+clear6:
+        ||
+        * $r24 ($u64) $r24 0
+        * $r25 ($u64) $r25 0
+        * $r26 ($u64) $r26 0
+        * $r27 ($u64) $r27 0
+        * $r28 ($u64) $r28 0
+        * $r29 ($u64) $r29 0
+        * $r30 ($u64) $r30 0
+        * $r31 ($u64) $r31 0
+        ;
+
+kload6:
+	||
+	$ld ($u256) $r8  [$r0 + $r1]
+        $ld ($u256) $r12  [$r4 + $r1]
+        $ld ($u256) $r16 [$r2 + $r0]
+        $ld ($u256) $r20 [$r4 + $r2]
+	;
+
+dot6:
+        ||
+        $dot $accumulate $r24 ($vi4) $r13 $r16
+        $dot $accumulate $r25 ($vi4) $r13 $r17
+        $dot $accumulate $r26 ($vi4) $r13 $r18
+        $dot $accumulate $r27 ($vi4) $r13 $r19
+        $dot $accumulate $r28 ($vi4) $r13 $r20
+        $dot $accumulate $r29 ($vi4) $r13 $r21
+        $dot $accumulate $r30 ($vi4) $r13 $r22
+        $dot $accumulate $r31 ($vi4) $r13 $r23
+        ;
+
+branchK6:
+        ||
+        + $r1 ($u64) $r1 32
+        + $r2 ($u64) $r2 32
+        ? ($u64) $r6 > --1 $goto kload6
+        ;
+
+store6:
+        ||
+        $st ($u256) [$r0 + $r3] $r24
+        $st ($u256) [ $r3 + 32] $r28
+        + $r3 ($u64) $r3 64
+        $ld ($u64) $r1 [$r5 + 32]   // r1 = A_tile_k0 (K-iter 0 base)
+        $ld ($u64) $r2 [$r5 + 40]   // r2 = B_tile_k0
+        $set $r6  0  1               // K_ctr = 3 (4 K-iters: 3 down to 0)
+        $set $r4 0 64
+        ;
+
+clear7:
+        ||
+        * $r24 ($u64) $r24 0
+        * $r25 ($u64) $r25 0
+        * $r26 ($u64) $r26 0
+        * $r27 ($u64) $r27 0
+        * $r28 ($u64) $r28 0
+        * $r29 ($u64) $r29 0
+        * $r30 ($u64) $r30 0
+        * $r31 ($u64) $r31 0
+        ;
+
+kload7:
+	||
+	$ld ($u256) $r8  [$r0 + $r1]
+        $ld ($u256) $r12  [$r4 + $r1]
+        $ld ($u256) $r16 [$r2 + $r0]
+        $ld ($u256) $r20 [$r4 + $r2]
+	;
+
+dot7:
+        ||
+        $dot $accumulate $r24 ($vi4) $r14 $r16
+        $dot $accumulate $r25 ($vi4) $r14 $r17
+        $dot $accumulate $r26 ($vi4) $r14 $r18
+        $dot $accumulate $r27 ($vi4) $r14 $r19
+        $dot $accumulate $r28 ($vi4) $r14 $r20
+        $dot $accumulate $r29 ($vi4) $r14 $r21
+        $dot $accumulate $r30 ($vi4) $r14 $r22
+        $dot $accumulate $r31 ($vi4) $r14 $r23
+        ;
+
+branchK7:
+        ||
+        + $r1 ($u64) $r1 32
+        + $r2 ($u64) $r2 32
+        ? ($u64) $r6 > --1 $goto kload7
+        ;
+
+store8:
+        ||
+        $st ($u256) [$r0 + $r3] $r24
+        $st ($u256) [ $r3 + 32] $r28
+        + $r3 ($u64) $r3 64
+        $ld ($u64) $r1 [$r5 + 32]   // r1 = A_tile_k0 (K-iter 0 base)
+        $ld ($u64) $r2 [$r5 + 40]   // r2 = B_tile_k0
+        $set $r6  0  1               // K_ctr = 3 (4 K-iters: 3 down to 0)
+        $set $r4 0 64
+        ;
+
+clear8:
+        ||
+        * $r24 ($u64) $r24 0
+        * $r25 ($u64) $r25 0
+        * $r26 ($u64) $r26 0
+        * $r27 ($u64) $r27 0
+        * $r28 ($u64) $r28 0
+        * $r29 ($u64) $r29 0
+        * $r30 ($u64) $r30 0
+        * $r31 ($u64) $r31 0
+        ;
+
+kload8:
+	||
+	$ld ($u256) $r8  [$r0 + $r1]
+        $ld ($u256) $r12  [$r4 + $r1]
+        $ld ($u256) $r16 [$r2 + $r0]
+        $ld ($u256) $r20 [$r4 + $r2]
+	;
+dot8:
+        ||
+        $dot $accumulate $r24 ($vi4) $r15 $r16
+        $dot $accumulate $r25 ($vi4) $r15 $r17
+        $dot $accumulate $r26 ($vi4) $r15 $r18
+        $dot $accumulate $r27 ($vi4) $r15 $r19
+        $dot $accumulate $r28 ($vi4) $r15 $r20
+        $dot $accumulate $r29 ($vi4) $r15 $r21
+        $dot $accumulate $r30 ($vi4) $r15 $r22
+        $dot $accumulate $r31 ($vi4) $r15 $r23
+        ;
+
+branchK8:
+        ||
+        + $r1 ($u64) $r1 32
+        + $r2 ($u64) $r2 32
+        ? ($u64) $r6 > --1 $goto kload8
+        ;
+
+store8:
+        ||
+        $st ($u256) [$r0 + $r3] $r24
+        $st ($u256) [ $r3 + 32] $r28
+        + $r3 ($u64) $r3 64
+        $ld ($u64) $r1 [$r5 + 32]
+        $ld ($u64) $r2 [$r5 + 40]
+    	$ld ($u64) $r4 [$r5 + 24]
+	;
+
+branchB2_math:
+    ||
+        + $r2 ($u64) $r2 128         // B: next N-tile (Math first)
+    ;
+
+branchB2_store:
+    ||
+        $st ($u64) [$r5 + 40] $r2    // Store updated value
+        ? ($u64) $r4 > --1 $goto loadB
+    ;
+
+//--------------------------------------------------------------
+//  branchA: advance to next M-tile.
+//--------------------------------------------------------------
+branchA:
+    ||
+        $ld ($u64) $r7 [$r5 +  0]
+        $ld ($u64) $r1 [$r5 +  8]
+        $set $r2  0  576
+    ;
+
+branchA2_math:
+    ||
+        + $r1 ($u64) $r1 128         // A_M_tile_base += 256
+        $set $r2  0  576            // Reset B to start
+    ;
+
+branchA2_store:
+    ||
+        $st ($u64) [$r5 +  8] $r1    // Store all updated values safely
+        $st ($u64) [$r5 + 32] $r1
+        $st ($u64) [$r5 + 16] $r2
+        $st ($u64) [$r5 + 40] $r2
+    ;
+
+branchA4a:
+    ||
+        - $r7 ($u64) $r7 1           // M_ctr--
+    ;
+
+branchA4b:
+    ||
+        $st ($u64) [$r5 + 0] $r7
+        ? ($u64) $r7 > --1 $goto loadA
+    ;
+
+//--------------------------------------------------------------
+//  HALT
+//--------------------------------------------------------------
+halt:
+    ||
+        $halt
+        ;

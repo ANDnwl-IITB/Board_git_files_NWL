@@ -1,0 +1,246 @@
+Info: compile with -g.
+Info: optimization level = 2
+Info: vmap_file  = cortos_src/vmap.txt.
+Info: optimization level = 2
+Info: added include-directory = /home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/sparc-buildroot-linux-uclibc/sysroot/usr/include.
+Info: optimization level = 2
+Info: added include-directory = /home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/lib/gcc/sparc-buildroot-linux-uclibc/4.7.4/include.
+Info: optimization level = 2
+Info: added include-directory = ..
+Info: optimization level = 2
+Info: added include-directory = ...
+Info: optimization level = 2
+Info: added include-directory = cortos_src.
+Info: optimization level = 2
+Info: added include-directory = /home/ajit/ajit-toolchain/AjitPublicResources/tools/ajit_access_routines_mt/include.
+Info: optimization level = 2
+Info: added include-directory = /home/ajit/ajit-toolchain/AjitPublicResources/tools/minimal_printf_timer/include.
+Info: optimization level = 2
+Info: added assembly-directory = ...
+Info: optimization level = 2
+Info: added assembly-directory = cortos_src.
+Info: optimization level = 2
+Info: added src-directory = ...
+Info: optimization level = 2
+Info: added src-directory = cortos_src.
+Info: optimization level = 2
+Info: application name  = main.
+Info: optimization level = 2
+Info: linker_script_file  = cortos_src/LinkerScript.txt.
+Info: optimization level = 2
+Info: added LD directory = /home/ajit/ajit-toolchain/AjitPublicResources/tools/ajit_access_routines_mt/lib.
+Info: optimization level = 2
+Info: added link library  = ajit_alt.
+Info: optimization level = 2
+Info: added define_string = AJIT.
+Info: optimization level = 2
+Info: uclibc_flag enabled.
+Info: optimization level = 2
+Info: added define_string = CLK_FREQUENCY=80000000.
+Info: optimization level = 2
+Info: added define_string = USE_VMAP.
+Info: optimization level = 2
+Info: added define_string = USE_ALTERNATE_DEVICE_ADDRESSES.
+Info: optimization level = 2
+Info: Executing:
+	rm -rf .//sparc-assembly
+Info: Executing:
+	mkdir .//sparc-assembly
+Info: Executing:
+	rm -rf .//sparc-obj
+Info: Executing:
+	mkdir .//sparc-obj
+Info: Executing:
+	genVmapAsm cortos_src/vmap.txt .//__genvmap_setup_page_tables.s
+Info: Executing:
+	sparc-linux-as   -Av8  .//__genvmap_setup_page_tables.s -o .//sparc-obj/__genvmap_setup_page_tables.o
+Info: Executing:
+	sparc-linux-gcc  -c  -S -m32 -mcpu=v8 -nostdlib -ffreestanding    -g  -I /home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/sparc-buildroot-linux-uclibc/sysroot/usr/include  -I /home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/lib/gcc/sparc-buildroot-linux-uclibc/4.7.4/include  -I .  -I ..  -I cortos_src  -I /home/ajit/ajit-toolchain/AjitPublicResources/tools/ajit_access_routines_mt/include  -I /home/ajit/ajit-toolchain/AjitPublicResources/tools/minimal_printf_timer/include  -D AJIT  -D CLK_FREQUENCY=80000000  -D USE_VMAP  -D USE_ALTERNATE_DEVICE_ADDRESSES  ../main.c -o .//sparc-assembly/main.s
+Info: Executing:
+	sparc-linux-gcc  -c  -S -m32 -mcpu=v8 -nostdlib -ffreestanding    -g  -I /home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/sparc-buildroot-linux-uclibc/sysroot/usr/include  -I /home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/lib/gcc/sparc-buildroot-linux-uclibc/4.7.4/include  -I .  -I ..  -I cortos_src  -I /home/ajit/ajit-toolchain/AjitPublicResources/tools/ajit_access_routines_mt/include  -I /home/ajit/ajit-toolchain/AjitPublicResources/tools/minimal_printf_timer/include  -D AJIT  -D CLK_FREQUENCY=80000000  -D USE_VMAP  -D USE_ALTERNATE_DEVICE_ADDRESSES  cortos_src/cortos_queues.c -o .//sparc-assembly/cortos_queues.s
+Info: Executing:
+	sparc-linux-gcc  -c  -S -m32 -mcpu=v8 -nostdlib -ffreestanding    -g  -I /home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/sparc-buildroot-linux-uclibc/sysroot/usr/include  -I /home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/lib/gcc/sparc-buildroot-linux-uclibc/4.7.4/include  -I .  -I ..  -I cortos_src  -I /home/ajit/ajit-toolchain/AjitPublicResources/tools/ajit_access_routines_mt/include  -I /home/ajit/ajit-toolchain/AjitPublicResources/tools/minimal_printf_timer/include  -D AJIT  -D CLK_FREQUENCY=80000000  -D USE_VMAP  -D USE_ALTERNATE_DEVICE_ADDRESSES  cortos_src/cortos_utils.c -o .//sparc-assembly/cortos_utils.s
+Info: Executing:
+	sparc-linux-gcc  -c  -S -m32 -mcpu=v8 -nostdlib -ffreestanding    -g  -I /home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/sparc-buildroot-linux-uclibc/sysroot/usr/include  -I /home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/lib/gcc/sparc-buildroot-linux-uclibc/4.7.4/include  -I .  -I ..  -I cortos_src  -I /home/ajit/ajit-toolchain/AjitPublicResources/tools/ajit_access_routines_mt/include  -I /home/ajit/ajit-toolchain/AjitPublicResources/tools/minimal_printf_timer/include  -D AJIT  -D CLK_FREQUENCY=80000000  -D USE_VMAP  -D USE_ALTERNATE_DEVICE_ADDRESSES  cortos_src/cortos_util_ee_printf.c -o .//sparc-assembly/cortos_util_ee_printf.s
+Info: Executing:
+	sparc-linux-gcc  -c  -S -m32 -mcpu=v8 -nostdlib -ffreestanding    -g  -I /home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/sparc-buildroot-linux-uclibc/sysroot/usr/include  -I /home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/lib/gcc/sparc-buildroot-linux-uclibc/4.7.4/include  -I .  -I ..  -I cortos_src  -I /home/ajit/ajit-toolchain/AjitPublicResources/tools/ajit_access_routines_mt/include  -I /home/ajit/ajit-toolchain/AjitPublicResources/tools/minimal_printf_timer/include  -D AJIT  -D CLK_FREQUENCY=80000000  -D USE_VMAP  -D USE_ALTERNATE_DEVICE_ADDRESSES  cortos_src/cortos_logging.c -o .//sparc-assembly/cortos_logging.s
+Info: Executing:
+	sparc-linux-gcc  -c  -S -m32 -mcpu=v8 -nostdlib -ffreestanding    -g  -I /home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/sparc-buildroot-linux-uclibc/sysroot/usr/include  -I /home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/lib/gcc/sparc-buildroot-linux-uclibc/4.7.4/include  -I .  -I ..  -I cortos_src  -I /home/ajit/ajit-toolchain/AjitPublicResources/tools/ajit_access_routines_mt/include  -I /home/ajit/ajit-toolchain/AjitPublicResources/tools/minimal_printf_timer/include  -D AJIT  -D CLK_FREQUENCY=80000000  -D USE_VMAP  -D USE_ALTERNATE_DEVICE_ADDRESSES  cortos_src/__bget_ncram.c -o .//sparc-assembly/__bget_ncram.s
+Info: Executing:
+	sparc-linux-gcc  -c  -S -m32 -mcpu=v8 -nostdlib -ffreestanding    -g  -I /home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/sparc-buildroot-linux-uclibc/sysroot/usr/include  -I /home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/lib/gcc/sparc-buildroot-linux-uclibc/4.7.4/include  -I .  -I ..  -I cortos_src  -I /home/ajit/ajit-toolchain/AjitPublicResources/tools/ajit_access_routines_mt/include  -I /home/ajit/ajit-toolchain/AjitPublicResources/tools/minimal_printf_timer/include  -D AJIT  -D CLK_FREQUENCY=80000000  -D USE_VMAP  -D USE_ALTERNATE_DEVICE_ADDRESSES  cortos_src/cortos_traps_init.c -o .//sparc-assembly/cortos_traps_init.s
+Info: Executing:
+	sparc-linux-gcc  -c  -S -m32 -mcpu=v8 -nostdlib -ffreestanding    -g  -I /home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/sparc-buildroot-linux-uclibc/sysroot/usr/include  -I /home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/lib/gcc/sparc-buildroot-linux-uclibc/4.7.4/include  -I .  -I ..  -I cortos_src  -I /home/ajit/ajit-toolchain/AjitPublicResources/tools/ajit_access_routines_mt/include  -I /home/ajit/ajit-toolchain/AjitPublicResources/tools/minimal_printf_timer/include  -D AJIT  -D CLK_FREQUENCY=80000000  -D USE_VMAP  -D USE_ALTERNATE_DEVICE_ADDRESSES  cortos_src/cortos_util_cvt.c -o .//sparc-assembly/cortos_util_cvt.s
+Info: Executing:
+	sparc-linux-gcc  -c  -S -m32 -mcpu=v8 -nostdlib -ffreestanding    -g  -I /home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/sparc-buildroot-linux-uclibc/sysroot/usr/include  -I /home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/lib/gcc/sparc-buildroot-linux-uclibc/4.7.4/include  -I .  -I ..  -I cortos_src  -I /home/ajit/ajit-toolchain/AjitPublicResources/tools/ajit_access_routines_mt/include  -I /home/ajit/ajit-toolchain/AjitPublicResources/tools/minimal_printf_timer/include  -D AJIT  -D CLK_FREQUENCY=80000000  -D USE_VMAP  -D USE_ALTERNATE_DEVICE_ADDRESSES  cortos_src/cortos_locks.c -o .//sparc-assembly/cortos_locks.s
+Info: Executing:
+	sparc-linux-gcc  -c  -S -m32 -mcpu=v8 -nostdlib -ffreestanding    -g  -I /home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/sparc-buildroot-linux-uclibc/sysroot/usr/include  -I /home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/lib/gcc/sparc-buildroot-linux-uclibc/4.7.4/include  -I .  -I ..  -I cortos_src  -I /home/ajit/ajit-toolchain/AjitPublicResources/tools/ajit_access_routines_mt/include  -I /home/ajit/ajit-toolchain/AjitPublicResources/tools/minimal_printf_timer/include  -D AJIT  -D CLK_FREQUENCY=80000000  -D USE_VMAP  -D USE_ALTERNATE_DEVICE_ADDRESSES  cortos_src/cortos_devices.c -o .//sparc-assembly/cortos_devices.s
+Info: Executing:
+	sparc-linux-gcc  -c  -S -m32 -mcpu=v8 -nostdlib -ffreestanding    -g  -I /home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/sparc-buildroot-linux-uclibc/sysroot/usr/include  -I /home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/lib/gcc/sparc-buildroot-linux-uclibc/4.7.4/include  -I .  -I ..  -I cortos_src  -I /home/ajit/ajit-toolchain/AjitPublicResources/tools/ajit_access_routines_mt/include  -I /home/ajit/ajit-toolchain/AjitPublicResources/tools/minimal_printf_timer/include  -D AJIT  -D CLK_FREQUENCY=80000000  -D USE_VMAP  -D USE_ALTERNATE_DEVICE_ADDRESSES  cortos_src/cortos_bget.c -o .//sparc-assembly/cortos_bget.s
+Info: Executing:
+	sparc-linux-gcc  -c  -S -m32 -mcpu=v8 -nostdlib -ffreestanding    -g  -I /home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/sparc-buildroot-linux-uclibc/sysroot/usr/include  -I /home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/lib/gcc/sparc-buildroot-linux-uclibc/4.7.4/include  -I .  -I ..  -I cortos_src  -I /home/ajit/ajit-toolchain/AjitPublicResources/tools/ajit_access_routines_mt/include  -I /home/ajit/ajit-toolchain/AjitPublicResources/tools/minimal_printf_timer/include  -D AJIT  -D CLK_FREQUENCY=80000000  -D USE_VMAP  -D USE_ALTERNATE_DEVICE_ADDRESSES  cortos_src/__bget.c -o .//sparc-assembly/__bget.s
+Info: Executing:
+	sparc-linux-as   -Av8 cortos_src/trap_handlers_for_rtos.s -o .//sparc-obj/trap_handlers_for_rtos.o
+Info: Executing:
+	sparc-linux-as   -Av8 cortos_src/cortos_lock_unlock.s -o .//sparc-obj/cortos_lock_unlock.o
+Info: Executing:
+	sparc-linux-as   -Av8 cortos_src/cortos_traps_asm.s -o .//sparc-obj/cortos_traps_asm.o
+Info: Executing:
+	sparc-linux-as   -Av8 cortos_src/cortos_utils_asm.s -o .//sparc-obj/cortos_utils_asm.o
+Info: Executing:
+	sparc-linux-as   -Av8 cortos_src/init.s -o .//sparc-obj/init.o
+Info: Executing:
+	sparc-linux-as   -Av8 .//sparc-assembly/cortos_devices.s -o .//sparc-obj/cortos_devices.o
+Info: Executing:
+	sparc-linux-as   -Av8 .//sparc-assembly/cortos_traps_init.s -o .//sparc-obj/cortos_traps_init.o
+Info: Executing:
+	sparc-linux-as   -Av8 .//sparc-assembly/cortos_util_ee_printf.s -o .//sparc-obj/cortos_util_ee_printf.o
+Info: Executing:
+	sparc-linux-as   -Av8 .//sparc-assembly/cortos_utils.s -o .//sparc-obj/cortos_utils.o
+Info: Executing:
+	sparc-linux-as   -Av8 .//sparc-assembly/cortos_queues.s -o .//sparc-obj/cortos_queues.o
+Info: Executing:
+	sparc-linux-as   -Av8 .//sparc-assembly/__bget_ncram.s -o .//sparc-obj/__bget_ncram.o
+Info: Executing:
+	sparc-linux-as   -Av8 .//sparc-assembly/main.s -o .//sparc-obj/main.o
+Info: Executing:
+	sparc-linux-as   -Av8 .//sparc-assembly/cortos_locks.s -o .//sparc-obj/cortos_locks.o
+Info: Executing:
+	sparc-linux-as   -Av8 .//sparc-assembly/__bget.s -o .//sparc-obj/__bget.o
+Info: Executing:
+	sparc-linux-as   -Av8 .//sparc-assembly/cortos_util_cvt.s -o .//sparc-obj/cortos_util_cvt.o
+Info: Executing:
+	sparc-linux-as   -Av8 .//sparc-assembly/cortos_bget.s -o .//sparc-obj/cortos_bget.o
+Info: Executing:
+	sparc-linux-as   -Av8 .//sparc-assembly/cortos_logging.s -o .//sparc-obj/cortos_logging.o
+('AJIT:', '/home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/sparc-buildroot-linux-uclibc/sysroot/usr/lib/..')
+Info: Executing:
+	sparc-linux-ld  --verbose=5 -L /home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/sparc-buildroot-linux-uclibc/sysroot/usr/lib/../lib/ -e main -T cortos_src/LinkerScript.txt .//sparc-obj/__genvmap_setup_page_tables.o  .//sparc-obj/trap_handlers_for_rtos.o  .//sparc-obj/cortos_lock_unlock.o  .//sparc-obj/cortos_traps_asm.o  .//sparc-obj/cortos_utils_asm.o  .//sparc-obj/init.o  .//sparc-obj/cortos_devices.o  .//sparc-obj/cortos_traps_init.o  .//sparc-obj/cortos_util_ee_printf.o  .//sparc-obj/cortos_utils.o  .//sparc-obj/cortos_queues.o  .//sparc-obj/__bget_ncram.o  .//sparc-obj/main.o  .//sparc-obj/cortos_locks.o  .//sparc-obj/__bget.o  .//sparc-obj/cortos_util_cvt.o  .//sparc-obj/cortos_bget.o  .//sparc-obj/cortos_logging.o   -o .//main.elf -L/home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/sparc-buildroot-linux-uclibc/sysroot/usr/lib/..//lib -L/home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/lib/gcc/sparc-buildroot-linux-uclibc/4.7.4  -static -lm -lc -lgcc  --gc-sections -L /home/ajit/ajit-toolchain/AjitPublicResources/tools/ajit_access_routines_mt/lib  -lajit_alt 
+GNU ld (GNU Binutils) 2.22
+  Supported emulations:
+   elf32_sparc
+   sparclinux
+   elf64_sparc
+   sun4
+opened script file cortos_src/LinkerScript.txt
+using external linker script:
+==================================================
+/*========================================================*/
+/*                                                        */
+/* Linker script for Ajit Sparc      	                  */
+/*                                                        */
+/*========================================================*/
+
+ENTRY(_start)
+__DYNAMIC = 0;
+SECTIONS
+{
+  . = 0x40000000;
+  .text ALIGN(8) : {
+    KEEP(*(.text.ajitstart))  /* NOTE: in file `init_00.s` */
+    *(.text)
+    *(.text.*)
+    KEEP(*(.text.pagetablesetup)) /* NOTE: not needed */
+    KEEP(*(.text.traphandlers))  /* NOTE: in file `trap_handlers.s` */
+    KEEP(*(.text.traptablebase))  /* NOTE: in file `trap_handlers.s` */
+  }
+
+  . = 0x40800000;
+  .rodata ALIGN(8) : { * (.rodata) * (.rodata.*) }
+  .data   ALIGN(8) : { * (.data) * (.data.*)}
+
+  . = 0x42600000;
+  .bss   ALIGN(8) : { * (.bss) }
+}
+
+==================================================
+attempt to open .//sparc-obj/__genvmap_setup_page_tables.o succeeded
+.//sparc-obj/__genvmap_setup_page_tables.o
+attempt to open .//sparc-obj/trap_handlers_for_rtos.o succeeded
+.//sparc-obj/trap_handlers_for_rtos.o
+attempt to open .//sparc-obj/cortos_lock_unlock.o succeeded
+.//sparc-obj/cortos_lock_unlock.o
+attempt to open .//sparc-obj/cortos_traps_asm.o succeeded
+.//sparc-obj/cortos_traps_asm.o
+attempt to open .//sparc-obj/cortos_utils_asm.o succeeded
+.//sparc-obj/cortos_utils_asm.o
+attempt to open .//sparc-obj/init.o succeeded
+.//sparc-obj/init.o
+attempt to open .//sparc-obj/cortos_devices.o succeeded
+.//sparc-obj/cortos_devices.o
+attempt to open .//sparc-obj/cortos_traps_init.o succeeded
+.//sparc-obj/cortos_traps_init.o
+attempt to open .//sparc-obj/cortos_util_ee_printf.o succeeded
+.//sparc-obj/cortos_util_ee_printf.o
+attempt to open .//sparc-obj/cortos_utils.o succeeded
+.//sparc-obj/cortos_utils.o
+attempt to open .//sparc-obj/cortos_queues.o succeeded
+.//sparc-obj/cortos_queues.o
+attempt to open .//sparc-obj/__bget_ncram.o succeeded
+.//sparc-obj/__bget_ncram.o
+attempt to open .//sparc-obj/main.o succeeded
+.//sparc-obj/main.o
+attempt to open .//sparc-obj/cortos_locks.o succeeded
+.//sparc-obj/cortos_locks.o
+attempt to open .//sparc-obj/__bget.o succeeded
+.//sparc-obj/__bget.o
+attempt to open .//sparc-obj/cortos_util_cvt.o succeeded
+.//sparc-obj/cortos_util_cvt.o
+attempt to open .//sparc-obj/cortos_bget.o succeeded
+.//sparc-obj/cortos_bget.o
+attempt to open .//sparc-obj/cortos_logging.o succeeded
+.//sparc-obj/cortos_logging.o
+attempt to open /home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/sparc-buildroot-linux-uclibc/sysroot/usr/lib/../lib//libm.a succeeded
+attempt to open /home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/sparc-buildroot-linux-uclibc/sysroot/usr/lib/../lib//libc.a succeeded
+(/home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/sparc-buildroot-linux-uclibc/sysroot/usr/lib/../lib//libc.a)memcpy.os
+attempt to open /home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/sparc-buildroot-linux-uclibc/sysroot/usr/lib/../lib//libgcc.a failed
+attempt to open /home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/sparc-buildroot-linux-uclibc/sysroot/usr/lib/..//lib/libgcc.a failed
+attempt to open /home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/lib/gcc/sparc-buildroot-linux-uclibc/4.7.4/libgcc.a succeeded
+(/home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/lib/gcc/sparc-buildroot-linux-uclibc/4.7.4/libgcc.a)_fixdfdi.o
+(/home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/lib/gcc/sparc-buildroot-linux-uclibc/4.7.4/libgcc.a)_fixunsdfdi.o
+(/home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/lib/gcc/sparc-buildroot-linux-uclibc/4.7.4/libgcc.a)_floatdidf.o
+(/home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/lib/gcc/sparc-buildroot-linux-uclibc/4.7.4/libgcc.a)_divdi3.o
+(/home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/lib/gcc/sparc-buildroot-linux-uclibc/4.7.4/libgcc.a)_moddi3.o
+(/home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/lib/gcc/sparc-buildroot-linux-uclibc/4.7.4/libgcc.a)_udivdi3.o
+(/home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/lib/gcc/sparc-buildroot-linux-uclibc/4.7.4/libgcc.a)_umoddi3.o
+(/home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/lib/gcc/sparc-buildroot-linux-uclibc/4.7.4/libgcc.a)_divsi3.o
+(/home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/lib/gcc/sparc-buildroot-linux-uclibc/4.7.4/libgcc.a)_clz.o
+attempt to open /home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/sparc-buildroot-linux-uclibc/sysroot/usr/lib/../lib//libajit_alt.a failed
+attempt to open /home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/sparc-buildroot-linux-uclibc/sysroot/usr/lib/..//lib/libajit_alt.a failed
+attempt to open /home/ajit/ajit-toolchain/build/buildroot-2014.08/output/host/usr/lib/gcc/sparc-buildroot-linux-uclibc/4.7.4/libajit_alt.a failed
+attempt to open /home/ajit/ajit-toolchain/AjitPublicResources/tools/ajit_access_routines_mt/lib/libajit_alt.a failed
+Error: in building elf main.elf
+Error: sparc-executable build failed.
+CoRTOS: Started.
+CoRTOS: Config not found: 'Hardware.Devices.[3].NamedRegisters' Default value {}. 
+CoRTOS: Config not found: 'Software.ProgramThreads.[0].CortosLoopCalls' Default value []. 
+CoRTOS: Config not found: 'Software.ProgramThreads.[1].CortosLoopCalls' Default value []. 
+CoRTOS: Config not found: 'Software.DynamicMemory' Default value None. 
+CoRTOS: Config not found: 'Software.Interrupts.Interrupts' Default value []. 
+CoRTOS: Config not found: 'Software.Traps.Traps' Default value []. 
+Region: TextSection, Size: 7MB + 1020KB, Paged: 8MB, Extra: 4KB, First: 0x40000000, Last: 0x407fffff.
+Region: DataSection, Size: 29MB + 1020KB, Paged: 30MB, Extra: 4KB, First: 0x40800000, Last: 0x425fffff.
+Region: BssSection, Size: 14MB + 1020KB, Paged: 15MB, Extra: 4KB, First: 0x42600000, Last: 0x434fffff.
+Region: CacheableLocks, Size: 256B, Paged: 4KB, Extra: 3KB + 768B, First: 0x43500000, Last: 0x43500fff.
+Region: NonCacheableLocks, Size: 256B, Paged: 4KB, Extra: 3KB + 768B, First: 0x43501000, Last: 0x43501fff.
+Region: MemoryAllocArea, Size: 4KB, Paged: 4KB, Extra: 0B, First: 0x43502000, Last: 0x43502fff.
+Region: StackGuard, Size: 4KB, Paged: 4KB, Extra: 0B, First: 0x43503000, Last: 0x43503fff.
+Region: ProgramStack_0, Size: 8KB, Paged: 8KB, Extra: 0B, First: 0x43504000, Last: 0x43505fff.
+Region: StackGuard_0, Size: 4KB, Paged: 4KB, Extra: 0B, First: 0x43506000, Last: 0x43506fff.
+Region: ProgramStack_1, Size: 8KB, Paged: 8KB, Extra: 0B, First: 0x43507000, Last: 0x43508fff.
+Region: StackGuard_1, Size: 4KB, Paged: 4KB, Extra: 0B, First: 0x43509000, Last: 0x43509fff.
+Region: NCRAM, Size: 768MB, Paged: 768MB, Extra: 0B, First: 0x50000000, Last: 0x7fffffff.
+Region: MMIO, Size: 64KB, Paged: 64KB, Extra: 0B, First: 0x80000000, Last: 0x8000ffff.
+CoRTOS: Initialized user configuration details.
+CoRTOS: build process started...
+
+CoRTOS: START: cortos_build.
+CoRTOS: command: chmod +x build.sh
+CoRTOS: OK: command return code 0
+CoRTOS: command: chmod +x run_cmodel.sh
+CoRTOS: OK: command return code 0
+CoRTOS: command: chmod +x clean.sh
+CoRTOS: OK: command return code 0
+CoRTOS: CWD: /home/ajit/ajit-toolchain/ai_navic_tests/marches/cortos_build
+CoRTOS: command: bash build.sh
+CoRTOS: ERROR: command return code 1
+CoRTOS: ERROR: Status 1 while executing /home/ajit/ajit-toolchain/ai_navic_tests/marches/cortos_build/build.sh -- Correct the errors above.

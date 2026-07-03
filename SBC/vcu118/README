@@ -1,0 +1,22 @@
+
+constraint/
+	Contains Master xdc file (vcu118.xdc).
+        Contains  xdc file (vcu118_ethernet.xdc) 
+edn/
+	processor_edn here.
+
+toplevel/
+	Contains the top level vhdl code of the SBC
+
+hsys/
+	We use this folder to construct our own core_library from highlevel to vhdl. It contains processor , Dram, Ethernet, serial and debug uarts
+        Just do ./build.sh inside this folder (in the ajit-toolchain docker).
+
+vivado_synth/
+	Contains bitgen tcl file and run.sh script used to generate the bitfile and the working directory
+	
+ip/
+	Contains the required ips.
+
+configure_fpga/
+	This folder contains the scripts and configuration files required to program the FPGA, perform reset sequencing, and initialize the hardware design through Vivado Hardware Manage
