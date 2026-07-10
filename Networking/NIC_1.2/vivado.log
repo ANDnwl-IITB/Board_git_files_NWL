@@ -1,0 +1,29 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:39:14 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Thu Mar 26 16:28:10 2026
+# Process ID: 2285693
+# Current directory: /home/nwl_3/AjitToolChain/ajit-toolchain/AI_NIC_DEMO/Networking/NIC_1.2
+# Command line: vivado
+# Log file: /home/nwl_3/AjitToolChain/ajit-toolchain/AI_NIC_DEMO/Networking/NIC_1.2/vivado.log
+# Journal file: /home/nwl_3/AjitToolChain/ajit-toolchain/AI_NIC_DEMO/Networking/NIC_1.2/vivado.jou
+#-----------------------------------------------------------
+Sourcing tcl script '/home/nwl_3/.Xilinx/Vivado/Vivado_init.tcl'
+start_gui
+create_project ddr4 /home/nwl_3/Ip_testing/ddr4 -part xcku040-ffva1156-2-e
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/nwl_3/AI_NIC_VIVADO/Vivado_reinstall/tools/Vivado/2019.2/data/ip'.
+set_property board_part xilinx.com:kcu105:part0:1.6 [current_project]
+add_files -norecurse /home/nwl_3/AmanD15/AI_NIC_DEMO/Networking/vcu128/NicMac/ip/ddr4_0/ddr4_0.xci
+WARNING: [filemgmt 56-443] The ECC Algorithm string is empty. Setting the Memory Map to default ECC value to ECC_NONE.
+WARNING: [filemgmt 56-443] The ECC Algorithm string is empty. Setting the Memory Map to default ECC value to ECC_NONE.
+WARNING: [filemgmt 56-443] The ECC Algorithm string is empty. Setting the Memory Map to default ECC value to ECC_NONE.
+WARNING: [filemgmt 56-443] The ECC Algorithm string is empty. Setting the Memory Map to default ECC value to ECC_NONE.
+WARNING: [IP_Flow 19-2162] IP 'ddr4_0' is locked:
+* IP definition 'DDR4 SDRAM (MIG) (2.2)' for IP 'ddr4_0' (customized with software release 2019.1) has a different revision in the IP Catalog. * This IP has board specific outputs. Current project board 'xilinx.com:kcu105:part0:1.6' and the board 'xilinx.com:vcu128:part0:1.2' used to customize the IP 'ddr4_0' do not match. * Current project part 'xcku040-ffva1156-2-e' and the part 'xcvu37p-fsvh2892-2L-e' used to customize the IP 'ddr4_0' do not match. * IP 'ddr4_0' contains one or more locked subcores.
+export_ip_user_files -of_objects  [get_files  /home/nwl_3/AmanD15/AI_NIC_DEMO/Networking/vcu128/NicMac/ip/ddr4_0/ddr4_0.xci] -lib_map_path [list {modelsim=/home/nwl_3/Ip_testing/ddr4/ddr4.cache/compile_simlib/modelsim} {questa=/home/nwl_3/Ip_testing/ddr4/ddr4.cache/compile_simlib/questa} {ies=/home/nwl_3/Ip_testing/ddr4/ddr4.cache/compile_simlib/ies} {xcelium=/home/nwl_3/Ip_testing/ddr4/ddr4.cache/compile_simlib/xcelium} {vcs=/home/nwl_3/Ip_testing/ddr4/ddr4.cache/compile_simlib/vcs} {riviera=/home/nwl_3/Ip_testing/ddr4/ddr4.cache/compile_simlib/riviera}] -force -quiet
+update_compile_order -fileset sources_1
+exit
+INFO: [Common 17-206] Exiting Vivado at Thu Mar 26 16:33:33 2026...

@@ -1,0 +1,8 @@
+kcu105:
+	Files for the SBC (Processor + DRAM + Ethernet) design on KCU105. Also contains hsys, constraints for ( Processor + DRAM )
+
+vcu118:  
+	Files for the SBC (Processor + DRAM + Ethernet) design on VCU118. Also contains hsys, constraints for ( Processor + DRAM )
+
+vhdl_libs:
+	Contains Gluemodules, SimpleUartLib

@@ -1,0 +1,76 @@
+//
+//	Data from the MAC comes in 10-bit chunks
+//      with each chunk having the format
+//         last   byte   ignore
+//          1      8       1
+//      
+//      Collect the incoming bytes into 8-byte
+//      dwords (careful with the last dword)
+//      and send onwards.
+//
+//  Rewritten by MPD, due to crap unreadable implementation.
+//
+$module [rx_concat] $in () $out () $is
+{
+	$branchblock[loop]{
+
+		$dopipeline $depth 7 $fullrate
+	
+		$merge $entry $loopback 
+			// Need to ensure that next-circulant has been sampled before RX is updated.
+			$phi CIRCULANT := ($concat $zero<64> $one<4> $one<8>)  
+							$on $entry next_CIRCULANT $on $loopback $barrier
+
+			// last data ignore
+			//  1    8    1
+			$phi RX := rx_in_pipe $on $entry, $loopback 
+
+			
+
+		$endmerge
+
+			$volatile $split (CIRCULANT 64 4 8) (collected_dword running_byte_count running_byte_mask)
+
+			$volatile $split (RX 1 8 1) (rx_last rx_data rx_ignore)
+
+			$volatile send_to_pipe := (rx_last | (running_byte_count == 8))
+
+			// shift in from the right so first byte is at MSB position.
+			$volatile dword_to_pipe := ($concat ($slice collected_dword 55 0) rx_data)
+			$volatile next_collected_dword := 
+					($mux send_to_pipe $zero<64> dword_to_pipe)
+
+			$volatile next_running_byte_count := 
+					($mux send_to_pipe $one<4> (running_byte_count + 1))
+
+			$volatile next_running_byte_mask := 
+					($mux send_to_pipe $one<8> ($concat ($slice running_byte_mask 6 0) $one<1>))
+
+			$volatile left_shift_amount :=
+					($bitcast ($uint<64>) ($concat (8 - running_byte_count) $zero<3>))
+
+			$volatile data_to_pipe :=
+				($mux (send_to_pipe & (~rx_last))
+						dword_to_pipe
+						(dword_to_pipe << left_shift_amount))
+
+			$volatile byte_mask_to_pipe :=
+				($mux (send_to_pipe & (~rx_last)) 
+					(~$zero<8>)
+					(running_byte_mask << ($bitcast ($uint<8>) (8 - running_byte_count)))
+				)
+
+			// next..
+			$volatile next_CIRCULANT :=  ($concat next_collected_dword next_running_byte_count next_running_byte_mask)
+
+			$volatile to_pipe := ($concat rx_last 
+							data_to_pipe 
+							byte_mask_to_pipe)
+			$guard (send_to_pipe)
+				rx_out_pipe := to_pipe
+
+		$while 1
+
+	}
+
+}

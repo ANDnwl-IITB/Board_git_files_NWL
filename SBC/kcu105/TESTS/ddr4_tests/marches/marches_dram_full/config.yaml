@@ -75,7 +75,7 @@ Software:
     OptimizationLevel: 2 # i.e. O2 (Accepted values: 0, 1, 2)
     Debug: No # Yes/No (Default: No)
     FirstDebugPort: 8888  # default: 8888
-    BuildArgs: " -D CLK_FREQUENCY=60000000. "
+    BuildArgs: " -D CLK_FREQUENCY=80000000. "
 
   # Required: Which functions execute on each ajit thread.
   ProgramThreads:

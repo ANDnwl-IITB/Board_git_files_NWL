@@ -1,0 +1,67 @@
+$system kcu105_core $library kcu105_core_lib
+	$in
+
+		// processor connections..
+		$signal THREAD_RESET 
+		$pipe   SOC_MONITOR_to_DEBUG
+		$pipe   CONSOLE_to_SERIAL_RX
+		$signal   EXTERNAL_INTERRUPT
+		$pipe MEM_INVALIDATE
+		// Clock 
+		$signal $clk CLOCK_80
+
+		// Reset 
+		$signal $reset RESET_TO_PROCESSOR
+
+	$out
+
+		// processor 
+		$pipe SOC_DEBUG_to_MONITOR  $clk => CLOCK_80 $reset => RESET_TO_PROCESSOR
+		$pipe SERIAL_TX_to_CONSOLE  $clk => CLOCK_80 $reset => RESET_TO_PROCESSOR
+		$signal PROCESSOR_MODE  $clk => CLOCK_80 $reset => RESET_TO_PROCESSOR
+		$pipe MEM_INVALIDATE_ACK $clk => CLOCK_80 $reset => RESET_TO_PROCESSOR
+		  // serial uart control
+
+                $signal  UART_BAUD_FREQ 32 $depth 1
+                $signal  UART_BAUD_LIMIT 32 $depth 1
+                $signal  UART_SOFT_RESET 1 $depth 1
+
+{
+
+	//Processor Pipes and Signals
+	$pipe PROCESSOR_TO_SRAM_REQUEST $clk => CLOCK_80 $reset => RESET_TO_PROCESSOR
+	$pipe SRAM_TO_PROCESSOR_RESPONSE  $clk => CLOCK_80 $reset => RESET_TO_PROCESSOR
+
+// Processor , SRAM	
+
+	$instance processor_inst ajit_processor_lib:processor_1x1x32
+		THREAD_RESET               => THREAD_RESET
+		SOC_MONITOR_to_DEBUG       => SOC_MONITOR_to_DEBUG
+		SOC_DEBUG_to_MONITOR       => SOC_DEBUG_to_MONITOR
+		CONSOLE_to_SERIAL_RX       => CONSOLE_to_SERIAL_RX
+		SERIAL_TX_to_CONSOLE       => SERIAL_TX_to_CONSOLE
+		MAIN_MEM_REQUEST           => PROCESSOR_TO_SRAM_REQUEST
+		MAIN_MEM_RESPONSE          => SRAM_TO_PROCESSOR_RESPONSE
+		MAIN_MEM_INVALIDATE        => MEM_INVALIDATE
+		MAIN_MEM_INVALIDATE_ACK    => MEM_INVALIDATE_ACK
+		EXTERNAL_INTERRUPT         => EXTERNAL_INTERRUPT
+		PROCESSOR_MODE             => PROCESSOR_MODE
+		UART_BAUD_FREQ             => UART_BAUD_FREQ
+                UART_BAUD_LIMIT            => UART_BAUD_LIMIT
+                UART_SOFT_RESET            => UART_SOFT_RESET
+		$clk => CLOCK_80
+		$reset => RESET_TO_PROCESSOR
+
+
+     
+
+	//added sram	
+	
+	$instance acb_sram_inst  acb_sram_lib: acb_sram
+                ACB_SRAM_REQUEST  => PROCESSOR_TO_SRAM_REQUEST
+                ACB_SRAM_RESPONSE => SRAM_TO_PROCESSOR_RESPONSE
+                $clk => CLOCK_80
+                $reset => RESET_TO_PROCESSOR
+
+		
+}

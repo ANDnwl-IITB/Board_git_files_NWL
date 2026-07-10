@@ -1,0 +1,67 @@
+//
+//-----------------------------------------------------------------------------------------------------
+//  Common address calculation routine.
+//-----------------------------------------------------------------------------------------------------
+$pipeline $depth 7 $fullrate  
+$operator $module [calculateAddress36] $in (addr_base offset: $uint<64>) $out (addr: $uint<36>) $is
+{
+	addr := (($slice addr_base 35 0) + ($slice offset 35 0))
+}
+
+
+$pipeline $depth 15 $opaque $module [accessMemoryDword]
+	$in (tag: $uint<8> rwbar: $uint<1> base_addr: $uint<64> offset: $uint<64> wdata : $uint<64>)
+	$out (rdata : $uint<64>)
+$is
+{
+	addr := ($call calculateAddress36 (base_addr offset))
+	$volatile request := ($concat $zero<1> rwbar (~$zero<8>)  addr wdata)  
+	
+	NIC_TO_MEMORY_REQUEST := request $mark REQ
+	response := MEMORY_TO_NIC_RESPONSE  $delay (REQ 8)
+	
+	$volatile debug_sig := ($concat $zero<73> tag request response)
+	NIC_DEBUG_SIGNAL := debug_sig
+
+	$volatile $split (response 1 64) (err rdata)
+
+	$attribute input_buffering 0
+	$attribute output_buffering 0
+}
+
+
+//
+// To test memory access from NIC side
+// For debug purpose only through debug_memory pipes
+//
+$module [memoryTestDaemon] $in () $out () $is
+{
+	$branchblock[loop] 
+	{
+		$merge $entry loopback $endmerge
+		
+		// 64-bit
+		// unused lock rwbar bmask addr
+		//   18    1   1     8     36
+		cmd0 := debug_memory_command
+		cmd1 := debug_memory_command
+		
+		$volatile tag := $zero<8>
+		$volatile $split (cmd0 18 1 1 8 36) (unused lock rwbar bmask addr)
+		$volatile addr_offset := $zero<64>
+		$volatile wdata := ($mux rwbar $zero<64> cmd1)
+		
+		$if (~rwbar) $then
+			$call accessMemoryDword (tag WRITEMEM ($bitcast ($uint<64>) addr) addr_offset wdata) (ignr) 
+		$else
+			$call accessMemoryDword (tag READMEM  ($bitcast ($uint<64>) addr) addr_offset wdata) (rdata)
+		$endif
+		
+		$volatile result := ($mux rwbar rdata $zero<64>)
+		debug_memory_response := result
+
+		$place [loopback]
+	}
+
+}
+

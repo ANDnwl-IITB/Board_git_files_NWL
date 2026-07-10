@@ -1,0 +1,5 @@
+Assembler_TESTS:
+	FFT and Matrix Multiplication Programs to run on the assembler.
+
+HW_TESTS:
+	FFT and Matrix Multiplication to be implemented and validated on hardware.

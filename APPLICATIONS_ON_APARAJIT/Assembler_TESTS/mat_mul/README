@@ -1,0 +1,11 @@
+mmul_32x32:
+	 Matrix multiplication of two 32 × 32 matrices with 4-bit elements.
+
+mmul_64_32x32:
+	Matrix multiplication of 32 × 64 and 64 × 32 matrices with 4-bit elements.
+
+mmul_64x64:
+	Matrix multiplication of two 64 × 64 matrices with 4-bit elements.
+
+mmul_128_32x32:
+	Matrix multiplication of 32 × 128 and 128 × 32 matrices with 4-bit elements.

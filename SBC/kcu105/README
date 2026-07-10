@@ -12,11 +12,15 @@ hsys/
 	We use this folder to construct our own core_library from highlevel to vhdl. It contains processor , Dram, Ethernet, serial and debug uarts
         Just do ./build.sh inside this folder (in the ajit-toolchain docker).
 
+hsys_dram/
+	It contains processor , Dram, serial and debug uarts
+
 vivado_synth/
 	Contains bitgen tcl file and run.sh script used to generate the bitfile and the working directory
 	
 ip/
 	Contains the required ips.
 
-configure_fpga/
-	This folder contains the scripts and configuration files required to program the FPGA, perform reset sequencing, and initialize the hardware design through Vivado Hardware Manage
+TESTS/
+	Contains Dram and Ethernet tests to verify the functionality. Ex : Marches test, Dram Profiler, Ping test, etc..
+	

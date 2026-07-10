@@ -1,0 +1,7 @@
+run.sh:
+	Run `run.sh` to execute the Vivado batch flow. Put `bitgen.tcl` or `bitgen_dram.tcl` in `run.sh` based on the requirement.
+
+bitgen_dram.tcl:
+	Vivado script for running the SBC (Processor + DRAM) design
+bitgen.tcl:
+	Vivado script for running the SBC (Processor + DRAM + Ethernet) design

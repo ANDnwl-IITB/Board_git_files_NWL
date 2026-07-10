@@ -1,0 +1,23 @@
+kcu105_core.hsys
+	Contains the SBC core hsys file (Created its not present by default)
+
+processor_subsystem/
+	Contains the Processor hsys file (in this case processor_1x1x32.hsys)
+
+pipes.aa/
+	This Contains the pipes declarations used in SBC core and Processor core.
+
+signals.aa/
+	This Contains the signal declarations used in SBC core and Processor core.
+
+acb_dram_controller_bridge/
+	This contains dram controller bridge which connects dram cntlr ip (which is located outside the core block, in the toplevel).
+
+DualClockedFifos/
+	We are using 2 Dualclocked fifos now between the processor and the dram bridge because both use different clocks.
+
+In future other blocks such as acb_afb_complex etc., must be added in this location.
+
+
+Note: 
+	The Build.sh script must be executed inside Ajit-Toolchain inside docker as it contains Ahir related libraries.

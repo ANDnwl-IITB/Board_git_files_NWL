@@ -1,1 +1,1 @@
-Run ./link.sh to setup the edn link.
+Put the path to the processor edn and  Run ./link.sh to setup the edn link.

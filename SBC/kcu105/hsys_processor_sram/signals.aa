@@ -1,0 +1,19 @@
+
+// main SBC signals
+
+$pipe CLOCK_80: $uint<1>  $signal
+$pipe RESET_TO_PROCESSOR : $uint<1> $signal
+
+
+// Processor signals
+$pipe THREAD_RESET         : $uint<4>  $signal 
+$pipe PROCESSOR_MODE       : $uint<16> $signal 
+$pipe EXTERNAL_INTERRUPT   : $uint<1>  $signal
+
+
+ // serial uart control
+
+ $pipe UART_BAUD_FREQ: $uint<32> $depth 1  $signal
+ $pipe UART_BAUD_LIMIT: $uint<32> $depth 1  $signal
+ $pipe UART_SOFT_RESET: $uint<1> $depth 1  $signal
+

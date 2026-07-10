@@ -18,5 +18,5 @@ vivado_synth/
 ip/
 	Contains the required ips.
 
-configure_fpga/
-	This folder contains the scripts and configuration files required to program the FPGA, perform reset sequencing, and initialize the hardware design through Vivado Hardware Manage
+TESTS/
+        Contains Dram and Ethernet tests to verify the functionality. Ex : Marches test, Dram Profiler, Ping test, etc.
