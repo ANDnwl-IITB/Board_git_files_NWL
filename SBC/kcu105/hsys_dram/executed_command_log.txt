@@ -1,0 +1,45 @@
+make -C ./processor_subsystem SIMULATOR=-s\ ghdl
+hierSys2Vhdl -s ghdl -o vhdl pipes.aa signals.aa DualClockedFifos/DualClockedFifos.hsys ./acb_sram/acb_sram.hsys ./processor_subsystem/processor_1x1x32.hsys ./DualClockedFifos/DualClockedFifos.hsys ./GlueModules/GlueModules.hsys ./acb_dram_controller_bridge/acb_dram_controller_bridge.hsys ./kcu105_core.hsys 
+make -C ./processor_subsystem SIMULATOR=-s\ ghdl
+hierSys2Vhdl -s ghdl -o vhdl pipes.aa signals.aa DualClockedFifos/DualClockedFifos.hsys ./acb_sram/acb_sram.hsys ./processor_subsystem/processor_1x1x32.hsys ./DualClockedFifos/DualClockedFifos.hsys ./GlueModules/GlueModules.hsys ./acb_dram_controller_bridge/acb_dram_controller_bridge.hsys ./kcu105_core.hsys 
+make -C ./processor_subsystem SIMULATOR=-s\ ghdl
+hierSys2Vhdl -s ghdl -o vhdl pipes.aa signals.aa ./GueModules/GlueModules.hsys DualClockedFifos/DualClockedFifos.hsys ./acb_sram/acb_sram.hsys ./processor_subsystem/processor_1x1x32.hsys ./DualClockedFifos/DualClockedFifos.hsys ./GlueModules/GlueModules.hsys ./acb_dram_controller_bridge/acb_dram_controller_bridge.hsys ./kcu105_core.hsys 
+make -C ./processor_subsystem SIMULATOR=-s\ ghdl
+hierSys2Vhdl -s ghdl -o vhdl pipes.aa signals.aa ./GlueModules/GlueModules.hsys DualClockedFifos/DualClockedFifos.hsys ./acb_sram/acb_sram.hsys ./processor_subsystem/processor_1x1x32.hsys ./DualClockedFifos/DualClockedFifos.hsys ./GlueModules/GlueModules.hsys ./acb_dram_controller_bridge/acb_dram_controller_bridge.hsys ./kcu105_core.hsys 
+make -C ./processor_subsystem SIMULATOR=-s\ ghdl
+hierSys2Vhdl -s ghdl -o vhdl pipes.aa signals.aa ./GlueModules/GlueModules.hsys DualClockedFifos/DualClockedFifos.hsys ./acb_sram/acb_sram.hsys ./processor_subsystem/processor_1x1x32.hsys ./DualClockedFifos/DualClockedFifos.hsys ./GlueModules/GlueModules.hsys ./acb_dram_controller_bridge/acb_dram_controller_bridge.hsys ./kcu105_core.hsys 
+make -C ./processor_subsystem SIMULATOR=-s\ ghdl
+hierSys2Vhdl -s ghdl -o vhdl pipes.aa signals.aa ./GlueModules/GlueModules.hsys DualClockedFifos/DualClockedFifos.hsys ./acb_sram/acb_sram.hsys ./processor_subsystem/processor_1x1x32.hsys ./DualClockedFifos/DualClockedFifos.hsys ./GlueModules/GlueModules.hsys ./acb_dram_controller_bridge/acb_dram_controller_bridge.hsys ./kcu105_core.hsys 
+make -C ./processor_subsystem SIMULATOR=-s\ ghdl
+hierSys2Vhdl -s ghdl -o vhdl pipes.aa signals.aa ./GlueModules/GlueModules.hsys DualClockedFifos/DualClockedFifos.hsys ./acb_sram/acb_sram.hsys ./processor_subsystem/processor_1x1x32.hsys ./DualClockedFifos/DualClockedFifos.hsys ./GlueModules/GlueModules.hsys ./acb_dram_controller_bridge/acb_dram_controller_bridge.hsys ./kcu105_core.hsys 
+make -C ./processor_subsystem SIMULATOR=-s\ ghdl
+hierSys2Vhdl -s ghdl -o vhdl pipes.aa signals.aa ./GlueModules/GlueModules.hsys DualClockedFifos/DualClockedFifos.hsys ./acb_sram/acb_sram.hsys ./processor_subsystem/processor_1x1x32.hsys ./DualClockedFifos/DualClockedFifos.hsys ./GlueModules/GlueModules.hsys ./acb_dram_controller_bridge/acb_dram_controller_bridge.hsys ./kcu105_core.hsys 
+make -C ./processor_subsystem SIMULATOR=-s\ ghdl
+hierSys2Vhdl -s ghdl -o vhdl pipes.aa signals.aa ./GlueModules/GlueModules.hsys DualClockedFifos/DualClockedFifos.hsys ./acb_sram/acb_sram.hsys ./processor_subsystem/processor_1x1x32.hsys ./DualClockedFifos/DualClockedFifos.hsys ./GlueModules/GlueModules.hsys ./acb_dram_controller_bridge/acb_dram_controller_bridge.hsys ./kcu105_core.hsys 
+make -C ./processor_subsystem SIMULATOR=-s\ ghdl
+hierSys2Vhdl -s ghdl -o vhdl pipes.aa signals.aa ./GlueModules/GlueModules.hsys DualClockedFifos/DualClockedFifos.hsys ./acb_sram/acb_sram.hsys ./processor_subsystem/processor_1x1x32.hsys ./DualClockedFifos/DualClockedFifos.hsys ./GlueModules/GlueModules.hsys ./acb_dram_controller_bridge/acb_dram_controller_bridge.hsys ./kcu105_core.hsys 
+make -C ./processor_subsystem SIMULATOR=-s\ ghdl
+hierSys2Vhdl -s ghdl -o vhdl pipes.aa signals.aa ./GlueModules/GlueModules.hsys DualClockedFifos/DualClockedFifos.hsys ./acb_sram/acb_sram.hsys ./processor_subsystem/processor_1x1x32.hsys ./DualClockedFifos/DualClockedFifos.hsys ./GlueModules/GlueModules.hsys ./acb_dram_controller_bridge/acb_dram_controller_bridge.hsys ./kcu105_core.hsys 
+make -C ./processor_subsystem SIMULATOR=-s\ ghdl
+hierSys2Vhdl -s ghdl -o vhdl pipes.aa signals.aa ./GlueModules/GlueModules.hsys DualClockedFifos/DualClockedFifos.hsys ./acb_sram/acb_sram.hsys ./processor_subsystem/processor_1x1x32.hsys ./DualClockedFifos/DualClockedFifos.hsys ./GlueModules/GlueModules.hsys ./acb_dram_controller_bridge/acb_dram_controller_bridge.hsys ./kcu105_core.hsys 
+make -C ./processor_subsystem SIMULATOR=-s\ ghdl
+hierSys2Vhdl -s ghdl -o vhdl pipes.aa signals.aa ./GlueModules/GlueModules.hsys DualClockedFifos/DualClockedFifos.hsys ./acb_sram/acb_sram.hsys ./processor_subsystem/processor_1x1x32.hsys ./DualClockedFifos/DualClockedFifos.hsys ./GlueModules/GlueModules.hsys ./acb_dram_controller_bridge/acb_dram_controller_bridge.hsys ./kcu105_core.hsys 
+make -C ./processor_subsystem SIMULATOR=-s\ ghdl
+hierSys2Vhdl -s ghdl -o vhdl pipes.aa signals.aa ./GlueModules/GlueModules.hsys DualClockedFifos/DualClockedFifos.hsys ./acb_sram/acb_sram.hsys ./processor_subsystem/processor_1x1x32.hsys ./DualClockedFifos/DualClockedFifos.hsys ./GlueModules/GlueModules.hsys ./acb_dram_controller_bridge/acb_dram_controller_bridge.hsys ./kcu105_core.hsys 
+make -C ./processor_subsystem SIMULATOR=-s\ ghdl
+hierSys2Vhdl -s ghdl -o vhdl pipes.aa signals.aa ./GlueModules/GlueModules.hsys DualClockedFifos/DualClockedFifos.hsys ./acb_sram/acb_sram.hsys ./processor_subsystem/processor_1x1x32.hsys ./DualClockedFifos/DualClockedFifos.hsys ./GlueModules/GlueModules.hsys ./acb_dram_controller_bridge/acb_dram_controller_bridge.hsys ./kcu105_core.hsys 
+make -C ./processor_subsystem SIMULATOR=-s\ ghdl
+hierSys2Vhdl -s ghdl -o vhdl pipes.aa signals.aa ./GlueModules/GlueModules.hsys DualClockedFifos/DualClockedFifos.hsys ./acb_sram/acb_sram.hsys ./processor_subsystem/processor_1x1x32.hsys ./DualClockedFifos/DualClockedFifos.hsys ./GlueModules/GlueModules.hsys ./acb_dram_controller_bridge/acb_dram_controller_bridge.hsys ./kcu105_core.hsys 
+make -C ./processor_subsystem SIMULATOR=-s\ ghdl
+hierSys2Vhdl -s ghdl -o vhdl pipes.aa signals.aa ./GlueModules/GlueModules.hsys DualClockedFifos/DualClockedFifos.hsys ./acb_sram/acb_sram.hsys ./processor_subsystem/processor_1x1x32.hsys ./DualClockedFifos/DualClockedFifos.hsys ./GlueModules/GlueModules.hsys ./acb_dram_controller_bridge/acb_dram_controller_bridge.hsys ./kcu105_core.hsys 
+make -C ./processor_subsystem SIMULATOR=-s\ ghdl
+hierSys2Vhdl -s ghdl -o vhdl pipes.aa signals.aa ./GlueModules/GlueModules.hsys DualClockedFifos/DualClockedFifos.hsys ./acb_sram/acb_sram.hsys ./processor_subsystem/processor_1x1x32.hsys ./DualClockedFifos/DualClockedFifos.hsys ./GlueModules/GlueModules.hsys ./acb_dram_controller_bridge/acb_dram_controller_bridge.hsys ./kcu105_core.hsys 
+make -C ./processor_subsystem SIMULATOR=-s\ ghdl
+hierSys2Vhdl -s ghdl -o vhdl pipes.aa signals.aa ./GlueModules/GlueModules.hsys DualClockedFifos/DualClockedFifos.hsys ./acb_sram/acb_sram.hsys ./processor_subsystem/processor_1x1x32.hsys ./DualClockedFifos/DualClockedFifos.hsys ./GlueModules/GlueModules.hsys ./acb_dram_controller_bridge/acb_dram_controller_bridge.hsys ./kcu105_core.hsys 
+formatVhdlFiles.py vhdl
+make -C ./processor_subsystem SIMULATOR=-s\ ghdl
+hierSys2Vhdl -s ghdl -o vhdl pipes.aa signals.aa ./GlueModules/GlueModules.hsys DualClockedFifos/DualClockedFifos.hsys ./acb_sram/acb_sram.hsys ./processor_subsystem/processor_1x1x32.hsys ./DualClockedFifos/DualClockedFifos.hsys ./GlueModules/GlueModules.hsys ./acb_dram_controller_bridge/acb_dram_controller_bridge.hsys ./kcu105_core.hsys 
+formatVhdlFiles.py vhdl
+make -C ./processor_subsystem SIMULATOR=-s\ ghdl
+hierSys2Vhdl -s ghdl -o vhdl pipes.aa signals.aa ./GlueModules/GlueModules.hsys DualClockedFifos/DualClockedFifos.hsys ./processor_subsystem/processor_1x1x32.hsys ./GlueModules/GlueModules.hsys ./acb_sram/acb_sram.hsys ./DualClockedFifos/DualClockedFifos.hsys ./acb_dram_controller_bridge/acb_dram_controller_bridge.hsys ./kcu105_core.hsys 
+formatVhdlFiles.py vhdl

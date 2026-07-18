@@ -1,0 +1,169 @@
+//
+//      There are four transmit servers
+//	Pulls packet(to be transmitted) from memory
+//	and pushes it to MAC
+//
+//	step 0 : Wait until enabled
+//	step 1 : Pop the buffer pointer from the TxQ
+//	step 2 : Transmit the packet from the acquired buffer
+//	step 3 : Acquire freeQ lock, push the free buffer pointer into the freeQ, release freeQ lock 
+//		 and then increment the no. of packets transmitted
+//	Move on to the next servers (if enabled), so that other Tx servers are not overloaded by outgoing packets
+//	and run steps 1 to 3 in a loop till enabled
+
+$module [TransmitEngineDaemon] $in () $out () $is
+{
+	// The last index in the transmit queue which was read from
+	//LAST_READ_TX_QUEUE_INDEX := 0
+	
+	$branchblock[main]
+	{
+		// spin until enabled by software
+		$merge $entry not_enabled_yet_loopback disable_loopback $endmerge
+		
+		// If not enabled yet -> Loopback
+		$if (~(S_CONTROL_REGISTER [] 0)) $then
+			$place [not_enabled_yet_loopback]
+		$endif
+
+		tx_tag := ($bitcast ($uint<8>) P_TX_ENGINE_TAG)
+	
+		//  Transmit loop
+		$merge $entry loopback 
+			$phi TxQ_server_id := $zero<4> $on $entry n_TxQ_server_id $on loopback
+		$endmerge
+		
+			// spin until pop_status is successful
+			$merge $entry pop_loopback $endmerge
+				
+			// pop buffer pointer from server TxQ_server_id
+			$call popFromQueue (TXQUEUE TxQ_server_id) (tx_buffer_pointer_32)
+			
+			// pop_status == 0 is success, i.e., popped buffer pointer from TxQ
+			$volatile pop_status := (tx_buffer_pointer_32 [] 0)
+			
+			// If pop not successful -> Loopback
+			$if (pop_status == 1) $then 
+				$place [pop_loopback]
+			$endif
+			
+			$volatile tx_buffer_pointer := ($bitcast ($uint<64>) tx_buffer_pointer_32)
+			
+			// After successfully popping buffer pointer from TxQ, transmit packet from that buffer 
+			$call transmitPacket (tx_tag tx_buffer_pointer) (transmitted_flag)
+			
+			// if transmitted_flag is 1,
+			// then packet is transmitted successfully, push buffer pointer into free queue
+
+			$if (transmitted_flag == 1) $then
+				// spin until lock is acquired and push_status is successful
+				$merge $entry lock_loopback push_loopback $endmerge
+
+				// acquire free queue lock to push buffer pointer to free queue
+				$call exec_free_queue_command (SERVER_0 FQ_LOCK _h0000) (fQ_lock_status)
+			
+				// lock_status == 0 is success, i.e., get access to freeQ lock
+				$volatile lock_status := ($bitreduce | fQ_lock_status)
+			
+				// If lock not acquired -> Loopback
+				$if(lock_status == 1) $then
+					$place [lock_loopback]
+				$endif
+				
+				// If lock acquired -> push into free queue
+				$call pushIntoQueue (FREEQUEUE SERVER_0 tx_buffer_pointer_32) (freeQ_status)
+				
+				// release freeQ lock immediately after push
+				$call exec_free_queue_command (SERVER_0 FQ_UNLOCK _h0000) (fQ_unlock_status)
+			
+				// push_status == 0 is success, i.e., pushed buffer pointer to freeQ
+				$volatile push_status := (freeQ_status [] 1)
+
+				// If push not successful -> Loopback
+				$if (push_status == 1) $then 
+					$place [push_loopback]
+				$endif
+
+				// Increment the number of packets transmitted
+				$call incrementNumberOfPacketsTransmitted () ()
+
+				// move to next server's Tx queue
+				n_TxQ_server_id := ((TxQ_server_id + 1) & ($bitcast ($uint<4>) (S_NUMBER_OF_SERVERS - 1)))
+				//LAST_READ_TX_QUEUE_INDEX := TxQ_server_id
+
+			$endif
+	
+			// Loop while (control[0] == 1), i.e., NIC is enabled
+			$if ((S_CONTROL_REGISTER [] 0) == 1) $then
+				$place [loopback]
+			$endif
+			
+		$place [disable_loopback]
+	}
+}
+
+
+
+
+// 	Transmit packet, given the pointer to the packet
+// 	and return 1 if success.
+$module [transmitPacket]
+	$in (tag :$uint<8> packet_pointer: $uint<64>) 
+	$out (status: $uint<1>) $is
+{
+	// read packet information from transmit packet buffer.
+	$volatile control_data_addr := packet_pointer
+
+	$rreport(transmitPacket control_data_addr_is packet_pointer control_data_addr)
+		
+	$call accessMemoryDword (tag READMEM control_data_addr  0 $zero<64>) (control_data)
+	
+	
+	// get packet_size and tkeep(bytemask) of last word
+	$volatile $split (control_data 45 11 8 ) (unused packet_size last_tkeep)
+	$rreport(transmitPacket control_data_received_is packet_size last_tkeep)	
+	$branchblock[loop]
+	{
+		$dopipeline $depth 31 $fullrate
+		$merge $entry $loopback
+
+			$phi count_down := (packet_size - 16) $on $entry ncount_down $on $loopback
+
+			//packet starts after 3 d-words (64 bits each) in the buffer
+			$phi mem_addr_offset := ($bitcast ($uint<16>) 24) $on $entry nmem_addr_offset $on $loopback
+
+		$endmerge
+
+		// read packet data
+		$call accessMemoryDword (tag READMEM control_data_addr 
+							($bitcast ($uint<64>) mem_addr_offset) $zero<64>) (data)
+ 
+		// transmit packet to MAC.
+		$volatile to_mac_1 := ($concat $zero<1> data FULL_BYTE_MASK)
+		nic_to_mac_transmit_pipe := to_mac_1
+
+		// compute next count down and next memory address.
+		$volatile  ncount_down := (count_down - 8)
+		$volatile  nmem_addr_offset := (mem_addr_offset + 8)
+		
+		$volatile not_last_word := (ncount_down > 8)
+
+		// loop till last word
+		$while not_last_word
+	
+
+		$volatile last_offset := nmem_addr_offset
+	
+		//last word
+		$call accessMemoryDword (tag READMEM control_data_addr 
+						($bitcast ($uint<64>) last_offset) $zero<64>) (last_word)
+		
+		// transmit last word
+		$rreport(transmitPacket sending_last_word last_word)
+		$volatile to_mac_2 := ($concat $one<1> last_word last_tkeep)
+		nic_to_mac_transmit_pipe := to_mac_2
+		
+		// transmit successful if packet_size amount of data is succesfully transmitted
+		status := (packet_size == ($bitcast ($uint<11>) last_offset))
+	}	
+}

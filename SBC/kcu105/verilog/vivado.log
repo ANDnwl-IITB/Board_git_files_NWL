@@ -1,0 +1,81 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:39:14 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Sat Jun 20 13:54:30 2026
+# Process ID: 2351470
+# Current directory: /home/madhav/AjitHpcBoards_local/AjitHpcBoards/kcu105_ethernet_git_check/verilog
+# Command line: vivado
+# Log file: /home/madhav/AjitHpcBoards_local/AjitHpcBoards/kcu105_ethernet_git_check/verilog/vivado.log
+# Journal file: /home/madhav/AjitHpcBoards_local/AjitHpcBoards/kcu105_ethernet_git_check/verilog/vivado.jou
+#-----------------------------------------------------------
+start_gui
+create_project ila_pcs_pma /home/madhav/KCU105/kcu105_ip_generated/ila_pcs_pma -part xcku040-ffva1156-2-e
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/xilinx/Vivado/2019.2/data/ip'.
+set_property board_part xilinx.com:kcu105:part0:1.6 [current_project]
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4331] Invalid usage of property - Setting value property on PARAM_VALUE.ALL_PROBE_SAME_MU is not allowed in procedure update_gui_for_PARAM_VALUE.C_ADV_TRIGGER
+close_project
+open_project /home/madhav/KCU105/kcu105_ip_generated/ila/ila.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/xilinx/Vivado/2019.2/data/ip'.
+update_compile_order -fileset sources_1
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+close_project
+open_project /home/madhav/KCU105/kcu105_ip_generated/ila_pcs_pma/ila_pcs_pma.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/tools/xilinx/Vivado/2019.2/data/ip'.
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+create_ip -name ila -vendor xilinx.com -library ip -version 6.2 -module_name ila_0
+set_property -dict [list CONFIG.C_PROBE0_WIDTH {16} CONFIG.C_NUM_OF_PROBES {5}] [get_ips ila_0]
+generate_target {instantiation_template} [get_files /home/madhav/KCU105/kcu105_ip_generated/ila_pcs_pma/ila_pcs_pma.srcs/sources_1/ip/ila_0/ila_0.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'ila_0'...
+update_compile_order -fileset sources_1
+generate_target all [get_files  /home/madhav/KCU105/kcu105_ip_generated/ila_pcs_pma/ila_pcs_pma.srcs/sources_1/ip/ila_0/ila_0.xci]
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'ila_0'...
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/home/madhav/KCU105/kcu105_ip_generated/ila_pcs_pma/ila_pcs_pma.srcs/sources_1/ip/ila_0/ila_0_ooc.xdc'
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'ila_0'...
+INFO: [IP_Flow 19-1686] Generating 'Implementation' target for IP 'ila_0'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'ila_0'...
+catch { config_ip_cache -export [get_ips -all ila_0] }
+export_ip_user_files -of_objects [get_files /home/madhav/KCU105/kcu105_ip_generated/ila_pcs_pma/ila_pcs_pma.srcs/sources_1/ip/ila_0/ila_0.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] /home/madhav/KCU105/kcu105_ip_generated/ila_pcs_pma/ila_pcs_pma.srcs/sources_1/ip/ila_0/ila_0.xci]
+launch_runs -jobs 24 ila_0_synth_1
+[Sat Jun 20 13:59:56 2026] Launched ila_0_synth_1...
+Run output will be captured here: /home/madhav/KCU105/kcu105_ip_generated/ila_pcs_pma/ila_pcs_pma.runs/ila_0_synth_1/runme.log
+export_simulation -of_objects [get_files /home/madhav/KCU105/kcu105_ip_generated/ila_pcs_pma/ila_pcs_pma.srcs/sources_1/ip/ila_0/ila_0.xci] -directory /home/madhav/KCU105/kcu105_ip_generated/ila_pcs_pma/ila_pcs_pma.ip_user_files/sim_scripts -ip_user_files_dir /home/madhav/KCU105/kcu105_ip_generated/ila_pcs_pma/ila_pcs_pma.ip_user_files -ipstatic_source_dir /home/madhav/KCU105/kcu105_ip_generated/ila_pcs_pma/ila_pcs_pma.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/madhav/KCU105/kcu105_ip_generated/ila_pcs_pma/ila_pcs_pma.cache/compile_simlib/modelsim} {questa=/home/madhav/KCU105/kcu105_ip_generated/ila_pcs_pma/ila_pcs_pma.cache/compile_simlib/questa} {ies=/home/madhav/KCU105/kcu105_ip_generated/ila_pcs_pma/ila_pcs_pma.cache/compile_simlib/ies} {xcelium=/home/madhav/KCU105/kcu105_ip_generated/ila_pcs_pma/ila_pcs_pma.cache/compile_simlib/xcelium} {vcs=/home/madhav/KCU105/kcu105_ip_generated/ila_pcs_pma/ila_pcs_pma.cache/compile_simlib/vcs} {riviera=/home/madhav/KCU105/kcu105_ip_generated/ila_pcs_pma/ila_pcs_pma.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+export_ip_user_files -of_objects  [get_files /home/madhav/KCU105/kcu105_ip_generated/ila_pcs_pma/ila_pcs_pma.srcs/sources_1/ip/ila_0/ila_0.xci] -no_script -reset -force -quiet
+remove_files  -fileset ila_0 /home/madhav/KCU105/kcu105_ip_generated/ila_pcs_pma/ila_pcs_pma.srcs/sources_1/ip/ila_0/ila_0.xci
+INFO: [Project 1-386] Moving file '/home/madhav/KCU105/kcu105_ip_generated/ila_pcs_pma/ila_pcs_pma.srcs/sources_1/ip/ila_0/ila_0.xci' from fileset 'ila_0' to fileset 'sources_1'.
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+create_ip -name ila -vendor xilinx.com -library ip -version 6.2 -module_name ila_pcs_pma
+set_property -dict [list CONFIG.C_PROBE0_WIDTH {16} CONFIG.C_NUM_OF_PROBES {5} CONFIG.Component_Name {ila_pcs_pma}] [get_ips ila_pcs_pma]
+WARNING: [Vivado 12-3523] Attempt to change 'Component_Name' from 'ila_pcs_pma' to 'ila_pcs_pma' is not allowed and is ignored.
+generate_target {instantiation_template} [get_files /home/madhav/KCU105/kcu105_ip_generated/ila_pcs_pma/ila_pcs_pma.srcs/sources_1/ip/ila_pcs_pma/ila_pcs_pma.xci]
+INFO: [IP_Flow 19-1686] Generating 'Instantiation Template' target for IP 'ila_pcs_pma'...
+generate_target all [get_files  /home/madhav/KCU105/kcu105_ip_generated/ila_pcs_pma/ila_pcs_pma.srcs/sources_1/ip/ila_pcs_pma/ila_pcs_pma.xci]
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'ila_pcs_pma'...
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file '/home/madhav/KCU105/kcu105_ip_generated/ila_pcs_pma/ila_pcs_pma.srcs/sources_1/ip/ila_pcs_pma/ila_pcs_pma_ooc.xdc'
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'ila_pcs_pma'...
+INFO: [IP_Flow 19-1686] Generating 'Implementation' target for IP 'ila_pcs_pma'...
+INFO: [IP_Flow 19-1686] Generating 'Change Log' target for IP 'ila_pcs_pma'...
+catch { config_ip_cache -export [get_ips -all ila_pcs_pma] }
+export_ip_user_files -of_objects [get_files /home/madhav/KCU105/kcu105_ip_generated/ila_pcs_pma/ila_pcs_pma.srcs/sources_1/ip/ila_pcs_pma/ila_pcs_pma.xci] -no_script -sync -force -quiet
+create_ip_run [get_files -of_objects [get_fileset sources_1] /home/madhav/KCU105/kcu105_ip_generated/ila_pcs_pma/ila_pcs_pma.srcs/sources_1/ip/ila_pcs_pma/ila_pcs_pma.xci]
+launch_runs -jobs 24 ila_pcs_pma_synth_1
+[Sat Jun 20 14:01:11 2026] Launched ila_pcs_pma_synth_1...
+Run output will be captured here: /home/madhav/KCU105/kcu105_ip_generated/ila_pcs_pma/ila_pcs_pma.runs/ila_pcs_pma_synth_1/runme.log
+export_simulation -of_objects [get_files /home/madhav/KCU105/kcu105_ip_generated/ila_pcs_pma/ila_pcs_pma.srcs/sources_1/ip/ila_pcs_pma/ila_pcs_pma.xci] -directory /home/madhav/KCU105/kcu105_ip_generated/ila_pcs_pma/ila_pcs_pma.ip_user_files/sim_scripts -ip_user_files_dir /home/madhav/KCU105/kcu105_ip_generated/ila_pcs_pma/ila_pcs_pma.ip_user_files -ipstatic_source_dir /home/madhav/KCU105/kcu105_ip_generated/ila_pcs_pma/ila_pcs_pma.ip_user_files/ipstatic -lib_map_path [list {modelsim=/home/madhav/KCU105/kcu105_ip_generated/ila_pcs_pma/ila_pcs_pma.cache/compile_simlib/modelsim} {questa=/home/madhav/KCU105/kcu105_ip_generated/ila_pcs_pma/ila_pcs_pma.cache/compile_simlib/questa} {ies=/home/madhav/KCU105/kcu105_ip_generated/ila_pcs_pma/ila_pcs_pma.cache/compile_simlib/ies} {xcelium=/home/madhav/KCU105/kcu105_ip_generated/ila_pcs_pma/ila_pcs_pma.cache/compile_simlib/xcelium} {vcs=/home/madhav/KCU105/kcu105_ip_generated/ila_pcs_pma/ila_pcs_pma.cache/compile_simlib/vcs} {riviera=/home/madhav/KCU105/kcu105_ip_generated/ila_pcs_pma/ila_pcs_pma.cache/compile_simlib/riviera}] -use_ip_compiled_libs -force -quiet
+exit
+INFO: [Common 17-206] Exiting Vivado at Sat Jun 20 14:16:52 2026...

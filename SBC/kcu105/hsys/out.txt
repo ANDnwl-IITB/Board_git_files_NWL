@@ -1,0 +1,1092 @@
+make: Entering directory '/home/ajit/ajit-toolchain/AI_NIC_DEMO/SBC/kcu105_ethernet/hsys/processor_subsystem'
+buildHierarchicalModel.py  -s ghdl -a ajit_processor_ajit_processor_lib -H ../pipes.aa  ../signals.aa 
+Info: simulator option is ghdl.
+Info: output-directory is vhdl.
+Info: adding pipe SOC_MONITOR_to_DEBUG width = 8, depth = 2 to global map 
+Info: adding pipe SOC_DEBUG_to_MONITOR width = 8, depth = 2 to global map 
+Info: adding pipe CONSOLE_to_SERIAL_RX width = 8, depth = 2 to global map 
+Info: adding pipe SERIAL_TX_to_CONSOLE width = 8, depth = 2 to global map 
+Info: adding pipe MEM_INVALIDATE width = 32, depth = 2 to global map 
+Info: adding pipe MEM_INVALIDATE_ACK width = 1, depth = 2 to global map 
+Info: adding pipe PROCESSOR_ACB_REQUEST_FIFO_IN width = 110, depth = 2 to global map 
+Info: marking pipe PROCESSOR_ACB_REQUEST_FIFO_IN as a p2p-pipe in global set.
+Info: adding pipe PROCESSOR_ACB_RESPONSE_FIFO_IN width = 65, depth = 2 to global map 
+Info: marking pipe PROCESSOR_ACB_RESPONSE_FIFO_IN as a p2p-pipe in global set.
+Info: adding pipe PROCESSOR_ACB_REQUEST_FIFO_OUT width = 110, depth = 2 to global map 
+Info: marking pipe PROCESSOR_ACB_REQUEST_FIFO_OUT as a p2p-pipe in global set.
+Info: adding pipe PROCESSOR_ACB_RESPONSE_FIFO_OUT width = 65, depth = 2 to global map 
+Info: marking pipe PROCESSOR_ACB_RESPONSE_FIFO_OUT as a p2p-pipe in global set.
+Info: adding pipe AFB_NIC_REQUEST width = 74, depth = 2 to global map 
+Info: adding pipe NIC_AFB_RESPONSE width = 33, depth = 2 to global map 
+Info: adding pipe NIC_ACB_REQUEST width = 110, depth = 2 to global map 
+Info: adding pipe ACB_NIC_RESPONSE width = 65, depth = 2 to global map 
+Info: adding pipe MAC_TO_NIC width = 10, depth = 2 to global map 
+Info: adding pipe NIC_TO_MAC width = 10, depth = 2 to global map 
+Info: adding pipe NIC_ACB_REQUEST_TO_MEMORY width = 110, depth = 2 to global map 
+Info: adding pipe ACB_DRAM_REQUEST width = 110, depth = 2 to global map 
+Info: adding pipe DRAM_ACB_RESPONSE width = 65, depth = 2 to global map 
+Info: adding pipe CORE_BUS_REQUEST width = 110, depth = 2 to global map 
+Info: adding pipe CORE_BUS_RESPONSE width = 65, depth = 2 to global map 
+Info: adding pipe ACB_REQUEST_FROM_PROCESSOR width = 110, depth = 2 to global map 
+Info: marking pipe ACB_REQUEST_FROM_PROCESSOR as a p2p-pipe in global set.
+Info: adding pipe ACB_RESPONSE_TO_PROCESSOR width = 65, depth = 2 to global map 
+Info: marking pipe ACB_RESPONSE_TO_PROCESSOR as a p2p-pipe in global set.
+Info: adding pipe AFB_REQUEST_TO_NIC width = 74, depth = 2 to global map 
+Info: adding pipe AFB_RESPONSE_FROM_NIC width = 33, depth = 2 to global map 
+Info: adding pipe ACB_REQUEST_FROM_NIC width = 110, depth = 2 to global map 
+Info: adding pipe ACB_RESPONSE_TO_NIC width = 65, depth = 2 to global map 
+Info: adding pipe ACB_REQUEST_TO_DRAM width = 110, depth = 2 to global map 
+Info: adding pipe ACB_RESPONSE_FROM_DRAM width = 65, depth = 2 to global map 
+Info: adding pipe ACB_DRAM_REQUEST_FIFO_IN width = 110, depth = 2 to global map 
+Info: adding pipe ACB_DRAM_REQUEST_FIFO_OUT width = 110, depth = 2 to global map 
+Info: adding pipe DRAM_ACB_RESPONSE_FIFO_IN width = 65, depth = 2 to global map 
+Info: adding pipe DRAM_ACB_RESPONSE_FIFO_OUT width = 65, depth = 2 to global map 
+Info: adding pipe CLOCK_80 width = 1, depth = 1 to global map 
+Info: marking pipe CLOCK_80 as a signal in global set.
+Info: adding pipe CLOCK_TO_NIC width = 1, depth = 1 to global map 
+Info: marking pipe CLOCK_TO_NIC as a signal in global set.
+Info: adding pipe RESET_TO_PROCESSOR width = 1, depth = 1 to global map 
+Info: marking pipe RESET_TO_PROCESSOR as a signal in global set.
+Info: adding pipe CLOCK_TO_DRAMCTRL_BRIDGE width = 1, depth = 1 to global map 
+Info: marking pipe CLOCK_TO_DRAMCTRL_BRIDGE as a signal in global set.
+Info: adding pipe RESET_TO_DRAMCTRL_BRIDGE width = 1, depth = 1 to global map 
+Info: marking pipe RESET_TO_DRAMCTRL_BRIDGE as a signal in global set.
+Info: adding pipe RESET_TO_NIC width = 1, depth = 1 to global map 
+Info: marking pipe RESET_TO_NIC as a signal in global set.
+Info: adding pipe THREAD_RESET width = 4, depth = 1 to global map 
+Info: marking pipe THREAD_RESET as a signal in global set.
+Info: adding pipe PROCESSOR_MODE width = 16, depth = 1 to global map 
+Info: marking pipe PROCESSOR_MODE as a signal in global set.
+Info: adding pipe EXTERNAL_INTERRUPT width = 1, depth = 1 to global map 
+Info: marking pipe EXTERNAL_INTERRUPT as a signal in global set.
+Info: adding pipe NIC_INTERRUPT width = 1, depth = 1 to global map 
+Info: marking pipe NIC_INTERRUPT as a signal in global set.
+Info: adding pipe NIC_MAC_RESETN width = 1, depth = 1 to global map 
+Info: marking pipe NIC_MAC_RESETN as a signal in global set.
+Info: adding pipe UART_BAUD_FREQ width = 32, depth = 1 to global map 
+Info: marking pipe UART_BAUD_FREQ as a signal in global set.
+Info: adding pipe UART_BAUD_LIMIT width = 32, depth = 1 to global map 
+Info: marking pipe UART_BAUD_LIMIT as a signal in global set.
+Info: adding pipe UART_SOFT_RESET width = 1, depth = 1 to global map 
+Info: marking pipe UART_SOFT_RESET as a signal in global set.
+Info: adding pipe ACB_BRIDGE_TO_DRAM_CONTROLLER width = 614, depth = 1 to global map 
+Info: marking pipe ACB_BRIDGE_TO_DRAM_CONTROLLER as a signal in global set.
+Info: adding pipe DRAM_CONTROLLER_TO_ACB_BRIDGE width = 522, depth = 1 to global map 
+Info: marking pipe DRAM_CONTROLLER_TO_ACB_BRIDGE as a signal in global set.
+Info: adding pipe MIN_ACB_TAP1_ADDR width = 36, depth = 1 to global map 
+Info: marking pipe MIN_ACB_TAP1_ADDR as a signal in global set.
+Info: adding pipe MAX_ACB_TAP1_ADDR width = 36, depth = 1 to global map 
+Info: marking pipe MAX_ACB_TAP1_ADDR as a signal in global set.
+Info: setting library for processor_1x1x32 to ajit_processor_lib
+Info: Added signal THREAD_RESET to system processor_1x1x32
+Info: Added signal EXTERNAL_INTERRUPT to system processor_1x1x32
+Info: Added signal PROCESSOR_MODE to system processor_1x1x32
+Info: Added signal UART_BAUD_FREQ to system processor_1x1x32
+Info: Added signal UART_BAUD_LIMIT to system processor_1x1x32
+Info: Added signal UART_SOFT_RESET to system processor_1x1x32
+
+$system processor_1x1x32
+$library ajit_processor_lib
+$in 
+ $pipe CONSOLE_to_SERIAL_RX 8 $depth 2 
+ $p2p $signal EXTERNAL_INTERRUPT 1 $depth 1 
+ $p2p $pipe MAIN_MEM_INVALIDATE 32 $depth 4 
+ $pipe MAIN_MEM_RESPONSE 65 $depth 2 
+ $pipe SOC_MONITOR_to_DEBUG 8 $depth 2 
+ $signal THREAD_RESET 4 $depth 1 
+
+$out 
+ $pipe MAIN_MEM_INVALIDATE_ACK 1 $depth 2 
+ $pipe MAIN_MEM_REQUEST 110 $depth 2 
+ $signal PROCESSOR_MODE 16 $depth 1 
+ $pipe SERIAL_TX_to_CONSOLE 8 $depth 2 
+ $pipe SOC_DEBUG_to_MONITOR 8 $depth 2 
+ $signal UART_BAUD_FREQ 32 $depth 1 
+ $signal UART_BAUD_LIMIT 32 $depth 1 
+ $signal UART_SOFT_RESET 1 $depth 1 
+
+{
+}
+Warning: no children, no strings, skipped system processor_1x1x32
+Info: found unformatted vhdl file vhdl/ajit_processor_lib/processor_1x1x32.unformatted_vhdl
+Info: executing vhdlFormat < vhdl/ajit_processor_lib/processor_1x1x32.unformatted_vhdl > vhdl/ajit_processor_lib/processor_1x1x32.vhdl
+Info: executing rm -f vhdl/ajit_processor_lib/processor_1x1x32.unformatted_vhdl
+Info: found unformatted vhdl file vhdl/testbench/processor_1x1x32_test_bench.unformatted_vhdl
+Info: executing vhdlFormat < vhdl/testbench/processor_1x1x32_test_bench.unformatted_vhdl > vhdl/testbench/processor_1x1x32_test_bench.vhdl
+Info: executing rm -f vhdl/testbench/processor_1x1x32_test_bench.unformatted_vhdl
+Info: simulator-choice = ghdl.
+Info: application-name  = ajit_processor_ajit_processor_lib.
+Info: only hsys files will be expanded
+Info: found hsys file ./processor_1x1x32.hsys
+make: Leaving directory '/home/ajit/ajit-toolchain/AI_NIC_DEMO/SBC/kcu105_ethernet/hsys/processor_subsystem'
+make: Entering directory '/home/ajit/ajit-toolchain/AI_NIC_DEMO/SBC/kcu105_ethernet/hsys/acb_afb_complex'
+buildHierarchicalModel.py  -s ghdl -a acb_afb_complex_acb_afb_complex_lib -H -J ../GlueModules/GlueModules.hsys ../pipes.aa  ../signals.aa 
+Info: simulator option is ghdl.
+Info: output-directory is vhdl.
+Info: adding pipe SOC_MONITOR_to_DEBUG width = 8, depth = 2 to global map 
+Info: adding pipe SOC_DEBUG_to_MONITOR width = 8, depth = 2 to global map 
+Info: adding pipe CONSOLE_to_SERIAL_RX width = 8, depth = 2 to global map 
+Info: adding pipe SERIAL_TX_to_CONSOLE width = 8, depth = 2 to global map 
+Info: adding pipe MEM_INVALIDATE width = 32, depth = 2 to global map 
+Info: adding pipe MEM_INVALIDATE_ACK width = 1, depth = 2 to global map 
+Info: adding pipe PROCESSOR_ACB_REQUEST_FIFO_IN width = 110, depth = 2 to global map 
+Info: marking pipe PROCESSOR_ACB_REQUEST_FIFO_IN as a p2p-pipe in global set.
+Info: adding pipe PROCESSOR_ACB_RESPONSE_FIFO_IN width = 65, depth = 2 to global map 
+Info: marking pipe PROCESSOR_ACB_RESPONSE_FIFO_IN as a p2p-pipe in global set.
+Info: adding pipe PROCESSOR_ACB_REQUEST_FIFO_OUT width = 110, depth = 2 to global map 
+Info: marking pipe PROCESSOR_ACB_REQUEST_FIFO_OUT as a p2p-pipe in global set.
+Info: adding pipe PROCESSOR_ACB_RESPONSE_FIFO_OUT width = 65, depth = 2 to global map 
+Info: marking pipe PROCESSOR_ACB_RESPONSE_FIFO_OUT as a p2p-pipe in global set.
+Info: adding pipe AFB_NIC_REQUEST width = 74, depth = 2 to global map 
+Info: adding pipe NIC_AFB_RESPONSE width = 33, depth = 2 to global map 
+Info: adding pipe NIC_ACB_REQUEST width = 110, depth = 2 to global map 
+Info: adding pipe ACB_NIC_RESPONSE width = 65, depth = 2 to global map 
+Info: adding pipe MAC_TO_NIC width = 10, depth = 2 to global map 
+Info: adding pipe NIC_TO_MAC width = 10, depth = 2 to global map 
+Info: adding pipe NIC_ACB_REQUEST_TO_MEMORY width = 110, depth = 2 to global map 
+Info: adding pipe ACB_DRAM_REQUEST width = 110, depth = 2 to global map 
+Info: adding pipe DRAM_ACB_RESPONSE width = 65, depth = 2 to global map 
+Info: adding pipe CORE_BUS_REQUEST width = 110, depth = 2 to global map 
+Info: adding pipe CORE_BUS_RESPONSE width = 65, depth = 2 to global map 
+Info: adding pipe ACB_REQUEST_FROM_PROCESSOR width = 110, depth = 2 to global map 
+Info: marking pipe ACB_REQUEST_FROM_PROCESSOR as a p2p-pipe in global set.
+Info: adding pipe ACB_RESPONSE_TO_PROCESSOR width = 65, depth = 2 to global map 
+Info: marking pipe ACB_RESPONSE_TO_PROCESSOR as a p2p-pipe in global set.
+Info: adding pipe AFB_REQUEST_TO_NIC width = 74, depth = 2 to global map 
+Info: adding pipe AFB_RESPONSE_FROM_NIC width = 33, depth = 2 to global map 
+Info: adding pipe ACB_REQUEST_FROM_NIC width = 110, depth = 2 to global map 
+Info: adding pipe ACB_RESPONSE_TO_NIC width = 65, depth = 2 to global map 
+Info: adding pipe ACB_REQUEST_TO_DRAM width = 110, depth = 2 to global map 
+Info: adding pipe ACB_RESPONSE_FROM_DRAM width = 65, depth = 2 to global map 
+Info: adding pipe ACB_DRAM_REQUEST_FIFO_IN width = 110, depth = 2 to global map 
+Info: adding pipe ACB_DRAM_REQUEST_FIFO_OUT width = 110, depth = 2 to global map 
+Info: adding pipe DRAM_ACB_RESPONSE_FIFO_IN width = 65, depth = 2 to global map 
+Info: adding pipe DRAM_ACB_RESPONSE_FIFO_OUT width = 65, depth = 2 to global map 
+Info: adding pipe CLOCK_80 width = 1, depth = 1 to global map 
+Info: marking pipe CLOCK_80 as a signal in global set.
+Info: adding pipe CLOCK_TO_NIC width = 1, depth = 1 to global map 
+Info: marking pipe CLOCK_TO_NIC as a signal in global set.
+Info: adding pipe RESET_TO_PROCESSOR width = 1, depth = 1 to global map 
+Info: marking pipe RESET_TO_PROCESSOR as a signal in global set.
+Info: adding pipe CLOCK_TO_DRAMCTRL_BRIDGE width = 1, depth = 1 to global map 
+Info: marking pipe CLOCK_TO_DRAMCTRL_BRIDGE as a signal in global set.
+Info: adding pipe RESET_TO_DRAMCTRL_BRIDGE width = 1, depth = 1 to global map 
+Info: marking pipe RESET_TO_DRAMCTRL_BRIDGE as a signal in global set.
+Info: adding pipe RESET_TO_NIC width = 1, depth = 1 to global map 
+Info: marking pipe RESET_TO_NIC as a signal in global set.
+Info: adding pipe THREAD_RESET width = 4, depth = 1 to global map 
+Info: marking pipe THREAD_RESET as a signal in global set.
+Info: adding pipe PROCESSOR_MODE width = 16, depth = 1 to global map 
+Info: marking pipe PROCESSOR_MODE as a signal in global set.
+Info: adding pipe EXTERNAL_INTERRUPT width = 1, depth = 1 to global map 
+Info: marking pipe EXTERNAL_INTERRUPT as a signal in global set.
+Info: adding pipe NIC_INTERRUPT width = 1, depth = 1 to global map 
+Info: marking pipe NIC_INTERRUPT as a signal in global set.
+Info: adding pipe NIC_MAC_RESETN width = 1, depth = 1 to global map 
+Info: marking pipe NIC_MAC_RESETN as a signal in global set.
+Info: adding pipe UART_BAUD_FREQ width = 32, depth = 1 to global map 
+Info: marking pipe UART_BAUD_FREQ as a signal in global set.
+Info: adding pipe UART_BAUD_LIMIT width = 32, depth = 1 to global map 
+Info: marking pipe UART_BAUD_LIMIT as a signal in global set.
+Info: adding pipe UART_SOFT_RESET width = 1, depth = 1 to global map 
+Info: marking pipe UART_SOFT_RESET as a signal in global set.
+Info: adding pipe ACB_BRIDGE_TO_DRAM_CONTROLLER width = 614, depth = 1 to global map 
+Info: marking pipe ACB_BRIDGE_TO_DRAM_CONTROLLER as a signal in global set.
+Info: adding pipe DRAM_CONTROLLER_TO_ACB_BRIDGE width = 522, depth = 1 to global map 
+Info: marking pipe DRAM_CONTROLLER_TO_ACB_BRIDGE as a signal in global set.
+Info: adding pipe MIN_ACB_TAP1_ADDR width = 36, depth = 1 to global map 
+Info: marking pipe MIN_ACB_TAP1_ADDR as a signal in global set.
+Info: adding pipe MAX_ACB_TAP1_ADDR width = 36, depth = 1 to global map 
+Info: marking pipe MAX_ACB_TAP1_ADDR as a signal in global set.
+Info: setting library for afb_fast_splitter to GlueModules
+Info: Added signal MIN_ADDR_LOW to system afb_fast_splitter
+Info: Added signal MAX_ADDR_LOW to system afb_fast_splitter
+Info: Added signal MIN_ADDR_HIGH to system afb_fast_splitter
+Info: Added signal MAX_ADDR_HIGH to system afb_fast_splitter
+Info: setting library for icache_mux_bypass to GlueModules
+Info: setting library for afb_scratch_pad to GlueModules
+Info: setting library for debug_aggregator_two_core to GlueModules
+Info: setting library for afb_null_stub to GlueModules
+Info: setting library for acb_fast_tap to GlueModules
+Info: Added signal MIN_ADDR_TAP to system acb_fast_tap
+Info: Added signal MAX_ADDR_TAP to system acb_fast_tap
+Info: setting library for mem_reset_mux to GlueModules
+Info: setting library for afb_fast_tap to GlueModules
+Info: Added signal MIN_ADDR_TAP to system afb_fast_tap
+Info: Added signal MAX_ADDR_TAP to system afb_fast_tap
+Info: setting library for acb_fast_mux to GlueModules
+Info: setting library for acb_afb_bridge to GlueModules
+Info: setting library for acb_null_stub to GlueModules
+Info: setting library for afb_1x1_interrupt_controller to GlueModules
+Info: Added signal INTERRUPT_VECTOR to system afb_1x1_interrupt_controller
+Info: Added signal INTR_LEVEL_0_0 to system afb_1x1_interrupt_controller
+Info: setting library for afb_multicore_interrupt_controller to GlueModules
+Info: Added signal INTERRUPT_VECTOR to system afb_multicore_interrupt_controller
+Info: Added signal INTR_LEVEL_0_0 to system afb_multicore_interrupt_controller
+Info: Added signal INTR_LEVEL_0_1 to system afb_multicore_interrupt_controller
+Info: Added signal INTR_LEVEL_1_0 to system afb_multicore_interrupt_controller
+Info: Added signal INTR_LEVEL_1_1 to system afb_multicore_interrupt_controller
+Info: Added signal INTR_LEVEL_2_0 to system afb_multicore_interrupt_controller
+Info: Added signal INTR_LEVEL_2_1 to system afb_multicore_interrupt_controller
+Info: Added signal INTR_LEVEL_3_0 to system afb_multicore_interrupt_controller
+Info: Added signal INTR_LEVEL_3_1 to system afb_multicore_interrupt_controller
+Info: setting library for coherent_memory_controller_four_core to GlueModules
+Info: Added signal IO_MAX_ADDR to system coherent_memory_controller_four_core
+Info: Added signal IO_MIN_ADDR to system coherent_memory_controller_four_core
+Info: Added signal CACHE_STALL_ENABLE to system coherent_memory_controller_four_core
+Info: setting library for coherent_memory_controller_two_core to GlueModules
+Info: Added signal IO_MAX_ADDR to system coherent_memory_controller_two_core
+Info: Added signal IO_MIN_ADDR to system coherent_memory_controller_two_core
+Info: Added signal CACHE_STALL_ENABLE to system coherent_memory_controller_two_core
+Info: setting library for coherent_memory_controller_single_core to GlueModules
+Info: Added signal IO_MAX_ADDR to system coherent_memory_controller_single_core
+Info: Added signal IO_MIN_ADDR to system coherent_memory_controller_single_core
+Info: Added signal CACHE_STALL_ENABLE to system coherent_memory_controller_single_core
+Info: setting library for debug_aggregator_single_core to GlueModules
+Info: setting library for coherent_memory_controller_four_core_v2 to GlueModules
+Info: Added signal IO_MAX_ADDR to system coherent_memory_controller_four_core_v2
+Info: Added signal IO_MIN_ADDR to system coherent_memory_controller_four_core_v2
+Info: Added signal CACHE_STALL_ENABLE to system coherent_memory_controller_four_core_v2
+Info: setting library for coherent_memory_controller_two_core_v2 to GlueModules
+Info: Added signal IO_MAX_ADDR to system coherent_memory_controller_two_core_v2
+Info: Added signal IO_MIN_ADDR to system coherent_memory_controller_two_core_v2
+Info: Added signal CACHE_STALL_ENABLE to system coherent_memory_controller_two_core_v2
+Info: setting library for coherent_memory_controller_single_core_v2 to GlueModules
+Info: Added signal IO_MAX_ADDR to system coherent_memory_controller_single_core_v2
+Info: Added signal IO_MIN_ADDR to system coherent_memory_controller_single_core_v2
+Info: Added signal CACHE_STALL_ENABLE to system coherent_memory_controller_single_core_v2
+Info: setting library for tcm_64KB to GlueModules
+Info: setting library for debug_aggregator_four_core to GlueModules
+Info: setting library for afb_fast_mux to GlueModules
+Info: setting library for afb_flash_rw_controller to GlueModules
+Info: Added signal WRITE_PROTECT to system afb_flash_rw_controller
+Info: setting library for icache_mux to GlueModules
+Info: setting library for acb_fast_splitter to GlueModules
+Info: Added signal MIN_ADDR_LOW to system acb_fast_splitter
+Info: Added signal MAX_ADDR_LOW to system acb_fast_splitter
+Info: Added signal MIN_ADDR_HIGH to system acb_fast_splitter
+Info: Added signal MAX_ADDR_HIGH to system acb_fast_splitter
+Info: setting library for afb_acb_bridge to GlueModules
+Info: setting library for dcache_mux to GlueModules
+Info: setting library for afb_serial_with_bcw_adapter to GlueModules
+Info: Added signal SERIAL_to_IRC_INT to system afb_serial_with_bcw_adapter
+Info: Added signal UART_BAUD_FREQ to system afb_serial_with_bcw_adapter
+Info: Added signal UART_BAUD_LIMIT to system afb_serial_with_bcw_adapter
+Info: Added signal UART_SOFT_RESET to system afb_serial_with_bcw_adapter
+Info: setting library for afb_trace_logger to GlueModules
+Info: Added signal control_register to system afb_trace_logger
+Info: Added signal max_address_register to system afb_trace_logger
+Info: Added signal min_address_register to system afb_trace_logger
+Info: Added signal sample_count_register to system afb_trace_logger
+Info: Added signal trigger_register to system afb_trace_logger
+Info: setting library for afb_serial_adapter to GlueModules
+Info: Added signal SERIAL_to_IRC_INT to system afb_serial_adapter
+Info: setting library for afb_timer to GlueModules
+Info: Added signal TIMER_to_IRC_INT to system afb_timer
+Info: setting library for afb_spi_master_adapter to GlueModules
+Info: setting library for dcache_fast_interface_mux to GlueModules
+Info: setting library for DualClockedQueue_ACB_req to DualClockedQueue_lib
+Info: Added signal read_clk to system DualClockedQueue_ACB_req
+Info: Added signal write_clk to system DualClockedQueue_ACB_req
+Info: setting library for DualClockedQueue_ACB_resp to DualClockedQueue_lib
+Info: Added signal read_clk to system DualClockedQueue_ACB_resp
+Info: Added signal write_clk to system DualClockedQueue_ACB_resp
+Info: setting library for DualClockedQueue_AFB_req to DualClockedQueue_lib
+Info: Added signal read_clk to system DualClockedQueue_AFB_req
+Info: Added signal write_clk to system DualClockedQueue_AFB_req
+Info: setting library for DualClockedQueue_AFB_resp to DualClockedQueue_lib
+Info: Added signal read_clk to system DualClockedQueue_AFB_resp
+Info: Added signal write_clk to system DualClockedQueue_AFB_resp
+Info: setting library for acb_afb_complex to acb_afb_complex_lib
+Info: Added signal MIN_ACB_TAP1_ADDR to system acb_afb_complex
+Info: Added signal MAX_ACB_TAP1_ADDR to system acb_afb_complex
+
+$system afb_fast_splitter
+$library GlueModules
+$in 
+ $pipe AFB_BUS_REQUEST 74 $depth 2 
+ $pipe AFB_BUS_RESPONSE_HIGH 33 $depth 2 
+ $pipe AFB_BUS_RESPONSE_LOW 33 $depth 2 
+ $signal MAX_ADDR_HIGH 36 $depth 1 
+ $signal MAX_ADDR_LOW 36 $depth 1 
+ $signal MIN_ADDR_HIGH 36 $depth 1 
+ $signal MIN_ADDR_LOW 36 $depth 1 
+
+$out 
+ $pipe AFB_BUS_REQUEST_HIGH 74 $depth 2 
+ $pipe AFB_BUS_REQUEST_LOW 74 $depth 2 
+ $pipe AFB_BUS_RESPONSE 33 $depth 2 
+
+{
+}
+
+$system icache_mux_bypass
+$library GlueModules
+$in 
+ $pipe muxed_icache_response 90 $depth 2 
+ $noblock $pipe noblock_icache_request_0 41 $depth 2 
+ $noblock $pipe noblock_icache_request_1 41 $depth 2 
+
+$out 
+ $pipe icache_response_0 90 $depth 2 
+ $pipe icache_response_1 90 $depth 2 
+ $noblock $pipe noblock_muxed_icache_request 41 $depth 2 
+
+{
+}
+
+$system afb_scratch_pad
+$library GlueModules
+$in 
+ $pipe AFB_BUS_REQUEST 74 $depth 2 
+
+$out 
+ $pipe AFB_BUS_RESPONSE 33 $depth 2 
+
+{
+}
+
+$system debug_aggregator_two_core
+$library GlueModules
+$in 
+ $pipe AJIT_to_ENV_debug_response_0_0 32 $depth 2 
+ $pipe AJIT_to_ENV_debug_response_0_1 32 $depth 2 
+ $pipe AJIT_to_ENV_debug_response_1_0 32 $depth 2 
+ $pipe AJIT_to_ENV_debug_response_1_1 32 $depth 2 
+ $pipe SOC_MONITOR_to_DEBUG 8 $depth 2 
+
+$out 
+ $pipe ENV_to_AJIT_debug_command_0_0 32 $depth 2 
+ $pipe ENV_to_AJIT_debug_command_0_1 32 $depth 2 
+ $pipe ENV_to_AJIT_debug_command_1_0 32 $depth 2 
+ $pipe ENV_to_AJIT_debug_command_1_1 32 $depth 2 
+ $pipe SOC_DEBUG_to_MONITOR 8 $depth 2 
+
+{
+}
+
+$system afb_null_stub
+$library GlueModules
+$in 
+ $pipe AFB_BUS_REQUEST 74 $depth 2 
+
+$out 
+ $pipe AFB_BUS_RESPONSE 33 $depth 2 
+
+{
+}
+
+$system acb_fast_tap
+$library GlueModules
+$in 
+ $pipe CORE_BUS_REQUEST 110 $depth 2 
+ $pipe CORE_BUS_RESPONSE_TAP 65 $depth 2 
+ $pipe CORE_BUS_RESPONSE_THROUGH 65 $depth 2 
+ $signal MAX_ADDR_TAP 36 $depth 1 
+ $signal MIN_ADDR_TAP 36 $depth 1 
+
+$out 
+ $pipe CORE_BUS_REQUEST_TAP 110 $depth 2 
+ $pipe CORE_BUS_REQUEST_THROUGH 110 $depth 2 
+ $pipe CORE_BUS_RESPONSE 65 $depth 2 
+
+{
+}
+
+$system mem_reset_mux
+$library GlueModules
+$in 
+ $pipe muxed_reset_response 1 $depth 1 
+ $noblock $pipe noblock_reset_request_0 1 $depth 1 
+ $noblock $pipe noblock_reset_request_1 1 $depth 1 
+
+$out 
+ $noblock $pipe noblock_muxed_reset_request 1 $depth 1 
+ $pipe reset_response_0 1 $depth 1 
+ $pipe reset_response_1 1 $depth 1 
+
+{
+}
+
+$system afb_fast_tap
+$library GlueModules
+$in 
+ $pipe AFB_BUS_REQUEST 74 $depth 2 
+ $pipe AFB_BUS_RESPONSE_TAP 33 $depth 2 
+ $pipe AFB_BUS_RESPONSE_THROUGH 33 $depth 2 
+ $signal MAX_ADDR_TAP 36 $depth 1 
+ $signal MIN_ADDR_TAP 36 $depth 1 
+
+$out 
+ $pipe AFB_BUS_REQUEST_TAP 74 $depth 2 
+ $pipe AFB_BUS_REQUEST_THROUGH 74 $depth 2 
+ $pipe AFB_BUS_RESPONSE 33 $depth 2 
+
+{
+}
+
+$system acb_fast_mux
+$library GlueModules
+$in 
+ $pipe CORE_BUS_REQUEST_HIGH 110 $depth 2 
+ $pipe CORE_BUS_REQUEST_LOW 110 $depth 2 
+ $pipe CORE_BUS_RESPONSE 65 $depth 2 
+
+$out 
+ $pipe CORE_BUS_REQUEST 110 $depth 2 
+ $pipe CORE_BUS_RESPONSE_HIGH 65 $depth 2 
+ $pipe CORE_BUS_RESPONSE_LOW 65 $depth 2 
+
+{
+}
+
+$system acb_afb_bridge
+$library GlueModules
+$in 
+ $pipe AFB_BUS_RESPONSE 33 $depth 2 
+ $pipe CORE_BUS_REQUEST 110 $depth 2 
+
+$out 
+ $pipe AFB_BUS_REQUEST 74 $depth 2 
+ $pipe CORE_BUS_RESPONSE 65 $depth 2 
+
+{
+}
+
+$system acb_null_stub
+$library GlueModules
+$in 
+ $pipe CORE_BUS_REQUEST 110 $depth 2 
+
+$out 
+ $pipe CORE_BUS_RESPONSE 65 $depth 2 
+
+{
+}
+
+$system afb_1x1_interrupt_controller
+$library GlueModules
+$in 
+ $pipe AFB_BUS_REQUEST 74 $depth 2 
+ $signal INTERRUPT_VECTOR 15 $depth 1 
+
+$out 
+ $pipe AFB_BUS_RESPONSE 33 $depth 2 
+ $signal INTR_LEVEL_0_0 4 $depth 1 
+
+{
+ $pipe irc_response_1x1_0_0 32 $depth 1 
+ $noblock $pipe noblock_irc_command_1x1_0_0 18 $depth 2 
+
+}
+
+$system afb_multicore_interrupt_controller
+$library GlueModules
+$in 
+ $pipe AFB_BUS_REQUEST 74 $depth 2 
+ $signal INTERRUPT_VECTOR 15 $depth 1 
+
+$out 
+ $pipe AFB_BUS_RESPONSE 33 $depth 2 
+ $signal INTR_LEVEL_0_0 4 $depth 1 
+ $signal INTR_LEVEL_0_1 4 $depth 1 
+ $signal INTR_LEVEL_1_0 4 $depth 1 
+ $signal INTR_LEVEL_1_1 4 $depth 1 
+ $signal INTR_LEVEL_2_0 4 $depth 1 
+ $signal INTR_LEVEL_2_1 4 $depth 1 
+ $signal INTR_LEVEL_3_0 4 $depth 1 
+ $signal INTR_LEVEL_3_1 4 $depth 1 
+
+{
+ $pipe irc_response_0_0 32 $depth 1 
+ $pipe irc_response_0_1 32 $depth 1 
+ $pipe irc_response_1_0 32 $depth 1 
+ $pipe irc_response_1_1 32 $depth 1 
+ $pipe irc_response_2_0 32 $depth 1 
+ $pipe irc_response_2_1 32 $depth 1 
+ $pipe irc_response_3_0 32 $depth 1 
+ $pipe irc_response_3_1 32 $depth 1 
+ $noblock $pipe noblock_irc_command_0_0 18 $depth 2 
+ $noblock $pipe noblock_irc_command_0_1 18 $depth 2 
+ $noblock $pipe noblock_irc_command_1_0 18 $depth 2 
+ $noblock $pipe noblock_irc_command_1_1 18 $depth 2 
+ $noblock $pipe noblock_irc_command_2_0 18 $depth 2 
+ $noblock $pipe noblock_irc_command_2_1 18 $depth 2 
+ $noblock $pipe noblock_irc_command_3_0 18 $depth 2 
+ $noblock $pipe noblock_irc_command_3_1 18 $depth 2 
+
+}
+
+$system coherent_memory_controller_four_core
+$library GlueModules
+$in 
+ $pipe CORE_0_BUS_REQUEST 110 $depth 2 
+ $pipe CORE_1_BUS_REQUEST 110 $depth 2 
+ $pipe CORE_2_BUS_REQUEST 110 $depth 2 
+ $pipe CORE_3_BUS_REQUEST 110 $depth 2 
+ $pipe IO_CORE_BUS_RESPONSE 65 $depth 2 
+ $signal IO_MAX_ADDR 36 $depth 1 
+ $signal IO_MIN_ADDR 36 $depth 1 
+ $pipe MAIN_MEM_INVALIDATE 30 $depth 4 
+ $pipe MAIN_MEM_RESPONSE 65 $depth 2 
+
+$out 
+ $signal CACHE_STALL_ENABLE 1 $depth 1 
+ $pipe CORE_0_BUS_RESPONSE 65 $depth 2 
+ $pipe CORE_1_BUS_RESPONSE 65 $depth 2 
+ $pipe CORE_2_BUS_RESPONSE 65 $depth 2 
+ $pipe CORE_3_BUS_RESPONSE 65 $depth 2 
+ $pipe INVALIDATE_TO_CORE_0 30 $depth 4 
+ $pipe INVALIDATE_TO_CORE_1 30 $depth 4 
+ $pipe INVALIDATE_TO_CORE_2 30 $depth 4 
+ $pipe INVALIDATE_TO_CORE_3 30 $depth 4 
+ $pipe IO_CORE_BUS_REQUEST 110 $depth 2 
+ $pipe MAIN_MEM_REQUEST 110 $depth 2 
+
+{
+ $pipe ACCESS_DESCRIPTOR 4 $depth 8 
+ $noblock $pipe INVALIDATE_DAEMON_REQUEST 36 $depth 60 
+ $pipe MC_CORE_0_BUS_RESPONSE 65 $depth 2 
+ $pipe MC_CORE_1_BUS_RESPONSE 65 $depth 2 
+ $pipe MC_CORE_2_BUS_RESPONSE 65 $depth 2 
+ $pipe MC_CORE_3_BUS_RESPONSE 65 $depth 2 
+ $noblock $pipe NOBLOCK_CORE_0_BUS_REQUEST 111 $depth 2 
+ $noblock $pipe NOBLOCK_CORE_1_BUS_REQUEST 111 $depth 2 
+ $noblock $pipe NOBLOCK_CORE_2_BUS_REQUEST 111 $depth 2 
+ $noblock $pipe NOBLOCK_CORE_3_BUS_REQUEST 111 $depth 2 
+ $noblock $pipe NOBLOCK_EXTERNAL_INVALIDATE_SLOT_RETURN 1 $depth 2 
+
+}
+
+$system coherent_memory_controller_two_core
+$library GlueModules
+$in 
+ $pipe CORE_0_BUS_REQUEST 110 $depth 2 
+ $pipe CORE_1_BUS_REQUEST 110 $depth 2 
+ $pipe IO_CORE_BUS_RESPONSE 65 $depth 2 
+ $signal IO_MAX_ADDR 36 $depth 1 
+ $signal IO_MIN_ADDR 36 $depth 1 
+ $pipe MAIN_MEM_INVALIDATE 30 $depth 4 
+ $pipe MAIN_MEM_RESPONSE 65 $depth 2 
+
+$out 
+ $signal CACHE_STALL_ENABLE 1 $depth 1 
+ $pipe CORE_0_BUS_RESPONSE 65 $depth 2 
+ $pipe CORE_1_BUS_RESPONSE 65 $depth 2 
+ $pipe INVALIDATE_TO_CORE_0 30 $depth 4 
+ $pipe INVALIDATE_TO_CORE_1 30 $depth 4 
+ $pipe IO_CORE_BUS_REQUEST 110 $depth 2 
+ $pipe MAIN_MEM_REQUEST 110 $depth 2 
+
+{
+ $pipe ACCESS_DESCRIPTOR 4 $depth 8 
+ $noblock $pipe INVALIDATE_DAEMON_REQUEST 36 $depth 36 
+ $pipe MC_CORE_0_BUS_RESPONSE 65 $depth 2 
+ $pipe MC_CORE_1_BUS_RESPONSE 65 $depth 2 
+ $noblock $pipe NOBLOCK_CORE_0_BUS_REQUEST 111 $depth 2 
+ $noblock $pipe NOBLOCK_CORE_1_BUS_REQUEST 111 $depth 2 
+ $noblock $pipe NOBLOCK_EXTERNAL_INVALIDATE_SLOT_RETURN 1 $depth 2 
+
+}
+
+$system coherent_memory_controller_single_core
+$library GlueModules
+$in 
+ $pipe CORE_0_BUS_REQUEST 110 $depth 2 
+ $pipe IO_CORE_BUS_RESPONSE 65 $depth 2 
+ $signal IO_MAX_ADDR 36 $depth 1 
+ $signal IO_MIN_ADDR 36 $depth 1 
+ $pipe MAIN_MEM_INVALIDATE 30 $depth 4 
+ $pipe MAIN_MEM_RESPONSE 65 $depth 2 
+
+$out 
+ $signal CACHE_STALL_ENABLE 1 $depth 1 
+ $pipe CORE_0_BUS_RESPONSE 65 $depth 2 
+ $pipe INVALIDATE_TO_CORE_0 30 $depth 4 
+ $pipe IO_CORE_BUS_REQUEST 110 $depth 2 
+ $pipe MAIN_MEM_REQUEST 110 $depth 2 
+
+{
+ $pipe ACCESS_DESCRIPTOR 4 $depth 8 
+ $noblock $pipe INVALIDATE_DAEMON_REQUEST 36 $depth 24 
+ $pipe MC_CORE_0_BUS_RESPONSE 65 $depth 2 
+ $noblock $pipe NOBLOCK_CORE_0_BUS_REQUEST 111 $depth 2 
+ $noblock $pipe NOBLOCK_EXTERNAL_INVALIDATE_SLOT_RETURN 1 $depth 2 
+
+}
+
+$system debug_aggregator_single_core
+$library GlueModules
+$in 
+ $pipe AJIT_to_ENV_debug_response_0_0 32 $depth 2 
+ $pipe AJIT_to_ENV_debug_response_0_1 32 $depth 2 
+ $pipe SOC_MONITOR_to_DEBUG 8 $depth 2 
+
+$out 
+ $pipe ENV_to_AJIT_debug_command_0_0 32 $depth 2 
+ $pipe ENV_to_AJIT_debug_command_0_1 32 $depth 2 
+ $pipe SOC_DEBUG_to_MONITOR 8 $depth 2 
+
+{
+}
+
+$system coherent_memory_controller_four_core_v2
+$library GlueModules
+$in 
+ $pipe IO_CORE_BUS_RESPONSE 65 $depth 2 
+ $signal IO_MAX_ADDR 36 $depth 1 
+ $signal IO_MIN_ADDR 36 $depth 1 
+ $pipe MAIN_MEM_INVALIDATE 30 $depth 4 
+ $pipe MAIN_MEM_RESPONSE 65 $depth 2 
+ $noblock $pipe NOBLOCK_CORE_0_BUS_REQUEST 111 $depth 2 
+ $noblock $pipe NOBLOCK_CORE_1_BUS_REQUEST 111 $depth 2 
+ $noblock $pipe NOBLOCK_CORE_2_BUS_REQUEST 111 $depth 2 
+ $noblock $pipe NOBLOCK_CORE_3_BUS_REQUEST 111 $depth 2 
+
+$out 
+ $signal CACHE_STALL_ENABLE 1 $depth 1 
+ $pipe CORE_0_BUS_RESPONSE 65 $depth 2 
+ $pipe CORE_1_BUS_RESPONSE 65 $depth 2 
+ $pipe CORE_2_BUS_RESPONSE 65 $depth 2 
+ $pipe CORE_3_BUS_RESPONSE 65 $depth 2 
+ $pipe INVALIDATE_TO_CORE_0 30 $depth 4 
+ $pipe INVALIDATE_TO_CORE_1 30 $depth 4 
+ $pipe INVALIDATE_TO_CORE_2 30 $depth 4 
+ $pipe INVALIDATE_TO_CORE_3 30 $depth 4 
+ $pipe IO_CORE_BUS_REQUEST 110 $depth 2 
+ $pipe MAIN_MEM_REQUEST 110 $depth 2 
+
+{
+ $pipe INVALIDATE_DAEMON_REQUEST 36 $depth 62 
+ $pipe MUXED_MEM_ACCESS_RESPONSE_CONTROL 36 $depth 8 
+ $noblock $pipe NOBLOCK_EXTERNAL_INVALIDATE_SLOT_RETURN 1 $depth 2 
+
+}
+
+$system coherent_memory_controller_two_core_v2
+$library GlueModules
+$in 
+ $pipe IO_CORE_BUS_RESPONSE 65 $depth 2 
+ $signal IO_MAX_ADDR 36 $depth 1 
+ $signal IO_MIN_ADDR 36 $depth 1 
+ $pipe MAIN_MEM_INVALIDATE 30 $depth 4 
+ $pipe MAIN_MEM_RESPONSE 65 $depth 2 
+ $noblock $pipe NOBLOCK_CORE_0_BUS_REQUEST 111 $depth 2 
+ $noblock $pipe NOBLOCK_CORE_1_BUS_REQUEST 111 $depth 2 
+
+$out 
+ $signal CACHE_STALL_ENABLE 1 $depth 1 
+ $pipe CORE_0_BUS_RESPONSE 65 $depth 2 
+ $pipe CORE_1_BUS_RESPONSE 65 $depth 2 
+ $pipe INVALIDATE_TO_CORE_0 30 $depth 4 
+ $pipe INVALIDATE_TO_CORE_1 30 $depth 4 
+ $pipe IO_CORE_BUS_REQUEST 110 $depth 2 
+ $pipe MAIN_MEM_REQUEST 110 $depth 2 
+
+{
+ $pipe INVALIDATE_DAEMON_REQUEST 36 $depth 38 
+ $pipe MUXED_MEM_ACCESS_RESPONSE_CONTROL 36 $depth 8 
+ $noblock $pipe NOBLOCK_EXTERNAL_INVALIDATE_SLOT_RETURN 1 $depth 2 
+
+}
+
+$system coherent_memory_controller_single_core_v2
+$library GlueModules
+$in 
+ $pipe IO_CORE_BUS_RESPONSE 65 $depth 2 
+ $signal IO_MAX_ADDR 36 $depth 1 
+ $signal IO_MIN_ADDR 36 $depth 1 
+ $pipe MAIN_MEM_INVALIDATE 30 $depth 4 
+ $pipe MAIN_MEM_RESPONSE 65 $depth 2 
+ $noblock $pipe NOBLOCK_CORE_0_BUS_REQUEST 111 $depth 2 
+
+$out 
+ $signal CACHE_STALL_ENABLE 1 $depth 1 
+ $pipe CORE_0_BUS_RESPONSE 65 $depth 2 
+ $pipe INVALIDATE_TO_CORE_0 30 $depth 4 
+ $pipe IO_CORE_BUS_REQUEST 110 $depth 2 
+ $pipe MAIN_MEM_REQUEST 110 $depth 2 
+
+{
+ $pipe INVALIDATE_DAEMON_REQUEST 36 $depth 26 
+ $pipe MUXED_MEM_ACCESS_RESPONSE_CONTROL 36 $depth 8 
+ $noblock $pipe NOBLOCK_EXTERNAL_INVALIDATE_SLOT_RETURN 1 $depth 2 
+
+}
+
+$system tcm_64KB
+$library GlueModules
+$in 
+ $noblock $pipe NOBLOCK_CPU_to_DCACHE_command 143 $depth 2 
+ $noblock $pipe NOBLOCK_CPU_to_DCACHE_reset 1 $depth 2 
+ $noblock $pipe NOBLOCK_CPU_to_DCACHE_slow_command 121 $depth 0 
+ $noblock $pipe NOBLOCK_CPU_to_ICACHE_command 41 $depth 2 
+ $noblock $pipe NOBLOCK_CPU_to_ICACHE_reset 1 $depth 2 
+ $noblock $pipe NOBLOCK_CPU_to_MMU_reset 1 $depth 2 
+
+$out 
+ $pipe DCACHE_to_CPU_reset_ack 1 $depth 2 
+ $pipe DCACHE_to_CPU_response 72 $depth 2 
+ $pipe DCACHE_to_CPU_slow_response 72 $depth 2 
+ $pipe ICACHE_to_CPU_reset_ack 1 $depth 2 
+ $pipe ICACHE_to_CPU_response 90 $depth 2 
+ $pipe MMU_to_CPU_reset_ack 1 $depth 2 
+ $noblock $pipe NOBLOCK_DCACHE_TO_CPU_FU_BYPASS 93 $depth 0 
+ $noblock $pipe NOBLOCK_DCACHE_TO_CPU_IU_BYPASS 93 $depth 0 
+
+{
+ $pipe CORE_IO_BUS_REQUEST 110 $depth 2 
+ $pipe CORE_IO_BUS_RESPONSE 65 $depth 2 
+
+}
+
+$system debug_aggregator_four_core
+$library GlueModules
+$in 
+ $pipe AJIT_to_ENV_debug_response_0_0 32 $depth 2 
+ $pipe AJIT_to_ENV_debug_response_0_1 32 $depth 2 
+ $pipe AJIT_to_ENV_debug_response_1_0 32 $depth 2 
+ $pipe AJIT_to_ENV_debug_response_1_1 32 $depth 2 
+ $pipe AJIT_to_ENV_debug_response_2_0 32 $depth 2 
+ $pipe AJIT_to_ENV_debug_response_2_1 32 $depth 2 
+ $pipe AJIT_to_ENV_debug_response_3_0 32 $depth 2 
+ $pipe AJIT_to_ENV_debug_response_3_1 32 $depth 2 
+ $pipe SOC_MONITOR_to_DEBUG 8 $depth 2 
+
+$out 
+ $pipe ENV_to_AJIT_debug_command_0_0 32 $depth 2 
+ $pipe ENV_to_AJIT_debug_command_0_1 32 $depth 2 
+ $pipe ENV_to_AJIT_debug_command_1_0 32 $depth 2 
+ $pipe ENV_to_AJIT_debug_command_1_1 32 $depth 2 
+ $pipe ENV_to_AJIT_debug_command_2_0 32 $depth 2 
+ $pipe ENV_to_AJIT_debug_command_2_1 32 $depth 2 
+ $pipe ENV_to_AJIT_debug_command_3_0 32 $depth 2 
+ $pipe ENV_to_AJIT_debug_command_3_1 32 $depth 2 
+ $pipe SOC_DEBUG_to_MONITOR 8 $depth 2 
+
+{
+}
+
+$system afb_fast_mux
+$library GlueModules
+$in 
+ $pipe AFB_BUS_REQUEST_HIGH 74 $depth 2 
+ $pipe AFB_BUS_REQUEST_LOW 74 $depth 2 
+ $pipe AFB_BUS_RESPONSE 33 $depth 2 
+
+$out 
+ $pipe AFB_BUS_REQUEST 74 $depth 2 
+ $pipe AFB_BUS_RESPONSE_HIGH 33 $depth 2 
+ $pipe AFB_BUS_RESPONSE_LOW 33 $depth 2 
+
+{
+}
+
+$system afb_flash_rw_controller
+$library GlueModules
+$in 
+ $pipe AFB_BUS_REQUEST 74 $depth 2 
+ $pipe SPI_MASTER_RESPONSE 8 $depth 2 
+ $signal WRITE_PROTECT 1 $depth 1 
+
+$out 
+ $pipe AFB_BUS_RESPONSE 33 $depth 2 
+ $pipe SPI_MASTER_COMMAND 16 $depth 2 
+
+{
+}
+
+$system icache_mux
+$library GlueModules
+$in 
+ $pipe muxed_icache_response 90 $depth 2 
+ $noblock $pipe noblock_icache_request_0 41 $depth 2 
+ $noblock $pipe noblock_icache_request_1 41 $depth 2 
+
+$out 
+ $pipe icache_response_0 90 $depth 2 
+ $pipe icache_response_1 90 $depth 2 
+ $noblock $pipe noblock_muxed_icache_request 41 $depth 2 
+
+{
+}
+
+$system acb_fast_splitter
+$library GlueModules
+$in 
+ $pipe CORE_BUS_REQUEST 110 $depth 2 
+ $pipe CORE_BUS_RESPONSE_HIGH 65 $depth 2 
+ $pipe CORE_BUS_RESPONSE_LOW 65 $depth 2 
+ $signal MAX_ADDR_HIGH 36 $depth 1 
+ $signal MAX_ADDR_LOW 36 $depth 1 
+ $signal MIN_ADDR_HIGH 36 $depth 1 
+ $signal MIN_ADDR_LOW 36 $depth 1 
+
+$out 
+ $pipe CORE_BUS_REQUEST_HIGH 110 $depth 2 
+ $pipe CORE_BUS_REQUEST_LOW 110 $depth 2 
+ $pipe CORE_BUS_RESPONSE 65 $depth 2 
+
+{
+}
+
+$system afb_acb_bridge
+$library GlueModules
+$in 
+ $pipe AFB_BUS_REQUEST 74 $depth 2 
+ $pipe CORE_BUS_RESPONSE 65 $depth 2 
+
+$out 
+ $pipe AFB_BUS_RESPONSE 33 $depth 2 
+ $pipe CORE_BUS_REQUEST 110 $depth 2 
+
+{
+}
+
+$system dcache_mux
+$library GlueModules
+$in 
+ $pipe muxed_dcache_response 72 $depth 2 
+ $noblock $pipe noblock_dcache_request_0 121 $depth 2 
+ $noblock $pipe noblock_dcache_request_1 121 $depth 2 
+
+$out 
+ $pipe dcache_response_0 72 $depth 2 
+ $pipe dcache_response_1 72 $depth 2 
+ $noblock $pipe noblock_muxed_dcache_request 121 $depth 2 
+
+{
+}
+
+$system afb_serial_with_bcw_adapter
+$library GlueModules
+$in 
+ $pipe AFB_BUS_REQUEST 74 $depth 2 
+ $pipe CONSOLE_to_SERIAL_RX 8 $depth 2 
+
+$out 
+ $pipe AFB_BUS_RESPONSE 33 $depth 2 
+ $pipe SERIAL_TX_to_CONSOLE 8 $depth 2 
+ $signal SERIAL_to_IRC_INT 1 $depth 1 
+ $signal UART_BAUD_FREQ 32 $depth 1 
+ $signal UART_BAUD_LIMIT 32 $depth 1 
+ $signal UART_SOFT_RESET 1 $depth 1 
+
+{
+ $noblock $pipe noblock_serial_command 41 $depth 2 
+ $noblock $pipe noblock_serial_data_in 9 $depth 1 
+ $noblock $pipe noblock_transmit_completed_pipe 1 $depth 1 
+ $pipe transmit_data_pipe 8 $depth 1 
+
+}
+
+$system afb_trace_logger
+$library GlueModules
+$in 
+ $pipe AFB_BUS_REQUEST 74 $depth 2 
+ $pipe AFB_MEM_TO_TRACE_LOGGER_RESPONSE 33 $depth 2 
+ $pipe AJIT_to_ENV_logger 32 $depth 3 
+
+$out 
+ $pipe AFB_BUS_RESPONSE 33 $depth 2 
+ $pipe AFB_TRACE_LOGGER_TO_MEM_REQUEST 74 $depth 2 
+
+{
+ $signal control_register 32 $depth 1 
+ $signal max_address_register 32 $depth 1 
+ $signal min_address_register 32 $depth 1 
+ $signal sample_count_register 32 $depth 1 
+ $signal trigger_register 32 $depth 1 
+
+}
+
+$system afb_serial_adapter
+$library GlueModules
+$in 
+ $pipe AFB_BUS_REQUEST 74 $depth 2 
+ $pipe CONSOLE_to_SERIAL_RX 8 $depth 2 
+
+$out 
+ $pipe AFB_BUS_RESPONSE 33 $depth 2 
+ $pipe SERIAL_TX_to_CONSOLE 8 $depth 2 
+ $signal SERIAL_to_IRC_INT 1 $depth 1 
+
+{
+ $noblock $pipe noblock_serial_command 41 $depth 2 
+ $noblock $pipe noblock_serial_data_in 9 $depth 1 
+ $noblock $pipe noblock_transmit_completed_pipe 1 $depth 1 
+ $pipe transmit_data_pipe 8 $depth 1 
+
+}
+
+$system afb_timer
+$library GlueModules
+$in 
+ $pipe AFB_BUS_REQUEST 74 $depth 2 
+
+$out 
+ $pipe AFB_BUS_RESPONSE 33 $depth 2 
+ $signal TIMER_to_IRC_INT 1 $depth 1 
+
+{
+ $noblock $pipe noblock_cpu_to_timer 40 $depth 2 
+
+}
+
+$system afb_spi_master_adapter
+$library GlueModules
+$in 
+ $pipe AFB_BUS_REQUEST 74 $depth 2 
+ $pipe SPI_MASTER_RESPONSE 8 $depth 2 
+
+$out 
+ $pipe AFB_BUS_RESPONSE 33 $depth 2 
+ $pipe SPI_MASTER_COMMAND 16 $depth 2 
+
+{
+}
+
+$system dcache_fast_interface_mux
+$library GlueModules
+$in 
+ $pipe muxed_dcache_response 72 $depth 2 
+ $noblock $pipe noblock_dcache_request_0 143 $depth 2 
+ $noblock $pipe noblock_dcache_request_1 143 $depth 2 
+
+$out 
+ $pipe dcache_response_0 72 $depth 2 
+ $pipe dcache_response_1 72 $depth 2 
+ $noblock $pipe noblock_muxed_dcache_request 143 $depth 2 
+
+{
+}
+
+$system DualClockedQueue_ACB_req
+$library DualClockedQueue_lib
+$in 
+ $signal read_clk 1 $depth 1 
+ $signal write_clk 1 $depth 1 
+ $pipe write_data_in 110 $depth 2 
+
+$out 
+ $pipe read_data_out 110 $depth 2 
+
+{
+}
+
+$system DualClockedQueue_ACB_resp
+$library DualClockedQueue_lib
+$in 
+ $signal read_clk 1 $depth 1 
+ $signal write_clk 1 $depth 1 
+ $pipe write_data_in 65 $depth 2 
+
+$out 
+ $pipe read_data_out 65 $depth 2 
+
+{
+}
+
+$system DualClockedQueue_AFB_req
+$library DualClockedQueue_lib
+$in 
+ $signal read_clk 1 $depth 1 
+ $signal write_clk 1 $depth 1 
+ $pipe write_data_in 74 $depth 2 
+
+$out 
+ $pipe read_data_out 74 $depth 2 
+
+{
+}
+
+$system DualClockedQueue_AFB_resp
+$library DualClockedQueue_lib
+$in 
+ $signal read_clk 1 $depth 1 
+ $signal write_clk 1 $depth 1 
+ $pipe write_data_in 33 $depth 2 
+
+$out 
+ $pipe read_data_out 33 $depth 2 
+
+{
+}
+
+$system acb_afb_complex
+$library acb_afb_complex_lib
+$in 
+ $pipe ACB_REQUEST_FROM_NIC 110 $depth 2 
+ $p2p $pipe ACB_REQUEST_FROM_PROCESSOR 110 $depth 2 
+ $pipe ACB_RESPONSE_FROM_DRAM 65 $depth 2 
+ $pipe AFB_RESPONSE_FROM_NIC 33 $depth 2 
+ $signal MAX_ACB_TAP1_ADDR 36 $depth 1 
+ $signal MIN_ACB_TAP1_ADDR 36 $depth 1 
+
+$out 
+ $pipe ACB_REQUEST_TO_DRAM 110 $depth 2 
+ $pipe ACB_RESPONSE_TO_NIC 65 $depth 2 
+ $p2p $pipe ACB_RESPONSE_TO_PROCESSOR 65 $depth 2 
+ $pipe AFB_REQUEST_TO_NIC 74 $depth 2 
+
+{
+ $pipe ACB_TAP_REQUEST_TO_NIC 110 $depth 2 
+ $pipe ACB_TAP_RESPONSE_FROM_NIC 65 $depth 2 
+ $pipe ACB_THROUGH_REQUEST_TO_DRAM 110 $depth 2 
+ $pipe ACB_THROUGH_RESPONSE_FROM_DRAM 65 $depth 2 
+
+// global instance id = 2
+$instance acb_afb_bridge_inst_1 GlueModules : acb_afb_bridge 
+   AFB_BUS_REQUEST => AFB_REQUEST_TO_NIC 
+   AFB_BUS_RESPONSE => AFB_RESPONSE_FROM_NIC 
+   CORE_BUS_REQUEST => ACB_TAP_REQUEST_TO_NIC 
+   CORE_BUS_RESPONSE => ACB_TAP_RESPONSE_FROM_NIC 
+
+// global instance id = 3
+$instance acb_fast_mux_inst GlueModules : acb_fast_mux 
+   CORE_BUS_REQUEST => ACB_REQUEST_TO_DRAM 
+   CORE_BUS_REQUEST_HIGH => ACB_REQUEST_FROM_NIC 
+   CORE_BUS_REQUEST_LOW => ACB_THROUGH_REQUEST_TO_DRAM 
+   CORE_BUS_RESPONSE => ACB_RESPONSE_FROM_DRAM 
+   CORE_BUS_RESPONSE_HIGH => ACB_RESPONSE_TO_NIC 
+   CORE_BUS_RESPONSE_LOW => ACB_THROUGH_RESPONSE_FROM_DRAM 
+
+// global instance id = 1
+$instance acb_tap_inst_1 GlueModules : acb_fast_tap 
+   CORE_BUS_REQUEST => ACB_REQUEST_FROM_PROCESSOR 
+   CORE_BUS_REQUEST_TAP => ACB_TAP_REQUEST_TO_NIC 
+   CORE_BUS_REQUEST_THROUGH => ACB_THROUGH_REQUEST_TO_DRAM 
+   CORE_BUS_RESPONSE => ACB_RESPONSE_TO_PROCESSOR 
+   CORE_BUS_RESPONSE_TAP => ACB_TAP_RESPONSE_FROM_NIC 
+   CORE_BUS_RESPONSE_THROUGH => ACB_THROUGH_RESPONSE_FROM_DRAM 
+   MAX_ADDR_TAP => MAX_ACB_TAP1_ADDR 
+   MIN_ADDR_TAP => MIN_ACB_TAP1_ADDR 
+
+}
+Info: found unformatted vhdl file vhdl/acb_afb_complex_lib/acb_afb_complex.unformatted_vhdl
+Info: executing vhdlFormat < vhdl/acb_afb_complex_lib/acb_afb_complex.unformatted_vhdl > vhdl/acb_afb_complex_lib/acb_afb_complex.vhdl
+Info: executing rm -f vhdl/acb_afb_complex_lib/acb_afb_complex.unformatted_vhdl
+Info: found unformatted vhdl file vhdl/testbench/acb_afb_complex_test_bench.unformatted_vhdl
+Info: executing vhdlFormat < vhdl/testbench/acb_afb_complex_test_bench.unformatted_vhdl > vhdl/testbench/acb_afb_complex_test_bench.vhdl
+Info: executing rm -f vhdl/testbench/acb_afb_complex_test_bench.unformatted_vhdl
+Info: simulator-choice = ghdl.
+Info: application-name  = acb_afb_complex_acb_afb_complex_lib.
+Info: only hsys files will be expanded
+Info: added hsys file ../GlueModules/GlueModules.hsys
+Info: found hsys file ./acb_afb_complex.hsys
+make: Leaving directory '/home/ajit/ajit-toolchain/AI_NIC_DEMO/SBC/kcu105_ethernet/hsys/acb_afb_complex'
+make: Entering directory '/home/ajit/ajit-toolchain/AI_NIC_DEMO/BUILD/NIC_GLUE_LOGIC/deconcatSystem'
+make: *** No rule to make target '../../../../../../SOURCE/NIC_GLUE_LOGIC/deconcatBlock/*.aa', needed by 'aalink'.  Stop.
+make: Leaving directory '/home/ajit/ajit-toolchain/AI_NIC_DEMO/BUILD/NIC_GLUE_LOGIC/deconcatSystem'
+Info: all make files in the hierarchy will be executed. 
+Info: uniquification mode set to true
+Info: only hsys files will be expanded
+Info: simulator-choice = ghdl.
+Info: application-name  = sbc_kcu105_core_sbc_kcu105_core_lib.
+Info: added hsys file DualClockedFifos/DualClockedFifos.hsys
+Info: added hsys file ./GlueModules/GlueModules.hsys
+Info: added c-include_directory = /home/ajit/ajit-toolchain/ahir_release/include.
+Info: found Makefile in ./processor_subsystem
+Info: found Makefile in ./acb_afb_complex
+Info: found Makefile in ./nic_subsystem/nic_mac_bridge/tx_deconcat_system
+Error: make failed in ./nic_subsystem/nic_mac_bridge/tx_deconcat_system

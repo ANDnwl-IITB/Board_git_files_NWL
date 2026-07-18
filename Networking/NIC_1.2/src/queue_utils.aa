@@ -1,0 +1,169 @@
+//
+// 	   There's only one freeQ accessed by both processor and NIC,
+//	   so it needs to first get a lock before push/pop and also unlock it after
+//	   This locking/unlocking has been done explicitly by the NIC in receive/transmit engine.
+//
+
+
+//
+// NIC pops the buffer pointer from only freeQ and TxQ by providing 
+// queue_type and server_id
+//
+// Arguments:	
+//		queue_type : 	can be FREEQUEUE or TXQUEUE for pop by NIC
+//		server_id  : 	can only be SERVER_0 for FREEQUEUE, but
+//				can be any of 4 servers SERVER_0, SERVER_1, SERVER_2 or SERVER_3 for TXQUEUE
+//
+// Return value: 
+//		q_rdata_status:	After successful pop gives buffer pointer popped value from FREEQUEUE or any of the TXQUEUEs
+//					,i.e., by default last 3 bits are zero.
+// 				After unsuccessful pop gives value 0x1
+// 				(zero/popped_value   unused   push_status   pop_status)
+//  	 			      [31:3]	      [2]	  [1]	       [0]
+//
+$module [popFromQueue]
+	$in (queue_type: $uint<2> server_id : $uint<4>) 
+	$out (q_rdata_status: $uint<32>)
+$is
+{
+	$volatile FreeQ   := (queue_type == FREEQUEUE)
+	$volatile RxQ     := (queue_type == RXQUEUE)
+	$volatile TxQ     := (queue_type == TXQUEUE)
+	
+	$volatile server_0 := (server_id == SERVER_0)
+	$volatile server_1 := (server_id == SERVER_1)
+	$volatile server_2 := (server_id == SERVER_2)
+	$volatile server_3 := (server_id == SERVER_3)
+	
+	$volatile wdata := $zero<32>
+
+	// Pop from RxQ
+	$guard (RxQ)
+		$call exec_receive_queue_command (server_id POP wdata) (rxq_rdata_status)
+		
+	// Pop from TxQ
+	$guard (TxQ)
+		$call exec_transmit_queue_command (server_id POP wdata) (txq_rdata_status)
+		
+	// Pop from freeQ
+	$guard (FreeQ)
+		$call exec_free_queue_command (server_id POP wdata) (fq_rdata_status)
+	
+	// returns popped value with status back to the caller		
+	q_rdata_status := ($excmux
+			RxQ	rxq_rdata_status
+			TxQ	txq_rdata_status
+			FreeQ	fq_rdata_status)
+}
+
+
+//
+// NIC pushes the buffer pointer to only RxQ and freeQ by providing 
+// queue_type and server_id.
+//
+// After pushing buffer pointer to the queue it calls accessRegister module
+// to updates the respective server's queue_status_register
+//
+// Arguments:	
+//		queue_type : 	can be FREEQUEUE or RXQUEUE for push by NIC
+//		server_id  : 	can only be SERVER_0 for FREEQUEUE, but
+//				can be any of 4 servers SERVER_0, SERVER_1, SERVER_2 or SERVER_3 for RXQUEUE
+//		q_wdata    :	buffer pointer to be pushed into FREEQUEUE or any of the RXQUEUEs
+//
+// Return value: 
+//		q_status   :	After successful push gives value zero ,i.e., last 3 bits are zero
+// 				After unsuccessful push gives value 0x2
+// 				(zero   unused   push_status   pop_status)
+//  	 			[31:3]	 [2]	    [1]	          [0]
+//
+$module [pushIntoQueue] 
+	$in  (queue_type: $uint<2> server_id: $uint<4> q_wdata: $uint<32>) 
+	$out (q_status: $uint<32>)
+$is
+{
+	$volatile FreeQ   := (queue_type == FREEQUEUE)
+	$volatile RxQ     := (queue_type == RXQUEUE)
+	$volatile TxQ     := (queue_type == TXQUEUE)
+	
+	$volatile server_0 := (server_id == SERVER_0)
+	$volatile server_1 := (server_id == SERVER_1)
+	$volatile server_2 := (server_id == SERVER_2)
+	$volatile server_3 := (server_id == SERVER_3)
+
+	// Push into RxQ
+	$guard (RxQ)
+		$call exec_receive_queue_command (server_id PUSH q_wdata) (rxq_status)
+		
+	// Push into TxQ
+	$guard (TxQ)
+		$call exec_transmit_queue_command (server_id PUSH q_wdata) (txq_status)
+	
+	// Push into freeQ
+	$guard (FreeQ)
+		$call exec_free_queue_command (server_id PUSH q_wdata) (fq_status)
+		
+	// returns popped value with status back to the caller		
+	q_status := ($excmux
+			RxQ	rxq_status
+			TxQ	txq_status
+			FreeQ	fq_status)
+}
+
+
+//
+// For debug purpose only through debug_queue pipes
+//
+$module [queueTestDaemon] $in () $out () $is
+{
+	$branchblock[loop] 
+	{
+		$merge $entry loopback $endmerge
+
+		cmd := debug_queue_command 
+		$volatile $split (cmd 1 25 2 4 32) (rwbar u15 queue_type server_id val)
+			
+		$if (queue_type == FREEQUEUE) $then
+			// spin until lock is acquired
+			$merge $entry lock_loopback $endmerge
+		
+			// acquire free queue lock to push/pop buffer pointer to/from free queue
+			$call exec_free_queue_command (SERVER_0 FQ_LOCK _h0000) (fQ_lock_status)
+			
+			// lock_status == 0 is success, i.e., get access to freeQ lock
+			$volatile lock_status := ($bitreduce | fQ_lock_status)
+			
+			// If lock not acquired -> Loopback
+			$if (lock_status == 1) $then
+				$place [lock_loopback]
+			$endif
+		$endif
+		
+		$if (~rwbar) $then
+			$call pushIntoQueue (queue_type server_id val) (push_status)
+		$else
+			$call popFromQueue (queue_type server_id) (pop_val_status)
+		$endif
+			
+		$if (queue_type == FREEQUEUE) $then
+			// release freeQ lock immediately after push/pop
+			$call exec_free_queue_command (SERVER_0 FQ_UNLOCK _h0000) (fQ_unlock_status)
+		$endif
+		
+		// push_ok == 0 is success, i.e., pushed buffer pointer to queue
+		$volatile push_ok := (push_status [] 1)
+		
+		// pop_ok == 0 is success, i.e., popped buffer pointer from queue
+		$volatile pop_ok := (pop_val_status [] 0)
+		
+		// not_ok == 0 is ok
+		$volatile not_ok := ($mux rwbar pop_ok push_ok)
+		$volatile ret_data := ($mux rwbar ($bitcast ($uint<63>) pop_val_status) $zero<63>)
+		$volatile result := ($concat not_ok ret_data)
+
+		debug_queue_response := result
+
+		$place [loopback]
+	}
+
+}
+

@@ -1,0 +1,6 @@
+commit b3badd991caf40f8422c591fc905cca75327f379
+Author: madhav <madhav@localhost.localdomain>
+Date:   Sun Nov 10 16:07:56 2024 +0530
+
+    Got the base processor in the new AJIT SAC multi-core
+    into shape.  Long way to go.

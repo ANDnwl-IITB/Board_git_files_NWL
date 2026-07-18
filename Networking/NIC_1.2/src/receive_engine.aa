@@ -1,0 +1,287 @@
+// Received packet from Ethernet is stored into a buffer from the free queue
+// The buffer consists of an array of double-words (enough for the longest) packet in the design
+//
+// The layout of the buffer is as follows:
+//  dword-index            contents
+//     0      		control-field (<unused> <packet-length> <last-dword-byte-mask>) 
+//					   45           11             	  8
+//     1,2,..             packet data
+
+//
+//      There are four receive servers
+//	Pulls packet(to be received) from MAC
+//	and pushes it to memory
+//
+//	step 0 : Wait until enabled
+//	step 1 : Acquire freeQ lock, pop the free buffer pointer from the freeQ and then release freeQ lock
+//	step 2 : Read control word and receive the packet into the acquired free buffer
+//	step 3 : If packet is ok, push the buffer pointer into the RxQ and increment the no. of packets received
+//		 else acquire freeQ lock, push the free buffer pointer back to the freeQ and then release freeQ lock
+//	If packet is ok, move on to the next servers (if enabled), so that a particular Rx server is not overloaded by incoming packets
+//	and run steps 1 to 3 in a loop till enabled
+
+$module [ReceiveEngineDaemon] $in () $out() $is
+{
+	// The last index in the receive queue which was written into
+	//LAST_WRITTEN_RX_QUEUE_INDEX := $zero<4>
+
+	$branchblock[main]
+	{
+		// spin until enabled by software.
+		$merge $entry not_enabled_yet_loopback disable_loopback $endmerge
+
+		// If not enabled yet -> Loopback
+		$if (~(S_CONTROL_REGISTER [] 0)) $then
+			$place [not_enabled_yet_loopback]
+		$endif
+
+		rx_tag := ($bitcast ($uint<8>) P_RX_ENGINE_TAG)
+
+		//  Receive loop
+		$merge $entry loopback 
+			$phi RxQ_server_id := $zero<4> $on $entry n_RxQ_server_id $on loopback
+		$endmerge
+		
+			// spin until lock is acquired and pop_status is successful
+			$merge $entry lock_loopback pop_loopback $endmerge
+			
+			// acquire free queue lock to pop a buffer pointer from free queue
+			$call exec_free_queue_command (SERVER_0 FQ_LOCK _h0000) (fQ_lock_status)
+			
+			// lock_status == 0 is success, i.e., get access to freeQ lock
+			$volatile lock_status := ($bitreduce | fQ_lock_status)
+			
+			// If lock not acquired -> Loopback
+			$if(lock_status == 1) $then
+				$place [lock_loopback]
+			$endif
+
+			// If lock acquired -> pop from free queue
+			$call popFromQueue (FREEQUEUE SERVER_0) (rx_buffer_pointer_32)
+
+			// release freeQ lock immediately after pop
+			$call exec_free_queue_command (SERVER_0 FQ_UNLOCK _h0000) (fQ_unlock_status)
+
+			// pop_status == 0 is success, i.e., popped buffer pointer from freeQ
+			$volatile pop_status := (rx_buffer_pointer_32 [] 0)
+			
+			// If pop not successful -> Loopback
+			$if (pop_status == 1) $then 
+				$place [pop_loopback]
+			$endif
+			
+			$volatile rx_buffer_pointer := ($bitcast ($uint<64>) rx_buffer_pointer_32)
+
+			// Read the control word of the buffer.
+			$call accessMemoryDword (rx_tag READMEM rx_buffer_pointer $zero<64> $zero<64>) (control_dword)
+			$volatile max_buffer_addr_offset := ($slice control_dword 63 48)
+
+			// After successfully popping buffer pointer from freeQ, receive packet in that buffer
+			$call receivePacket (rx_tag max_buffer_addr_offset rx_buffer_pointer) (bad_packet_identifier)
+
+			// if bad_packet_identifier is 0, 
+			// then received packet is ok, push buffer pointer into rx queue
+			// else received packet is not ok, free the buffer and push buffer pointer back to free queue
+	
+			$if (bad_packet_identifier == 0) $then
+				// spin until push_status is successful
+				$merge $entry push_loopback $endmerge
+				
+				$if (~(S_CONTROL_REGISTER [] 7)) $then
+					// received packet is ok, push buffer pointer into RxQ_server_id for normal operation
+					$call pushIntoQueue (RXQUEUE RxQ_server_id rx_buffer_pointer_32) (RxQ_status)
+				$else
+					// received packet is ok, push buffer pointer into TxQ_server_id for NIC loopback
+					$call pushIntoQueue (TXQUEUE RxQ_server_id rx_buffer_pointer_32) (TxQ_status)
+				$endif
+				
+				// push_status == 0 is success, i.e., pushed buffer pointer to RxQ
+				$volatile push_status := ($mux (S_CONTROL_REGISTER [] 7) (TxQ_status [] 1) (RxQ_status [] 1))
+			
+				// If push not successful -> Loopback
+				$if (push_status == 1) $then 
+					$place [push_loopback]
+				$endif
+					
+				// Increment the number of packets received
+				$call incrementNumberOfPacketsReceived() ()
+				
+				// if packet is ok, move to next server's Rx queue
+				n_RxQ_server_id := ((RxQ_server_id + 1) & ($bitcast ($uint<4>) (S_NUMBER_OF_SERVERS - 1)))
+				//LAST_WRITTEN_RX_QUEUE_INDEX := RxQ_server_id
+				
+			$else
+				// spin until lock is acquired and push_status is successful
+				$merge $entry re_lock_loopback re_push_loopback $endmerge
+			
+				// received packet is defective, free the buffer and push buffer pointer back to freeQ
+				$call exec_free_queue_command (SERVER_0 FQ_LOCK _h0000) (re_fQ_lock_status)
+							 				
+				// lock_status == 0 is success, i.e., get access to freeQ lock
+				$volatile re_lock_status := ($bitreduce | re_fQ_lock_status)
+			
+				// If lock not acquired -> Loopback
+				$if(re_lock_status == 1) $then
+					$place [re_lock_loopback]
+				$endif
+				
+				// If lock acquired -> push back to free queue
+				$call pushIntoQueue (FREEQUEUE SERVER_0 rx_buffer_pointer_32) (re_freeQ_status)
+				
+				// release freeQ lock immediately after push
+				$call exec_free_queue_command (SERVER_0 FQ_UNLOCK _h0000) (re_fQ_unlock_status)
+			
+				// re_push_status == 0 is success, i.e., pushed buffer pointer back to freeQ
+				$volatile re_push_status := (re_freeQ_status [] 1)
+				
+				// If push not successful -> Loopback
+				$if (re_push_status == 1) $then 
+					$place [re_push_loopback]
+				$endif
+							
+			$endif
+			
+			// Loop while (control[0] == 1), i.e., NIC is enabled
+			$if ((S_CONTROL_REGISTER [] 0) == 1) $then
+				$place [loopback]
+			$endif
+			
+		$place [disable_loopback]
+	}
+}
+
+
+
+// Load into the Buffer starting from Buffer Index 1...
+// Buffer Index 0 is reserved for control information of the packet following it
+// Steps : 
+//     First store the Ethernet Header information in the buffer
+//     Then, store the Payload into the buffer
+//     Finally add the Control Information at the base address pointer (index = 0) if the packet
+//     currently being stored is not a bad packet
+$module [receivePacket] 
+	$in (tag :$uint<8> max_addr_offset: $uint<16>  rx_buffer_pointer : $uint<64>) 
+	$out(bad_packet_identifier : $uint<1>) $is
+{
+	// Read from Ethernet Header Pipe and stores into memory 
+	// Returns the last pointer location which was written to
+	$call writeEthernetHeaderToMem (tag rx_buffer_pointer) (addr_offset_after_eth_header)
+	$barrier
+
+	// Read from Ethernet Payload Pipe and stores in memory starting from the last written pointer location
+	// Returns the Control information like -> Packet Size, BAd packet Status and byte mask of last word
+	$call writePayloadToMem (tag max_addr_offset rx_buffer_pointer addr_offset_after_eth_header)
+				(packet_size bad_packet_identifier last_keep)
+
+	// Write Control Information to Memory if not a bad packet
+	// If it is a bad packet don't bother writing since the buffer will be repurposed for the next packet 
+	$guard(~bad_packet_identifier)
+		$call writeControlInformationToMem (tag rx_buffer_pointer max_addr_offset packet_size last_keep) ()
+
+	$attribute delay 1
+}
+
+// Write Ethernet Header to Buffer.. up to 16 bytes.
+$module [writeEthernetHeaderToMem]
+	$in (tag :$uint<8> rx_buffer_pointer : $uint<64>) 
+	$out(addr_offset : $uint<16>) $is
+{
+	$branchblock [main]
+	{
+		$volatile ethHeaderTag := ((tag << 2) | ($bitcast ($uint<8>) 1))
+
+		$dopipeline $depth 15 $fullrate
+		$merge $entry $loopback
+			// Start from buffer dword 1, ie to rx_buffer_pointer + 8.
+			// Because, buffer dword 0 is reserved for control information
+			$phi addr_offset :=  ($bitcast ($uint<16>) 8) $on $entry naddr_offset $on $loopback
+
+			// keep track of number of dwords read so far.
+			$phi first_time := $one<1> $on $entry $zero<1> $on $loopback 
+		
+			// Read Header word from pipe
+			$phi ethernet_header := nic_rx_to_header $on $entry, $loopback
+		$endmerge
+
+		// Extract individual components of the word 
+		$volatile $split (ethernet_header 1 64 8)(last_bit wdata wkeep)
+	
+		$call accessMemoryDword (ethHeaderTag WRITEMEM rx_buffer_pointer 
+				($bitcast ($uint<64>) addr_offset)  wdata)  (ignore_return) 
+
+		$volatile naddr_offset := (addr_offset + 8)
+
+		// If 2 words are stored, then end
+		$while first_time
+	}  
+
+	$attribute input_buffering 0
+	$attribute output_buffering 0
+}
+
+
+// Write incoming payload data starting at byte-addrss (rx_buffer_pointer + addr_offset + 8).
+// flag bad packet, and return packet-size in buffer.
+$module [writePayloadToMem]
+	$in (tag :$uint<8> max_addr_offset : $uint<16> rx_buffer_pointer : $uint<64> addr_offset : $uint<16>)
+	$out(packet_size_11:$uint<11> bad_packet_identifier : $uint<1> last_keep : $uint<8>) $is
+{
+	$branchblock[loop] {
+
+		$volatile payloadTag := ((tag << 2) | ($bitcast ($uint<8>) 2))
+
+		$dopipeline $depth 15 $fullrate
+			$merge $entry $loopback
+				// Begin loading from rx_buffer_pointer + 8 since rx_buffer_pointer
+				// has already been written into by Ethernet Header 
+				$phi active_addr_offset := (addr_offset + 8) $on $entry nactive_addr_offset $on $loopback 
+
+				// Read Data from Payload Pipe
+				$phi payload_data := nic_rx_to_packet $on $entry, $loopback
+			$endmerge
+	
+			// Extract payload word components
+			$volatile $split (payload_data 1 64 8)(last_bit wdata wkeep)
+			$volatile last_keep := wkeep
+
+			$volatile nactive_addr_offset := (active_addr_offset + 8)
+			$volatile overflow := ((~last_bit) & (active_addr_offset == max_addr_offset))
+			$volatile continue_flag := ((~overflow) & (~last_bit))	
+
+			// Load wdata to memory with wkeep = bmask
+			$call accessMemoryDword (payloadTag WRITEMEM rx_buffer_pointer 
+						($bitcast ($uint<64>) active_addr_offset)  wdata) (ignore_return) 
+
+		$while continue_flag
+
+	} (wdata => tdata active_addr_offset => active_addr_offset overflow => overflow)
+
+	// Identify if the data is a bad packet which is identified by 
+	// data bits all 1 and bmask all zeros.
+	$volatile bad_packet_identifier := (overflow | ((tdata == BAD_PACKET_DATA) & (last_keep == 0)))
+	
+	// how many bytes in the packet (including the control word in the first dword
+	// of the buffer, and two dwords for the header.)
+	$volatile packet_size_11 := ($bitcast ($uint<11>) active_addr_offset)
+
+	$attribute input_buffering 0
+	$attribute output_buffering 0
+}
+
+// Write the Control Information of stored packet into buffer location 0
+$module [writeControlInformationToMem]
+	$in (tag :$uint<8> rx_buffer_pointer : $uint<64> max_addr_offset: $uint<16> packet_size:$uint<11>  last_keep : $uint<8>)
+	$out() $is
+{
+	// Concatenate the control information to create control_data
+	// This control data is a work in progress.... (Can add other information like 
+	// stored by NIC so and so and send to NIC so and so etc.. 
+	$volatile control_data :=  ($concat max_addr_offset $zero<29> packet_size last_keep)
+
+	$volatile ctrlInfoTag := ((tag << 2) | ($bitcast ($uint<8>) 3))
+	// Write this control data with bmask set to all 1s to rx_buffer_pointer location
+	$call accessMemoryDword (ctrlInfoTag WRITEMEM rx_buffer_pointer 0 control_data) (ignore_return)
+
+	$attribute input_buffering 0
+	$attribute output_buffering 0
+}

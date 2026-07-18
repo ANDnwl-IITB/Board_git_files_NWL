@@ -1,0 +1,18 @@
+mmul_4bit_32x32:
+	 Matrix multiplication of two 32 × 32 matrices with 4-bit elements.
+
+mmul_4bit_64_32x32:
+	Matrix multiplication of 32 × 64 and 64 × 32 matrices with 4-bit elements.
+
+mmul_4bit_64x64:
+	Matrix multiplication of two 64 × 64 matrices with 4-bit elements.
+
+mmul_4bit_128_32x32:
+	Matrix multiplication of 32 × 128 and 128 × 32 matrices with 4-bit elements.
+
+mmul_4bit_32x32_pack:
+	Matrix multiplication of two 32 × 32 matrices with 4-bit elements.Used the Pack instruction to store two output elements of matrix C in a single memory location, reducing the memory required to store matrix C.
+
+mmul_4bit_64x64_pack:
+	Matrix multiplication of two 64 × 64 matrices with 4-bit elements.Used the Pack instruction to store two output elements of matrix C in a single memory location, reducing the memory required to store matrix C.
+
