@@ -1,0 +1,129 @@
+// 
+// Given an NxM matrix A, an MxN matrix B (in column major form),
+// Calculate the product A x B.
+//
+//    inner loop dot product of row, column.
+//    outer loop row, col sequencer
+//
+//  outer-loop     0  1  2 ... N-1	N N+1 ... 2N-1
+//  Row            0  0  0 ... 0        1  1  ...  1
+//  Col            0  1  2 ... N-1      0  1  .....N-1
+//
+// Given 
+//     APTR, BPTR, NBYTES, DEST_PTR, NMASK, N2MASK, BUFFER
+// Assumption: all other registers are cleared.
+// 
+//-------------------- Incoming registers ---------------------------//
+#define ZR              $r0
+#define APTR		$r1
+#define BPTR		$r2
+#define NBYTES_IN	$r3
+#define RPTR		$r4
+#define NMASK           $r5
+#define N2MASK          $r6
+#define BUFFER		$r7
+
+#define AADDR           $r8
+#define BADDR	 	$r9
+
+// note: reuse of register r10.
+#define NBYTES          $r10
+#define INCR_AADDR      $r10
+
+#define RADDR           $r11
+#define COUNTER		$r12
+#define NCOUNTER        $r13
+
+#define COUNTER_AND_NMASK     $r14
+#define COUNTER_AND_N2MASK    $r15
+
+#define ARG1 		$r1
+#define ARG2 		$r2
+#define ARG3 		$r3
+#define ARG4		$r4
+
+#define ACC6 		$r30
+#define ACC7		$r31
+
+#include "dotp.macro"
+
+initialize: 
+	||
+		+ AADDR    ($i64) APTR         0
+		+ BADDR    ($i64) BPTR         0
+		+ RADDR    ($i64) RPTR         0
+		+ COUNTER  ($i64) ZR	       1
+		+ NCOUNTER ($i64) ZR           2
+		+ NBYTES   ($i64) NBYTES_IN    0
+
+		+ ACC6     ($i64) ZR	       0
+		+ ACC7     ($i64) ZR	       0
+	;
+save_caller_state:	
+	||
+		// save registers 0-15.
+		$st	 ($u256) [BUFFER + 0]  ZR	// APTR, BPTR, NBYTES_IN
+		$st	 ($u256) [BUFFER + 32] RPTR	// RPTR, NMASK, N2MASK, BUFFER
+		$st	 ($u256) [BUFFER + 64] AADDR	// AADDR, BADDR, NBYTES, RADDR
+		$st	 ($u256) [BUFFER + 96] COUNTER	// COUNTER NCOUNTER.
+
+		+  ARG1  ($i64) AADDR  0
+		+  ARG2  ($i64) BADDR  0
+		+  ARG3  ($i64) NBYTES 0
+		+  ARG4  ($i64) RADDR  0
+	;
+	// dotp ..  restores caller state..
+ 	//-------------------------------------------------------------------------------------------//
+ 	dotp_i32(dotp_i32_1,loop_begin_1,loop_1,loop1_1,loop2_1,sum1_1,sum2_1,sum3_1,store_result_1)
+ 	//-------------------------------------------------------------------------------------------//
+check_limits:
+	||
+		// For N2MASK = 7, NMASK = 3
+		//   COUNTER    1  2  3  4  5  6  7  8
+		//                                   *   last-and-quit.
+		//
+		//              _  _  _  ^  _  _  _  ^
+		//                       
+		& COUNTER_AND_NMASK   ($u64) COUNTER NMASK
+		& COUNTER_AND_N2MASK ($u64) COUNTER N2MASK 
+
+		// reuse of r10.
+		+ INCR_AADDR 	($u64) AADDR NBYTES
+		+ BADDR 	($u64) BADDR NBYTES
+
+		+ ACC6     ($i64) ZR	       0
+		+ ACC7     ($i64) ZR	       0
+
+		$null
+		$null
+	;
+main_loop_back: 
+	||
+
+		// if all entries have not been calculate, repeat.
+		? ($i64) COUNTER_AND_N2MASK != $goto save_caller_state
+
+		// if roll-over, then AADDR (ROW) is incremented.
+		$cmov ? ($i64) COUNTER_AND_NMASK == AADDR INCR_AADDR
+
+		// if roll-over, then BADDR (COL) is reset.
+		$cmov ? ($i64) COUNTER_AND_NMASK == BADDR BPTR		// column cycles to 0.
+
+		// RADDR alwats increments by 4.
+		+ RADDR  ($i64) RADDR 4
+
+		// COUNTER set to NCOUNTER.
+		+ COUNTER  ($i64) NCOUNTER 0
+
+		// NCOUNTER set to  NCOUNTER + 1.
+		+ NCOUNTER ($i64) NCOUNTER 1
+
+		// NBYTES reset to incoming value..
+		+ NBYTES   ($i64) NBYTES_IN    0
+	;
+the_end:
+	||
+		$halt
+	;
+
+

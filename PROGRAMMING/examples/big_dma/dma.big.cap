@@ -1,0 +1,53 @@
+Info: finished setup
+Info: thread 0 command daemon enabled
+set_ping started.
+set_ping completed.
+Info: dma 0 command daemon enabled
+Dma task 0 completed (creg=0x1000004)
+do_dma_load 0:  t0=0x23c4d2c5, t1=0x23c4d6d2, t2=0x23c4db86, delta=1204
+7.  Schedule store DMA [0].
+9.  Dma task 0 completed (creg=0x2000104)
+do_dma_store 0:  t0=0x23cb880b, t1=0x23cb8a99, t2=0x23cb9221, delta=1928
+do_dma_store 0:  hw_t1=0x23cb8c7b, hw_t2=0x23cb90b7, hw_delta=1084
+check_pong started.
+clear_mem started.
+clear_mem completed.
+Info: thread 1 command daemon enabled
+set_ping started.
+set_ping completed.
+Info: dma 1 command daemon enabled
+Dma task 1 completed (creg=0x1000004)
+do_dma_load 1:  t0=0x23dce593, t1=0x23dce809, t2=0x23dcec87, delta=1150
+7.  Schedule store DMA [1].
+9.  Dma task 1 completed (creg=0x2000104)
+do_dma_store 1:  t0=0x23e3995f, t1=0x23e39b8d, t2=0x23e3a2eb, delta=1886
+do_dma_store 1:  hw_t1=0x23e39c9b, hw_t2=0x23e3a19f, hw_delta=1284
+check_pong started.
+clear_mem started.
+clear_mem completed.
+Info: thread 2 command daemon enabled
+set_ping started.
+set_ping completed.
+Info: dma 2 command daemon enabled
+Dma task 2 completed (creg=0x1000004)
+do_dma_load 2:  t0=0x23f4fbc1, t1=0x23f4fe17, t2=0x23f50291, delta=1146
+7.  Schedule store DMA [2].
+9.  Dma task 2 completed (creg=0x2000104)
+do_dma_store 2:  t0=0x23fbaef3, t1=0x23fbb120, t2=0x23fbb897, delta=1911
+do_dma_store 2:  hw_t1=0x23fbb22f, hw_t2=0x23fbb74b, hw_delta=1308
+check_pong started.
+clear_mem started.
+clear_mem completed.
+Info: thread 3 command daemon enabled
+set_ping started.
+set_ping completed.
+Info: dma 3 command daemon enabled
+Dma task 3 completed (creg=0x1000004)
+do_dma_load 3:  t0=0x240d1139, t1=0x240d13ab, t2=0x240d1825, delta=1146
+7.  Schedule store DMA [3].
+9.  Dma task 3 completed (creg=0x2000104)
+do_dma_store 3:  t0=0x2413c3ed, t1=0x2413c61a, t2=0x2413cd34, delta=1818
+do_dma_store 3:  hw_t1=0x2413c72d, hw_t2=0x2413cbf5, hw_delta=1224
+check_pong started.
+clear_mem started.
+clear_mem completed.

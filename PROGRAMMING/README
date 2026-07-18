@@ -1,0 +1,75 @@
+Setup
+-------------
+
+To setup,
+run 
+
+	source setup.sh
+
+from the current directory.
+
+To complete the setup run 
+
+./build_ajit_lib.sh 
+
+inside the AJIT toolchain docker,  
+from the driver/ directory.
+
+Contents
+-----------
+
+driver/
+	a set of routines to control and monitor
+	the accelerator engine.
+
+
+examples/
+	dma_check/
+		Basic DMA test with polling
+		(uses only dma controller, not threads)
+
+	big_dma/
+		DMA of 8KB of data 
+		(uses only dma controller, not threads)
+	
+	dotp_big_i8/
+		i8 dot product on 32KB chunk of data.
+		Polling based, uses 4 threads.
+
+	mmul_i32_opt/
+		Matrix multiply, with use of "symbolic"
+		APARA mcode and the use of dot-product
+		as a macro.  Threads are managed by 
+		polling.
+
+	mmul_i32_opt_with_interrupts
+		Matrix i32 128x128 multiply, with the use of "symbolic"
+		APARA mcode and the use of dot-product
+		as a macro.   Threads are managed via
+		interrupts.
+
+	mmul_i8_opt_with_interrupts
+		Matrix i8 256x256  multiply, with the use of "symbolic"
+		APARA mcode and the use of dot-product
+		as a macro.   Threads are managed via
+		interrupts.
+
+memory_layout/
+
+	Total 36 bit address space is divided
+	into different sections.
+
+refs/
+	APARA document.
+tex/
+
+pdf/
+	presentation about the programming model
+	etc..
+
+utils/
+	Utilities to convert APARA object code
+	into blobs in AJIT assembly code. The
+	resulting AJIT assembly code is linked 
+	with the AJIT application to produce
+	the final AJIT executable (mmap file).

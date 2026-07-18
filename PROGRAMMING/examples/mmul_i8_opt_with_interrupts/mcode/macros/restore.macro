@@ -1,0 +1,13 @@
+#define restore_0_15(restore_0_15)\
+restore_0_15:\
+    || \
+    $null\
+    $null\
+    $null\
+    $null\
+    $ld    ($u256)   $r0    [$r1 + 0]\
+    $ld    ($u256)   $r4    [$r1 + 32]\
+    $ld    ($u256)   $r8    [$r1 + 64]\
+    $ld    ($u256)   $r12    [$r1 + 96]\
+    ;\
+

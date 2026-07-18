@@ -1,0 +1,12 @@
+SConstruct
+	For use with in testing on
+	our work machine, you will need 
+	lib/libEngine.a produced by scons
+
+build_ajit_lib.sh
+	For use in the AJIT environment,
+	we need ajit_lib/libengine.a 
+	to build an AJIT application.
+	Run this script in AJIT tool chain
+	docker.
+

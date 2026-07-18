@@ -1,0 +1,25 @@
+-----------------------------------------------------------------------------------------------------
+memory address range	size	 cacheable	comment
+-----------------------------------------------------------------------------------------------------
+0x0 to 0xFFFFFF	        16MB	    No		FLASH
+
+0xFFFE0000 to
+      0xFFFFFFFF	128KB	    No          MMIO
+
+0x1000000 to 0x1000FFFF 64KB        No          Engine (0,0)  (cluster 0, engine 0)
+0x1010000 to 0x1001FFFF 64KB        No          Engine (0,1)
+0x1020000 to 0x1002FFFF 64KB        No          Engine (0,2)
+0x1030000 to 0x1003FFFF 64KB        No          Engine (0,3)
+0x1040000 to 0x1004FFFF 64KB        No          Engine (1,0)
+
+...						....
+
+0x13F0000 to 0x13FFFFF 64KB         No           Engine (15,3)	(cluster 15, engine 3)
+
+0x40000000 to 0xFFFDFFFF            Yes          Core RAM	(for program mmap, text and data)
+
+0x1000000000 to 0xFFFFFFFFF         No		 Extended RAM	(system integration memory).
+	(note: up to 64 GB)
+-----------------------------------------------------------------------------------------------------
+
+

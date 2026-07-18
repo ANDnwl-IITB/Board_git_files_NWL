@@ -1,0 +1,7 @@
+scons: Reading SConscript files ...
+scons: done reading SConscript files.
+scons: Building targets ...
+gcc -o src/engine.o -c -g -Iinclude src/engine.c
+ar rc lib/libEngine.a src/engine.o
+ranlib lib/libEngine.a
+scons: done building targets.

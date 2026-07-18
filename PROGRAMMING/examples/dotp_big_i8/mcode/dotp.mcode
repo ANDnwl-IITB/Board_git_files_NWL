@@ -1,0 +1,71 @@
+// two big arrays.
+//    array 1:  32KB ie 8192 entries of 4-bytes each.
+//    array 2:  32KB ie 8192 entries of 4-bytes each.
+//
+// i32 dot product.
+//
+// args: r0 = 0
+//       r1 = 0x1000000 address of first array
+//       r2 = 0x1008000 base address of second array
+//       r3 = NBYTES/8 
+//       r4 = destination address..  (keep it 0x1000000)
+//       r7 = destination register.
+//
+//  All other registers are initialized to 0 before starting this
+//  program.
+//
+//  Memory is assumed to be initialized with vectors to be multiplied.
+//
+init_regs:
+	||
+		+  $r6  ($i64) $r0 32 				// index+32 (byte address for second fetch)
+	;
+loop_begin :
+	||
+		// fetch 4 + 4 registers.
+		$ld ($u256) $r8  [$r1 + $r5]
+		$ld ($u256) $r12 [$r2 + $r5]
+
+		// fetch 4 + 4 registers.
+		$ld ($u256) $r16 [$r1 + $r6]
+		$ld ($u256) $r20 [$r2 + $r6]
+
+		+ $r5 ($i64) $r5  64
+		+ $r6 ($i64) $r6  64
+		-  $r3 ($i64)    $r3  8
+	;
+loop :
+	||
+		$dot $accumulate    $r24 ($vi8) $r8  $r12
+		$dot $accumulate    $r25 ($vi8) $r9  $r13
+		$dot $accumulate    $r26 ($vi8) $r10 $r14
+		$dot $accumulate    $r27 ($vi8) $r11 $r15
+
+		$dot $accumulate    $r28 ($vi8) $r16  $r20
+		$dot $accumulate    $r29 ($vi8) $r17  $r21
+		$dot $accumulate    $r30 ($vi8) $r18  $r22
+		$dot $accumulate    $r31 ($vi8) $r19  $r23
+	;
+sum1 : 
+	||
+		? ($i64) $r3 >  $goto loop_begin
+
+		+ $r8  ($i64) $r24 $r25
+		+ $r9  ($i64) $r26 $r27
+		+ $r10 ($i64) $r28 $r29
+		+ $r11 ($i64) $r30 $r31
+	;
+sum2 :
+	||
+		+ $r8 ($i64) $r8  $r9
+		+ $r9 ($i64) $r10 $r11
+	;
+sum3 :
+	||
+		+ $r7 ($i64) $r8 $r9
+	;
+halt:  ||
+		$halt
+	;
+
+

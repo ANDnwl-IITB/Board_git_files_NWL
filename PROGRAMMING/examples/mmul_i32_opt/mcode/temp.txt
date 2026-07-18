@@ -1,0 +1,9 @@
++ $r5 ($u32) $r1 $r2
+
+		-->  64-bit value
+			 but only bottom 32-bits
+			 need to be checked by the 
+			 results script..
+
+
+		(uint64_t) (((uint32_t) r1) + ((uin32_t)  r2))

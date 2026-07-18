@@ -1,0 +1,519 @@
+\documentclass{beamer}
+\usepackage{graphics}
+
+\title{APARAJIT: An Edge-compute System-on-chip}
+\author{Madhav Desai\\
+Department of Electrical Engineering\\
+IIT Bombay}
+
+\begin{document}
+\maketitle
+
+\frame[containsverbatim]{\frametitle{Overview}
+\begin{itemize}
+	\item  APARA, the edge compute accelerator.
+		\begin{itemize}
+			\item instruction set architecture.
+			\item data and instruction memory.
+			\item DMA engine.
+		\end{itemize}
+	\item  APARAJIT a  minimal system on chip:
+		\begin{itemize}
+			\item Control processor (AJIT processor).
+			\item Accelerator (APARA accelerator).
+			\item DMA controller.
+			\item Switch.
+			\item Memory.
+		\end{itemize}
+	\item Programming APARAJIT.
+	\item Demonstration of FPGA prototype and early performance data.
+	\item Road-map.
+\end{itemize}
+}
+
+\frame[containsverbatim]{\frametitle{APARA architecture}
+
+\begin{figure}
+\includegraphics[width=8cm]{figs/APARAMT.pdf}
+ \caption{APARA structure}
+\end{figure}
+
+}
+
+
+\frame[containsverbatim]{\frametitle{APARA features}
+
+\begin{itemize}
+\item A memory-coupled accelerator.
+\item Disjoint instruction and data memories.
+\item Four execution threads multiplexed onto a single
+	hardware pipeline.
+\item Hardware pipeline: Bundles of instructions with up to 8 instructions per bundle.
+\item Supported types: i4/i8/i16/i32/i64, f4/f8/f16/f32/f64
+\item Per-thread 32x 64-bit registers, Per-thread program counters, Per-thread return address stack.
+\item Instructions:
+	\begin{itemize}
+		\item Memory load/store:  from byte to 32-bytes.
+		\item Scalar and vector instructions, including dot-product.
+		\item Branching and subroutines.
+	\end{itemize}
+\end{itemize}
+}
+
+\frame[containsverbatim]{\frametitle{Multi-threaded APARA: functional description}
+\begin{verbatim}
+// 4 threads, 4x PC, 4x REGSETS, 4x RAS, 4x ERR
+PC[1 to 4] = initvalues , REGS[1 to 4],
+RAS[1 to 4] = empty, ERR[1 to 4] = 0, ACTIVE=1
+while(1)
+{ 
+    bundle := fetch_bundle_from_imem(PC[ACTIVE])
+    ops           := 
+	   get_ops_needed_by_bundle(bundle, REGS[ACTIVE])
+    out_values    := 
+            execute_instructions_in_bundle(bundle, ops)
+    PC[ACTIVE], REGS[ACTIVE], ERR[ACTIVE] := 
+            update_registers_pc_ras_error (out_values)
+    ACTIVE = next_active (ACTIVE, ERR[1 to 4]);    
+
+    if(ACTIVE==0) break;
+}
+\end{verbatim}
+}
+
+\frame[containsverbatim]{\frametitle{Abstract machine: mcode program}
+\begin{itemize}
+	\item Up to 4 threads are active in the abstract machine.  They
+		are multiplexed onto the execution pipeline.
+	\item Each thread has its own state: program counter, 
+		register file, return address stack, error status.
+	\item Each thread executes an Mcode program.
+	\item A Mcode program is a sequence of instruction bundles.
+	\item Each bundle can have 1/2/4/8 instructions.
+	\item Instructions in a bundle are executed in 
+	parallel using a synchronous fetch-execute-write sequence which 
+	guarantees no race conditions.
+	\item A single bundle  can have at most one control transfer
+	instruction.
+	\item Two instructions in a bundle cannot write to
+	the same register.
+\end{itemize}
+}
+
+
+
+\frame[containsverbatim]{\frametitle{Bundle}
+
+\begin{verbatim}
+label: 
+  ||
+      <instr 1>
+      <instr 2>
+      <instr 3>
+      ...
+      <instr 8>
+  ;
+\end{verbatim}
+Can have 1/2/4/8 instructions in each bundle.
+
+}
+
+\frame[containsverbatim]{\frametitle{Instruction set: instructions in a bundle}
+\begin{itemize}
+\item Each instruction is 32-bits wide.
+\item Instruction classes:
+	\begin{itemize}
+		\item ALU instructions.
+			\begin{itemize}
+				\item Integer: $+,-,*,/,or,and,xor,nor,nand,xnor, <<, >>$.
+				\item Float:   $+,-,*,/$, square-root.
+			\end{itemize}
+		\item Load/Store insrtuctions.
+		\item Control transfer instructions: branch, call, return, conditional move.
+		\item Vector instructions: vector add, subtract, multiply, scale, reduce, dot-product.
+		\item Miscellaneous instructions: set, slice, pack, null, nop, cast.
+	\end{itemize}
+\item Control transfer instructions: branch, call, return.
+\end{itemize}
+}
+
+\frame[containsverbatim]{\frametitle{Types}
+\begin{verbatim}
+Integer (signed, unsigned, vector)
+  signed:   ($i4) ($i8) ($i16) ($i32) ($i64) 
+  unsigned: ($u4) ($u8) ($u16) ($u32) ($u64) 
+            ($u128) ($u256)
+  float
+            ($f4) ($f8) ($f16) ($f32) ($f64)
+
+  vector:   ($vi4) ($vi8) ($vi16) ($vi32) 
+            ($vu4) ($vu8) ($vu16) ($vu32) 
+            ($vf4) ($vf8) ($vf16) ($vf32) 
+\end{verbatim}
+
+Note: 128 and 256 bit types are used only during data
+	transfer with memory, not for arithmetic.
+
+}
+
+\frame[containsverbatim]{\frametitle{Orthogonalization:  op-code and type}
+\begin{verbatim}
++ $r4 ($i16) $r1 $r2
++ $r4 ($i32) $r1 $r2 
+
++ $r4 ($i64) $r1 256
+
++ $r4 ($u16) $r1 $r2
++ $r4 ($u32) $r1 $r2 
+\end{verbatim}
+}
+
+\frame[containsverbatim]{\frametitle{Vector ALU instructions}
+
+\begin{verbatim}
+$v * $r8  ($vi32) $r8  $r12
+\end{verbatim}
+
+Same as ALU instructions except that 
+\begin{itemize}
+	\item immediate operands not possible.
+	\item source and destination types are vectors.
+	\item Replicate flag is provided instead of immediates.
+\end{itemize}
+}
+
+\frame[containsverbatim]{\frametitle{Vector ALU DOT instruction}
+\begin{verbatim}
+$dot                $r24 ($vi16) $r8  $r12
+$dot $accumulate    $r24 ($vi16) $r8  $r12
+\end{verbatim}
+
+A dot-product on the two source vectors which
+produces a destination value of the specified type ($rd = rs1.rs2$).  
+The accumulate version does $rd = rs1.rs2 + rd$.
+
+}
+
+\frame[containsverbatim]{\frametitle{Vector VREDUCE instruction}
+
+\begin{verbatim}
+$vreduce + $r8  ($vi32) $r12
+\end{verbatim}
+The register \$rs1 is a vector.   The elements
+of the source vector are added using precision specified
+by dest-type, and the result is saved into \$rd.
+
+}
+
+
+\frame[containsverbatim]{\frametitle{Casts: the CAST instruction}
+
+\begin{verbatim}
+$cast ($f32)  $r8 ($f16) $r7
+$cast ($vf32) $r8 ($vf16) $r7
+$cast ($vf8)  $r8 ($vf16) $r9
+\end{verbatim}
+
+The bits in rs  are mapped to bits in rd via a cast
+operation.   For scalars, it is the normal cast (as
+in the first example).  For vectors, as in the
+second example, the vector in \$r7  is mapped to
+\$r8 and \$r9.  Two output registers are used.
+In the third example, the destination vector is
+filled with 8 values and this needs us to read
+a multiplicity of two registers \$r9 and \$r10.
+
+The multiplicity of in or out registers
+should be at most 2.
+
+}
+
+\frame[containsverbatim]{\frametitle{Casts: the PACK instruction}
+\begin{verbatim}
+$pack $r8 64 32 $r4
+$pack $r8 32 16 $r4
+\end{verbatim}
+
+In the first example, The 32 bit values in \$r4, \$r5 are concatenated
+to produce a 64-bit result value in \$r8.   The concatenated values
+must fit into a single destination register (in this case \$r8).
+The second example is similar but two 16-bit values are packed
+into a 32-bit value.
+
+}
+
+\frame[containsverbatim]{\frametitle{Data transfer: the LOAD instruction}
+\begin{verbatim}
+$ld ($i64)  $r3 [$r1 + $r0]
+$ld ($u256) $r4 [$r1 + $r2 ++1]
+$ld ($u64)  $r8 [$r1 + 256]
+\end{verbatim}
+
+
+The specified number of bits are fetched from memory
+and kept in registers starting at \$rd.  Up to 64 bits
+use one destination register. Higher values of number
+of bits (max value is 256) use two to four destination
+registers.   Auto-increment, if specified increments
+rs2 by the specified value  times the size of transfer
+in bytes.
+}
+
+
+\frame[containsverbatim]{\frametitle{Data transfer: the STORE instruction}
+\begin{verbatim}
+$st <dest-type> [ <rs1> + <rs2> <auto-incr>?] <rd>  OR
+$st <dest-type> [ <rs1> + 16] <rd>  
+
+$st ($i32)  [$r5 + $r6] $r8
+$st ($i128) [$r5 + $r6] $r8
+\end{verbatim}
+
+The specified number (in dest-type) of bits are moved from
+the specified rd register into memory.  Note that multiple
+source registers may be used (e.g. for 128 bits we need
+r8,r9 to be written to memory).  Register indices and
+memory addresses must be aligned values.
+
+}
+
+\frame[containsverbatim]{\frametitle{Conditional move: CMOV}
+
+\begin{verbatim}
+$cmov ($uint32) $r5 > --1  $r6 $r7
+\end{verbatim}
+In the example, if \$r5 is greater than 0, then
+\$r7 is moved to \$r6.   The \$r5 register value
+is decremented.
+
+}
+
+
+\frame[containsverbatim]{\frametitle{Control Transfer: the BRANCH instruction}
+\begin{verbatim}
+? ($i32) $r5 >  --1  $goto loop_begin
+\end{verbatim}
+
+The example instruction above can be interpreted as follows:  Register \$r5 is compared
+with $0$ and if it is $> 0$ (as a 32-bit signed integer) then control is transferred
+to the label loop\_begin.  The value of \$r5 is decremented by $1$ after the comparison.
+The auto-decrement (or increment) is optional.
+
+}
+
+\frame[containsverbatim]{\frametitle{Control Transfer: the CALL instruction}
+\begin{verbatim}
+$call foo 
+$call $r5
+\end{verbatim}
+The expected next PC is saved on the return address stack and
+control is passed to the bundle with label foo or
+with the address $(PC + \$r5)$ (here \$r5 is interpreted
+as a 32-bit signed integer).
+
+}
+
+\frame[containsverbatim]{\frametitle{Control Transfer: the RETURN instruction}
+\begin{verbatim}
+$return
+\end{verbatim}
+
+On a return instruction, the return address stack is popped
+and control is passed to the popped address.
+}
+
+\frame[containsverbatim]{\frametitle{Miscellaneous: the SET instruction}
+\begin{verbatim}
+$set $r6  2 _hffff
+\end{verbatim}
+
+The 16-bit init-value $0xffff$ is inserted into r6
+at bits [31:16].  SET is meant to used for initialization,
+16 bits at a time.
+
+}
+
+\frame[containsverbatim]{\frametitle{Miscellaneous: the NULL, NOP and HALT instructions}
+\begin{verbatim}
+$null
+$nop
+$halt
+\end{verbatim}
+
+The NULL and NOP instructions do nothing.   The HALT instruction halts the
+machine (after executing all instructions in the bundle in which the HALT occurs).
+
+}
+
+\frame[containsverbatim]{\frametitle{Tools}
+\begin{itemize}
+\item mcode\_align:  insert null instructions to align
+bundles to required boundaries.
+\item mcode\_assemble:  generate hex instructions for 
+instruction memory.
+\item mcode\_disassemble: from hex back to assembly.
+\item mcode\_run:  an emulator.
+\end{itemize}
+}
+
+\frame[containsverbatim]{\frametitle{Code example: simple dot product}
+SEE THE CODE.
+}
+
+\frame[containsverbatim]{\frametitle{APARAJIT 1P1E: first prototype}
+
+\begin{figure}
+\includegraphics[width=8cm]{figs/1P1E.V2.pdf}
+	\caption{APARAJIT 1P1E prototype (with Ethernet and PCIe interfaces shown)}
+\end{figure}
+
+}
+
+\frame[containsverbatim]{\frametitle{APARAJIT 1P1E Prototype: Notes}
+\begin{itemize}
+	\item Using the configuration interface, we can start up to four
+		execution threads by supplying an initial PC to each of them.
+	\item Using the configuration interface, we can start up to four
+		DMA threads by supplying source and destination 
+		parameters to the DMA thread.
+	\item   LUT count for processor (with FPU, MMU, L1 caches): 80K LUT.
+	\item   LUT count for accelerator engine:  35K LUT per lane.
+		\begin{itemize}
+			\item Each lane:  2x FP32 mul, add, FP64 mul, add, 64-bit integer add, mul,
+				4/8/16 bit integer and FP dot product unit.
+		\end{itemize}
+\end{itemize}
+}
+
+
+\frame[containsverbatim]{\frametitle{APARAJIT 1P1E Prototype: Simple Application Flowchart}
+
+\begin{figure}
+\includegraphics[width=8cm]{figs/Flowchart.pdf}
+ \caption{Flow-chart}
+\end{figure}
+
+}
+
+\frame[containsverbatim]{\frametitle{APARAJIT 1P1E Prototype: peer-to-peer queueing model}
+
+\begin{figure}
+\includegraphics[width=8cm]{figs/Flowchart.pdf}
+ \caption{Flow-chart}
+\end{figure}
+
+}
+
+\frame[containsverbatim]{\frametitle{APARAJIT 1P1E Prototype: DMA slicing}
+
+\begin{figure}
+\includegraphics[width=8cm]{figs/DmaSlicing.pdf}
+ \caption{DMA Slicing}
+\end{figure}
+}
+
+\frame[containsverbatim]{\frametitle{APARAJIT 1P1E Prototype: DMA slicing demo}
+
+\begin{itemize}
+	\item Configure a main memory to data memory DMA transfer on a DMA thread.
+	\item Start the DMA thread.
+	\item Wait until the DMA thread is completed.
+	\item Configure a data memory to main memory DMA thread.
+	\item Start the DMA thread.
+	\item Wait until the DMA thread is completed.
+	\item Repeat for each thread.
+\end{itemize}
+
+}
+
+
+\frame[containsverbatim]{\frametitle{APARAJIT 1P1E Prototype: DMA performance demo}
+
+\begin{itemize}
+
+	\item Configure a main memory to data memory DMA transfer on a DMA thread.
+	\item Start the DMA thread.
+	\item Wait until the DMA thread is completed.
+	\item Configure a data memory to main memory DMA thread.
+	\item Start the DMA thread.
+	\item Wait until the DMA thread is completed.
+	\item Repeat for each thread.
+	\item Observed performance: 1.2K cycles to transfer 8KB from main memory to local memory.
+	\item Observed performance: 1.1K cycles to transfer 8KB from local memory to main memory.
+
+\end{itemize}
+
+}
+
+\frame[containsverbatim]{\frametitle{APARAJIT 1P1E Prototype: 32-bit integer DOT-product 2K x 2K  demo} 
+\begin{itemize}
+
+	\item Set up initial conditions of registers (source pointers of two arrays, number of elements).
+	\item Start four exec threads: all do the same work.
+	\item Wait until all four threads have completed.
+	\item Dump registers.
+	\item Measure timings (compare with processor: 31X speedup).
+
+\end{itemize}
+
+}
+
+\frame[containsverbatim]{\frametitle{APARAJIT 1P1E Prototype: 8-bit DOT-product 8K x 8K  demo}
+\begin{itemize}
+
+	\item Set up initial conditions of registers (source pointers of two arrays, number of elements).
+	\item Start four exec threads: all do the same work.
+	\item Wait until all four threads have completed.
+	\item Dump registers.
+	\item Measure timings (compare with processor: 155X speedup).
+
+\end{itemize}
+
+}
+
+\frame[containsverbatim]{\frametitle{APARAJIT 1P1E Prototype: queueing network based application architecture}
+
+\begin{figure}
+\includegraphics[width=8cm]{figs/Queueing.pdf}
+ \caption{Queueing}
+\end{figure}
+
+}
+
+\frame[containsverbatim]{\frametitle{Beyond APARAJIT 1P1E Prototype:2P2E, 4P2E, 4P4E etc.}
+\begin{itemize}
+	\item Add Ethernet, PCIE interfaces to SOC.
+	\item mPnE: m processors, n engines.  
+		\begin{itemize}
+			\item 2P1E, 2P2E, 4P1E, 4P2E etc...
+		\end{itemize}
+	\item Variants: with 1/2/4 lanes per accelerator for deep embedded applications.
+	\item Clusters to scale beyond 4P4E.
+\end{itemize}
+}
+
+\frame[containsverbatim]{\frametitle{Software for APARAJIT SOC}
+\begin{itemize}
+	\item Bare metal drivers.
+	\item RTOS port to SOC: micro-kernel based OS identified (Redkill, NuttX).
+	\item Software library:  BLAS, FFT, AIML operations.
+		\begin{itemize}
+			\item Initially in assembly.
+			\item Eventually: compile from high level language.
+		\end{itemize}
+\end{itemize}
+}
+
+\frame[containsverbatim]{\frametitle{Collaborations: APARAJIT SOC}
+\begin{itemize}
+	\item Accelerator kernel routines.
+	\item Accelerator evaluation/use in systems.
+		\begin{itemize}
+			\item as building block.
+		\end{itemize}
+	\item Domain specific use cases: bio-medical, robotics.
+	\item Other ideas?
+\end{itemize}
+}
+
+\end{document}

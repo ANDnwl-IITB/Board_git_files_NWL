@@ -1,0 +1,12 @@
+64K * 4 = 256K operations in 13K clock cycles.
+	20 operations per tick.
+
+peak possible perf
+	8 x 17 = 136 operations
+
+
+     D  D  _  _  _  _  _  _
+
+
+     D  D  S S  L L
+     D  D  S S  L L 

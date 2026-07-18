@@ -1,0 +1,55 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+
+#define NROWS 64
+#define NCOLS 64
+
+int32_t A[NROWS][NCOLS];
+int32_t B[NCOLS][NROWS];
+int32_t RESULT[NROWS][NROWS];
+
+int64_t REGS[32];
+
+
+// 8-values..
+void mmul_thread (
+			uint64_t RMAX, 
+			uint64_t CMAX,
+			uint64_t NDWORDS,
+			uint64_t APTR,
+			uint64_t BPTR,
+			uint64_t RESULTPTR,
+			uint64_t BUFFER
+		) 
+{
+
+
+INIT: {|| R=RMAX C=CMAX NBYTES=(NDWORDS * 8);}
+
+RLOOP: {|| AADDR =(APTR + (R*NBYTES)) BADDR=(BPTR + (C*NBYTES));}
+CLOOP: {|| RADDR=(RESULT_PTR + (R*NBYTES) + (C*4));}
+
+	dotp (AADDR, BADDR, NDWORDS, RADDR, BUFFER);
+
+DECR0: { || C=(C-1) BADDR=(BADDR-NBYTES)  RADDR=(RADDR-4);}
+
+	dotp (AADDR, BADDR, NDWORDS, RADDR, BUFFER);
+
+DECR1: { || C=(C-1) BADDR = BADDR - NBYTES   RADDR = (RADDR  - 4);}
+
+	dotp (AADDR, BADDR, NDWORDS, RADDR, BUFFER);
+
+DECR2: {C=(C-1) BADDR=(BADDR-NBYTES)  RADDR=(RADDR - 4)}
+
+	// dotp for R,CMAX-3
+	dotp (AADDR, BADDR, NDWORDS, RADDR, BUFFER);
+
+CBRANCH: { if C > 0 $goto CLOOP  C=(C-1) BADDR=(BADDR-NBYTES) RADDR=(RADDR-4)}
+
+RBRANCH: { || if (R > 0) $goto RLOOP   R=(R-1)  C=CMAX;}
+
+}
+
+
+

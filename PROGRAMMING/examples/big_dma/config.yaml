@@ -1,0 +1,97 @@
+# yaml configuration file for linker/loader of Co-RTOS
+# yaml 10 minutes tutorial:
+#   https://www.youtube.com/watch?v=cdLNKUoMc6c
+
+Hardware:
+  Processor:
+    # Required: Number of cores and threads per core.
+    Cores: 1
+    ThreadsPerCore: 1
+    ISA: 32 # 32/64 bit (Default: 32)
+    MMU: Yes
+    FPU: Yes
+
+  Memory:
+    MaxPhysicalAddrBitWidth: 36
+    Flash:
+      StartAddr: 0x0  # physical address
+      SizeInMegaBytes: 16
+      Permissions: RXC  # (Read,Write,eXecute,Cacheable)
+    RAM:
+      StartAddr:   0x40000000
+      #EndAddr:     0x4003FFFF
+      # SizeInBytes: ...
+      # SizeInKiloBytes: 512
+      SizeInMegaBytes: 1
+      Permissions: RWXC
+    NCRAM:
+      StartAddr:   0x01000000
+      # EndAddr:     0x02000000
+      # SizeInBytes: ...
+      SizeInKiloBytes: 64
+      #SizeInMegaBytes: 128
+      Permissions: RW
+    MMIO: # Memory Mapped IO
+      StartAddr: 0xFFFE0000  
+      EndAddr:   0xFFFFFFFF 
+      #SizeInBytes: ...
+      #SizeInKiloBytes: ...
+      #SizeInKiloBytes: 4
+      Permissions: RW
+
+  # see ./AjitPublicResources/tools/ajit_access_routines_mt/include/device_addresses.h
+  Devices:
+    - Name: Timer
+      MemoryRegion:
+        StartAddr: 0xFFFF3100 # physical address (in MMIO)
+        SizeInBytes: 256 # 16x16
+        Permissions: RW
+      NamedRegisters:
+        Control: 0xFFFF3100
+    - Name: InterruptController
+      MemoryRegion:
+        StartAddr: 0xFFFF3000
+        SizeInBytes: 256
+        Permissions: RW
+      NamedRegisters:
+        Control: 0xFFFF3000
+    - Name: Serial
+      MemoryRegion:
+        StartAddr: 0xFFFF3200
+        SizeInBytes: 64
+        Permissions: RW
+      NamedRegisters:
+        Control: 0xFFFF3200
+        TX: 0xFFFF3204
+        RX: 0xFFFF3208
+    - Name: ScratchArea
+      MemoryRegion:
+        StartAddr: 0xFFFF2c00
+        SizeInBytes: 1024
+        Permissions: RW
+
+Software:
+  StartupFuncName : setup
+
+  BuildAndExecute:
+    # Optional: Specify the log level. Default is NONE.
+    # ALL < TRACE < DEBUG < INFO < ERROR < CRITICAL < NONE
+    LogLevel: DEBUG
+    OptimizationLevel: 2 # i.e. O2 (Accepted values: 0, 1, 2)
+    # Library selection ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    UseLibAjit: No 
+    UseDefaultLibAjit: No
+    # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    Debug: No # Yes/No (Default: No)
+    FirstDebugPort: 8888
+    BuildArgs: "-D CLK_FREQUENCY=35000000 -D USE_VMAP -I $AJIT_HPC_ACCEL_HOME/PARAMETERS -I $AJIT_HPC_ACCEL_ENGINE_DRIVER_HOME/include -D HW_DRIVER"
+
+  # Required: Which functions execute on each ajit thread.
+  ProgramThreads:
+    - CortosInitCalls:
+        - main_00
+      StackSize:
+        SizeInKiloBytes: 8
+
+  Locks: # Locks for synchronization between threads.
+      Cacheable: 32

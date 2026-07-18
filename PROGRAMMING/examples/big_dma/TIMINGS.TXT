@@ -1,0 +1,11 @@
+do_dma_load 0:  t0=0x35f257c7, t1=0x35f25bd4, t2=0x35f26083, delta=1199
+do_dma_store 0:  t0=0x35f90c83, t1=0x35f90f0d, t2=0x35f91687, delta=1914
+do_dma_store 0:  hw_t1=0x35f910e7, hw_t2=0x35f91519, hw_delta=1074
+do_dma_store 1:  t0=0x36111ddf, t1=0x3611200c, t2=0x36112785, delta=1913
+do_dma_store 1:  hw_t1=0x36112121, hw_t2=0x3611263d, hw_delta=1308
+do_dma_load 2:  t0=0x3622808f, t1=0x362282de, t2=0x362287a7, delta=1225
+do_dma_store 2:  t0=0x3629345f, t1=0x3629368c, t2=0x36293db2, delta=1830
+do_dma_store 2:  hw_t1=0x3629379d, hw_t2=0x36293c6f, hw_delta=1234
+do_dma_load 3:  t0=0x363a9749, t1=0x363a99bb, t2=0x363a9e39, delta=1150
+do_dma_store 3:  t0=0x36414b33, t1=0x36414d60, t2=0x364154be, delta=1886
+do_dma_store 3:  hw_t1=0x36414e6e, hw_t2=0x36415372, hw_delta=1284

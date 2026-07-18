@@ -1,0 +1,20 @@
+
+Host side application structure
+---------------------------------
+
+
+        load_instructions_into_apara			via assembly, uart, ethernet, pcie, flash
+	load_data_into_data_mem				via assembly, uart, ethernet, pcie, flash
+
+	enable_thread_daemons
+	enable_dma_daemons
+
+	schedule_dma_task
+	poll_on_completion  OR take_interrupt
+
+	schedule_engine_thread_task
+	poll_on_completion OR take_interrupt
+
+	
+
+	

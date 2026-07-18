@@ -1,0 +1,11 @@
+Info: finished setup
+blob_info = 0x1000, 0x40000500, 0x0, 0x40000300
+waiting on thread-init.. (0)
+thread-init (0) completed.
+enabling thread(0)..
+thread(0) enabled.
+loading imem (4096 bytes from 0x40000500)
+load_imem: number_of_words = 1024, base_addr = 0x40000500
+finished loading imem (4096 bytes from 0x40000500)
+done!
+SUCCESS!

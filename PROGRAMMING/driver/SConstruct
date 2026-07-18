@@ -1,0 +1,10 @@
+import os
+import sys
+env = Environment(ENV = {'PATH' : os.environ['PATH']})
+
+
+
+env.Append(CPPPATH = "include:")
+
+env.Library('./lib/libEngine', Split('src/engine.c'), CCFLAGS=' -g ' ,LINKFLAGS='-g ')
+

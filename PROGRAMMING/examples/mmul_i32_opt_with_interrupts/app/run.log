@@ -1,0 +1,7 @@
+./run.sh: line 1: calibrateUart: command not found
+Info: number of cores = 1.
+Info: number of threads per core = 1.
+Info: UART baud rate specified as 115200.
+unable to open -B
+
+ ERROR: uart -B could not be opened.. are you sure you are running this in sudo mode?

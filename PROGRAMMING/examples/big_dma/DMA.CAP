@@ -1,0 +1,56 @@
+Info: finished setup
+Info: thread 0 command daemon enabled
+set_ping started.
+set_ping completed.
+Info: dma 0 command daemon enabled
+Dma task 0 completed (creg=0x1000007)
+do_dma_load 0:  t0=0x17f3e843, t1=0x17f3ec84, t2=0x17f3f160, delta=1244
+7.  Schedule store DMA [0].
+9.  Dma task 0 completed (creg=0x2000107)
+do_dma_store 0:  t0=0x17fa9f1b, t1=0x17faa19f, t2=0x17faa679, delta=1242
+check_pong started.
+clear_mem started.
+clear_mem completed.
+Info: thread 1 command daemon enabled
+set_ping started.
+set_ping completed.
+Info: dma 1 command daemon enabled
+Dma task 1 completed (creg=0x1000007)
+do_dma_load 1:  t0=0x1808b781, t1=0x1808ba01, t2=0x1808bee9, delta=1256
+7.  Schedule store DMA [1].
+9.  Dma task 1 completed (creg=0x2000107)
+do_dma_store 1:  t0=0x180f6bb7, t1=0x180f6def, t2=0x180f731e, delta=1327
+check_pong started.
+clear_mem started.
+clear_mem completed.
+Info: thread 2 command daemon enabled
+set_ping started.
+set_ping completed.
+Info: dma 2 command daemon enabled
+Dma task 2 completed (creg=0x1000007)
+do_dma_load 2:  t0=0x181d86d9, t1=0x181d8960, t2=0x181d8df0, delta=1168
+do_dma_store 2:  t0=0x18243b53, t1=0x18243d89, t2=0x182442b8, delta=1327
+check_pong started.
+clear_mem started.
+clear_mem completed.
+Info: thread 3 command daemon enabled
+set_ping started.
+set_ping completed.
+Info: dma 3 command daemon enabled
+Dma task 3 completed (creg=0x1000007)
+do_dma_load 3:  t0=0x1832567b, t1=0x183258fb, t2=0x18325ddf, delta=1252
+7.  Schedule store DMA [3].
+9.  Dma task 3 completed (creg=0x2000107)
+do_dma_store 3:  t0=0x18390b6b, t1=0x18390da1, t2=0x183912d0, delta=1327
+check_pong started.
+clear_mem started.
+clear_mem completed.
+started do_transfer_using_processor
+completed do_transfer_using_processor
+started do_transfer_using_processor
+completed do_transfer_using_processor
+started do_transfer_using_processor
+completed do_transfer_using_processor
+started do_transfer_using_processor
+completed do_transfer_using_processor
+ticks:  dma_load=4920, dma_store=5223, processor=35936

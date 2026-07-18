@@ -1,0 +1,143 @@
+// Matrix multiplication.. algorithm
+#define  RMAX      $r1
+#define  CMAX      $r2
+#define  NDWORDS   $r3
+#define  APTR      $r4
+#define  BPTR      $r5
+#define  RESULTPTR $r6
+#define  BUFFER    $r7
+#define  R         $r8
+#define  C         $r9
+#define  NBYTES    $r10
+#define  AADDR     $r11
+#define  BADDR     $r12
+#define  RADDR     $r13
+#define  T1        $r14
+#define  T2        $r15
+#define  T3        $r16
+#define  ACC0      $r24
+#define  ACC1      $r25
+#define  ACC2      $r26
+#define  ACC3      $r27
+#define  ACC4      $r28
+#define  ACC5      $r29
+#define  ACC6      $r30
+#define  ACC7      $r31
+#include "dotp.macro"
+INIT: ||
+ + R      ($i64) RMAX 0
+ + C      ($i64) CMAX 0
+ * NBYTES ($i64) NDWORDS 8
+;
+LOOPBACK: ||
+ * T1    ($i64) R 	  NBYTES
+ * T2    ($i64) C         NBYTES
+ * T3    ($i64) C          4
+ + ACC0 ($i64) $r0  0
+ + ACC1 ($i64) $r0  0
+ + ACC2 ($i64) $r0  0
+ + ACC3 ($i64) $r0  0
+ + ACC4 ($i64) $r0  0
+;
+ADDR1: ||
+ + AADDR ($i64) APTR  T1
+ + BADDR ($i64) BPTR  T2
+ + RADDR ($i64) RESULTPTR  T1
+ ;
+ADDR2: ||
+ + RADDR ($i64) RADDR T3
+ + ACC5 ($i64) $r0  0
+ + ACC6 ($i64) $r0  0
+ + ACC7 ($i64) $r0  0
+ ;
+ARGS0: ||
+  + $r1 ($i64) AADDR   0
+  + $r2 ($i64) BADDR   0
+  + $r3 ($i64) NDWORDS 0
+  + $r4 ($i64) RADDR   0
+
+  $st ($u256) [BUFFER + 0]  $r0
+  $st ($u256) [BUFFER + 32] $r4
+  $st ($u256) [BUFFER + 64] $r8
+  $st ($u256) [BUFFER + 96] $r12
+ ;
+ //------------------------------------------------------------------------------------------//
+ dotp_i32(dotp_i32_0,loop_begin_0,loop_0,loop1_0,loop2_0,sum1_0,sum2_0,sum3_0,store_result_0)
+ //------------------------------------------------------------------------------------------//
+ DECR0:
+ ||
+  - BADDR ($i64) BADDR NBYTES
+  - RADDR ($i64) RADDR 4
+  - C ($i64) C 1
+ ;
+ ARGS1: ||
+  + $r1 ($i64) AADDR   0
+  + $r2 ($i64) BADDR   0
+  + $r3 ($i64) NDWORDS 0
+  + $r4 ($i64) RADDR   0
+
+  // Note that $r7 is never altered.
+  $st ($u256) [BUFFER + 0]  $r0
+  $st ($u256) [BUFFER + 32] $r4
+  $st ($u256) [BUFFER + 64] $r8
+  $st ($u256) [BUFFER + 96] $r12
+ ;
+ //-------------------------------------------------------------------------------------------//
+ dotp_i32(dotp_i32_1,loop_begin_1,loop_1,loop1_1,loop2_1,sum1_1,sum2_1,sum3_1,store_result_1)
+ //-------------------------------------------------------------------------------------------//
+ DECR1:
+ ||
+  - BADDR ($i64) BADDR NBYTES
+  - RADDR ($i64) RADDR 4
+  - C ($i64) C 1
+
+ ;
+ ARGS2: ||
+  + $r1 ($i64) AADDR   0
+  + $r2 ($i64) BADDR   0
+  + $r3 ($i64) NDWORDS 0
+  + $r4 ($i64) RADDR   0
+
+  $st ($u256) [BUFFER + 0]  $r0
+  $st ($u256) [BUFFER + 32] $r4
+  $st ($u256) [BUFFER + 64] $r8
+  $st ($u256) [BUFFER + 96] $r12
+ ;
+ //-------------------------------------------------------------------------------------------//
+ dotp_i32(dotp_i32_2,loop_begin_2,loop_2,loop1_2,loop2_2,sum1_2,sum2_2,sum3_2,store_result_2)
+ //-------------------------------------------------------------------------------------------//
+ DECR2:
+ ||
+  - BADDR ($i64) BADDR NBYTES
+  - RADDR ($i64) RADDR 4
+  - C  ($i64) C 1
+ ;
+ ARGS3: 
+||
+  + $r1 ($i64) AADDR   0
+  + $r2 ($i64) BADDR   0
+  + $r3 ($i64) NDWORDS 0
+  + $r4 ($i64) RADDR   0
+
+  $st ($u256) [BUFFER + 0]  $r0
+  $st ($u256) [BUFFER + 32] $r4
+  $st ($u256) [BUFFER + 64] $r8
+  $st ($u256) [BUFFER + 96] $r12
+ ;
+ //-------------------------------------------------------------------------------------------//
+ dotp_i32(dotp_i32_3,loop_begin_3,loop_3,loop1_3,loop2_3,sum1_3,sum2_3,sum3_3,store_result_3)
+ //-------------------------------------------------------------------------------------------//
+ DECR3:
+ ||
+  - C ($i64) C 1
+  ? ($i64) C > $goto LOOPBACK
+ ;
+OUTERLOOP:
+ ||
+  - R ($i64) R 1
+  + C ($i64) CMAX 0 
+ ;
+GOTO:
+ ||
+  ? ($i64) R >= $goto     LOOPBACK
+ ;

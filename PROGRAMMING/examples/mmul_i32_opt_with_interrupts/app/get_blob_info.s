@@ -1,0 +1,1 @@
+../../../utils/asm/get_blob_info.s

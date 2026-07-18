@@ -1,0 +1,36 @@
+
+1.  C
+	int main (...)
+	{
+		a = b + 1;
+		c = foo(a,b);
+		
+		....
+		...
+	}
+
+
+2.  C with parallelism (Cilk)
+	int main (...)
+	{
+		par {
+			a = b + 1;
+			c = foo(a,b);
+		}
+	}
+
+3. Cilk with vector operations 
+	vector<int> main (vector<int> a, vector<int> b)
+	return (a + b);
+	
+
+===============================================================
+4.  ASM with variables
+
+	lbl :
+		||
+			+ a ($i32) b 1
+			$call foo (a b c) ()
+			$saveall
+		; 
+================================================================

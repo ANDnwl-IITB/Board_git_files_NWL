@@ -1,0 +1,66 @@
+init_regs: // pc=0x0
+    || 
+    +            $r6    ($i64)    $r0        32
+    ;
+pad_1__0: // pc=0x1
+    || 
+    $null
+    ;
+pad_2__2: // pc=0x2
+    || 
+    $null
+    $null
+    ;
+pad_4__4: // pc=0x4
+    || 
+    $null
+    $null
+    $null
+    $null
+    ;
+loop_begin: // pc=0x8
+    || 
+    +            $r5    ($i64)    $r5        64
+    +            $r6    ($i64)    $r6        64
+    -            $r3    ($i64)    $r3        8
+    $null
+    $ld    ($u256)   $r8    [$r1 + $r5    ++0]
+    $ld    ($u256)   $r12    [$r2 + $r5    ++0]
+    $ld    ($u256)   $r16    [$r1 + $r6    ++0]
+    $ld    ($u256)   $r20    [$r2 + $r6    ++0]
+    ;
+loop: // pc=0x10
+    || 
+    $dot $accumulate $r24    ($vi8)    $r8    $r12    
+    $dot $accumulate $r25    ($vi8)    $r9    $r13    
+    $dot $accumulate $r26    ($vi8)    $r10    $r14    
+    $dot $accumulate $r27    ($vi8)    $r11    $r15    
+    $dot $accumulate $r28    ($vi8)    $r16    $r20    
+    $dot $accumulate $r29    ($vi8)    $r17    $r21    
+    $dot $accumulate $r30    ($vi8)    $r18    $r22    
+    $dot $accumulate $r31    ($vi8)    $r19    $r23    
+    ;
+sum1: // pc=0x18
+    || 
+    ? ($i64)  $r3 >     $goto    loop_begin
+    +            $r8    ($i64)    $r24    $r25
+    +            $r9    ($i64)    $r26    $r27
+    +            $r10    ($i64)    $r28    $r29
+    +            $r11    ($i64)    $r30    $r31
+    $null
+    $null
+    $null
+    ;
+sum2: // pc=0x20
+    || 
+    +            $r8    ($i64)    $r8    $r9
+    +            $r9    ($i64)    $r10    $r11
+    ;
+sum3: // pc=0x22
+    || 
+    +            $r7    ($i64)    $r8    $r9
+    ;
+halt: // pc=0x23
+    || 
+    $halt
+    ;

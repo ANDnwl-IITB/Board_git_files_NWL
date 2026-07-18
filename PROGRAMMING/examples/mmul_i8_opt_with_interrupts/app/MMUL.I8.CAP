@@ -1,0 +1,26 @@
+base pointers of matrices in processor memory 0x40031080, 0x400510c0
+Info: on_processor: initialized matrices (non-zeros 65280)
+blob_info = 0x1000, 0x4000c500, 0xc000, 0x40000300
+enabling thread daemons and interrupts,  and mmu channel.
+Info: dma 0 command daemon enabled
+Info: after enabling thread 0, cr=0xb0
+Info: dma 1 command daemon enabled
+Info: after enabling thread 1, cr=0xb0
+Info: dma 2 command daemon enabled
+Info: after enabling thread 2, cr=0xb0
+Info: dma 3 command daemon enabled
+Info: after enabling thread 3, cr=0xb0
+threads enabled
+loading imem (4096 bytes from 0x4000c500)
+load_imem: number_of_words = 1024, base_addr = 0x4000c500
+finished loading imem (4096 bytes from 0x4000c500)
+Info: enable AJIT interrupt 14
+calling mmul on processor
+mmul_on_processor: ticks=193099280 [0][0] is 0x0
+calling mmul on threads
+Info: entered mmul_stripe_and_run_on_thread 4, 64, 256
+done with mmul
+cross-checking accel results with processor results
+SUCCESS! (dma_ticks=110083, setup_ticks=23094, computation_ticks=2607751, engine_ticks=3091324, processor_ticks=193099280)
+Net speedup = 62.464911, computation speedup = 74.048205
+SUCCESS!!!

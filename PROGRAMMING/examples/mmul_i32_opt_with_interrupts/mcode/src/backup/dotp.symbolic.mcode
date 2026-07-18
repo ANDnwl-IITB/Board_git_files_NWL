@@ -1,0 +1,249 @@
+// 
+// Given an MxN matrix A, an NxM matrix B (in column major form),
+// Calculate the product A x B.
+//
+//    inner loop dot product of row, column.
+//    outer loop row, col sequencer
+//
+//  outer-loop     0  1  2 ... N-1	N N+1 ... 2N-1
+//  Row            0  0  0 ... 0        1  1  ...  1
+//  Col            0  1  2 ... N-1      0  1  .....N-1
+//
+// Given 
+//     APTR, BPTR, N, DEST_PTR, NMASK, N2MASK
+
+// registers 0 to 7 are reserved for control 
+// values.
+//---------------------------------------------------------------------------//
+#define ZR 		$r0
+
+#define APTR		$r1
+#define BPTR		$r2
+#define NDWORDS_IN      $r3 // must be a multiple of 8
+#define DEST_PTR	$r4
+
+#define AADDR		$r5
+#define BADDR		$r6
+#define BUFFER		$r7
+
+//--------------------------------------------------------------------------//
+
+//---------------------- overlapping with ACC   ----------------------------//
+#define NBYTES		$r24
+#define COUNTER  	$r25
+#define NCOUNTER	$r26
+#define DADDR		$r27 
+#define NMASK		$r28
+#define N2MASK		$r29
+#define IDX0		$r30
+#define IDX1		$r31
+
+
+//---------------------- used only in the dotp ------------------------------//
+// compute registers
+#define  ROWVAL0	$r8
+#define  ROWVAL0_0	$r8
+#define  ROWVAL0_1	$r9
+#define  ROWVAL0_2	$r10
+#define  ROWVAL0_3	$r11
+
+#define  COLVAL0	$r12
+#define  COLVAL0_0	$r12
+#define  COLVAL0_1	$r13
+#define  COLVAL0_2	$r14
+#define  COLVAL0_3	$r15
+
+#define  ROWVAL1        $r16
+#define  ROWVAL1_0	$r16
+#define  ROWVAL1_1	$r17
+#define  ROWVAL1_2	$r18
+#define  ROWVAL1_3	$r19
+
+#define  COLVAL1        $r20
+#define  COLVAL1_0	$r20
+#define  COLVAL1_1	$r21
+#define  COLVAL1_2	$r22
+#define  COLVAL1_3	$r23
+
+
+#define  VPROD_0		$r8
+#define  VPROD_1		$r9
+#define  VPROD_2		$r10
+#define  VPROD_3		$r11
+#define  VPROD_4		$r12
+#define  VPROD_5		$r13
+#define  VPROD_6		$r14
+#define  VPROD_7		$r15
+
+#define SUM2_0		$r8
+#define SUM2_1		$r9
+#define SUM2_2		$r10
+#define SUM2_3		$r11
+#define SUM2_4		$r12
+#define SUM2_5		$r13
+#define SUM2_6		$r14
+#define SUM2_7		$r15
+
+#define ACC_0		$r24
+#define ACC_1		$r25
+#define ACC_2		$r26
+#define ACC_3		$r27
+#define ACC_4		$r28
+#define ACC_5		$r29
+#define ACC_6		$r30
+#define ACC_7		$r31
+
+//--------------------  tail registers ------------------------------//
+
+initialize: 
+	||
+		// indexing into the arrays.
+		+ IDX0  ($i64) ZR           0
+		+ IDX1  ($i64) ZR           32
+
+		* NBYTES ($i64) NDWORDS_IN  8
+
+		// R=0
+		+ AADDR ($i64) APTR         0
+		// C=0
+		+ BADDR ($i64) BPTR         0
+	
+		// result at DEST_PTR[0]
+		+ RADDR ($i64) DEST_PTR     0
+
+		// start COUNTER of number of dot-products
+		// computed so far.
+		+ COUNTER ($i64) ZR	    0
+	;
+
+dotp_begin:	
+	||
+		// fetch 4 + 4 registers.
+		$ld ($u256) ROWVAL0  [AADDR + IDX0]
+		$ld ($u256) COLVAL0  [BADDR + IDX0]
+
+		// fetch 4 + 4 registers.
+		$ld ($u256) ROWVAL1 [AADDR + IDX1]
+		$ld ($u256) COLVAL1 [BADDR + IDX1]
+
+		+ IDX0 ($i64) IDX0  64
+		+ IDX1 ($i64) IDX1  64
+
+		- NBYTES   ($i64) NBYTES   64
+		+ NCOUNTER ($i64) COUNTER  1
+	;
+loop :
+	||
+		// vector product.
+		$v * VPROD_0 ($vi32)   ROWVAL0_0  COLVAL0_0
+		$v * VPROD_1 ($vi32)   ROWVAL0_1  COLVAL0_1
+		$v * VPROD_2 ($vi32)   ROWVAL0_2  COLVAL0_2
+		$v * VPROD_3 ($vi32)   ROWVAL0_3  COLVAL0_3
+
+		$v * VPROD_4 ($vi32)   ROWVAL1_0  COLVAL0_0
+		$v * VPROD_5 ($vi32)   ROWVAL1_1  COLVAL0_1
+		$v * VPROD_6 ($vi32)   ROWVAL1_2  COLVAL0_2
+		$v * VPROD_7 ($vi32)   ROWVAL1_3  COLVAL0_3
+
+	;
+loop1  : 
+	||
+		$vreduce + SUM2_0  ($vi32) VPROD_0
+		$vreduce + SUM2_1  ($vi32) VPROD_1
+		$vreduce + SUM2_2  ($vi32) VPROD_2
+		$vreduce + SUM2_3  ($vi32) VPROD_3
+
+		$vreduce + SUM2_4  ($vi32) VPROD_4
+		$vreduce + SUM2_5  ($vi32) VPROD_5
+		$vreduce + SUM2_6  ($vi32) VPROD_6
+		$vreduce + SUM2_7  ($vi32) VPROD_7
+	;	
+//------------------------------ Swap ---------------------------------------//
+loop2  : 
+	||
+		// dot accumulators.
+		+ ACC_0 ($i64) SUM2_0  ACC_0
+		+ ACC_1 ($i64) SUM2_1  ACC_1
+
+		+ ACC_2 ($i64) SUM2_2  ACC_2
+		+ ACC_3 ($i64) SUM2_3  ACC_3
+
+		+ ACC_4 ($i64) SUM2_4  ACC_4
+		+ ACC_5 ($i64) SUM2_5  ACC_5
+
+		+ ACC_6 ($i64) SUM2_6  ACC_6
+		+ ACC_7 ($i64) SUM2_7  ACC_7
+	;
+sum1 : 
+	||
+		? ($i64) NBYTES >  $goto loop_begin
+		$cmov ? ($i64) NBYTES ==  COUNTER NCOUNTER
+
+
+		+ FSUM_0  ($i64) ACC_0 ACC_1
+		+ FSUM_1  ($i64) ACC_2 ACC_3
+		+ FSUM_2  ($i64) ACC_4 ACC_5
+		+ FSUM_3  ($i64) ACC_6 ACC_7
+
+		+ ACC_0 ($i64) ZR  0
+		+ ACC_1 ($i64) ZR  0
+
+	;
+sum2 :
+	||
+		+ FSUM_0 ($i64) FSUM2_0  FSUM_1
+		+ FSUM_1 ($i64) FSUM2_2  FSUM_3
+
+		+ ACC_2 ($i64) ZR  0
+		+ ACC_3 ($i64) ZR  0
+
+		// COUNTER & NMASK 
+		& INCR_MASK ($u64) COUNTER NMASK
+
+		// COUNTER & N2MASK
+		& DONE_MASK ($u64) COUNTER N2MASK
+
+		+ INCREMENTED_AADDR  ($i64) AADDR NBYTES_PER_ROW_COL
+		+ INCREMENTED_BADDR  ($i64) BADDR NBYTES_PER_ROW_COL
+
+		// default value of AADDR for next dot-product.
+		+ BADDR ($i64) BPTR 0
+		
+	;
+sum3 :
+	||
+		+ FSUM_0 ($i64) FSUM_0 FSUM_1
+
+		+ ACC_4 ($i64) ZR  0
+		+ ACC_5 ($i64) ZR  0
+		+ ACC_6 ($i64) ZR  0
+		+ ACC_7 ($i64) ZR  0
+
+		// if COUNTER & MASK == 0, then ROW ADDR is incremented.
+		$cmov ? ($i64) INCR_MASK ==  AADDR  INCREMENTED_AADDR
+
+		// if COUNTER & MASK == 0, then COL ADDR is set to BPTR, else incrmented.
+		$cmov ? ($i64) INCR_MASK !=  BADDR INCREMENTED_BADDR 
+	;
+store_result: 
+	||
+		// if (COUNTER & N2MASK) == 0, then we are done..
+		? ($u64) DONE_MASK != $goto  loop_begin
+
+		* NBYTES ($i64) NDWORDS_IN  8
+
+		$st ($i32) [$r4 + 0] FINAL_SUM
+
+		// get ready for next dot-product...
+		+ IDX0  ($i64) ZR          0
+		+ IDX1  ($i64) ZR          32
+
+		// always increment the result address.
+		+ RADDR ($i64) RADDR       4
+
+	;
+done: 
+	||
+		$halt
+	;
+

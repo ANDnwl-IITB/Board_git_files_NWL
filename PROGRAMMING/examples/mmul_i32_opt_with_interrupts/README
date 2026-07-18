@@ -1,0 +1,10 @@
+The mmul i32 implementation
+	- uses 4 cores.
+	- each core handles a stripe of the result.
+	- symbolic code in mcode/src
+	- macro infra is in mcode/macro
+	- mcode/run.sh shows the full flow.
+
+Notes
+        - approx 4.25 operations per bundle.
+	- used cmov, found bugs and fixed them.
