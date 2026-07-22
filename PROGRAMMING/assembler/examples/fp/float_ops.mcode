@@ -1,0 +1,25 @@
+sqrt1:
+    ||
+        $fsqrt $r5 ($f32) $r1    // sqrt 4.0  = 2.0
+    ;
+
+sqrt2:
+    ||
+        $fsqrt $r6 ($f32) $r2    // sqrt 9.0  = 3.0
+    ;
+
+sqrt3:
+    ||
+        $fsqrt $r7 ($f32) $r3    // sqrt 16.0 = 4.0
+    ;
+
+sqrt4:
+    ||
+        $fsqrt $r8 ($f32) $r4    // sqrt 25.0  = 5.0
+    ;
+
+halt:
+    ||
+        $halt
+    ;
+

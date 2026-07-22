@@ -1,0 +1,34 @@
+Info: pc = 0
+Info: imem file = cmov_casts_pack.obj
+Info: dmem file = data.map
+Info: results file = results.txt
+Info: Loaded 0 instructions to i-mem
+Info: Loaded 6 words to d-mem
+Error: PostCondition Reg[1] = 0x0, expected 0x1 (mask=0xffffffffll)
+Error: PostCondition Reg[2] = 0x0, expected 0x2 (mask=0xffffffffll)
+Error: PostCondition Reg[3] = 0x0, expected 0x3 (mask=0xffffffffll)
+Error: PostCondition Reg[4] = 0x0, expected 0x4 (mask=0xffffffffll)
+Error: PostCondition Reg[5] = 0x0, expected 0x5 (mask=0xffffffffll)
+Error: PostCondition Reg[6] = 0x0, expected 0x6 (mask=0xffffffffll)
+Error: PostCondition Reg[7] = 0x0, expected 0x7 (mask=0xffffffffll)
+Error: PostCondition Reg[8] = 0x0, expected 0x1020304050607 (mask=0xffffffffll)
+Error: PostCondition Reg[9] = 0x0, expected 0x1020304050607 (mask=0xffffffffll)
+Info: PostCondition Reg[10] = 0x0 (mask=0xffffffffffffffff)
+Error: PostCondition Reg[12] = 0x0, expected 0x100020003 (mask=0xffffffffll)
+Error: PostCondition Reg[13] = 0x0, expected 0x4000500060007 (mask=0xffffffffll)
+Error: PostCondition Reg[14] = 0x0, expected 0x1 (mask=0xffffffffll)
+Error: PostCondition Reg[15] = 0x0, expected 0x200000003 (mask=0xffffffffll)
+Error: PostCondition Reg[16] = 0x0, expected 0x400000005 (mask=0xffffffffll)
+Error: PostCondition Reg[17] = 0x0, expected 0x600000007 (mask=0xffffffffll)
+Info: PostCondition Reg[18] = 0x0 (mask=0xffffffffffffffff)
+Error: PostCondition Reg[19] = 0x0, expected 0x1 (mask=0xffffffffll)
+Error: PostCondition Reg[20] = 0x0, expected 0x2 (mask=0xffffffffll)
+Error: PostCondition Reg[21] = 0x0, expected 0x3 (mask=0xffffffffll)
+Error: PostCondition Reg[22] = 0x0, expected 0x4 (mask=0xffffffffll)
+Error: PostCondition Reg[23] = 0x0, expected 0x5 (mask=0xffffffffll)
+Error: PostCondition Reg[24] = 0x0, expected 0x6 (mask=0xffffffffll)
+Error: PostCondition Reg[25] = 0x0, expected 0x7 (mask=0xffffffffll)
+Error: PostCondition Reg[26] = 0x0, expected 0x10203 (mask=0xffffffffll)
+Error: PostCondition Reg[27] = 0x0, expected 0x4050607 (mask=0xffffffffll)
+Error: PostCondition Reg[28] = 0x0, expected 0x203060702030607 (mask=0xffffffffll)
+Info: PostCondition Reg[29] = 0x0 (mask=0xffffffffffffffff)

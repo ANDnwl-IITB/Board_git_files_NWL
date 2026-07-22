@@ -1,0 +1,35 @@
+Info: pc = 0
+Info: imem file = hello_world.obj
+Info: dmem file = data.map
+Info: Loaded 4 instructions to i-mem
+Info: Loaded 1 words to d-mem
+Info: McodeMachine:: 0xec000000 = IMEM[0x0]
+
+Info: McodeMachine:: 0xec000000 = IMEM[0x1]
+
+Info: McodeMachine:: 0xec000000 = IMEM[0x2]
+
+Info: McodeMachine:: 0x70000000 = IMEM[0x3]
+
+Info: McodeMachine:: 0x0 = IMEM[0x4]
+
+Info: McodeMachine:: 0x0 = IMEM[0x5]
+
+Info: McodeMachine:: 0x0 = IMEM[0x6]
+
+Info: McodeMachine:: 0x0 = IMEM[0x7]
+
+Info: McodeMachine:Run_Machine PC=0x0
+
+Info: McodeMachine:Run_Machine: new bundle pc=0x0 (size=1)
+
+Info: McodeMachine:Run_Machine PC=0x1
+
+Info: McodeMachine:Run_Machine: new bundle pc=0x1 (size=1)
+
+Info: McodeMachine:Run_Machine PC=0x2
+
+Info: McodeMachine:Run_Machine: new bundle pc=0x2 (size=2)
+
+Info: McodeMachine:Run_Machine PC=0x4
+

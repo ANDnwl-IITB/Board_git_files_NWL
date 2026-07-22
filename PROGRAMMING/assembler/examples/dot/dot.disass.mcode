@@ -1,0 +1,54 @@
+l_0:
+    || 
+    $ld    ($i256)   $r4    [$r0 + 0]
+    $ld    ($i256)   $r8    [$r0 + 4]
+    $ld    ($i128)   $r20    [$r0 + 8]
+    $null
+    ;
+l_4:
+    || 
+    $null
+    $null
+    $null
+    $null
+    ;
+l_8:
+    || 
+    $dot $accumulate ($u $i32)    $r22    ($v $u $i4)    $r20    $r20    
+    $dot $accumulate ($i32)    $r12    ($v $i8)    $r4    $r8    
+    $dot $accumulate ($i32)    $r13    ($v $i8)    $r5    $r9    
+    $dot $accumulate ($i32)    $r14    ($v $i8)    $r6    $r10    
+    $dot $accumulate ($i32)    $r15    ($v $i8)    $r7    $r11    
+    $null
+    $null
+    $null
+    ;
+l_16:
+    || 
+    $dot $accumulate ($i32)    $r16    ($v $i4)    $r4    $r8    
+    $dot $accumulate ($i32)    $r17    ($v $i4)    $r5    $r9    
+    $dot $accumulate ($i32)    $r18    ($v $i4)    $r6    $r10    
+    $dot $accumulate ($i32)    $r19    ($v $i4)    $r7    $r11    
+    ;
+l_20:
+    || 
+    $null
+    $null
+    $null
+    $null
+    ;
+l_24:
+    || 
+    $st   ($i256)   [$r0  + 12]    $r12
+    $st   ($i64)   [$r0  + 16]    $r16
+    $st   ($i64)   [$r0  + 17]    $r17
+    $st   ($i64)   [$r0  + 18]    $r18
+    $st   ($i64)   [$r0  + 19]    $r19
+    $null
+    $null
+    $null
+    ;
+l_32:
+    || 
+    $halt
+    ;

@@ -1,0 +1,60 @@
+block1:
+||
+	$null
+;
+block2:
+||
+	$null
+	$null
+;
+block3:
+||
+	$null
+	$null
+	$null
+;
+block4:
+||
+	$null
+	$null
+	$null
+	$null
+;
+block5:
+||
+	$null
+	$null
+	$null
+	$null
+	$null
+;
+block6:
+||
+	$null
+	$null
+	$null
+	$null
+	$null
+	$null
+;
+block7:
+||
+	$null
+	$null
+	$null
+	$null
+	$null
+	$null
+	$null
+;
+block8:
+||
+	$null
+	$null
+	$null
+	$null
+	$null
+	$null
+	$null
+	$halt
+;

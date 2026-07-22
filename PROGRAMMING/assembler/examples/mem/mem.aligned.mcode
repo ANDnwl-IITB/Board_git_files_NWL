@@ -1,0 +1,145 @@
+alu:
+    || 
+    +            $r1    ($i8)    $r0        8
+    ;
+pad_1__0:
+    || 
+    $null
+    ;
+pad_2__2:
+    || 
+    $null
+    $null
+    ;
+pad_4__4:
+    || 
+    $null
+    $null
+    $null
+    $null
+    ;
+store1:
+    || 
+    $null
+    $null
+    $null
+    $null
+    $st   ($i8)   [$r1  + 0]    $r1
+    $st   ($i8)   [$r1  + 1]    $r1
+    $st   ($i8)   [$r1  + 2]    $r1
+    $st   ($i8)   [$r1  + 3]    $r1
+    ;
+store2:
+    || 
+    $null
+    $null
+    $null
+    $null
+    $st   ($i8)   [$r1  + 4]    $r1
+    $st   ($i8)   [$r1  + 5]    $r1
+    $st   ($i8)   [$r1  + 6]    $r1
+    $st   ($i8)   [$r1  + 7]    $r1
+    ;
+load1:
+    || 
+    +            $r2    ($i8)    $r1    $r1
+    $null
+    $null
+    $null
+    $ld    ($i64)   $r3    [$r1 + $r0    ++0]
+    $null
+    $null
+    $null
+    ;
+store3:
+    || 
+    $null
+    $null
+    $null
+    $null
+    $st   ($i16)   [$r2  + 0]    $r2
+    $st   ($i16)   [$r2  + 2]    $r2
+    $st   ($i16)   [$r2  + 4]    $r2
+    $st   ($i16)   [$r2  + 6]    $r2
+    ;
+load2:
+    || 
+    +            $r5    ($i16)    $r2    $r2
+    $null
+    $null
+    $null
+    $ld    ($i64)   $r4    [$r2 + $r0    ++0]
+    $null
+    $null
+    $null
+    ;
+store4:
+    || 
+    $null
+    $null
+    $null
+    $null
+    $st   ($i32)   [$r5  + 0]    $r5
+    $st   ($i32)   [$r5  + 4]    $r5
+    $null
+    $null
+    ;
+load3:
+    || 
+    +            $r8    ($i64)    $r0        250
+    +            $r9    ($i64)    $r0        251
+    +            $r7    ($i64)    $r5    $r5
+    $null
+    $ld    ($i64)   $r6    [$r5 + $r0    ++0]
+    $null
+    $null
+    $null
+    ;
+st128:
+    || 
+    $null
+    $null
+    $null
+    $null
+    $st   ($u128)   [$r7  + $r0    ++0]    $r8
+    $null
+    $null
+    $null
+    ;
+ld128:
+    || 
+    $null
+    $null
+    $null
+    $null
+    $ld    ($u128)   $r10    [$r7 + $r0    ++0]
+    $null
+    $null
+    $null
+    ;
+st256:
+    || 
+    $null
+    $null
+    $null
+    $null
+    $st   ($u256)   [$r7  + 32]    $r8
+    $null
+    $null
+    $null
+    ;
+ld256:
+    || 
+    $null
+    $null
+    $null
+    $null
+    $ld    ($u256)   $r16    [$r7 + 32]
+    $null
+    $null
+    $null
+    ;
+hlt:
+    || 
+    $halt
+    ;

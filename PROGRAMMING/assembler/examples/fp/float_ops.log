@@ -1,0 +1,86 @@
+mcode_instruction
+mcode_arithmetic_instruction
+mcode_fsqrt_instruction 
+mcode_instruction
+mcode_arithmetic_instruction
+mcode_fsqrt_instruction 
+mcode_instruction
+mcode_arithmetic_instruction
+mcode_fsqrt_instruction 
+mcode_instruction
+mcode_arithmetic_instruction
+mcode_fsqrt_instruction 
+mcode_instruction
+Info: finished parsing file float_ops.mcode
+Info:  Bundle id=0 addr=0 pad amount 0
+Info:  Bundle id=1 addr=8 pad amount 0
+Info:  Bundle id=2 addr=10 pad amount 0
+Info:  Bundle id=3 addr=18 pad amount 0
+Info:  Bundle id=4 addr=20 pad amount 0
+sqrt1:
+    || 
+    $null
+    $fsqrt         ($f32)    
+    $null
+    $null
+    $null
+    $null
+    $null
+    $null
+    ;
+sqrt2:
+    || 
+    $null
+    $fsqrt         ($f32)    
+    $null
+    $null
+    $null
+    $null
+    $null
+    $null
+    ;
+sqrt3:
+    || 
+    $null
+    $fsqrt         ($f32)    
+    $null
+    $null
+    $null
+    $null
+    $null
+    $null
+    ;
+sqrt4:
+    || 
+    $null
+    $fsqrt         ($f32)    
+    $null
+    $null
+    $null
+    $null
+    $null
+    $null
+    ;
+halt:
+    || 
+    $halt
+    ;
+mcode_instruction
+mcode_instruction
+mcode_arithmetic_instruction
+mcode_fsqrt_instruction 
+float_ops.aligned.mcode:4:15: unexpected char: 0x05
+Parsing Exception: float_ops.aligned.mcode:4:21: expecting RUINTEGER, found '('
+float_ops.aligned.mcode:4:31: unexpected char: 0x01
+Parsing Exception: float_ops.aligned.mcode:5:5: expecting LPAREN, found '$null'
+float_ops.aligned.mcode:15:15: unexpected char: 0x06
+float_ops.aligned.mcode:15:31: unexpected char: 0x02
+float_ops.aligned.mcode:26:15: unexpected char: 0x07
+float_ops.aligned.mcode:26:31: unexpected char: 0x03
+float_ops.aligned.mcode:37:15: unexpected char: 0x08
+float_ops.aligned.mcode:37:31: unexpected char: 0x04
+Parsing Exception: float_ops.aligned.mcode:49:1: expecting RUINTEGER, found ''
+Parsing Exception: float_ops.aligned.mcode:49:1: expecting SEMICOLON, found ''
+Info: finished parsing file float_ops.aligned.mcode
+Error: there were errors while parsing file float_ops.aligned.mcode, check the log
+Info: Disassemble: bundles 0 instructions 0 instructions-with-padding 0

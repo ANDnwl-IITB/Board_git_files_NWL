@@ -1,0 +1,73 @@
+l_0:
+    || 
+    $set     $r1    0    5
+    ;
+l_1:
+    || 
+    $null
+    ;
+l_2:
+    || 
+    $null
+    $null
+    ;
+l_4:
+    || 
+    $null
+    $null
+    $null
+    $null
+    ;
+l_8:
+    || 
+    +            $r2    ($i8)    $r2        1
+    $null
+    $null
+    $null
+    $null
+    ? ($i8)  $r33 >     --1    $goto    l_8
+    $null
+    $null
+    ;
+l_16:
+    || 
+    +            $r2    ($i8)    $r0        1
+    $null
+    $null
+    $null
+    $null
+    $call    l_32
+    $null
+    $null
+    ;
+l_24:
+    || 
+    $halt
+    ;
+l_25:
+    || 
+    $null
+    ;
+l_26:
+    || 
+    $null
+    $null
+    ;
+l_28:
+    || 
+    $null
+    $null
+    $null
+    $null
+    ;
+l_32:
+    || 
+    +            $r3    ($i8)    $r0        2
+    $null
+    $null
+    $null
+    $null
+    $return
+    $null
+    $null
+    ;

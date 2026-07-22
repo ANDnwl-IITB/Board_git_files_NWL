@@ -1,0 +1,33 @@
+l_0: // pc=0x0
+    || 
+    $null
+    $null
+    $null
+    $null
+    $ld    ($u256)   $r4    [$r0 + 0]
+    $null
+    $null
+    $null
+    ;
+l_8: // pc=0x8
+    || 
+    $null
+    $null
+    $null
+    $null
+    $st   ($u256)   [$r0  + 32]    $r4
+    $null
+    $null
+    $null
+    ;
+l_16: // pc=0x10
+    || 
+    $null
+    $null
+    $null
+    $null
+    $ld    ($u256)   $r8    [$r0 + 32]
+    $null
+    $null
+    $null
+    ;

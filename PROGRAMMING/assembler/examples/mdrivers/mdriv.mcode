@@ -1,0 +1,6 @@
+block1:
+||
+    // should flag multiple driver...
+    +          ($i4)    $r2    $r0        $r1
+    -          ($i4)    $r2    $r0        $r1
+;

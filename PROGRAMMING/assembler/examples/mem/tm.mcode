@@ -1,0 +1,17 @@
+alu :
+	|| 
+		+ ($i8) $r5 $r0 5
+		+ ($i8) $r6 $r0 6
+		+ ($i8) $r7 $r0 7
+		+ ($i8) $r8 $r0 8
+	;
+
+store :
+	||
+		$st ($i256) [$r5 + $r0]    $r5  // writes r5 to r8 into mem[r5], mem[r5+1] etc...
+	;
+load :
+	||
+		$ld ($i256) $r14 [$r5 + $r0]
+	;
+

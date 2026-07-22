@@ -1,0 +1,395 @@
+mcode_instruction
+mcode_arithmetic_instruction
+mcode_alu_instruction
+mcode_instruction
+mcode_mem_access_instruction
+mcode_store_instruction
+mcode_instruction
+mcode_mem_access_instruction
+mcode_store_instruction
+mcode_instruction
+mcode_mem_access_instruction
+mcode_store_instruction
+mcode_instruction
+mcode_mem_access_instruction
+mcode_store_instruction
+mcode_instruction
+mcode_mem_access_instruction
+mcode_store_instruction
+mcode_instruction
+mcode_mem_access_instruction
+mcode_store_instruction
+mcode_instruction
+mcode_mem_access_instruction
+mcode_store_instruction
+mcode_instruction
+mcode_mem_access_instruction
+mcode_store_instruction
+mcode_instruction
+mcode_mem_access_instruction
+mcode_load_instruction
+mcode_instruction
+mcode_arithmetic_instruction
+mcode_alu_instruction
+mcode_instruction
+mcode_mem_access_instruction
+mcode_store_instruction
+mcode_instruction
+mcode_mem_access_instruction
+mcode_store_instruction
+mcode_instruction
+mcode_mem_access_instruction
+mcode_store_instruction
+mcode_instruction
+mcode_mem_access_instruction
+mcode_store_instruction
+mcode_instruction
+mcode_mem_access_instruction
+mcode_load_instruction
+mcode_instruction
+mcode_arithmetic_instruction
+mcode_alu_instruction
+mcode_instruction
+mcode_mem_access_instruction
+mcode_store_instruction
+mcode_instruction
+mcode_mem_access_instruction
+mcode_store_instruction
+mcode_instruction
+mcode_mem_access_instruction
+mcode_load_instruction
+mcode_instruction
+mcode_arithmetic_instruction
+mcode_alu_instruction
+mcode_instruction
+mcode_arithmetic_instruction
+mcode_alu_instruction
+mcode_instruction
+mcode_arithmetic_instruction
+mcode_alu_instruction
+mcode_instruction
+mcode_mem_access_instruction
+mcode_store_instruction
+Warning: store type is treated as $i ($u ignored).
+mcode_instruction
+mcode_mem_access_instruction
+mcode_load_instruction
+mcode_instruction
+mcode_mem_access_instruction
+mcode_store_instruction
+Warning: store type is treated as $i ($u ignored).
+mcode_instruction
+mcode_mem_access_instruction
+mcode_load_instruction
+mcode_instruction
+Info: finished parsing file mem.mcode
+Info:  Bundle id=0 addr=0 pad amount 0
+Info: Adding pad bundles to cover size 7
+Info: added pad bundle pad_1__0 with size 1
+Info: added pad bundle pad_2__2 with size 2
+Info: added pad bundle pad_4__4 with size 4
+Info:  Bundle id=1 addr=1 pad amount 7
+Info:  Bundle id=2 addr=10 pad amount 0
+Info:  Bundle id=3 addr=18 pad amount 0
+Info:  Bundle id=4 addr=20 pad amount 0
+Info:  Bundle id=5 addr=28 pad amount 0
+Info:  Bundle id=6 addr=30 pad amount 0
+Info:  Bundle id=7 addr=38 pad amount 0
+Info:  Bundle id=8 addr=40 pad amount 0
+Info:  Bundle id=9 addr=48 pad amount 0
+Info:  Bundle id=10 addr=50 pad amount 0
+Info:  Bundle id=11 addr=58 pad amount 0
+Info:  Bundle id=12 addr=60 pad amount 0
+alu:
+    || 
+    +            $r1    ($i8)    $r0        8
+    ;
+pad_1__0:
+    || 
+    $null
+    ;
+pad_2__2:
+    || 
+    $null
+    $null
+    ;
+pad_4__4:
+    || 
+    $null
+    $null
+    $null
+    $null
+    ;
+store1:
+    || 
+    $st   ($i8)   [$r1  + 0]    $r1
+    $st   ($i8)   [$r1  + 1]    $r1
+    $st   ($i8)   [$r1  + 2]    $r1
+    $st   ($i8)   [$r1  + 3]    $r1
+    ;
+store2:
+    || 
+    $st   ($i8)   [$r1  + 4]    $r1
+    $st   ($i8)   [$r1  + 5]    $r1
+    $st   ($i8)   [$r1  + 6]    $r1
+    $st   ($i8)   [$r1  + 7]    $r1
+    ;
+load1:
+    || 
+    $ld    ($i64)   $r3    [$r1 + $r0    ++0]
+    ;
+store2:
+    || 
+    $st   ($i16)   [$r2  + 0]    $r2
+    $st   ($i16)   [$r2  + 2]    $r2
+    $st   ($i16)   [$r2  + 4]    $r2
+    $st   ($i16)   [$r2  + 6]    $r2
+    ;
+load2:
+    || 
+    $ld    ($i64)   $r4    [$r2 + $r0    ++0]
+    ;
+store3:
+    || 
+    $st   ($i32)   [$r5  + 0]    $r5
+    $st   ($i32)   [$r5  + 4]    $r5
+    ;
+load3:
+    || 
+    $ld    ($i64)   $r6    [$r5 + $r0    ++0]
+    ;
+st128:
+    || 
+    $st   ($u128)   [$r7  + $r0    ++0]    $r8
+    ;
+ld128:
+    || 
+    $ld    ($u128)   $r10    [$r7 + $r0    ++0]
+    ;
+st256:
+    || 
+    $st   ($u256)   [$r7  + 32]    $r8
+    ;
+ld256:
+    || 
+    $ld    ($u256)   $r16    [$r7 + 32]
+    ;
+hlt:
+    || 
+    $halt
+    ;
+mcode_instruction
+mcode_arithmetic_instruction
+mcode_alu_instruction
+mcode_instruction
+mcode_instruction
+mcode_instruction
+mcode_instruction
+mcode_instruction
+mcode_instruction
+mcode_instruction
+mcode_instruction
+mcode_mem_access_instruction
+mcode_store_instruction
+mcode_instruction
+mcode_mem_access_instruction
+mcode_store_instruction
+mcode_instruction
+mcode_mem_access_instruction
+mcode_store_instruction
+mcode_instruction
+mcode_mem_access_instruction
+mcode_store_instruction
+mcode_instruction
+mcode_mem_access_instruction
+mcode_store_instruction
+mcode_instruction
+mcode_mem_access_instruction
+mcode_store_instruction
+mcode_instruction
+mcode_mem_access_instruction
+mcode_store_instruction
+mcode_instruction
+mcode_mem_access_instruction
+mcode_store_instruction
+mcode_instruction
+mcode_mem_access_instruction
+mcode_load_instruction
+mcode_instruction
+mcode_mem_access_instruction
+mcode_store_instruction
+mcode_instruction
+mcode_mem_access_instruction
+mcode_store_instruction
+mcode_instruction
+mcode_mem_access_instruction
+mcode_store_instruction
+mcode_instruction
+mcode_mem_access_instruction
+mcode_store_instruction
+mcode_instruction
+mcode_mem_access_instruction
+mcode_load_instruction
+mcode_instruction
+mcode_mem_access_instruction
+mcode_store_instruction
+mcode_instruction
+mcode_mem_access_instruction
+mcode_store_instruction
+mcode_instruction
+mcode_mem_access_instruction
+mcode_load_instruction
+mcode_instruction
+mcode_mem_access_instruction
+mcode_store_instruction
+Warning: store type is treated as $i ($u ignored).
+mcode_instruction
+mcode_mem_access_instruction
+mcode_load_instruction
+mcode_instruction
+mcode_mem_access_instruction
+mcode_store_instruction
+Warning: store type is treated as $i ($u ignored).
+mcode_instruction
+mcode_mem_access_instruction
+mcode_load_instruction
+mcode_instruction
+Info: finished parsing file mem.aligned.mcode
+Info:  Bundle id=0 addr=0 pad amount 0
+Info:  Bundle id=1 addr=1 pad amount 0
+Info:  Bundle id=2 addr=2 pad amount 0
+Info:  Bundle id=3 addr=4 pad amount 0
+Info:  Bundle id=4 addr=8 pad amount 0
+Info:  Bundle id=5 addr=10 pad amount 0
+Info:  Bundle id=6 addr=18 pad amount 0
+Info:  Bundle id=7 addr=20 pad amount 0
+Info:  Bundle id=8 addr=28 pad amount 0
+Info:  Bundle id=9 addr=30 pad amount 0
+Info:  Bundle id=10 addr=38 pad amount 0
+Info:  Bundle id=11 addr=40 pad amount 0
+Info:  Bundle id=12 addr=48 pad amount 0
+Info:  Bundle id=13 addr=50 pad amount 0
+Info:  Bundle id=14 addr=58 pad amount 0
+Info:  Bundle id=15 addr=60 pad amount 0
+0: 90210408
+1: e8000000
+2: e8000000
+3: 68000000
+4: e8000000
+5: 68000000
+6: 68000000
+7: 68000000
+8: d0210c00
+9: 50210c01
+a: 50210c02
+b: 50210c03
+10: d0210c04
+11: 50210c05
+12: 50210c06
+13: 50210c07
+18: cc830800
+20: d0421400
+21: 50421402
+22: 50421404
+23: 50421406
+28: cc841000
+30: d0652c00
+31: 50652c04
+38: cc862800
+40: d1e83800
+48: cdea3800
+50: d2083c20
+58: ce103c20
+60: ec000000
+Info: Found bundle start instruction at pc 0
+Info: Found bundle start instruction at pc 1
+Info: Added bundle with index 0 capacity 1 address 0
+Info: Found bundle start instruction at pc 2
+Info: Added bundle with index 1 capacity 1 address 1
+Info: Found bundle start instruction at pc 4
+Info: Added bundle with index 2 capacity 2 address 2
+Info: Found bundle start instruction at pc 8
+Info: Added bundle with index 3 capacity 4 address 4
+Error: Gap in assembly code at line number 13
+Segmentation fault! giving up!!
+Info: pc = 0
+Info: imem file = mem.obj
+Info: dmem file = data.map
+Info: results file = mem.results
+Info: Loaded 30 instructions to i-mem
+Info: Loaded 1 words to d-mem
+Info: McodeMachine:: 0x90210408 = IMEM[0x0]
+Info: McodeMachine:: 0xe8000000 = IMEM[0x1]
+Info: McodeMachine:: 0xe8000000 = IMEM[0x2]
+Info: McodeMachine:: 0x68000000 = IMEM[0x3]
+Info: McodeMachine:: 0xe8000000 = IMEM[0x4]
+Info: McodeMachine:: 0x68000000 = IMEM[0x5]
+Info: McodeMachine:: 0x68000000 = IMEM[0x6]
+Info: McodeMachine:: 0x68000000 = IMEM[0x7]
+Info: McodeMachine:Run_Machine PC=0x0
+Info: McodeMachine:Run_Machine: new bundle pc=0x0 (size=1)
+Info: McodeMachine:: 0x0 = Get_Register(0)
+
+LOG:Get_Operands: 0x0  McodeAluInstruction
+Info: ___execute_alu_operation___
+Info: 0: Alu!
+LOG:Execute     : 0x0  McodeAluInstruction
+Info: McodeMachine:: Set_Register(1, 0x8)
+LOG:Set_Results  : 0x0  McodeAluInstruction
+RunLog: l_0 pc=0x0  McodeInstructionBundle
+RunLog: 0x0 +           0x0    0x8     -> 0x8    
+Info: McodeMachine:Run_Machine PC=0x1
+Info: McodeMachine:Run_Machine: new bundle pc=0x1 (size=1)
+LOG:Get_Operands: 0x1  McodeNullInstruction
+Info: 1: Null!
+LOG:Execute     : 0x1  McodeNullInstruction
+LOG:Set_Results  : 0x1  McodeNullInstruction
+RunLog: l_1 pc=0x1  McodeInstructionBundle
+RunLog: 0x1 $null        -> 
+Info: McodeMachine:Run_Machine PC=0x2
+Info: McodeMachine:Run_Machine: new bundle pc=0x2 (size=2)
+LOG:Get_Operands: 0x2  McodeNullInstruction
+LOG:Get_Operands: 0x3  McodeNullInstruction
+Info: 2: Null!
+LOG:Execute     : 0x2  McodeNullInstruction
+Info: 3: Null!
+LOG:Execute     : 0x3  McodeNullInstruction
+LOG:Set_Results  : 0x2  McodeNullInstruction
+LOG:Set_Results  : 0x3  McodeNullInstruction
+RunLog: l_2 pc=0x2  McodeInstructionBundle
+RunLog: 0x2 $null        -> 
+RunLog: 0x3 $null        -> 
+Info: McodeMachine:Run_Machine PC=0x4
+Info: McodeMachine:Run_Machine: new bundle pc=0x4 (size=4)
+LOG:Get_Operands: 0x4  McodeNullInstruction
+LOG:Get_Operands: 0x5  McodeNullInstruction
+LOG:Get_Operands: 0x6  McodeNullInstruction
+LOG:Get_Operands: 0x7  McodeNullInstruction
+Info: 4: Null!
+LOG:Execute     : 0x4  McodeNullInstruction
+Info: 5: Null!
+LOG:Execute     : 0x5  McodeNullInstruction
+Info: 6: Null!
+LOG:Execute     : 0x6  McodeNullInstruction
+Info: 7: Null!
+LOG:Execute     : 0x7  McodeNullInstruction
+LOG:Set_Results  : 0x4  McodeNullInstruction
+LOG:Set_Results  : 0x5  McodeNullInstruction
+LOG:Set_Results  : 0x6  McodeNullInstruction
+LOG:Set_Results  : 0x7  McodeNullInstruction
+RunLog: l_4 pc=0x4  McodeInstructionBundle
+RunLog: 0x4 $null        -> 
+RunLog: 0x5 $null        -> 
+RunLog: 0x6 $null        -> 
+RunLog: 0x7 $null        -> 
+Info: McodeMachine:: 0xd0210c00 = IMEM[0x8]
+Info: McodeMachine:: 0x50210c01 = IMEM[0x9]
+Info: McodeMachine:: 0x50210c02 = IMEM[0xa]
+Info: McodeMachine:: 0x50210c03 = IMEM[0xb]
+Info: McodeMachine:: 0x0 = IMEM[0xc]
+Info: McodeMachine:: 0x0 = IMEM[0xd]
+Info: McodeMachine:: 0x0 = IMEM[0xe]
+Info: McodeMachine:: 0x0 = IMEM[0xf]
+Info: McodeMachine:Run_Machine PC=0x8
+mcode_run: src/MachineRun.cpp:457: McodeInstructionBundle* McodeMachine::Get_Bundle(uint32_t, uint32_t*): Assertion `ret_bundle->Get_Number_Of_Instructions() == capacity' failed.
+./run.sh: line 8: 58238 Aborted                 (core dumped) $RUN -p 0x0 -i $1.obj -d data.map -r $1.results -v

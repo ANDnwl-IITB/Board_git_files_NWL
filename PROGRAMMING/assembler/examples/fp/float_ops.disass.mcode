@@ -1,0 +1,48 @@
+l_0:
+    || 
+    $null
+    $fsqrt    $r5     ($f32)    $r1
+    $null
+    $null
+    $null
+    $null
+    $null
+    $null
+    ;
+l_8:
+    || 
+    $null
+    $fsqrt    $r6     ($f32)    $r2
+    $null
+    $null
+    $null
+    $null
+    $null
+    $null
+    ;
+l_16:
+    || 
+    $null
+    $fsqrt    $r7     ($f32)    $r3
+    $null
+    $null
+    $null
+    $null
+    $null
+    $null
+    ;
+l_24:
+    || 
+    $null
+    $fsqrt    $r8     ($f32)    $r4
+    $null
+    $null
+    $null
+    $null
+    $null
+    $null
+    ;
+l_32:
+    || 
+    $halt
+    ;

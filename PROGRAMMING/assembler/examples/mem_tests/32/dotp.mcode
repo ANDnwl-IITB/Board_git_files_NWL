@@ -1,0 +1,22 @@
+load1: ||
+	$ld ($u32) $r4 [$r0 + 0]   // top-half of mem dword into r4
+	;
+store1: ||
+	$st ($u32) [$r0 + 4] $r4   // r4 into bottom half of mem dword
+	;
+load2: ||
+	$ld ($u32) $r5 [$r0 + 4]   // bottom half of mem dword into r5
+	;
+store2: ||
+	$st ($u32) [$r0 + 8] $r5   // r5 into top half of mem dword
+	;
+load3: ||
+	$ld ($u32) $r6 [$r0 + 8]   // top half of mem dword into r6
+	;
+store3: ||
+	$st ($u32) [$r0 + 12] $r6  // r6 into bottom half of mem dword
+	;
+load4: ||
+	$ld ($u32) $r7 [$r0 + 12]  // bottom half of mem dword into r7
+	$halt
+	;

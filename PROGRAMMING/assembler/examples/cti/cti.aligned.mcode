@@ -1,0 +1,73 @@
+block1:
+    || 
+    $set     $r1    0    5
+    ;
+pad_1__0:
+    || 
+    $null
+    ;
+pad_2__2:
+    || 
+    $null
+    $null
+    ;
+pad_4__4:
+    || 
+    $null
+    $null
+    $null
+    $null
+    ;
+block2:
+    || 
+    +            $r2    ($i8)    $r2        1
+    $null
+    $null
+    $null
+    $null
+    ? ($i8)  $r1 >     --1    $goto    block2
+    $null
+    $null
+    ;
+null_block:
+    || 
+    +            $r2    ($i8)    $r0        1
+    $null
+    $null
+    $null
+    $null
+    $call    block5
+    $null
+    $null
+    ;
+hlt:
+    || 
+    $halt
+    ;
+pad_1__6:
+    || 
+    $null
+    ;
+pad_2__8:
+    || 
+    $null
+    $null
+    ;
+pad_4__10:
+    || 
+    $null
+    $null
+    $null
+    $null
+    ;
+block5:
+    || 
+    +            $r3    ($i8)    $r0        2
+    $null
+    $null
+    $null
+    $null
+    $return
+    $null
+    $null
+    ;

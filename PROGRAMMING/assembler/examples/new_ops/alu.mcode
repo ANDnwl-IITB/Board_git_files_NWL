@@ -1,0 +1,20 @@
+init:
+	||
+		$set $r1 0  1 		 //        1
+		$set $r2 0  3		 //       11
+		$set $r3 0  7		 //      111
+		$set $r4 0  15		 //     1111
+		$set $r5 0  31		 //    11111
+		$set $r6 0  63		 //   111111
+		$set $r7 0  127		 //  1111111
+		$set $r8 0  255		 // 11111111
+	;
+prep: 
+	||
+		$abs  $r9 ($i8) $r8	  // expect to see 1
+
+		$vreduce $max $r10 ($vu8)  $r8  // expect to see 11111111
+		$vreduce $max $r11 ($vi8)  $r8  // expect to see 0
+
+		$halt
+	;

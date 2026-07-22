@@ -1,0 +1,41 @@
+init:
+	||
+		| $r1 ($i64)  $r0 0
+		| $r2 ($i64)  $r0 0
+		| $r3 ($i64)  $r0 0
+		| $r4 ($i64)  $r0 0
+		| $r5 ($i64)  $r0 0
+	;
+call:
+	||
+		$call  nest_1
+		+ $r1 ($i16) $r1 1
+	;
+halt:
+	||
+		$halt
+	;
+nest_1:
+	||
+		$call nest_2
+		+ $r2 ($i16) $r2 1
+	;
+null:
+	||
+		$return
+		$null
+	;
+nest_2:
+	||
+		$call next_3
+		+ $r3 ($i16) $r3 1
+	;
+incr: 
+	||
+		$return
+	;
+next_3:
+	||
+		+ $r4 ($i16) $r4 1
+		$return
+	;

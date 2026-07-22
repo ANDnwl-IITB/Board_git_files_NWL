@@ -1,0 +1,27 @@
+Info: Thread 0 pc = 0
+Info: imem file = dotp.obj
+Info: dmem file = data.map
+Info: results file = results.txt
+Info: Loaded 0 instructions to i-mem
+Info: Loaded 20 words to d-mem
+Info: Info: activate thread 0 to pc 0
+Info: Stopped after 0 ticks.
+
+Warning: Unknown verify line keyword reg
+Warning: Unknown verify line keyword reg
+Warning: Unknown verify line keyword reg
+Warning: Unknown verify line keyword reg
+Warning: Unknown verify line keyword reg
+Warning: Unknown verify line keyword reg
+Warning: Unknown verify line keyword reg
+Warning: Unknown verify line keyword reg
+Warning: Unknown verify line keyword reg
+Warning: Unknown verify line keyword reg
+Warning: Unknown verify line keyword mem
+Warning: Unknown verify line keyword mem
+Warning: Unknown verify line keyword mem
+Warning: Unknown verify line keyword mem
+Warning: Unknown verify line keyword mem
+Warning: Unknown verify line keyword mem
+Warning: Unknown verify line keyword mem
+Warning: Unknown verify line keyword mem

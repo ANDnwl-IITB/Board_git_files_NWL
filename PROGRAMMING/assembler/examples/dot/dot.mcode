@@ -1,0 +1,37 @@
+get_ops :
+	|| 
+		// initialize from memory.
+
+		$ld ($i256)  $r4  [$r0 + 0]  // rs0 + 0 must be multiple of 32.
+		$ld ($i256)  $r8  [$r0 + 4]  // rs0 + 4 must be multiple of 32.  (FAILS!)
+		$ld ($i128)  $r20 [$r0 + 8]  // r0 + 8 must be multiple of 16.   (FAILS!)
+	;
+dots8:
+	||
+		$dot $accumulate ($u $i32) $r22 ($u $i4) $r20 $r20
+		$dot $accumulate ($i32) $r12 ($i8) $r4 $r8
+		$dot $accumulate ($i32) $r13 ($i8) $r5 $r9
+		$dot $accumulate ($i32) $r14 ($i8) $r6 $r10
+		$dot $accumulate ($i32) $r15 ($i8) $r7 $r11
+	;
+dots4:
+	||
+		$dot $accumulate ($i32) $r16 ($i4) $r4 $r8
+		$dot $accumulate ($i32) $r17 ($i4) $r5 $r9
+		$dot $accumulate ($i32) $r18 ($i4) $r6 $r10
+		$dot $accumulate ($i32) $r19 ($i4) $r7 $r11
+	;
+store   :
+	||
+		$st  ($i256) [$r0 + 12]  $r12
+		$st  ($i64)  [$r0 + 16]  $r16
+		$st  ($i64)  [$r0 + 17]  $r17
+		$st  ($i64)  [$r0 + 18]  $r18
+		$st  ($i64)  [$r0 + 19]  $r19
+	;
+halt:
+	||
+		$halt
+	;
+
+

@@ -1,0 +1,11 @@
+l_0: // pc=0x0
+    || 
+$vreduce  +          $r3    ($vi8)    $r1    
+$vreduce  +          $r4    ($vu8)    $r1    
+$vreduce  +          $r5    ($vi8)    $r2    
+$vreduce  +          $r6    ($vu8)    $r2    
+    $halt
+    $null
+    $null
+    $null
+    ;

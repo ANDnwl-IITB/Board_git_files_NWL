@@ -1,0 +1,136 @@
+Info: Init: DMEM[0] = 0x801020304050607
+Info: RunLog[0]: Set_Register(0, 0x0)
+Info: RunLog[0]: Set_Register(1, 0x0)
+Info: RunLog[0]: Set_Register(2, 0x0)
+Info: RunLog[0]: Set_Register(3, 0x0)
+Info: RunLog[0]: Set_Register(4, 0x0)
+Info: RunLog[0]: Set_Register(5, 0x0)
+Info: RunLog[0]: Set_Register(6, 0x0)
+Info: RunLog[0]: Set_Register(7, 0x0)
+Info: RunLog[0]: 0x0 = Get_Register(0)
+Info: McodeAccelerator:: 0x801020300000000 = DMEM[0x0]
+Info: RunLog[0]: Set_Register(4, 0x8010203)
+RunLog[0]: l_0 pc=0x0  McodeInstructionBundle
+RunLog[0]: 0x0 $null        -> 
+RunLog[0]: 0x1 $null        -> 
+RunLog[0]: 0x2 $null        -> 
+RunLog[0]: 0x3 $null        -> 
+RunLog[0]: 0x4 $ld         0x0    0x0     -> 0x8010203    
+RunLog[0]: 0x5 $null        -> 
+RunLog[0]: 0x6 $null        -> 
+RunLog[0]: 0x7 $null        -> 
+Info: RunLog[0]: 0x0 = Get_Register(0)
+Info: RunLog[0]: 0x8010203 = Get_Register(4)
+Info: McodeAccelerator:: DMEM[0x0] = 0x801020308010203
+RunLog[0]: l_8 pc=0x8  McodeInstructionBundle
+RunLog[0]: 0x8 $null        -> 
+RunLog[0]: 0x9 $null        -> 
+RunLog[0]: 0xa $null        -> 
+RunLog[0]: 0xb $null        -> 
+RunLog[0]: 0xc $st         0x0    0x4    0x8010203     -> 
+RunLog[0]: 0xd $null        -> 
+RunLog[0]: 0xe $null        -> 
+RunLog[0]: 0xf $null        -> 
+Info: RunLog[0]: 0x0 = Get_Register(0)
+Info: McodeAccelerator:: 0x801020300000000 = DMEM[0x0]
+Info: RunLog[0]: Set_Register(5, 0x8010203)
+RunLog[0]: l_16 pc=0x10  McodeInstructionBundle
+RunLog[0]: 0x10 $null        -> 
+RunLog[0]: 0x11 $null        -> 
+RunLog[0]: 0x12 $null        -> 
+RunLog[0]: 0x13 $null        -> 
+RunLog[0]: 0x14 $ld         0x0    0x4     -> 0x8010203    
+RunLog[0]: 0x15 $null        -> 
+RunLog[0]: 0x16 $null        -> 
+RunLog[0]: 0x17 $null        -> 
+Info: RunLog[0]: 0x0 = Get_Register(0)
+Info: RunLog[0]: 0x8010203 = Get_Register(5)
+Info: McodeAccelerator:: DMEM[0x1] = 0x801020300000000
+RunLog[0]: l_24 pc=0x18  McodeInstructionBundle
+RunLog[0]: 0x18 $null        -> 
+RunLog[0]: 0x19 $null        -> 
+RunLog[0]: 0x1a $null        -> 
+RunLog[0]: 0x1b $null        -> 
+RunLog[0]: 0x1c $st         0x0    0x8    0x8010203     -> 
+RunLog[0]: 0x1d $null        -> 
+RunLog[0]: 0x1e $null        -> 
+RunLog[0]: 0x1f $null        -> 
+Info: RunLog[0]: 0x0 = Get_Register(0)
+Info: McodeAccelerator:: 0x801020300000000 = DMEM[0x1]
+Info: RunLog[0]: Set_Register(6, 0x8010203)
+RunLog[0]: l_32 pc=0x20  McodeInstructionBundle
+RunLog[0]: 0x20 $null        -> 
+RunLog[0]: 0x21 $null        -> 
+RunLog[0]: 0x22 $null        -> 
+RunLog[0]: 0x23 $null        -> 
+RunLog[0]: 0x24 $ld         0x0    0x8     -> 0x8010203    
+RunLog[0]: 0x25 $null        -> 
+RunLog[0]: 0x26 $null        -> 
+RunLog[0]: 0x27 $null        -> 
+Info: RunLog[0]: 0x0 = Get_Register(0)
+Info: RunLog[0]: 0x8010203 = Get_Register(6)
+Info: McodeAccelerator:: DMEM[0x1] = 0x801020308010203
+RunLog[0]: l_40 pc=0x28  McodeInstructionBundle
+RunLog[0]: 0x28 $null        -> 
+RunLog[0]: 0x29 $null        -> 
+RunLog[0]: 0x2a $null        -> 
+RunLog[0]: 0x2b $null        -> 
+RunLog[0]: 0x2c $st         0x0    0xc    0x8010203     -> 
+RunLog[0]: 0x2d $null        -> 
+RunLog[0]: 0x2e $null        -> 
+RunLog[0]: 0x2f $null        -> 
+Info: RunLog[0]: 0x0 = Get_Register(0)
+Info: McodeAccelerator:: 0x801020300000000 = DMEM[0x1]
+Info: RunLog[0]: Set_Register(7, 0x8010203)
+RunLog[0]: l_48 pc=0x30  McodeInstructionBundle
+RunLog[0]: 0x30 $halt        -> 
+RunLog[0]: 0x31 $null        -> 
+RunLog[0]: 0x32 $null        -> 
+RunLog[0]: 0x33 $null        -> 
+RunLog[0]: 0x34 $ld         0x0    0xc     -> 0x8010203    
+RunLog[0]: 0x35 $null        -> 
+RunLog[0]: 0x36 $null        -> 
+RunLog[0]: 0x37 $null        -> 
+Info: RunLog[0]: 0x8010203 = Get_Register(4)
+Info: RunLog[0]: 0x8010203 = Get_Register(5)
+Info: RunLog[0]: 0x8010203 = Get_Register(6)
+Info: RunLog[0]: 0x8010203 = Get_Register(7)
+Info: McodeAccelerator:: 0x801020300000000 = DMEM[0x1]
+Info: RunLog[0]: Set_Register(6, 0x8010203)
+RunLog[0]: l_32 pc=0x20  McodeInstructionBundle
+RunLog[0]: 0x20 $null        -> 
+RunLog[0]: 0x21 $null        -> 
+RunLog[0]: 0x22 $null        -> 
+RunLog[0]: 0x23 $null        -> 
+RunLog[0]: 0x24 $ld         0x0    0x8     -> 0x8010203    
+RunLog[0]: 0x25 $null        -> 
+RunLog[0]: 0x26 $null        -> 
+RunLog[0]: 0x27 $null        -> 
+Info: RunLog[0]: 0x0 = Get_Register(0)
+Info: RunLog[0]: 0x8010203 = Get_Register(6)
+Info: McodeAccelerator:: DMEM[0x1] = 0x801020308010203
+RunLog[0]: l_40 pc=0x28  McodeInstructionBundle
+RunLog[0]: 0x28 $null        -> 
+RunLog[0]: 0x29 $null        -> 
+RunLog[0]: 0x2a $null        -> 
+RunLog[0]: 0x2b $null        -> 
+RunLog[0]: 0x2c $st         0x0    0xc    0x8010203     -> 
+RunLog[0]: 0x2d $null        -> 
+RunLog[0]: 0x2e $null        -> 
+RunLog[0]: 0x2f $null        -> 
+Info: RunLog[0]: 0x0 = Get_Register(0)
+Info: McodeAccelerator:: 0x801020300000000 = DMEM[0x1]
+Info: RunLog[0]: Set_Register(7, 0x8010203)
+RunLog[0]: l_48 pc=0x30  McodeInstructionBundle
+RunLog[0]: 0x30 $halt        -> 
+RunLog[0]: 0x31 $null        -> 
+RunLog[0]: 0x32 $null        -> 
+RunLog[0]: 0x33 $null        -> 
+RunLog[0]: 0x34 $ld         0x0    0xc     -> 0x8010203    
+RunLog[0]: 0x35 $null        -> 
+RunLog[0]: 0x36 $null        -> 
+RunLog[0]: 0x37 $null        -> 
+Info: RunLog[0]: 0x8010203 = Get_Register(4)
+Info: RunLog[0]: 0x8010203 = Get_Register(5)
+Info: RunLog[0]: 0x8010203 = Get_Register(6)
+Info: RunLog[0]: 0x8010203 = Get_Register(7)

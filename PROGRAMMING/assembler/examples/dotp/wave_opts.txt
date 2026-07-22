@@ -1,0 +1,12 @@
+#$ version = 1.1
+#/test_setup_test_bench/dut/tester_inst/**
+#/test_setup_test_bench/dut/switch_inst/**
+#/test_setup_test_bench/dut/engine_inst/afb_demux_inst/**
+#/test_setup_test_bench/dut/engine_inst/dma_inst/**
+#/test_setup_test_bench/dut/engine_inst/teu_inst/accel_fetch_inst/**
+#/test_setup_test_bench/dut/engine_inst/teu_inst/accel_decode_inst/**
+/test_setup_test_bench/dut/engine_inst/teu_inst/accel_regfile_v2_inst/**
+/test_setup_test_bench/dut/engine_inst/teu_inst/accel_exec_inst/**
+#/test_setup_test_bench/dut/engine_inst/teu_inst/accel_exec_inst/exec_daemon_instance/**
+#/test_setup_test_bench/dut/engine_inst/dmem_inst/data_mem_daemon_instance/**
+#/test_setup_test_bench/dut/engine_inst/dmem_inst/access_external_mem_via_dma_instance/**

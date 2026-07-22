@@ -1,0 +1,7 @@
+! format:
+!     <dword-index>     <dword>
+!      
+! Note: values are presented as hex, without
+! leading 0x
+!
+0:  0x0102030405060708

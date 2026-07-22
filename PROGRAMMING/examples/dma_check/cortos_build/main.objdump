@@ -435,7 +435,7 @@ Disassembly of section .text:
 40000574:	96 10 20 00 	clr  %o3
 40000578:	98 10 00 18 	mov  %i0, %o4
 4000057c:	9a 10 20 00 	clr  %o5
-40000580:	40 00 20 95 	call  400087d4 <readFromConfigRegister>
+40000580:	40 00 20 ea 	call  40008928 <readFromConfigRegister>
 40000584:	90 10 00 1d 	mov  %i5, %o0
 40000588:	80 8a 20 80 	btst  0x80, %o0
 4000058c:	02 bf ff f6 	be  40000564 <wait_on_thread_init+0x10>
@@ -795,7 +795,7 @@ Disassembly of section .text:
 40000ab4:	a2 0c 20 ff 	and  %l0, 0xff, %l1
 40000ab8:	90 10 00 1c 	mov  %i4, %o0
 40000abc:	96 10 00 11 	mov  %l1, %o3
-40000ac0:	40 00 1d 9d 	call  40008134 <enableThreadCommandDaemon>
+40000ac0:	40 00 1d a4 	call  40008150 <enableThreadCommandDaemon>
 40000ac4:	92 10 20 00 	clr  %o1
 40000ac8:	92 10 00 10 	mov  %l0, %o1
 40000acc:	40 00 02 6b 	call  40001478 <cortos_printf>
@@ -807,7 +807,7 @@ Disassembly of section .text:
 40000ae4:	96 10 00 11 	mov  %l1, %o3
 40000ae8:	92 10 20 00 	clr  %o1
 40000aec:	b4 10 00 02 	mov  %g2, %i2
-40000af0:	40 00 1e 3f 	call  400083ec <enableDmaCommandDaemon>
+40000af0:	40 00 1e 46 	call  40008408 <enableDmaCommandDaemon>
 40000af4:	b6 10 00 03 	mov  %g3, %i3
 40000af8:	92 10 00 10 	mov  %l0, %o1
 40000afc:	40 00 02 5f 	call  40001478 <cortos_printf>
@@ -862,7 +862,7 @@ Disassembly of section .text:
 40000bc0:	94 10 20 00 	clr  %o2
 40000bc4:	96 10 00 11 	mov  %l1, %o3
 40000bc8:	98 10 20 01 	mov  1, %o4
-40000bcc:	40 00 1c df 	call  40007f48 <scheduleDmaTaskOnEngine>
+40000bcc:	40 00 1c e6 	call  40007f64 <scheduleDmaTaskOnEngine>
 40000bd0:	a8 10 00 19 	mov  %i1, %l4
 40000bd4:	80 a2 20 00 	cmp  %o0, 0
 40000bd8:	22 80 00 44 	be,a   40000ce8 <do_load_dma_actions+0x2bc>
@@ -947,7 +947,7 @@ Disassembly of section .text:
 40000d14:	96 10 00 1a 	mov  %i2, %o3
 40000d18:	98 07 bf fc 	add  %fp, -4, %o4
 40000d1c:	90 10 00 18 	mov  %i0, %o0
-40000d20:	40 00 1c ed 	call  400080d4 <readDmaChannelTaskStatus>
+40000d20:	40 00 1c f4 	call  400080f0 <readDmaChannelTaskStatus>
 40000d24:	92 10 20 00 	clr  %o1
 40000d28:	80 8a 20 04 	btst  4, %o0
 40000d2c:	02 bf ff f5 	be  40000d00 <do_load_dma_actions+0x2d4>
@@ -961,7 +961,7 @@ Disassembly of section .text:
 40000d4c:	92 10 20 00 	clr  %o1
 40000d50:	90 12 20 68 	or  %o0, 0x68, %o0
 40000d54:	94 10 20 00 	clr  %o2
-40000d58:	40 00 1c ec 	call  40008108 <closeDmaChannelTask>
+40000d58:	40 00 1c f3 	call  40008124 <closeDmaChannelTask>
 40000d5c:	96 10 00 11 	mov  %l1, %o3
 40000d60:	10 bf ff a5 	b  40000bf4 <do_load_dma_actions+0x1c8>
 40000d64:	92 10 00 1a 	mov  %i2, %o1
@@ -1022,7 +1022,7 @@ Disassembly of section .text:
 40000e38:	94 10 20 00 	clr  %o2
 40000e3c:	96 10 00 1a 	mov  %i2, %o3
 40000e40:	98 10 20 00 	clr  %o4
-40000e44:	40 00 1c 41 	call  40007f48 <scheduleDmaTaskOnEngine>
+40000e44:	40 00 1c 48 	call  40007f64 <scheduleDmaTaskOnEngine>
 40000e48:	a2 10 00 19 	mov  %i1, %l1
 40000e4c:	80 a2 20 00 	cmp  %o0, 0
 40000e50:	22 80 00 2d 	be,a   40000f04 <do_store_dma_actions+0x178>
@@ -1082,7 +1082,7 @@ Disassembly of section .text:
 40000f28:	94 10 20 00 	clr  %o2
 40000f2c:	96 10 00 1d 	mov  %i5, %o3
 40000f30:	98 07 bf fc 	add  %fp, -4, %o4
-40000f34:	40 00 1c 68 	call  400080d4 <readDmaChannelTaskStatus>
+40000f34:	40 00 1c 6f 	call  400080f0 <readDmaChannelTaskStatus>
 40000f38:	90 10 00 1b 	mov  %i3, %o0
 40000f3c:	80 8a 20 04 	btst  4, %o0
 40000f40:	02 bf ff f7 	be  40000f1c <do_store_dma_actions+0x190>
@@ -1095,7 +1095,7 @@ Disassembly of section .text:
 40000f5c:	92 10 20 00 	clr  %o1
 40000f60:	90 12 20 68 	or  %o0, 0x68, %o0
 40000f64:	94 10 20 00 	clr  %o2
-40000f68:	40 00 1c 68 	call  40008108 <closeDmaChannelTask>
+40000f68:	40 00 1c 6f 	call  40008124 <closeDmaChannelTask>
 40000f6c:	96 10 00 1a 	mov  %i2, %o3
 40000f70:	10 bf ff bf 	b  40000e6c <do_store_dma_actions+0xe0>
 40000f74:	92 10 00 1d 	mov  %i5, %o1
@@ -7869,1878 +7869,1966 @@ Disassembly of section .text:
 400073dc:	94 20 00 0a 	neg  %o2
 400073e0:	81 c3 e0 08 	retl 
 400073e4:	90 10 00 0a 	mov  %o2, %o0
-400073e8:	40 00 85 c8 	call  40028b08 <ajit_global_interrupt_handlers+0x14078>
-400073ec:	40 00 86 0c 	call  40028c1c <ajit_global_interrupt_handlers+0x1418c>
-400073f0:	40 00 86 24 	call  40028c80 <ajit_global_interrupt_handlers+0x141f0>
-400073f4:	40 00 86 3c 	call  40028ce4 <ajit_global_interrupt_handlers+0x14254>
-400073f8:	40 00 86 54 	call  40028d48 <ajit_global_interrupt_handlers+0x142b8>
-400073fc:	40 00 86 6c 	call  40028dac <ajit_global_interrupt_handlers+0x1431c>
-40007400:	40 00 85 f4 	call  40028bd0 <ajit_global_interrupt_handlers+0x14140>
+400073e8:	40 00 85 fc 	call  40028bd8 <ajit_global_interrupt_handlers+0x14148>
+400073ec:	40 00 86 2c 	call  40028c9c <ajit_global_interrupt_handlers+0x1420c>
+400073f0:	40 00 86 38 	call  40028cd0 <ajit_global_interrupt_handlers+0x14240>
+400073f4:	40 00 86 44 	call  40028d04 <ajit_global_interrupt_handlers+0x14274>
+400073f8:	40 00 86 50 	call  40028d38 <ajit_global_interrupt_handlers+0x142a8>
+400073fc:	40 00 86 5c 	call  40028d6c <ajit_global_interrupt_handlers+0x142dc>
+40007400:	40 00 86 20 	call  40028c80 <ajit_global_interrupt_handlers+0x141f0>
+40007404:	40 00 87 1c 	call  40029074 <ajit_global_interrupt_handlers+0x145e4>
+40007408:	40 00 87 60 	call  40029188 <ajit_global_interrupt_handlers+0x146f8>
+4000740c:	40 00 87 78 	call  400291ec <ajit_global_interrupt_handlers+0x1475c>
+40007410:	40 00 87 90 	call  40029250 <ajit_global_interrupt_handlers+0x147c0>
+40007414:	40 00 87 a8 	call  400292b4 <ajit_global_interrupt_handlers+0x14824>
+40007418:	40 00 87 c0 	call  40029318 <ajit_global_interrupt_handlers+0x14888>
+4000741c:	40 00 87 48 	call  4002913c <ajit_global_interrupt_handlers+0x146ac>
 
-40007404 <__make_thread_control_reg__>:
-40007404:	90 0a 20 0f 	and  %o0, 0xf, %o0
-40007408:	91 2a 20 08 	sll  %o0, 8, %o0
-4000740c:	97 2a e0 10 	sll  %o3, 0x10, %o3
-40007410:	95 2a a0 0e 	sll  %o2, 0xe, %o2
-40007414:	92 0a 60 fe 	and  %o1, 0xfe, %o1
-40007418:	92 12 00 09 	or  %o0, %o1, %o1
-4000741c:	98 12 40 0c 	or  %o1, %o4, %o4
-40007420:	90 13 00 0b 	or  %o4, %o3, %o0
-40007424:	81 c3 e0 08 	retl 
-40007428:	90 12 00 0a 	or  %o0, %o2, %o0
-
-4000742c <__make_dma_control_reg__>:
-4000742c:	95 2a a0 14 	sll  %o2, 0x14, %o2
+40007420 <__make_thread_control_reg__>:
+40007420:	90 0a 20 0f 	and  %o0, 0xf, %o0
+40007424:	91 2a 20 08 	sll  %o0, 8, %o0
+40007428:	97 2a e0 10 	sll  %o3, 0x10, %o3
+4000742c:	95 2a a0 0e 	sll  %o2, 0xe, %o2
 40007430:	92 0a 60 fe 	and  %o1, 0xfe, %o1
-40007434:	97 2a e0 10 	sll  %o3, 0x10, %o3
-40007438:	91 2a 20 18 	sll  %o0, 0x18, %o0
-4000743c:	99 2b 20 08 	sll  %o4, 8, %o4
-40007440:	90 12 00 0a 	or  %o0, %o2, %o0
-40007444:	03 00 00 3f 	sethi  %hi(0xfc00), %g1
-40007448:	90 12 00 09 	or  %o0, %o1, %o0
-4000744c:	82 10 63 ff 	or  %g1, 0x3ff, %g1
-40007450:	90 12 00 0b 	or  %o0, %o3, %o0
-40007454:	98 0b 00 01 	and  %o4, %g1, %o4
-40007458:	90 12 00 0d 	or  %o0, %o5, %o0
-4000745c:	81 c3 e0 08 	retl 
-40007460:	90 12 00 0c 	or  %o0, %o4, %o0
+40007434:	92 12 00 09 	or  %o0, %o1, %o1
+40007438:	98 12 40 0c 	or  %o1, %o4, %o4
+4000743c:	90 13 00 0b 	or  %o4, %o3, %o0
+40007440:	81 c3 e0 08 	retl 
+40007444:	90 12 00 0a 	or  %o0, %o2, %o0
 
-40007464 <initHpcMachineState>:
-40007464:	82 10 20 10 	mov  0x10, %g1
-40007468:	c0 22 20 1c 	clr  [ %o0 + 0x1c ]
-4000746c:	c0 22 20 20 	clr  [ %o0 + 0x20 ]
-40007470:	c0 22 20 24 	clr  [ %o0 + 0x24 ]
-40007474:	c0 22 20 28 	clr  [ %o0 + 0x28 ]
-40007478:	c0 22 20 2c 	clr  [ %o0 + 0x2c ]
-4000747c:	c0 22 20 30 	clr  [ %o0 + 0x30 ]
-40007480:	c0 22 20 34 	clr  [ %o0 + 0x34 ]
-40007484:	c0 22 20 38 	clr  [ %o0 + 0x38 ]
-40007488:	c0 22 20 3c 	clr  [ %o0 + 0x3c ]
-4000748c:	c0 22 20 40 	clr  [ %o0 + 0x40 ]
-40007490:	c0 22 20 44 	clr  [ %o0 + 0x44 ]
-40007494:	c0 22 20 48 	clr  [ %o0 + 0x48 ]
-40007498:	c0 22 20 4c 	clr  [ %o0 + 0x4c ]
-4000749c:	c0 22 20 50 	clr  [ %o0 + 0x50 ]
-400074a0:	c0 22 20 54 	clr  [ %o0 + 0x54 ]
-400074a4:	c0 22 20 58 	clr  [ %o0 + 0x58 ]
-400074a8:	82 80 7f ff 	addcc  %g1, -1, %g1
-400074ac:	12 bf ff ef 	bne  40007468 <initHpcMachineState+0x4>
-400074b0:	90 02 20 40 	add  %o0, 0x40, %o0
-400074b4:	81 c3 e0 08 	retl 
-400074b8:	01 00 00 00 	nop 
+40007448 <__make_dma_control_reg__>:
+40007448:	95 2a a0 14 	sll  %o2, 0x14, %o2
+4000744c:	92 0a 60 fe 	and  %o1, 0xfe, %o1
+40007450:	97 2a e0 10 	sll  %o3, 0x10, %o3
+40007454:	91 2a 20 18 	sll  %o0, 0x18, %o0
+40007458:	99 2b 20 08 	sll  %o4, 8, %o4
+4000745c:	90 12 00 0a 	or  %o0, %o2, %o0
+40007460:	03 00 00 3f 	sethi  %hi(0xfc00), %g1
+40007464:	90 12 00 09 	or  %o0, %o1, %o0
+40007468:	82 10 63 ff 	or  %g1, 0x3ff, %g1
+4000746c:	90 12 00 0b 	or  %o0, %o3, %o0
+40007470:	98 0b 00 01 	and  %o4, %g1, %o4
+40007474:	90 12 00 0d 	or  %o0, %o5, %o0
+40007478:	81 c3 e0 08 	retl 
+4000747c:	90 12 00 0c 	or  %o0, %o4, %o0
 
-400074bc <__pre_increment_engine_sequence_number__>:
-400074bc:	93 2a 60 02 	sll  %o1, 2, %o1
-400074c0:	94 02 40 0a 	add  %o1, %o2, %o2
-400074c4:	93 2a a0 02 	sll  %o2, 2, %o1
-400074c8:	96 02 40 0b 	add  %o1, %o3, %o3
-400074cc:	82 02 e0 06 	add  %o3, 6, %g1
-400074d0:	83 28 60 02 	sll  %g1, 2, %g1
-400074d4:	82 02 00 01 	add  %o0, %g1, %g1
-400074d8:	d0 00 60 04 	ld  [ %g1 + 4 ], %o0
-400074dc:	84 02 20 01 	add  %o0, 1, %g2
-400074e0:	81 c3 e0 08 	retl 
-400074e4:	c4 20 60 04 	st  %g2, [ %g1 + 4 ]
+40007480 <initHpcMachineState>:
+40007480:	82 10 20 10 	mov  0x10, %g1
+40007484:	c0 22 20 1c 	clr  [ %o0 + 0x1c ]
+40007488:	c0 22 20 20 	clr  [ %o0 + 0x20 ]
+4000748c:	c0 22 20 24 	clr  [ %o0 + 0x24 ]
+40007490:	c0 22 20 28 	clr  [ %o0 + 0x28 ]
+40007494:	c0 22 20 2c 	clr  [ %o0 + 0x2c ]
+40007498:	c0 22 20 30 	clr  [ %o0 + 0x30 ]
+4000749c:	c0 22 20 34 	clr  [ %o0 + 0x34 ]
+400074a0:	c0 22 20 38 	clr  [ %o0 + 0x38 ]
+400074a4:	c0 22 20 3c 	clr  [ %o0 + 0x3c ]
+400074a8:	c0 22 20 40 	clr  [ %o0 + 0x40 ]
+400074ac:	c0 22 20 44 	clr  [ %o0 + 0x44 ]
+400074b0:	c0 22 20 48 	clr  [ %o0 + 0x48 ]
+400074b4:	c0 22 20 4c 	clr  [ %o0 + 0x4c ]
+400074b8:	c0 22 20 50 	clr  [ %o0 + 0x50 ]
+400074bc:	c0 22 20 54 	clr  [ %o0 + 0x54 ]
+400074c0:	c0 22 20 58 	clr  [ %o0 + 0x58 ]
+400074c4:	82 80 7f ff 	addcc  %g1, -1, %g1
+400074c8:	12 bf ff ef 	bne  40007484 <initHpcMachineState+0x4>
+400074cc:	90 02 20 40 	add  %o0, 0x40, %o0
+400074d0:	81 c3 e0 08 	retl 
+400074d4:	01 00 00 00 	nop 
 
-400074e8 <__pre_increment_dma_sequence_number__>:
-400074e8:	93 2a 60 02 	sll  %o1, 2, %o1
-400074ec:	94 02 40 0a 	add  %o1, %o2, %o2
-400074f0:	93 2a a0 02 	sll  %o2, 2, %o1
-400074f4:	96 02 40 0b 	add  %o1, %o3, %o3
-400074f8:	82 02 e0 06 	add  %o3, 6, %g1
-400074fc:	83 28 60 02 	sll  %g1, 2, %g1
-40007500:	82 02 00 01 	add  %o0, %g1, %g1
-40007504:	d0 00 60 04 	ld  [ %g1 + 4 ], %o0
-40007508:	84 02 20 01 	add  %o0, 1, %g2
-4000750c:	81 c3 e0 08 	retl 
-40007510:	c4 20 60 04 	st  %g2, [ %g1 + 4 ]
+400074d8 <__pre_increment_engine_sequence_number__>:
+400074d8:	93 2a 60 02 	sll  %o1, 2, %o1
+400074dc:	94 02 40 0a 	add  %o1, %o2, %o2
+400074e0:	93 2a a0 02 	sll  %o2, 2, %o1
+400074e4:	96 02 40 0b 	add  %o1, %o3, %o3
+400074e8:	82 02 e0 06 	add  %o3, 6, %g1
+400074ec:	83 28 60 02 	sll  %g1, 2, %g1
+400074f0:	82 02 00 01 	add  %o0, %g1, %g1
+400074f4:	d0 00 60 04 	ld  [ %g1 + 4 ], %o0
+400074f8:	84 02 20 01 	add  %o0, 1, %g2
+400074fc:	81 c3 e0 08 	retl 
+40007500:	c4 20 60 04 	st  %g2, [ %g1 + 4 ]
 
-40007514 <allocateHpcMachineState>:
-40007514:	81 c3 e0 08 	retl 
-40007518:	01 00 00 00 	nop 
+40007504 <__pre_increment_dma_sequence_number__>:
+40007504:	93 2a 60 02 	sll  %o1, 2, %o1
+40007508:	94 02 40 0a 	add  %o1, %o2, %o2
+4000750c:	93 2a a0 02 	sll  %o2, 2, %o1
+40007510:	96 02 40 0b 	add  %o1, %o3, %o3
+40007514:	82 02 e0 06 	add  %o3, 6, %g1
+40007518:	83 28 60 02 	sll  %g1, 2, %g1
+4000751c:	82 02 00 01 	add  %o0, %g1, %g1
+40007520:	d0 00 60 04 	ld  [ %g1 + 4 ], %o0
+40007524:	84 02 20 01 	add  %o0, 1, %g2
+40007528:	81 c3 e0 08 	retl 
+4000752c:	c4 20 60 04 	st  %g2, [ %g1 + 4 ]
 
-4000751c <initEngineThreadLocks>:
-4000751c:	81 c3 e0 08 	retl 
-40007520:	01 00 00 00 	nop 
+40007530 <allocateHpcMachineState>:
+40007530:	81 c3 e0 08 	retl 
+40007534:	01 00 00 00 	nop 
 
-40007524 <initDmaChannelLocks>:
-40007524:	81 c3 e0 08 	retl 
-40007528:	01 00 00 00 	nop 
+40007538 <initEngineThreadLocks>:
+40007538:	81 c3 e0 08 	retl 
+4000753c:	01 00 00 00 	nop 
 
-4000752c <acquireEngineThreadLock>:
-4000752c:	81 c3 e0 08 	retl 
-40007530:	90 10 20 00 	clr  %o0	! 0 <__DYNAMIC>
+40007540 <initDmaChannelLocks>:
+40007540:	81 c3 e0 08 	retl 
+40007544:	01 00 00 00 	nop 
 
-40007534 <releaseEngineThreadLock>:
-40007534:	81 c3 e0 08 	retl 
-40007538:	01 00 00 00 	nop 
+40007548 <acquireEngineThreadLock>:
+40007548:	81 c3 e0 08 	retl 
+4000754c:	90 10 20 00 	clr  %o0	! 0 <__DYNAMIC>
 
-4000753c <acquireDmaChannelLock>:
-4000753c:	81 c3 e0 08 	retl 
-40007540:	90 10 20 00 	clr  %o0	! 0 <__DYNAMIC>
+40007550 <releaseEngineThreadLock>:
+40007550:	81 c3 e0 08 	retl 
+40007554:	01 00 00 00 	nop 
 
-40007544 <releaseDmaChannelLock>:
-40007544:	81 c3 e0 08 	retl 
-40007548:	01 00 00 00 	nop 
+40007558 <acquireDmaChannelLock>:
+40007558:	81 c3 e0 08 	retl 
+4000755c:	90 10 20 00 	clr  %o0	! 0 <__DYNAMIC>
 
-4000754c <writeToEngineConfigRegister>:
-4000754c:	9d e3 bf 98 	save  %sp, -104, %sp
-40007550:	92 10 20 00 	clr  %o1
-40007554:	fa 23 a0 5c 	st  %i5, [ %sp + 0x5c ]
-40007558:	90 10 00 18 	mov  %i0, %o0
-4000755c:	94 10 00 19 	mov  %i1, %o2
-40007560:	96 10 00 1a 	mov  %i2, %o3
-40007564:	98 10 00 1b 	mov  %i3, %o4
-40007568:	40 00 04 8b 	call  40008794 <writeToConfigRegister>
-4000756c:	9a 10 00 1c 	mov  %i4, %o5
-40007570:	81 c7 e0 08 	ret 
-40007574:	81 e8 00 00 	restore 
+40007560 <releaseDmaChannelLock>:
+40007560:	81 c3 e0 08 	retl 
+40007564:	01 00 00 00 	nop 
 
-40007578 <readFromEngineConfigRegister>:
-40007578:	86 10 00 09 	mov  %o1, %g3
-4000757c:	84 10 00 0a 	mov  %o2, %g2
-40007580:	82 10 00 0b 	mov  %o3, %g1
-40007584:	9a 10 00 0c 	mov  %o4, %o5
-40007588:	92 10 20 00 	clr  %o1
-4000758c:	94 10 00 03 	mov  %g3, %o2
-40007590:	96 10 00 02 	mov  %g2, %o3
-40007594:	98 10 00 01 	mov  %g1, %o4
-40007598:	82 13 c0 00 	mov  %o7, %g1
-4000759c:	40 00 04 8e 	call  400087d4 <readFromConfigRegister>
-400075a0:	9e 10 40 00 	mov  %g1, %o7
+40007568 <writeToEngineConfigRegister>:
+40007568:	9d e3 bf 98 	save  %sp, -104, %sp
+4000756c:	92 10 20 00 	clr  %o1
+40007570:	fa 23 a0 5c 	st  %i5, [ %sp + 0x5c ]
+40007574:	90 10 00 18 	mov  %i0, %o0
+40007578:	94 10 00 19 	mov  %i1, %o2
+4000757c:	96 10 00 1a 	mov  %i2, %o3
+40007580:	98 10 00 1b 	mov  %i3, %o4
+40007584:	40 00 04 d9 	call  400088e8 <writeToConfigRegister>
+40007588:	9a 10 00 1c 	mov  %i4, %o5
+4000758c:	81 c7 e0 08 	ret 
+40007590:	81 e8 00 00 	restore 
 
-400075a4 <engineThreadStatus>:
-400075a4:	98 10 20 00 	clr  %o4
-400075a8:	82 13 c0 00 	mov  %o7, %g1
-400075ac:	7f ff ff f3 	call  40007578 <readFromEngineConfigRegister>
-400075b0:	9e 10 40 00 	mov  %g1, %o7
+40007594 <readFromEngineConfigRegister>:
+40007594:	86 10 00 09 	mov  %o1, %g3
+40007598:	84 10 00 0a 	mov  %o2, %g2
+4000759c:	82 10 00 0b 	mov  %o3, %g1
+400075a0:	9a 10 00 0c 	mov  %o4, %o5
+400075a4:	92 10 20 00 	clr  %o1
+400075a8:	94 10 00 03 	mov  %g3, %o2
+400075ac:	96 10 00 02 	mov  %g2, %o3
+400075b0:	98 10 00 01 	mov  %g1, %o4
+400075b4:	82 13 c0 00 	mov  %o7, %g1
+400075b8:	40 00 04 dc 	call  40008928 <readFromConfigRegister>
+400075bc:	9e 10 40 00 	mov  %g1, %o7
 
-400075b4 <acquireEngineThread>:
-400075b4:	9d e3 bf a0 	save  %sp, -96, %sp
-400075b8:	90 10 00 18 	mov  %i0, %o0
-400075bc:	92 10 00 19 	mov  %i1, %o1
-400075c0:	94 10 00 1a 	mov  %i2, %o2
-400075c4:	7f ff ff f8 	call  400075a4 <engineThreadStatus>
-400075c8:	96 10 00 1b 	mov  %i3, %o3
-400075cc:	90 0a 20 07 	and  %o0, 7, %o0
-400075d0:	80 a0 00 08 	cmp  %g0, %o0
-400075d4:	b0 40 20 00 	addx  %g0, 0, %i0
-400075d8:	81 c7 e0 08 	ret 
-400075dc:	81 e8 00 00 	restore 
+400075c0 <engineThreadStatus>:
+400075c0:	98 10 20 00 	clr  %o4
+400075c4:	82 13 c0 00 	mov  %o7, %g1
+400075c8:	7f ff ff f3 	call  40007594 <readFromEngineConfigRegister>
+400075cc:	9e 10 40 00 	mov  %g1, %o7
 
-400075e0 <waitOnEngineThreadCompletion>:
-400075e0:	9d e3 bf a0 	save  %sp, -96, %sp
-400075e4:	90 10 00 18 	mov  %i0, %o0
-400075e8:	92 10 00 19 	mov  %i1, %o1
-400075ec:	94 10 00 1a 	mov  %i2, %o2
-400075f0:	7f ff ff ed 	call  400075a4 <engineThreadStatus>
-400075f4:	96 10 00 1b 	mov  %i3, %o3
-400075f8:	90 0a 20 07 	and  %o0, 7, %o0
-400075fc:	80 a2 20 07 	cmp  %o0, 7
-40007600:	12 bf ff fa 	bne  400075e8 <waitOnEngineThreadCompletion+0x8>
-40007604:	90 10 00 18 	mov  %i0, %o0
-40007608:	81 c7 e0 08 	ret 
-4000760c:	81 e8 00 00 	restore 
+400075d0 <acquireEngineThread>:
+400075d0:	9d e3 bf a0 	save  %sp, -96, %sp
+400075d4:	90 10 00 18 	mov  %i0, %o0
+400075d8:	92 10 00 19 	mov  %i1, %o1
+400075dc:	94 10 00 1a 	mov  %i2, %o2
+400075e0:	7f ff ff f8 	call  400075c0 <engineThreadStatus>
+400075e4:	96 10 00 1b 	mov  %i3, %o3
+400075e8:	90 0a 20 07 	and  %o0, 7, %o0
+400075ec:	80 a0 00 08 	cmp  %g0, %o0
+400075f0:	b0 40 20 00 	addx  %g0, 0, %i0
+400075f4:	81 c7 e0 08 	ret 
+400075f8:	81 e8 00 00 	restore 
 
-40007610 <__clear_thread_flags__>:
-40007610:	9d e3 bf a0 	save  %sp, -96, %sp
-40007614:	98 10 20 00 	clr  %o4
-40007618:	ba 10 00 1c 	mov  %i4, %i5
-4000761c:	90 10 00 18 	mov  %i0, %o0
-40007620:	92 10 00 19 	mov  %i1, %o1
-40007624:	94 10 00 1a 	mov  %i2, %o2
-40007628:	96 10 00 1b 	mov  %i3, %o3
-4000762c:	7f ff ff d3 	call  40007578 <readFromEngineConfigRegister>
-40007630:	b8 10 20 00 	clr  %i4
-40007634:	ba 2a 00 1d 	andn  %o0, %i5, %i5
-40007638:	7f ff ff c5 	call  4000754c <writeToEngineConfigRegister>
-4000763c:	81 e8 00 00 	restore 
+400075fc <waitOnEngineThreadCompletion>:
+400075fc:	9d e3 bf a0 	save  %sp, -96, %sp
+40007600:	90 10 00 18 	mov  %i0, %o0
+40007604:	92 10 00 19 	mov  %i1, %o1
+40007608:	94 10 00 1a 	mov  %i2, %o2
+4000760c:	7f ff ff ed 	call  400075c0 <engineThreadStatus>
+40007610:	96 10 00 1b 	mov  %i3, %o3
+40007614:	90 0a 20 07 	and  %o0, 7, %o0
+40007618:	80 a2 20 07 	cmp  %o0, 7
+4000761c:	12 bf ff fa 	bne  40007604 <waitOnEngineThreadCompletion+0x8>
+40007620:	90 10 00 18 	mov  %i0, %o0
+40007624:	81 c7 e0 08 	ret 
+40007628:	81 e8 00 00 	restore 
 
-40007640 <releaseEngineThread>:
-40007640:	9d e3 bf a0 	save  %sp, -96, %sp
-40007644:	98 10 20 01 	mov  1, %o4
-40007648:	90 10 00 18 	mov  %i0, %o0
-4000764c:	92 10 00 19 	mov  %i1, %o1
-40007650:	94 10 00 1a 	mov  %i2, %o2
-40007654:	7f ff ff ef 	call  40007610 <__clear_thread_flags__>
-40007658:	96 10 00 1b 	mov  %i3, %o3
-4000765c:	90 10 00 18 	mov  %i0, %o0
-40007660:	92 10 00 19 	mov  %i1, %o1
-40007664:	94 10 00 1a 	mov  %i2, %o2
-40007668:	7f ff ff cf 	call  400075a4 <engineThreadStatus>
-4000766c:	96 10 00 1b 	mov  %i3, %o3
-40007670:	90 0a 20 07 	and  %o0, 7, %o0
-40007674:	80 a0 00 08 	cmp  %g0, %o0
-40007678:	b0 40 20 00 	addx  %g0, 0, %i0
-4000767c:	81 c7 e0 08 	ret 
-40007680:	81 e8 00 00 	restore 
+4000762c <__clear_thread_flags__>:
+4000762c:	9d e3 bf a0 	save  %sp, -96, %sp
+40007630:	98 10 20 00 	clr  %o4
+40007634:	ba 10 00 1c 	mov  %i4, %i5
+40007638:	90 10 00 18 	mov  %i0, %o0
+4000763c:	92 10 00 19 	mov  %i1, %o1
+40007640:	94 10 00 1a 	mov  %i2, %o2
+40007644:	96 10 00 1b 	mov  %i3, %o3
+40007648:	7f ff ff d3 	call  40007594 <readFromEngineConfigRegister>
+4000764c:	b8 10 20 00 	clr  %i4
+40007650:	ba 2a 00 1d 	andn  %o0, %i5, %i5
+40007654:	7f ff ff c5 	call  40007568 <writeToEngineConfigRegister>
+40007658:	81 e8 00 00 	restore 
 
-40007684 <__set_thread_flags__>:
-40007684:	9d e3 bf a0 	save  %sp, -96, %sp
-40007688:	98 10 20 00 	clr  %o4
-4000768c:	ba 10 00 1c 	mov  %i4, %i5
-40007690:	90 10 00 18 	mov  %i0, %o0
-40007694:	92 10 00 19 	mov  %i1, %o1
-40007698:	94 10 00 1a 	mov  %i2, %o2
-4000769c:	96 10 00 1b 	mov  %i3, %o3
-400076a0:	7f ff ff b6 	call  40007578 <readFromEngineConfigRegister>
-400076a4:	b8 10 20 00 	clr  %i4
-400076a8:	ba 12 00 1d 	or  %o0, %i5, %i5
-400076ac:	7f ff ff a8 	call  4000754c <writeToEngineConfigRegister>
-400076b0:	81 e8 00 00 	restore 
+4000765c <releaseEngineThread>:
+4000765c:	9d e3 bf a0 	save  %sp, -96, %sp
+40007660:	98 10 20 01 	mov  1, %o4
+40007664:	90 10 00 18 	mov  %i0, %o0
+40007668:	92 10 00 19 	mov  %i1, %o1
+4000766c:	94 10 00 1a 	mov  %i2, %o2
+40007670:	7f ff ff ef 	call  4000762c <__clear_thread_flags__>
+40007674:	96 10 00 1b 	mov  %i3, %o3
+40007678:	90 10 00 18 	mov  %i0, %o0
+4000767c:	92 10 00 19 	mov  %i1, %o1
+40007680:	94 10 00 1a 	mov  %i2, %o2
+40007684:	7f ff ff cf 	call  400075c0 <engineThreadStatus>
+40007688:	96 10 00 1b 	mov  %i3, %o3
+4000768c:	90 0a 20 07 	and  %o0, 7, %o0
+40007690:	80 a0 00 08 	cmp  %g0, %o0
+40007694:	b0 40 20 00 	addx  %g0, 0, %i0
+40007698:	81 c7 e0 08 	ret 
+4000769c:	81 e8 00 00 	restore 
 
-400076b4 <writeToDmaConfigRegister>:
-400076b4:	9d e3 bf 98 	save  %sp, -104, %sp
-400076b8:	92 10 20 01 	mov  1, %o1
-400076bc:	fa 23 a0 5c 	st  %i5, [ %sp + 0x5c ]
-400076c0:	90 10 00 18 	mov  %i0, %o0
-400076c4:	94 10 00 19 	mov  %i1, %o2
-400076c8:	96 10 00 1a 	mov  %i2, %o3
-400076cc:	98 10 00 1b 	mov  %i3, %o4
-400076d0:	40 00 04 31 	call  40008794 <writeToConfigRegister>
-400076d4:	9a 10 00 1c 	mov  %i4, %o5
-400076d8:	81 c7 e0 08 	ret 
-400076dc:	81 e8 00 00 	restore 
+400076a0 <__set_thread_flags__>:
+400076a0:	9d e3 bf a0 	save  %sp, -96, %sp
+400076a4:	98 10 20 00 	clr  %o4
+400076a8:	ba 10 00 1c 	mov  %i4, %i5
+400076ac:	90 10 00 18 	mov  %i0, %o0
+400076b0:	92 10 00 19 	mov  %i1, %o1
+400076b4:	94 10 00 1a 	mov  %i2, %o2
+400076b8:	96 10 00 1b 	mov  %i3, %o3
+400076bc:	7f ff ff b6 	call  40007594 <readFromEngineConfigRegister>
+400076c0:	b8 10 20 00 	clr  %i4
+400076c4:	ba 12 00 1d 	or  %o0, %i5, %i5
+400076c8:	7f ff ff a8 	call  40007568 <writeToEngineConfigRegister>
+400076cc:	81 e8 00 00 	restore 
 
-400076e0 <readFromDmaConfigRegister>:
-400076e0:	86 10 00 09 	mov  %o1, %g3
-400076e4:	84 10 00 0a 	mov  %o2, %g2
-400076e8:	82 10 00 0b 	mov  %o3, %g1
-400076ec:	9a 10 00 0c 	mov  %o4, %o5
-400076f0:	92 10 20 01 	mov  1, %o1
-400076f4:	94 10 00 03 	mov  %g3, %o2
-400076f8:	96 10 00 02 	mov  %g2, %o3
-400076fc:	98 10 00 01 	mov  %g1, %o4
-40007700:	82 13 c0 00 	mov  %o7, %g1
-40007704:	40 00 04 34 	call  400087d4 <readFromConfigRegister>
-40007708:	9e 10 40 00 	mov  %g1, %o7
+400076d0 <writeToDmaConfigRegister>:
+400076d0:	9d e3 bf 98 	save  %sp, -104, %sp
+400076d4:	92 10 20 01 	mov  1, %o1
+400076d8:	fa 23 a0 5c 	st  %i5, [ %sp + 0x5c ]
+400076dc:	90 10 00 18 	mov  %i0, %o0
+400076e0:	94 10 00 19 	mov  %i1, %o2
+400076e4:	96 10 00 1a 	mov  %i2, %o3
+400076e8:	98 10 00 1b 	mov  %i3, %o4
+400076ec:	40 00 04 7f 	call  400088e8 <writeToConfigRegister>
+400076f0:	9a 10 00 1c 	mov  %i4, %o5
+400076f4:	81 c7 e0 08 	ret 
+400076f8:	81 e8 00 00 	restore 
 
-4000770c <dmaChannelStatus>:
-4000770c:	98 10 20 00 	clr  %o4
-40007710:	82 13 c0 00 	mov  %o7, %g1
-40007714:	7f ff ff f3 	call  400076e0 <readFromDmaConfigRegister>
-40007718:	9e 10 40 00 	mov  %g1, %o7
+400076fc <readFromDmaConfigRegister>:
+400076fc:	86 10 00 09 	mov  %o1, %g3
+40007700:	84 10 00 0a 	mov  %o2, %g2
+40007704:	82 10 00 0b 	mov  %o3, %g1
+40007708:	9a 10 00 0c 	mov  %o4, %o5
+4000770c:	92 10 20 01 	mov  1, %o1
+40007710:	94 10 00 03 	mov  %g3, %o2
+40007714:	96 10 00 02 	mov  %g2, %o3
+40007718:	98 10 00 01 	mov  %g1, %o4
+4000771c:	82 13 c0 00 	mov  %o7, %g1
+40007720:	40 00 04 82 	call  40008928 <readFromConfigRegister>
+40007724:	9e 10 40 00 	mov  %g1, %o7
 
-4000771c <waitOnDmaChannelCompletion>:
-4000771c:	9d e3 bf a0 	save  %sp, -96, %sp
-40007720:	90 10 00 18 	mov  %i0, %o0
-40007724:	92 10 00 19 	mov  %i1, %o1
-40007728:	94 10 00 1a 	mov  %i2, %o2
-4000772c:	7f ff ff f8 	call  4000770c <dmaChannelStatus>
-40007730:	96 10 00 1b 	mov  %i3, %o3
-40007734:	90 0a 20 07 	and  %o0, 7, %o0
-40007738:	80 a2 20 07 	cmp  %o0, 7
-4000773c:	12 bf ff fa 	bne  40007724 <waitOnDmaChannelCompletion+0x8>
-40007740:	90 10 00 18 	mov  %i0, %o0
-40007744:	81 c7 e0 08 	ret 
-40007748:	81 e8 00 00 	restore 
+40007728 <dmaChannelStatus>:
+40007728:	98 10 20 00 	clr  %o4
+4000772c:	82 13 c0 00 	mov  %o7, %g1
+40007730:	7f ff ff f3 	call  400076fc <readFromDmaConfigRegister>
+40007734:	9e 10 40 00 	mov  %g1, %o7
 
-4000774c <__clear_dma_flags__>:
-4000774c:	9d e3 bf a0 	save  %sp, -96, %sp
-40007750:	98 10 20 00 	clr  %o4
-40007754:	ba 10 00 1c 	mov  %i4, %i5
-40007758:	90 10 00 18 	mov  %i0, %o0
-4000775c:	92 10 00 19 	mov  %i1, %o1
-40007760:	94 10 00 1a 	mov  %i2, %o2
-40007764:	96 10 00 1b 	mov  %i3, %o3
-40007768:	7f ff ff de 	call  400076e0 <readFromDmaConfigRegister>
-4000776c:	b8 10 20 00 	clr  %i4
-40007770:	ba 2a 00 1d 	andn  %o0, %i5, %i5
-40007774:	7f ff ff d0 	call  400076b4 <writeToDmaConfigRegister>
-40007778:	81 e8 00 00 	restore 
+40007738 <waitOnDmaChannelCompletion>:
+40007738:	9d e3 bf a0 	save  %sp, -96, %sp
+4000773c:	90 10 00 18 	mov  %i0, %o0
+40007740:	92 10 00 19 	mov  %i1, %o1
+40007744:	94 10 00 1a 	mov  %i2, %o2
+40007748:	7f ff ff f8 	call  40007728 <dmaChannelStatus>
+4000774c:	96 10 00 1b 	mov  %i3, %o3
+40007750:	90 0a 20 07 	and  %o0, 7, %o0
+40007754:	80 a2 20 07 	cmp  %o0, 7
+40007758:	12 bf ff fa 	bne  40007740 <waitOnDmaChannelCompletion+0x8>
+4000775c:	90 10 00 18 	mov  %i0, %o0
+40007760:	81 c7 e0 08 	ret 
+40007764:	81 e8 00 00 	restore 
 
-4000777c <__set_dma_flags__>:
-4000777c:	9d e3 bf a0 	save  %sp, -96, %sp
-40007780:	98 10 20 00 	clr  %o4
-40007784:	ba 10 00 1c 	mov  %i4, %i5
-40007788:	90 10 00 18 	mov  %i0, %o0
-4000778c:	92 10 00 19 	mov  %i1, %o1
-40007790:	94 10 00 1a 	mov  %i2, %o2
-40007794:	96 10 00 1b 	mov  %i3, %o3
-40007798:	7f ff ff d2 	call  400076e0 <readFromDmaConfigRegister>
-4000779c:	b8 10 20 00 	clr  %i4
-400077a0:	ba 12 00 1d 	or  %o0, %i5, %i5
-400077a4:	7f ff ff c4 	call  400076b4 <writeToDmaConfigRegister>
-400077a8:	81 e8 00 00 	restore 
+40007768 <__clear_dma_flags__>:
+40007768:	9d e3 bf a0 	save  %sp, -96, %sp
+4000776c:	98 10 20 00 	clr  %o4
+40007770:	ba 10 00 1c 	mov  %i4, %i5
+40007774:	90 10 00 18 	mov  %i0, %o0
+40007778:	92 10 00 19 	mov  %i1, %o1
+4000777c:	94 10 00 1a 	mov  %i2, %o2
+40007780:	96 10 00 1b 	mov  %i3, %o3
+40007784:	7f ff ff de 	call  400076fc <readFromDmaConfigRegister>
+40007788:	b8 10 20 00 	clr  %i4
+4000778c:	ba 2a 00 1d 	andn  %o0, %i5, %i5
+40007790:	7f ff ff d0 	call  400076d0 <writeToDmaConfigRegister>
+40007794:	81 e8 00 00 	restore 
 
-400077ac <writeInstructionToEngineInstrMemory>:
-400077ac:	9d e3 bf 98 	save  %sp, -104, %sp
-400077b0:	96 10 20 00 	clr  %o3
-400077b4:	90 10 00 18 	mov  %i0, %o0
-400077b8:	92 10 00 19 	mov  %i1, %o1
-400077bc:	7f ff ff 7e 	call  400075b4 <acquireEngineThread>
-400077c0:	94 10 00 1a 	mov  %i2, %o2
-400077c4:	80 a2 20 00 	cmp  %o0, 0
-400077c8:	02 80 00 04 	be  400077d8 <writeInstructionToEngineInstrMemory+0x2c>
+40007798 <__set_dma_flags__>:
+40007798:	9d e3 bf a0 	save  %sp, -96, %sp
+4000779c:	98 10 20 00 	clr  %o4
+400077a0:	ba 10 00 1c 	mov  %i4, %i5
+400077a4:	90 10 00 18 	mov  %i0, %o0
+400077a8:	92 10 00 19 	mov  %i1, %o1
+400077ac:	94 10 00 1a 	mov  %i2, %o2
+400077b0:	96 10 00 1b 	mov  %i3, %o3
+400077b4:	7f ff ff d2 	call  400076fc <readFromDmaConfigRegister>
+400077b8:	b8 10 20 00 	clr  %i4
+400077bc:	ba 12 00 1d 	or  %o0, %i5, %i5
+400077c0:	7f ff ff c4 	call  400076d0 <writeToDmaConfigRegister>
+400077c4:	81 e8 00 00 	restore 
+
+400077c8 <writeInstructionToEngineInstrMemory>:
+400077c8:	9d e3 bf 98 	save  %sp, -104, %sp
 400077cc:	96 10 20 00 	clr  %o3
-400077d0:	81 c7 e0 08 	ret 
-400077d4:	91 e8 00 08 	restore  %g0, %o0, %o0
-400077d8:	98 10 20 02 	mov  2, %o4
-400077dc:	9a 10 00 1b 	mov  %i3, %o5
-400077e0:	90 10 00 18 	mov  %i0, %o0
-400077e4:	92 10 00 19 	mov  %i1, %o1
-400077e8:	7f ff ff 59 	call  4000754c <writeToEngineConfigRegister>
-400077ec:	94 10 00 1a 	mov  %i2, %o2
-400077f0:	9a 10 00 1c 	mov  %i4, %o5
-400077f4:	90 10 00 18 	mov  %i0, %o0
-400077f8:	92 10 00 19 	mov  %i1, %o1
-400077fc:	94 10 00 1a 	mov  %i2, %o2
-40007800:	96 10 20 00 	clr  %o3
-40007804:	7f ff ff 52 	call  4000754c <writeToEngineConfigRegister>
-40007808:	98 10 20 03 	mov  3, %o4
-4000780c:	92 10 00 19 	mov  %i1, %o1
-40007810:	94 10 00 1a 	mov  %i2, %o2
-40007814:	96 10 20 00 	clr  %o3
-40007818:	98 10 20 00 	clr  %o4
-4000781c:	7f ff ff 57 	call  40007578 <readFromEngineConfigRegister>
-40007820:	90 10 00 18 	mov  %i0, %o0
-40007824:	83 2e 60 02 	sll  %i1, 2, %g1
-40007828:	86 0a 20 fe 	and  %o0, 0xfe, %g3
-4000782c:	82 00 40 1a 	add  %g1, %i2, %g1
-40007830:	83 28 60 04 	sll  %g1, 4, %g1
-40007834:	82 06 00 01 	add  %i0, %g1, %g1
-40007838:	c4 00 60 1c 	ld  [ %g1 + 0x1c ], %g2
-4000783c:	88 00 a0 01 	add  %g2, 1, %g4
-40007840:	85 28 a0 10 	sll  %g2, 0x10, %g2
-40007844:	c8 20 60 1c 	st  %g4, [ %g1 + 0x1c ]
-40007848:	84 10 a2 01 	or  %g2, 0x201, %g2
-4000784c:	84 10 80 03 	or  %g2, %g3, %g2
-40007850:	96 10 00 1a 	mov  %i2, %o3
-40007854:	90 10 00 18 	mov  %i0, %o0
-40007858:	92 10 20 00 	clr  %o1
-4000785c:	94 10 00 19 	mov  %i1, %o2
-40007860:	98 10 20 00 	clr  %o4
-40007864:	9a 10 20 00 	clr  %o5
-40007868:	40 00 03 cb 	call  40008794 <writeToConfigRegister>
-4000786c:	c4 23 a0 5c 	st  %g2, [ %sp + 0x5c ]
+400077d0:	90 10 00 18 	mov  %i0, %o0
+400077d4:	92 10 00 19 	mov  %i1, %o1
+400077d8:	7f ff ff 7e 	call  400075d0 <acquireEngineThread>
+400077dc:	94 10 00 1a 	mov  %i2, %o2
+400077e0:	80 a2 20 00 	cmp  %o0, 0
+400077e4:	02 80 00 04 	be  400077f4 <writeInstructionToEngineInstrMemory+0x2c>
+400077e8:	96 10 20 00 	clr  %o3
+400077ec:	81 c7 e0 08 	ret 
+400077f0:	91 e8 00 08 	restore  %g0, %o0, %o0
+400077f4:	98 10 20 02 	mov  2, %o4
+400077f8:	9a 10 00 1b 	mov  %i3, %o5
+400077fc:	90 10 00 18 	mov  %i0, %o0
+40007800:	92 10 00 19 	mov  %i1, %o1
+40007804:	7f ff ff 59 	call  40007568 <writeToEngineConfigRegister>
+40007808:	94 10 00 1a 	mov  %i2, %o2
+4000780c:	9a 10 00 1c 	mov  %i4, %o5
+40007810:	90 10 00 18 	mov  %i0, %o0
+40007814:	92 10 00 19 	mov  %i1, %o1
+40007818:	94 10 00 1a 	mov  %i2, %o2
+4000781c:	96 10 20 00 	clr  %o3
+40007820:	7f ff ff 52 	call  40007568 <writeToEngineConfigRegister>
+40007824:	98 10 20 03 	mov  3, %o4
+40007828:	92 10 00 19 	mov  %i1, %o1
+4000782c:	94 10 00 1a 	mov  %i2, %o2
+40007830:	96 10 20 00 	clr  %o3
+40007834:	98 10 20 00 	clr  %o4
+40007838:	7f ff ff 57 	call  40007594 <readFromEngineConfigRegister>
+4000783c:	90 10 00 18 	mov  %i0, %o0
+40007840:	83 2e 60 02 	sll  %i1, 2, %g1
+40007844:	86 0a 20 fe 	and  %o0, 0xfe, %g3
+40007848:	82 00 40 1a 	add  %g1, %i2, %g1
+4000784c:	83 28 60 04 	sll  %g1, 4, %g1
+40007850:	82 06 00 01 	add  %i0, %g1, %g1
+40007854:	c4 00 60 1c 	ld  [ %g1 + 0x1c ], %g2
+40007858:	88 00 a0 01 	add  %g2, 1, %g4
+4000785c:	85 28 a0 10 	sll  %g2, 0x10, %g2
+40007860:	c8 20 60 1c 	st  %g4, [ %g1 + 0x1c ]
+40007864:	84 10 a2 01 	or  %g2, 0x201, %g2
+40007868:	84 10 80 03 	or  %g2, %g3, %g2
+4000786c:	96 10 00 1a 	mov  %i2, %o3
 40007870:	90 10 00 18 	mov  %i0, %o0
-40007874:	92 10 00 19 	mov  %i1, %o1
-40007878:	94 10 00 1a 	mov  %i2, %o2
-4000787c:	7f ff ff 59 	call  400075e0 <waitOnEngineThreadCompletion>
-40007880:	96 10 20 00 	clr  %o3
-40007884:	90 10 00 18 	mov  %i0, %o0
-40007888:	92 10 00 19 	mov  %i1, %o1
-4000788c:	94 10 00 1a 	mov  %i2, %o2
-40007890:	7f ff ff 6c 	call  40007640 <releaseEngineThread>
-40007894:	96 10 20 00 	clr  %o3
-40007898:	80 a2 20 00 	cmp  %o0, 0
-4000789c:	32 bf ff fb 	bne,a   40007888 <writeInstructionToEngineInstrMemory+0xdc>
+40007874:	92 10 20 00 	clr  %o1
+40007878:	94 10 00 19 	mov  %i1, %o2
+4000787c:	98 10 20 00 	clr  %o4
+40007880:	9a 10 20 00 	clr  %o5
+40007884:	40 00 04 19 	call  400088e8 <writeToConfigRegister>
+40007888:	c4 23 a0 5c 	st  %g2, [ %sp + 0x5c ]
+4000788c:	90 10 00 18 	mov  %i0, %o0
+40007890:	92 10 00 19 	mov  %i1, %o1
+40007894:	94 10 00 1a 	mov  %i2, %o2
+40007898:	7f ff ff 59 	call  400075fc <waitOnEngineThreadCompletion>
+4000789c:	96 10 20 00 	clr  %o3
 400078a0:	90 10 00 18 	mov  %i0, %o0
-400078a4:	81 c7 e0 08 	ret 
-400078a8:	91 e8 00 08 	restore  %g0, %o0, %o0
-
-400078ac <readInstructionFromEngineInstrMemory>:
-400078ac:	9d e3 bf a0 	save  %sp, -96, %sp
+400078a4:	92 10 00 19 	mov  %i1, %o1
+400078a8:	94 10 00 1a 	mov  %i2, %o2
+400078ac:	7f ff ff 6c 	call  4000765c <releaseEngineThread>
 400078b0:	96 10 20 00 	clr  %o3
-400078b4:	90 10 00 18 	mov  %i0, %o0
-400078b8:	ba 10 00 18 	mov  %i0, %i5
-400078bc:	92 10 00 19 	mov  %i1, %o1
-400078c0:	7f ff ff 3d 	call  400075b4 <acquireEngineThread>
-400078c4:	94 10 00 1a 	mov  %i2, %o2
-400078c8:	b0 92 20 00 	orcc  %o0, 0, %i0
-400078cc:	12 80 00 34 	bne  4000799c <readInstructionFromEngineInstrMemory+0xf0>
-400078d0:	92 10 00 19 	mov  %i1, %o1
-400078d4:	94 10 00 1a 	mov  %i2, %o2
-400078d8:	96 10 20 00 	clr  %o3
-400078dc:	98 10 20 00 	clr  %o4
-400078e0:	7f ff ff 26 	call  40007578 <readFromEngineConfigRegister>
-400078e4:	90 10 00 1d 	mov  %i5, %o0
-400078e8:	83 2e 60 02 	sll  %i1, 2, %g1
-400078ec:	86 0a 20 fe 	and  %o0, 0xfe, %g3
-400078f0:	82 00 40 1a 	add  %g1, %i2, %g1
-400078f4:	83 28 60 04 	sll  %g1, 4, %g1
-400078f8:	82 07 40 01 	add  %i5, %g1, %g1
-400078fc:	c4 00 60 1c 	ld  [ %g1 + 0x1c ], %g2
-40007900:	88 00 a0 01 	add  %g2, 1, %g4
-40007904:	9a 10 00 1b 	mov  %i3, %o5
-40007908:	c8 20 60 1c 	st  %g4, [ %g1 + 0x1c ]
-4000790c:	b7 28 a0 10 	sll  %g2, 0x10, %i3
-40007910:	96 10 20 00 	clr  %o3
-40007914:	98 10 20 02 	mov  2, %o4
-40007918:	90 10 00 1d 	mov  %i5, %o0
-4000791c:	92 10 00 19 	mov  %i1, %o1
-40007920:	94 10 00 1a 	mov  %i2, %o2
-40007924:	b6 16 e1 01 	or  %i3, 0x101, %i3
-40007928:	7f ff ff 09 	call  4000754c <writeToEngineConfigRegister>
-4000792c:	b6 16 c0 03 	or  %i3, %g3, %i3
-40007930:	98 10 20 00 	clr  %o4
-40007934:	9a 10 00 1b 	mov  %i3, %o5
-40007938:	90 10 00 1d 	mov  %i5, %o0
-4000793c:	92 10 00 19 	mov  %i1, %o1
-40007940:	94 10 00 1a 	mov  %i2, %o2
-40007944:	7f ff ff 02 	call  4000754c <writeToEngineConfigRegister>
-40007948:	96 10 20 00 	clr  %o3
-4000794c:	90 10 00 1d 	mov  %i5, %o0
-40007950:	92 10 00 19 	mov  %i1, %o1
-40007954:	94 10 00 1a 	mov  %i2, %o2
-40007958:	7f ff ff 22 	call  400075e0 <waitOnEngineThreadCompletion>
-4000795c:	96 10 20 00 	clr  %o3
-40007960:	90 10 00 1d 	mov  %i5, %o0
-40007964:	92 10 00 19 	mov  %i1, %o1
-40007968:	94 10 00 1a 	mov  %i2, %o2
-4000796c:	96 10 20 00 	clr  %o3
-40007970:	7f ff ff 02 	call  40007578 <readFromEngineConfigRegister>
-40007974:	98 10 20 04 	mov  4, %o4
-40007978:	d0 27 00 00 	st  %o0, [ %i4 ]
+400078b4:	80 a2 20 00 	cmp  %o0, 0
+400078b8:	32 bf ff fb 	bne,a   400078a4 <writeInstructionToEngineInstrMemory+0xdc>
+400078bc:	90 10 00 18 	mov  %i0, %o0
+400078c0:	81 c7 e0 08 	ret 
+400078c4:	91 e8 00 08 	restore  %g0, %o0, %o0
+
+400078c8 <readInstructionFromEngineInstrMemory>:
+400078c8:	9d e3 bf a0 	save  %sp, -96, %sp
+400078cc:	96 10 20 00 	clr  %o3
+400078d0:	90 10 00 18 	mov  %i0, %o0
+400078d4:	ba 10 00 18 	mov  %i0, %i5
+400078d8:	92 10 00 19 	mov  %i1, %o1
+400078dc:	7f ff ff 3d 	call  400075d0 <acquireEngineThread>
+400078e0:	94 10 00 1a 	mov  %i2, %o2
+400078e4:	b0 92 20 00 	orcc  %o0, 0, %i0
+400078e8:	12 80 00 34 	bne  400079b8 <readInstructionFromEngineInstrMemory+0xf0>
+400078ec:	92 10 00 19 	mov  %i1, %o1
+400078f0:	94 10 00 1a 	mov  %i2, %o2
+400078f4:	96 10 20 00 	clr  %o3
+400078f8:	98 10 20 00 	clr  %o4
+400078fc:	7f ff ff 26 	call  40007594 <readFromEngineConfigRegister>
+40007900:	90 10 00 1d 	mov  %i5, %o0
+40007904:	83 2e 60 02 	sll  %i1, 2, %g1
+40007908:	86 0a 20 fe 	and  %o0, 0xfe, %g3
+4000790c:	82 00 40 1a 	add  %g1, %i2, %g1
+40007910:	83 28 60 04 	sll  %g1, 4, %g1
+40007914:	82 07 40 01 	add  %i5, %g1, %g1
+40007918:	c4 00 60 1c 	ld  [ %g1 + 0x1c ], %g2
+4000791c:	88 00 a0 01 	add  %g2, 1, %g4
+40007920:	9a 10 00 1b 	mov  %i3, %o5
+40007924:	c8 20 60 1c 	st  %g4, [ %g1 + 0x1c ]
+40007928:	b7 28 a0 10 	sll  %g2, 0x10, %i3
+4000792c:	96 10 20 00 	clr  %o3
+40007930:	98 10 20 02 	mov  2, %o4
+40007934:	90 10 00 1d 	mov  %i5, %o0
+40007938:	92 10 00 19 	mov  %i1, %o1
+4000793c:	94 10 00 1a 	mov  %i2, %o2
+40007940:	b6 16 e1 01 	or  %i3, 0x101, %i3
+40007944:	7f ff ff 09 	call  40007568 <writeToEngineConfigRegister>
+40007948:	b6 16 c0 03 	or  %i3, %g3, %i3
+4000794c:	98 10 20 00 	clr  %o4
+40007950:	9a 10 00 1b 	mov  %i3, %o5
+40007954:	90 10 00 1d 	mov  %i5, %o0
+40007958:	92 10 00 19 	mov  %i1, %o1
+4000795c:	94 10 00 1a 	mov  %i2, %o2
+40007960:	7f ff ff 02 	call  40007568 <writeToEngineConfigRegister>
+40007964:	96 10 20 00 	clr  %o3
+40007968:	90 10 00 1d 	mov  %i5, %o0
+4000796c:	92 10 00 19 	mov  %i1, %o1
+40007970:	94 10 00 1a 	mov  %i2, %o2
+40007974:	7f ff ff 22 	call  400075fc <waitOnEngineThreadCompletion>
+40007978:	96 10 20 00 	clr  %o3
 4000797c:	90 10 00 1d 	mov  %i5, %o0
 40007980:	92 10 00 19 	mov  %i1, %o1
 40007984:	94 10 00 1a 	mov  %i2, %o2
-40007988:	7f ff ff 2e 	call  40007640 <releaseEngineThread>
-4000798c:	96 10 20 00 	clr  %o3
-40007990:	80 a2 20 00 	cmp  %o0, 0
-40007994:	12 bf ff fb 	bne  40007980 <readInstructionFromEngineInstrMemory+0xd4>
+40007988:	96 10 20 00 	clr  %o3
+4000798c:	7f ff ff 02 	call  40007594 <readFromEngineConfigRegister>
+40007990:	98 10 20 04 	mov  4, %o4
+40007994:	d0 27 00 00 	st  %o0, [ %i4 ]
 40007998:	90 10 00 1d 	mov  %i5, %o0
-4000799c:	81 c7 e0 08 	ret 
-400079a0:	81 e8 00 00 	restore 
+4000799c:	92 10 00 19 	mov  %i1, %o1
+400079a0:	94 10 00 1a 	mov  %i2, %o2
+400079a4:	7f ff ff 2e 	call  4000765c <releaseEngineThread>
+400079a8:	96 10 20 00 	clr  %o3
+400079ac:	80 a2 20 00 	cmp  %o0, 0
+400079b0:	12 bf ff fb 	bne  4000799c <readInstructionFromEngineInstrMemory+0xd4>
+400079b4:	90 10 00 1d 	mov  %i5, %o0
+400079b8:	81 c7 e0 08 	ret 
+400079bc:	81 e8 00 00 	restore 
 
-400079a4 <resetEngineThread>:
-400079a4:	9d e3 bf a0 	save  %sp, -96, %sp
-400079a8:	90 10 00 18 	mov  %i0, %o0
-400079ac:	92 10 00 19 	mov  %i1, %o1
-400079b0:	94 10 00 1a 	mov  %i2, %o2
-400079b4:	7f ff ff 00 	call  400075b4 <acquireEngineThread>
-400079b8:	96 10 00 1b 	mov  %i3, %o3
-400079bc:	80 a2 20 00 	cmp  %o0, 0
-400079c0:	02 80 00 04 	be  400079d0 <resetEngineThread+0x2c>
-400079c4:	92 10 00 19 	mov  %i1, %o1
-400079c8:	81 c7 e0 08 	ret 
-400079cc:	91 e8 00 08 	restore  %g0, %o0, %o0
-400079d0:	94 10 00 1a 	mov  %i2, %o2
+400079c0 <resetEngineThread>:
+400079c0:	9d e3 bf a0 	save  %sp, -96, %sp
+400079c4:	90 10 00 18 	mov  %i0, %o0
+400079c8:	92 10 00 19 	mov  %i1, %o1
+400079cc:	94 10 00 1a 	mov  %i2, %o2
+400079d0:	7f ff ff 00 	call  400075d0 <acquireEngineThread>
 400079d4:	96 10 00 1b 	mov  %i3, %o3
-400079d8:	98 10 20 00 	clr  %o4
-400079dc:	7f ff fe e7 	call  40007578 <readFromEngineConfigRegister>
-400079e0:	90 10 00 18 	mov  %i0, %o0
-400079e4:	83 2e 60 02 	sll  %i1, 2, %g1
-400079e8:	90 0a 20 fe 	and  %o0, 0xfe, %o0
-400079ec:	82 00 40 1a 	add  %g1, %i2, %g1
-400079f0:	83 28 60 02 	sll  %g1, 2, %g1
-400079f4:	82 00 40 1b 	add  %g1, %i3, %g1
-400079f8:	82 00 60 06 	add  %g1, 6, %g1
-400079fc:	83 28 60 02 	sll  %g1, 2, %g1
-40007a00:	82 06 00 01 	add  %i0, %g1, %g1
-40007a04:	c4 00 60 04 	ld  [ %g1 + 4 ], %g2
-40007a08:	87 28 a0 10 	sll  %g2, 0x10, %g3
-40007a0c:	84 00 a0 01 	inc  %g2
-40007a10:	92 10 00 19 	mov  %i1, %o1
-40007a14:	94 10 00 1a 	mov  %i2, %o2
-40007a18:	96 10 00 1b 	mov  %i3, %o3
-40007a1c:	98 10 20 00 	clr  %o4
-40007a20:	9b 2e e0 0e 	sll  %i3, 0xe, %o5
-40007a24:	c4 20 60 04 	st  %g2, [ %g1 + 4 ]
-40007a28:	9a 13 63 01 	or  %o5, 0x301, %o5
-40007a2c:	9a 13 40 03 	or  %o5, %g3, %o5
-40007a30:	9a 13 40 08 	or  %o5, %o0, %o5
-40007a34:	7f ff fe c6 	call  4000754c <writeToEngineConfigRegister>
-40007a38:	90 10 00 18 	mov  %i0, %o0
-40007a3c:	90 10 00 18 	mov  %i0, %o0
-40007a40:	92 10 00 19 	mov  %i1, %o1
-40007a44:	94 10 00 1a 	mov  %i2, %o2
-40007a48:	7f ff fe e6 	call  400075e0 <waitOnEngineThreadCompletion>
-40007a4c:	96 10 00 1b 	mov  %i3, %o3
-40007a50:	90 10 00 18 	mov  %i0, %o0
-40007a54:	92 10 00 19 	mov  %i1, %o1
-40007a58:	94 10 00 1a 	mov  %i2, %o2
-40007a5c:	7f ff fe f9 	call  40007640 <releaseEngineThread>
-40007a60:	96 10 00 1b 	mov  %i3, %o3
-40007a64:	80 a2 20 00 	cmp  %o0, 0
-40007a68:	32 bf ff fb 	bne,a   40007a54 <resetEngineThread+0xb0>
+400079d8:	80 a2 20 00 	cmp  %o0, 0
+400079dc:	02 80 00 04 	be  400079ec <resetEngineThread+0x2c>
+400079e0:	92 10 00 19 	mov  %i1, %o1
+400079e4:	81 c7 e0 08 	ret 
+400079e8:	91 e8 00 08 	restore  %g0, %o0, %o0
+400079ec:	94 10 00 1a 	mov  %i2, %o2
+400079f0:	96 10 00 1b 	mov  %i3, %o3
+400079f4:	98 10 20 00 	clr  %o4
+400079f8:	7f ff fe e7 	call  40007594 <readFromEngineConfigRegister>
+400079fc:	90 10 00 18 	mov  %i0, %o0
+40007a00:	83 2e 60 02 	sll  %i1, 2, %g1
+40007a04:	90 0a 20 fe 	and  %o0, 0xfe, %o0
+40007a08:	82 00 40 1a 	add  %g1, %i2, %g1
+40007a0c:	83 28 60 02 	sll  %g1, 2, %g1
+40007a10:	82 00 40 1b 	add  %g1, %i3, %g1
+40007a14:	82 00 60 06 	add  %g1, 6, %g1
+40007a18:	83 28 60 02 	sll  %g1, 2, %g1
+40007a1c:	82 06 00 01 	add  %i0, %g1, %g1
+40007a20:	c4 00 60 04 	ld  [ %g1 + 4 ], %g2
+40007a24:	87 28 a0 10 	sll  %g2, 0x10, %g3
+40007a28:	84 00 a0 01 	inc  %g2
+40007a2c:	92 10 00 19 	mov  %i1, %o1
+40007a30:	94 10 00 1a 	mov  %i2, %o2
+40007a34:	96 10 00 1b 	mov  %i3, %o3
+40007a38:	98 10 20 00 	clr  %o4
+40007a3c:	9b 2e e0 0e 	sll  %i3, 0xe, %o5
+40007a40:	c4 20 60 04 	st  %g2, [ %g1 + 4 ]
+40007a44:	9a 13 63 01 	or  %o5, 0x301, %o5
+40007a48:	9a 13 40 03 	or  %o5, %g3, %o5
+40007a4c:	9a 13 40 08 	or  %o5, %o0, %o5
+40007a50:	7f ff fe c6 	call  40007568 <writeToEngineConfigRegister>
+40007a54:	90 10 00 18 	mov  %i0, %o0
+40007a58:	90 10 00 18 	mov  %i0, %o0
+40007a5c:	92 10 00 19 	mov  %i1, %o1
+40007a60:	94 10 00 1a 	mov  %i2, %o2
+40007a64:	7f ff fe e6 	call  400075fc <waitOnEngineThreadCompletion>
+40007a68:	96 10 00 1b 	mov  %i3, %o3
 40007a6c:	90 10 00 18 	mov  %i0, %o0
-40007a70:	81 c7 e0 08 	ret 
-40007a74:	91 e8 00 08 	restore  %g0, %o0, %o0
+40007a70:	92 10 00 19 	mov  %i1, %o1
+40007a74:	94 10 00 1a 	mov  %i2, %o2
+40007a78:	7f ff fe f9 	call  4000765c <releaseEngineThread>
+40007a7c:	96 10 00 1b 	mov  %i3, %o3
+40007a80:	80 a2 20 00 	cmp  %o0, 0
+40007a84:	32 bf ff fb 	bne,a   40007a70 <resetEngineThread+0xb0>
+40007a88:	90 10 00 18 	mov  %i0, %o0
+40007a8c:	81 c7 e0 08 	ret 
+40007a90:	91 e8 00 08 	restore  %g0, %o0, %o0
 
-40007a78 <writeThreadDataRegister>:
-40007a78:	9d e3 bf a0 	save  %sp, -96, %sp
-40007a7c:	e0 07 a0 5c 	ld  [ %fp + 0x5c ], %l0
-40007a80:	90 10 00 18 	mov  %i0, %o0
-40007a84:	92 10 00 19 	mov  %i1, %o1
-40007a88:	94 10 00 1a 	mov  %i2, %o2
-40007a8c:	7f ff fe ca 	call  400075b4 <acquireEngineThread>
-40007a90:	96 10 00 1b 	mov  %i3, %o3
-40007a94:	80 a2 20 00 	cmp  %o0, 0
-40007a98:	02 80 00 04 	be  40007aa8 <writeThreadDataRegister+0x30>
-40007a9c:	92 10 00 19 	mov  %i1, %o1
-40007aa0:	81 c7 e0 08 	ret 
-40007aa4:	91 e8 00 08 	restore  %g0, %o0, %o0
-40007aa8:	94 10 00 1a 	mov  %i2, %o2
+40007a94 <writeThreadDataRegister>:
+40007a94:	9d e3 bf a0 	save  %sp, -96, %sp
+40007a98:	e0 07 a0 5c 	ld  [ %fp + 0x5c ], %l0
+40007a9c:	90 10 00 18 	mov  %i0, %o0
+40007aa0:	92 10 00 19 	mov  %i1, %o1
+40007aa4:	94 10 00 1a 	mov  %i2, %o2
+40007aa8:	7f ff fe ca 	call  400075d0 <acquireEngineThread>
 40007aac:	96 10 00 1b 	mov  %i3, %o3
-40007ab0:	98 10 20 00 	clr  %o4
-40007ab4:	7f ff fe b1 	call  40007578 <readFromEngineConfigRegister>
-40007ab8:	90 10 00 18 	mov  %i0, %o0
-40007abc:	83 2e 60 02 	sll  %i1, 2, %g1
-40007ac0:	86 0a 20 fe 	and  %o0, 0xfe, %g3
-40007ac4:	82 00 40 1a 	add  %g1, %i2, %g1
-40007ac8:	83 28 60 02 	sll  %g1, 2, %g1
-40007acc:	82 00 40 1b 	add  %g1, %i3, %g1
-40007ad0:	82 00 60 06 	add  %g1, 6, %g1
-40007ad4:	83 28 60 02 	sll  %g1, 2, %g1
-40007ad8:	82 06 00 01 	add  %i0, %g1, %g1
-40007adc:	c4 00 60 04 	ld  [ %g1 + 4 ], %g2
-40007ae0:	88 00 a0 01 	add  %g2, 1, %g4
-40007ae4:	85 28 a0 10 	sll  %g2, 0x10, %g2
-40007ae8:	c8 20 60 04 	st  %g4, [ %g1 + 4 ]
-40007aec:	9a 10 00 1c 	mov  %i4, %o5
-40007af0:	98 10 20 02 	mov  2, %o4
-40007af4:	90 10 00 18 	mov  %i0, %o0
-40007af8:	92 10 00 19 	mov  %i1, %o1
-40007afc:	94 10 00 1a 	mov  %i2, %o2
-40007b00:	96 10 00 1b 	mov  %i3, %o3
-40007b04:	b9 2e e0 0e 	sll  %i3, 0xe, %i4
-40007b08:	b8 17 26 01 	or  %i4, 0x601, %i4
-40007b0c:	b8 17 00 02 	or  %i4, %g2, %i4
-40007b10:	7f ff fe 8f 	call  4000754c <writeToEngineConfigRegister>
-40007b14:	b8 17 00 03 	or  %i4, %g3, %i4
-40007b18:	90 10 00 18 	mov  %i0, %o0
-40007b1c:	92 10 00 19 	mov  %i1, %o1
-40007b20:	94 10 00 1a 	mov  %i2, %o2
-40007b24:	96 10 00 1b 	mov  %i3, %o3
-40007b28:	98 10 20 06 	mov  6, %o4
-40007b2c:	7f ff fe 88 	call  4000754c <writeToEngineConfigRegister>
-40007b30:	9a 10 00 1d 	mov  %i5, %o5
+40007ab0:	80 a2 20 00 	cmp  %o0, 0
+40007ab4:	02 80 00 04 	be  40007ac4 <writeThreadDataRegister+0x30>
+40007ab8:	92 10 00 19 	mov  %i1, %o1
+40007abc:	81 c7 e0 08 	ret 
+40007ac0:	91 e8 00 08 	restore  %g0, %o0, %o0
+40007ac4:	94 10 00 1a 	mov  %i2, %o2
+40007ac8:	96 10 00 1b 	mov  %i3, %o3
+40007acc:	98 10 20 00 	clr  %o4
+40007ad0:	7f ff fe b1 	call  40007594 <readFromEngineConfigRegister>
+40007ad4:	90 10 00 18 	mov  %i0, %o0
+40007ad8:	83 2e 60 02 	sll  %i1, 2, %g1
+40007adc:	86 0a 20 fe 	and  %o0, 0xfe, %g3
+40007ae0:	82 00 40 1a 	add  %g1, %i2, %g1
+40007ae4:	83 28 60 02 	sll  %g1, 2, %g1
+40007ae8:	82 00 40 1b 	add  %g1, %i3, %g1
+40007aec:	82 00 60 06 	add  %g1, 6, %g1
+40007af0:	83 28 60 02 	sll  %g1, 2, %g1
+40007af4:	82 06 00 01 	add  %i0, %g1, %g1
+40007af8:	c4 00 60 04 	ld  [ %g1 + 4 ], %g2
+40007afc:	88 00 a0 01 	add  %g2, 1, %g4
+40007b00:	85 28 a0 10 	sll  %g2, 0x10, %g2
+40007b04:	c8 20 60 04 	st  %g4, [ %g1 + 4 ]
+40007b08:	9a 10 00 1c 	mov  %i4, %o5
+40007b0c:	98 10 20 02 	mov  2, %o4
+40007b10:	90 10 00 18 	mov  %i0, %o0
+40007b14:	92 10 00 19 	mov  %i1, %o1
+40007b18:	94 10 00 1a 	mov  %i2, %o2
+40007b1c:	96 10 00 1b 	mov  %i3, %o3
+40007b20:	b9 2e e0 0e 	sll  %i3, 0xe, %i4
+40007b24:	b8 17 26 01 	or  %i4, 0x601, %i4
+40007b28:	b8 17 00 02 	or  %i4, %g2, %i4
+40007b2c:	7f ff fe 8f 	call  40007568 <writeToEngineConfigRegister>
+40007b30:	b8 17 00 03 	or  %i4, %g3, %i4
 40007b34:	90 10 00 18 	mov  %i0, %o0
 40007b38:	92 10 00 19 	mov  %i1, %o1
 40007b3c:	94 10 00 1a 	mov  %i2, %o2
 40007b40:	96 10 00 1b 	mov  %i3, %o3
-40007b44:	98 10 20 07 	mov  7, %o4
-40007b48:	7f ff fe 81 	call  4000754c <writeToEngineConfigRegister>
-40007b4c:	9a 10 00 10 	mov  %l0, %o5
+40007b44:	98 10 20 06 	mov  6, %o4
+40007b48:	7f ff fe 88 	call  40007568 <writeToEngineConfigRegister>
+40007b4c:	9a 10 00 1d 	mov  %i5, %o5
 40007b50:	90 10 00 18 	mov  %i0, %o0
 40007b54:	92 10 00 19 	mov  %i1, %o1
 40007b58:	94 10 00 1a 	mov  %i2, %o2
 40007b5c:	96 10 00 1b 	mov  %i3, %o3
-40007b60:	98 10 20 00 	clr  %o4
-40007b64:	7f ff fe 7a 	call  4000754c <writeToEngineConfigRegister>
-40007b68:	9a 10 00 1c 	mov  %i4, %o5
+40007b60:	98 10 20 07 	mov  7, %o4
+40007b64:	7f ff fe 81 	call  40007568 <writeToEngineConfigRegister>
+40007b68:	9a 10 00 10 	mov  %l0, %o5
 40007b6c:	90 10 00 18 	mov  %i0, %o0
 40007b70:	92 10 00 19 	mov  %i1, %o1
 40007b74:	94 10 00 1a 	mov  %i2, %o2
-40007b78:	7f ff fe 9a 	call  400075e0 <waitOnEngineThreadCompletion>
-40007b7c:	96 10 00 1b 	mov  %i3, %o3
-40007b80:	90 10 00 18 	mov  %i0, %o0
-40007b84:	92 10 00 19 	mov  %i1, %o1
-40007b88:	94 10 00 1a 	mov  %i2, %o2
-40007b8c:	7f ff fe ad 	call  40007640 <releaseEngineThread>
-40007b90:	96 10 00 1b 	mov  %i3, %o3
-40007b94:	80 a2 20 00 	cmp  %o0, 0
-40007b98:	32 bf ff fb 	bne,a   40007b84 <writeThreadDataRegister+0x10c>
+40007b78:	96 10 00 1b 	mov  %i3, %o3
+40007b7c:	98 10 20 00 	clr  %o4
+40007b80:	7f ff fe 7a 	call  40007568 <writeToEngineConfigRegister>
+40007b84:	9a 10 00 1c 	mov  %i4, %o5
+40007b88:	90 10 00 18 	mov  %i0, %o0
+40007b8c:	92 10 00 19 	mov  %i1, %o1
+40007b90:	94 10 00 1a 	mov  %i2, %o2
+40007b94:	7f ff fe 9a 	call  400075fc <waitOnEngineThreadCompletion>
+40007b98:	96 10 00 1b 	mov  %i3, %o3
 40007b9c:	90 10 00 18 	mov  %i0, %o0
-40007ba0:	81 c7 e0 08 	ret 
-40007ba4:	91 e8 00 08 	restore  %g0, %o0, %o0
+40007ba0:	92 10 00 19 	mov  %i1, %o1
+40007ba4:	94 10 00 1a 	mov  %i2, %o2
+40007ba8:	7f ff fe ad 	call  4000765c <releaseEngineThread>
+40007bac:	96 10 00 1b 	mov  %i3, %o3
+40007bb0:	80 a2 20 00 	cmp  %o0, 0
+40007bb4:	32 bf ff fb 	bne,a   40007ba0 <writeThreadDataRegister+0x10c>
+40007bb8:	90 10 00 18 	mov  %i0, %o0
+40007bbc:	81 c7 e0 08 	ret 
+40007bc0:	91 e8 00 08 	restore  %g0, %o0, %o0
 
-40007ba8 <readThreadDataRegister>:
-40007ba8:	9d e3 bf a0 	save  %sp, -96, %sp
-40007bac:	90 10 00 18 	mov  %i0, %o0
-40007bb0:	92 10 00 19 	mov  %i1, %o1
-40007bb4:	94 10 00 1a 	mov  %i2, %o2
-40007bb8:	96 10 00 1b 	mov  %i3, %o3
-40007bbc:	7f ff fe 7e 	call  400075b4 <acquireEngineThread>
-40007bc0:	a0 10 00 1d 	mov  %i5, %l0
-40007bc4:	80 a2 20 00 	cmp  %o0, 0
-40007bc8:	02 80 00 04 	be  40007bd8 <readThreadDataRegister+0x30>
+40007bc4 <readThreadDataRegister>:
+40007bc4:	9d e3 bf a0 	save  %sp, -96, %sp
+40007bc8:	90 10 00 18 	mov  %i0, %o0
 40007bcc:	92 10 00 19 	mov  %i1, %o1
-40007bd0:	81 c7 e0 08 	ret 
-40007bd4:	91 e8 00 08 	restore  %g0, %o0, %o0
-40007bd8:	94 10 00 1a 	mov  %i2, %o2
-40007bdc:	96 10 00 1b 	mov  %i3, %o3
-40007be0:	98 10 20 00 	clr  %o4
-40007be4:	7f ff fe 65 	call  40007578 <readFromEngineConfigRegister>
-40007be8:	90 10 00 18 	mov  %i0, %o0
-40007bec:	83 2e 60 02 	sll  %i1, 2, %g1
-40007bf0:	86 0a 20 fe 	and  %o0, 0xfe, %g3
-40007bf4:	82 00 40 1a 	add  %g1, %i2, %g1
-40007bf8:	83 28 60 02 	sll  %g1, 2, %g1
-40007bfc:	82 00 40 1b 	add  %g1, %i3, %g1
-40007c00:	82 00 60 06 	add  %g1, 6, %g1
-40007c04:	83 28 60 02 	sll  %g1, 2, %g1
-40007c08:	82 06 00 01 	add  %i0, %g1, %g1
-40007c0c:	c4 00 60 04 	ld  [ %g1 + 4 ], %g2
-40007c10:	88 00 a0 01 	add  %g2, 1, %g4
-40007c14:	85 28 a0 10 	sll  %g2, 0x10, %g2
-40007c18:	c8 20 60 04 	st  %g4, [ %g1 + 4 ]
-40007c1c:	9a 10 00 1c 	mov  %i4, %o5
-40007c20:	98 10 20 02 	mov  2, %o4
-40007c24:	90 10 00 18 	mov  %i0, %o0
-40007c28:	92 10 00 19 	mov  %i1, %o1
-40007c2c:	94 10 00 1a 	mov  %i2, %o2
-40007c30:	96 10 00 1b 	mov  %i3, %o3
-40007c34:	bb 2e e0 0e 	sll  %i3, 0xe, %i5
-40007c38:	ba 17 65 01 	or  %i5, 0x501, %i5
-40007c3c:	ba 17 40 02 	or  %i5, %g2, %i5
-40007c40:	7f ff fe 43 	call  4000754c <writeToEngineConfigRegister>
-40007c44:	ba 17 40 03 	or  %i5, %g3, %i5
-40007c48:	9a 10 00 1d 	mov  %i5, %o5
-40007c4c:	98 10 20 00 	clr  %o4
-40007c50:	90 10 00 18 	mov  %i0, %o0
-40007c54:	92 10 00 19 	mov  %i1, %o1
-40007c58:	94 10 00 1a 	mov  %i2, %o2
-40007c5c:	7f ff fe 3c 	call  4000754c <writeToEngineConfigRegister>
-40007c60:	96 10 00 1b 	mov  %i3, %o3
-40007c64:	90 10 00 18 	mov  %i0, %o0
-40007c68:	92 10 00 19 	mov  %i1, %o1
-40007c6c:	94 10 00 1a 	mov  %i2, %o2
-40007c70:	7f ff fe 5c 	call  400075e0 <waitOnEngineThreadCompletion>
-40007c74:	96 10 00 1b 	mov  %i3, %o3
-40007c78:	92 10 00 19 	mov  %i1, %o1
-40007c7c:	94 10 00 1a 	mov  %i2, %o2
-40007c80:	96 10 00 1b 	mov  %i3, %o3
-40007c84:	98 10 20 07 	mov  7, %o4
-40007c88:	7f ff fe 3c 	call  40007578 <readFromEngineConfigRegister>
-40007c8c:	90 10 00 18 	mov  %i0, %o0
-40007c90:	92 10 00 19 	mov  %i1, %o1
-40007c94:	b8 10 00 08 	mov  %o0, %i4
+40007bd0:	94 10 00 1a 	mov  %i2, %o2
+40007bd4:	96 10 00 1b 	mov  %i3, %o3
+40007bd8:	7f ff fe 7e 	call  400075d0 <acquireEngineThread>
+40007bdc:	a0 10 00 1d 	mov  %i5, %l0
+40007be0:	80 a2 20 00 	cmp  %o0, 0
+40007be4:	02 80 00 04 	be  40007bf4 <readThreadDataRegister+0x30>
+40007be8:	92 10 00 19 	mov  %i1, %o1
+40007bec:	81 c7 e0 08 	ret 
+40007bf0:	91 e8 00 08 	restore  %g0, %o0, %o0
+40007bf4:	94 10 00 1a 	mov  %i2, %o2
+40007bf8:	96 10 00 1b 	mov  %i3, %o3
+40007bfc:	98 10 20 00 	clr  %o4
+40007c00:	7f ff fe 65 	call  40007594 <readFromEngineConfigRegister>
+40007c04:	90 10 00 18 	mov  %i0, %o0
+40007c08:	83 2e 60 02 	sll  %i1, 2, %g1
+40007c0c:	86 0a 20 fe 	and  %o0, 0xfe, %g3
+40007c10:	82 00 40 1a 	add  %g1, %i2, %g1
+40007c14:	83 28 60 02 	sll  %g1, 2, %g1
+40007c18:	82 00 40 1b 	add  %g1, %i3, %g1
+40007c1c:	82 00 60 06 	add  %g1, 6, %g1
+40007c20:	83 28 60 02 	sll  %g1, 2, %g1
+40007c24:	82 06 00 01 	add  %i0, %g1, %g1
+40007c28:	c4 00 60 04 	ld  [ %g1 + 4 ], %g2
+40007c2c:	88 00 a0 01 	add  %g2, 1, %g4
+40007c30:	85 28 a0 10 	sll  %g2, 0x10, %g2
+40007c34:	c8 20 60 04 	st  %g4, [ %g1 + 4 ]
+40007c38:	9a 10 00 1c 	mov  %i4, %o5
+40007c3c:	98 10 20 02 	mov  2, %o4
+40007c40:	90 10 00 18 	mov  %i0, %o0
+40007c44:	92 10 00 19 	mov  %i1, %o1
+40007c48:	94 10 00 1a 	mov  %i2, %o2
+40007c4c:	96 10 00 1b 	mov  %i3, %o3
+40007c50:	bb 2e e0 0e 	sll  %i3, 0xe, %i5
+40007c54:	ba 17 65 01 	or  %i5, 0x501, %i5
+40007c58:	ba 17 40 02 	or  %i5, %g2, %i5
+40007c5c:	7f ff fe 43 	call  40007568 <writeToEngineConfigRegister>
+40007c60:	ba 17 40 03 	or  %i5, %g3, %i5
+40007c64:	9a 10 00 1d 	mov  %i5, %o5
+40007c68:	98 10 20 00 	clr  %o4
+40007c6c:	90 10 00 18 	mov  %i0, %o0
+40007c70:	92 10 00 19 	mov  %i1, %o1
+40007c74:	94 10 00 1a 	mov  %i2, %o2
+40007c78:	7f ff fe 3c 	call  40007568 <writeToEngineConfigRegister>
+40007c7c:	96 10 00 1b 	mov  %i3, %o3
+40007c80:	90 10 00 18 	mov  %i0, %o0
+40007c84:	92 10 00 19 	mov  %i1, %o1
+40007c88:	94 10 00 1a 	mov  %i2, %o2
+40007c8c:	7f ff fe 5c 	call  400075fc <waitOnEngineThreadCompletion>
+40007c90:	96 10 00 1b 	mov  %i3, %o3
+40007c94:	92 10 00 19 	mov  %i1, %o1
 40007c98:	94 10 00 1a 	mov  %i2, %o2
-40007c9c:	90 10 00 18 	mov  %i0, %o0
-40007ca0:	96 10 00 1b 	mov  %i3, %o3
-40007ca4:	7f ff fe 35 	call  40007578 <readFromEngineConfigRegister>
-40007ca8:	98 10 20 06 	mov  6, %o4
-40007cac:	ba 10 00 1c 	mov  %i4, %i5
-40007cb0:	86 10 20 00 	clr  %g3
-40007cb4:	b8 10 20 00 	clr  %i4
-40007cb8:	86 10 c0 1d 	or  %g3, %i5, %g3
-40007cbc:	84 12 00 1c 	or  %o0, %i4, %g2
-40007cc0:	c4 3c 00 00 	std  %g2, [ %l0 ]
-40007cc4:	90 10 00 18 	mov  %i0, %o0
-40007cc8:	92 10 00 19 	mov  %i1, %o1
-40007ccc:	94 10 00 1a 	mov  %i2, %o2
-40007cd0:	7f ff fe 5c 	call  40007640 <releaseEngineThread>
-40007cd4:	96 10 00 1b 	mov  %i3, %o3
-40007cd8:	80 a2 20 00 	cmp  %o0, 0
-40007cdc:	32 bf ff fb 	bne,a   40007cc8 <readThreadDataRegister+0x120>
+40007c9c:	96 10 00 1b 	mov  %i3, %o3
+40007ca0:	98 10 20 07 	mov  7, %o4
+40007ca4:	7f ff fe 3c 	call  40007594 <readFromEngineConfigRegister>
+40007ca8:	90 10 00 18 	mov  %i0, %o0
+40007cac:	92 10 00 19 	mov  %i1, %o1
+40007cb0:	b8 10 00 08 	mov  %o0, %i4
+40007cb4:	94 10 00 1a 	mov  %i2, %o2
+40007cb8:	90 10 00 18 	mov  %i0, %o0
+40007cbc:	96 10 00 1b 	mov  %i3, %o3
+40007cc0:	7f ff fe 35 	call  40007594 <readFromEngineConfigRegister>
+40007cc4:	98 10 20 06 	mov  6, %o4
+40007cc8:	ba 10 00 1c 	mov  %i4, %i5
+40007ccc:	86 10 20 00 	clr  %g3
+40007cd0:	b8 10 20 00 	clr  %i4
+40007cd4:	86 10 c0 1d 	or  %g3, %i5, %g3
+40007cd8:	84 12 00 1c 	or  %o0, %i4, %g2
+40007cdc:	c4 3c 00 00 	std  %g2, [ %l0 ]
 40007ce0:	90 10 00 18 	mov  %i0, %o0
-40007ce4:	81 c7 e0 08 	ret 
-40007ce8:	91 e8 00 08 	restore  %g0, %o0, %o0
+40007ce4:	92 10 00 19 	mov  %i1, %o1
+40007ce8:	94 10 00 1a 	mov  %i2, %o2
+40007cec:	7f ff fe 5c 	call  4000765c <releaseEngineThread>
+40007cf0:	96 10 00 1b 	mov  %i3, %o3
+40007cf4:	80 a2 20 00 	cmp  %o0, 0
+40007cf8:	32 bf ff fb 	bne,a   40007ce4 <readThreadDataRegister+0x120>
+40007cfc:	90 10 00 18 	mov  %i0, %o0
+40007d00:	81 c7 e0 08 	ret 
+40007d04:	91 e8 00 08 	restore  %g0, %o0, %o0
 
-40007cec <completeEngineThread>:
-40007cec:	9d e3 bf a0 	save  %sp, -96, %sp
-40007cf0:	90 10 00 18 	mov  %i0, %o0
-40007cf4:	92 10 00 19 	mov  %i1, %o1
-40007cf8:	94 10 00 1a 	mov  %i2, %o2
-40007cfc:	7f ff fe 2e 	call  400075b4 <acquireEngineThread>
-40007d00:	96 10 00 1b 	mov  %i3, %o3
-40007d04:	80 a2 20 00 	cmp  %o0, 0
-40007d08:	02 80 00 04 	be  40007d18 <completeEngineThread+0x2c>
-40007d0c:	92 10 00 19 	mov  %i1, %o1
-40007d10:	81 c7 e0 08 	ret 
-40007d14:	91 e8 00 08 	restore  %g0, %o0, %o0
-40007d18:	94 10 00 1a 	mov  %i2, %o2
+40007d08 <completeEngineThread>:
+40007d08:	9d e3 bf a0 	save  %sp, -96, %sp
+40007d0c:	90 10 00 18 	mov  %i0, %o0
+40007d10:	92 10 00 19 	mov  %i1, %o1
+40007d14:	94 10 00 1a 	mov  %i2, %o2
+40007d18:	7f ff fe 2e 	call  400075d0 <acquireEngineThread>
 40007d1c:	96 10 00 1b 	mov  %i3, %o3
-40007d20:	98 10 20 00 	clr  %o4
-40007d24:	7f ff fe 15 	call  40007578 <readFromEngineConfigRegister>
-40007d28:	90 10 00 18 	mov  %i0, %o0
-40007d2c:	83 2e 60 02 	sll  %i1, 2, %g1
-40007d30:	90 0a 20 fe 	and  %o0, 0xfe, %o0
-40007d34:	82 00 40 1a 	add  %g1, %i2, %g1
-40007d38:	83 28 60 02 	sll  %g1, 2, %g1
-40007d3c:	82 00 40 1b 	add  %g1, %i3, %g1
-40007d40:	82 00 60 06 	add  %g1, 6, %g1
-40007d44:	83 28 60 02 	sll  %g1, 2, %g1
-40007d48:	82 06 00 01 	add  %i0, %g1, %g1
-40007d4c:	c4 00 60 04 	ld  [ %g1 + 4 ], %g2
-40007d50:	87 28 a0 10 	sll  %g2, 0x10, %g3
-40007d54:	84 00 a0 01 	inc  %g2
-40007d58:	98 10 20 00 	clr  %o4
-40007d5c:	c4 20 60 04 	st  %g2, [ %g1 + 4 ]
-40007d60:	92 10 00 19 	mov  %i1, %o1
-40007d64:	94 10 00 1a 	mov  %i2, %o2
-40007d68:	96 10 00 1b 	mov  %i3, %o3
-40007d6c:	9b 2e e0 0e 	sll  %i3, 0xe, %o5
-40007d70:	9a 13 67 01 	or  %o5, 0x701, %o5
-40007d74:	9a 13 40 03 	or  %o5, %g3, %o5
-40007d78:	9a 13 40 08 	or  %o5, %o0, %o5
-40007d7c:	7f ff fd f4 	call  4000754c <writeToEngineConfigRegister>
-40007d80:	90 10 00 18 	mov  %i0, %o0
-40007d84:	90 10 00 18 	mov  %i0, %o0
-40007d88:	92 10 00 19 	mov  %i1, %o1
-40007d8c:	94 10 00 1a 	mov  %i2, %o2
-40007d90:	7f ff fe 14 	call  400075e0 <waitOnEngineThreadCompletion>
-40007d94:	96 10 00 1b 	mov  %i3, %o3
-40007d98:	92 10 00 19 	mov  %i1, %o1
-40007d9c:	94 10 00 1a 	mov  %i2, %o2
-40007da0:	96 10 00 1b 	mov  %i3, %o3
-40007da4:	98 10 20 05 	mov  5, %o4
-40007da8:	7f ff fd f4 	call  40007578 <readFromEngineConfigRegister>
-40007dac:	90 10 00 18 	mov  %i0, %o0
-40007db0:	92 10 00 19 	mov  %i1, %o1
-40007db4:	d0 27 00 00 	st  %o0, [ %i4 ]
+40007d20:	80 a2 20 00 	cmp  %o0, 0
+40007d24:	02 80 00 04 	be  40007d34 <completeEngineThread+0x2c>
+40007d28:	92 10 00 19 	mov  %i1, %o1
+40007d2c:	81 c7 e0 08 	ret 
+40007d30:	91 e8 00 08 	restore  %g0, %o0, %o0
+40007d34:	94 10 00 1a 	mov  %i2, %o2
+40007d38:	96 10 00 1b 	mov  %i3, %o3
+40007d3c:	98 10 20 00 	clr  %o4
+40007d40:	7f ff fe 15 	call  40007594 <readFromEngineConfigRegister>
+40007d44:	90 10 00 18 	mov  %i0, %o0
+40007d48:	83 2e 60 02 	sll  %i1, 2, %g1
+40007d4c:	90 0a 20 fe 	and  %o0, 0xfe, %o0
+40007d50:	82 00 40 1a 	add  %g1, %i2, %g1
+40007d54:	83 28 60 02 	sll  %g1, 2, %g1
+40007d58:	82 00 40 1b 	add  %g1, %i3, %g1
+40007d5c:	82 00 60 06 	add  %g1, 6, %g1
+40007d60:	83 28 60 02 	sll  %g1, 2, %g1
+40007d64:	82 06 00 01 	add  %i0, %g1, %g1
+40007d68:	c4 00 60 04 	ld  [ %g1 + 4 ], %g2
+40007d6c:	87 28 a0 10 	sll  %g2, 0x10, %g3
+40007d70:	84 00 a0 01 	inc  %g2
+40007d74:	98 10 20 00 	clr  %o4
+40007d78:	c4 20 60 04 	st  %g2, [ %g1 + 4 ]
+40007d7c:	92 10 00 19 	mov  %i1, %o1
+40007d80:	94 10 00 1a 	mov  %i2, %o2
+40007d84:	96 10 00 1b 	mov  %i3, %o3
+40007d88:	9b 2e e0 0e 	sll  %i3, 0xe, %o5
+40007d8c:	9a 13 67 01 	or  %o5, 0x701, %o5
+40007d90:	9a 13 40 03 	or  %o5, %g3, %o5
+40007d94:	9a 13 40 08 	or  %o5, %o0, %o5
+40007d98:	7f ff fd f4 	call  40007568 <writeToEngineConfigRegister>
+40007d9c:	90 10 00 18 	mov  %i0, %o0
+40007da0:	90 10 00 18 	mov  %i0, %o0
+40007da4:	92 10 00 19 	mov  %i1, %o1
+40007da8:	94 10 00 1a 	mov  %i2, %o2
+40007dac:	7f ff fe 14 	call  400075fc <waitOnEngineThreadCompletion>
+40007db0:	96 10 00 1b 	mov  %i3, %o3
+40007db4:	92 10 00 19 	mov  %i1, %o1
 40007db8:	94 10 00 1a 	mov  %i2, %o2
-40007dbc:	90 10 00 18 	mov  %i0, %o0
-40007dc0:	96 10 00 1b 	mov  %i3, %o3
-40007dc4:	7f ff fd ed 	call  40007578 <readFromEngineConfigRegister>
-40007dc8:	98 10 20 06 	mov  6, %o4
-40007dcc:	d0 27 40 00 	st  %o0, [ %i5 ]
-40007dd0:	90 10 00 18 	mov  %i0, %o0
-40007dd4:	92 10 00 19 	mov  %i1, %o1
-40007dd8:	94 10 00 1a 	mov  %i2, %o2
-40007ddc:	7f ff fe 19 	call  40007640 <releaseEngineThread>
-40007de0:	96 10 00 1b 	mov  %i3, %o3
-40007de4:	80 a2 20 00 	cmp  %o0, 0
-40007de8:	32 bf ff fb 	bne,a   40007dd4 <completeEngineThread+0xe8>
+40007dbc:	96 10 00 1b 	mov  %i3, %o3
+40007dc0:	98 10 20 05 	mov  5, %o4
+40007dc4:	7f ff fd f4 	call  40007594 <readFromEngineConfigRegister>
+40007dc8:	90 10 00 18 	mov  %i0, %o0
+40007dcc:	92 10 00 19 	mov  %i1, %o1
+40007dd0:	d0 27 00 00 	st  %o0, [ %i4 ]
+40007dd4:	94 10 00 1a 	mov  %i2, %o2
+40007dd8:	90 10 00 18 	mov  %i0, %o0
+40007ddc:	96 10 00 1b 	mov  %i3, %o3
+40007de0:	7f ff fd ed 	call  40007594 <readFromEngineConfigRegister>
+40007de4:	98 10 20 06 	mov  6, %o4
+40007de8:	d0 27 40 00 	st  %o0, [ %i5 ]
 40007dec:	90 10 00 18 	mov  %i0, %o0
-40007df0:	81 c7 e0 08 	ret 
-40007df4:	91 e8 00 08 	restore  %g0, %o0, %o0
+40007df0:	92 10 00 19 	mov  %i1, %o1
+40007df4:	94 10 00 1a 	mov  %i2, %o2
+40007df8:	7f ff fe 19 	call  4000765c <releaseEngineThread>
+40007dfc:	96 10 00 1b 	mov  %i3, %o3
+40007e00:	80 a2 20 00 	cmp  %o0, 0
+40007e04:	32 bf ff fb 	bne,a   40007df0 <completeEngineThread+0xe8>
+40007e08:	90 10 00 18 	mov  %i0, %o0
+40007e0c:	81 c7 e0 08 	ret 
+40007e10:	91 e8 00 08 	restore  %g0, %o0, %o0
 
-40007df8 <pollAndCompleteEngineThread>:
-40007df8:	9d e3 bf a0 	save  %sp, -96, %sp
-40007dfc:	90 10 00 18 	mov  %i0, %o0
-40007e00:	92 10 00 19 	mov  %i1, %o1
-40007e04:	94 10 00 1a 	mov  %i2, %o2
-40007e08:	7f ff fd e7 	call  400075a4 <engineThreadStatus>
-40007e0c:	96 10 00 1b 	mov  %i3, %o3
-40007e10:	80 8a 20 07 	btst  7, %o0
-40007e14:	12 bf ff fb 	bne  40007e00 <pollAndCompleteEngineThread+0x8>
+40007e14 <pollAndCompleteEngineThread>:
+40007e14:	9d e3 bf a0 	save  %sp, -96, %sp
 40007e18:	90 10 00 18 	mov  %i0, %o0
 40007e1c:	92 10 00 19 	mov  %i1, %o1
 40007e20:	94 10 00 1a 	mov  %i2, %o2
-40007e24:	96 10 00 1b 	mov  %i3, %o3
-40007e28:	98 10 00 1c 	mov  %i4, %o4
-40007e2c:	7f ff ff b0 	call  40007cec <completeEngineThread>
-40007e30:	9a 10 00 1d 	mov  %i5, %o5
-40007e34:	80 a2 20 00 	cmp  %o0, 0
-40007e38:	12 bf ff f9 	bne  40007e1c <pollAndCompleteEngineThread+0x24>
-40007e3c:	90 10 00 18 	mov  %i0, %o0
-40007e40:	c2 07 00 00 	ld  [ %i4 ], %g1
-40007e44:	80 a0 60 00 	cmp  %g1, 0
-40007e48:	16 bf ff f6 	bge  40007e20 <pollAndCompleteEngineThread+0x28>
-40007e4c:	92 10 00 19 	mov  %i1, %o1
-40007e50:	81 c7 e0 08 	ret 
-40007e54:	91 e8 20 00 	restore  %g0, 0, %o0
+40007e24:	7f ff fd e7 	call  400075c0 <engineThreadStatus>
+40007e28:	96 10 00 1b 	mov  %i3, %o3
+40007e2c:	80 8a 20 07 	btst  7, %o0
+40007e30:	12 bf ff fb 	bne  40007e1c <pollAndCompleteEngineThread+0x8>
+40007e34:	90 10 00 18 	mov  %i0, %o0
+40007e38:	92 10 00 19 	mov  %i1, %o1
+40007e3c:	94 10 00 1a 	mov  %i2, %o2
+40007e40:	96 10 00 1b 	mov  %i3, %o3
+40007e44:	98 10 00 1c 	mov  %i4, %o4
+40007e48:	7f ff ff b0 	call  40007d08 <completeEngineThread>
+40007e4c:	9a 10 00 1d 	mov  %i5, %o5
+40007e50:	80 a2 20 00 	cmp  %o0, 0
+40007e54:	12 bf ff f9 	bne  40007e38 <pollAndCompleteEngineThread+0x24>
+40007e58:	90 10 00 18 	mov  %i0, %o0
+40007e5c:	c2 07 00 00 	ld  [ %i4 ], %g1
+40007e60:	80 a0 60 00 	cmp  %g1, 0
+40007e64:	16 bf ff f6 	bge  40007e3c <pollAndCompleteEngineThread+0x28>
+40007e68:	92 10 00 19 	mov  %i1, %o1
+40007e6c:	81 c7 e0 08 	ret 
+40007e70:	91 e8 20 00 	restore  %g0, 0, %o0
 
-40007e58 <checkIfThreadHasCompleted>:
-40007e58:	9d e3 bf a0 	save  %sp, -96, %sp
-40007e5c:	98 10 20 00 	clr  %o4
-40007e60:	90 10 00 18 	mov  %i0, %o0
-40007e64:	92 10 00 19 	mov  %i1, %o1
-40007e68:	94 10 00 1a 	mov  %i2, %o2
-40007e6c:	7f ff fd c3 	call  40007578 <readFromEngineConfigRegister>
-40007e70:	96 10 00 1b 	mov  %i3, %o3
-40007e74:	c0 27 00 00 	clr  [ %i4 ]
-40007e78:	c0 27 40 00 	clr  [ %i5 ]
-40007e7c:	90 0a 20 07 	and  %o0, 7, %o0
-40007e80:	80 a2 20 07 	cmp  %o0, 7
-40007e84:	02 80 00 04 	be  40007e94 <checkIfThreadHasCompleted+0x3c>
-40007e88:	82 10 20 01 	mov  1, %g1
-40007e8c:	81 c7 e0 08 	ret 
-40007e90:	91 e8 00 01 	restore  %g0, %g1, %o0
-40007e94:	92 10 00 19 	mov  %i1, %o1
-40007e98:	94 10 00 1a 	mov  %i2, %o2
-40007e9c:	96 10 00 1b 	mov  %i3, %o3
-40007ea0:	98 10 20 05 	mov  5, %o4
-40007ea4:	7f ff fd b5 	call  40007578 <readFromEngineConfigRegister>
-40007ea8:	90 10 00 18 	mov  %i0, %o0
-40007eac:	92 10 00 19 	mov  %i1, %o1
-40007eb0:	d0 27 00 00 	st  %o0, [ %i4 ]
+40007e74 <checkIfThreadHasCompleted>:
+40007e74:	9d e3 bf a0 	save  %sp, -96, %sp
+40007e78:	98 10 20 00 	clr  %o4
+40007e7c:	90 10 00 18 	mov  %i0, %o0
+40007e80:	92 10 00 19 	mov  %i1, %o1
+40007e84:	94 10 00 1a 	mov  %i2, %o2
+40007e88:	7f ff fd c3 	call  40007594 <readFromEngineConfigRegister>
+40007e8c:	96 10 00 1b 	mov  %i3, %o3
+40007e90:	c0 27 00 00 	clr  [ %i4 ]
+40007e94:	c0 27 40 00 	clr  [ %i5 ]
+40007e98:	90 0a 20 07 	and  %o0, 7, %o0
+40007e9c:	80 a2 20 07 	cmp  %o0, 7
+40007ea0:	02 80 00 04 	be  40007eb0 <checkIfThreadHasCompleted+0x3c>
+40007ea4:	82 10 20 01 	mov  1, %g1
+40007ea8:	81 c7 e0 08 	ret 
+40007eac:	91 e8 00 01 	restore  %g0, %g1, %o0
+40007eb0:	92 10 00 19 	mov  %i1, %o1
 40007eb4:	94 10 00 1a 	mov  %i2, %o2
-40007eb8:	90 10 00 18 	mov  %i0, %o0
-40007ebc:	96 10 00 1b 	mov  %i3, %o3
-40007ec0:	7f ff fd ae 	call  40007578 <readFromEngineConfigRegister>
-40007ec4:	98 10 20 06 	mov  6, %o4
-40007ec8:	82 10 20 00 	clr  %g1
-40007ecc:	d0 27 40 00 	st  %o0, [ %i5 ]
-40007ed0:	81 c7 e0 08 	ret 
-40007ed4:	91 e8 00 01 	restore  %g0, %g1, %o0
+40007eb8:	96 10 00 1b 	mov  %i3, %o3
+40007ebc:	98 10 20 05 	mov  5, %o4
+40007ec0:	7f ff fd b5 	call  40007594 <readFromEngineConfigRegister>
+40007ec4:	90 10 00 18 	mov  %i0, %o0
+40007ec8:	92 10 00 19 	mov  %i1, %o1
+40007ecc:	d0 27 00 00 	st  %o0, [ %i4 ]
+40007ed0:	94 10 00 1a 	mov  %i2, %o2
+40007ed4:	90 10 00 18 	mov  %i0, %o0
+40007ed8:	96 10 00 1b 	mov  %i3, %o3
+40007edc:	7f ff fd ae 	call  40007594 <readFromEngineConfigRegister>
+40007ee0:	98 10 20 06 	mov  6, %o4
+40007ee4:	82 10 20 00 	clr  %g1
+40007ee8:	d0 27 40 00 	st  %o0, [ %i5 ]
+40007eec:	81 c7 e0 08 	ret 
+40007ef0:	91 e8 00 01 	restore  %g0, %g1, %o0
 
-40007ed8 <acquireDmaChannel>:
-40007ed8:	9d e3 bf a0 	save  %sp, -96, %sp
-40007edc:	90 10 00 18 	mov  %i0, %o0
-40007ee0:	92 10 00 19 	mov  %i1, %o1
-40007ee4:	94 10 00 1a 	mov  %i2, %o2
-40007ee8:	7f ff fe 09 	call  4000770c <dmaChannelStatus>
-40007eec:	96 10 00 1b 	mov  %i3, %o3
-40007ef0:	90 0a 20 07 	and  %o0, 7, %o0
-40007ef4:	80 a0 00 08 	cmp  %g0, %o0
-40007ef8:	b0 40 20 00 	addx  %g0, 0, %i0
-40007efc:	81 c7 e0 08 	ret 
-40007f00:	81 e8 00 00 	restore 
+40007ef4 <acquireDmaChannel>:
+40007ef4:	9d e3 bf a0 	save  %sp, -96, %sp
+40007ef8:	90 10 00 18 	mov  %i0, %o0
+40007efc:	92 10 00 19 	mov  %i1, %o1
+40007f00:	94 10 00 1a 	mov  %i2, %o2
+40007f04:	7f ff fe 09 	call  40007728 <dmaChannelStatus>
+40007f08:	96 10 00 1b 	mov  %i3, %o3
+40007f0c:	90 0a 20 07 	and  %o0, 7, %o0
+40007f10:	80 a0 00 08 	cmp  %g0, %o0
+40007f14:	b0 40 20 00 	addx  %g0, 0, %i0
+40007f18:	81 c7 e0 08 	ret 
+40007f1c:	81 e8 00 00 	restore 
 
-40007f04 <releaseDmaChannel>:
-40007f04:	9d e3 bf a0 	save  %sp, -96, %sp
-40007f08:	98 10 20 01 	mov  1, %o4
-40007f0c:	90 10 00 18 	mov  %i0, %o0
-40007f10:	92 10 00 19 	mov  %i1, %o1
-40007f14:	94 10 00 1a 	mov  %i2, %o2
-40007f18:	7f ff fe 0d 	call  4000774c <__clear_dma_flags__>
-40007f1c:	96 10 00 1b 	mov  %i3, %o3
-40007f20:	90 10 00 18 	mov  %i0, %o0
-40007f24:	92 10 00 19 	mov  %i1, %o1
-40007f28:	94 10 00 1a 	mov  %i2, %o2
-40007f2c:	7f ff fd f8 	call  4000770c <dmaChannelStatus>
-40007f30:	96 10 00 1b 	mov  %i3, %o3
-40007f34:	90 0a 20 07 	and  %o0, 7, %o0
-40007f38:	80 a0 00 08 	cmp  %g0, %o0
-40007f3c:	b0 40 20 00 	addx  %g0, 0, %i0
-40007f40:	81 c7 e0 08 	ret 
-40007f44:	81 e8 00 00 	restore 
+40007f20 <releaseDmaChannel>:
+40007f20:	9d e3 bf a0 	save  %sp, -96, %sp
+40007f24:	98 10 20 01 	mov  1, %o4
+40007f28:	90 10 00 18 	mov  %i0, %o0
+40007f2c:	92 10 00 19 	mov  %i1, %o1
+40007f30:	94 10 00 1a 	mov  %i2, %o2
+40007f34:	7f ff fe 0d 	call  40007768 <__clear_dma_flags__>
+40007f38:	96 10 00 1b 	mov  %i3, %o3
+40007f3c:	90 10 00 18 	mov  %i0, %o0
+40007f40:	92 10 00 19 	mov  %i1, %o1
+40007f44:	94 10 00 1a 	mov  %i2, %o2
+40007f48:	7f ff fd f8 	call  40007728 <dmaChannelStatus>
+40007f4c:	96 10 00 1b 	mov  %i3, %o3
+40007f50:	90 0a 20 07 	and  %o0, 7, %o0
+40007f54:	80 a0 00 08 	cmp  %g0, %o0
+40007f58:	b0 40 20 00 	addx  %g0, 0, %i0
+40007f5c:	81 c7 e0 08 	ret 
+40007f60:	81 e8 00 00 	restore 
 
-40007f48 <scheduleDmaTaskOnEngine>:
-40007f48:	9d e3 bf a0 	save  %sp, -96, %sp
-40007f4c:	ea 07 a0 5c 	ld  [ %fp + 0x5c ], %l5
-40007f50:	e6 07 a0 60 	ld  [ %fp + 0x60 ], %l3
-40007f54:	e4 07 a0 64 	ld  [ %fp + 0x64 ], %l2
-40007f58:	e0 07 a0 68 	ld  [ %fp + 0x68 ], %l0
-40007f5c:	e2 07 a0 70 	ld  [ %fp + 0x70 ], %l1
-40007f60:	90 10 00 18 	mov  %i0, %o0
-40007f64:	92 10 00 19 	mov  %i1, %o1
-40007f68:	94 10 00 1a 	mov  %i2, %o2
-40007f6c:	7f ff ff db 	call  40007ed8 <acquireDmaChannel>
-40007f70:	96 10 00 1b 	mov  %i3, %o3
-40007f74:	a8 92 20 00 	orcc  %o0, 0, %l4
-40007f78:	12 80 00 55 	bne  400080cc <scheduleDmaTaskOnEngine+0x184>
-40007f7c:	80 a0 00 1c 	cmp  %g0, %i4
-40007f80:	03 00 40 00 	sethi  %hi(0x1000000), %g1
-40007f84:	b8 40 3f ff 	addx  %g0, -1, %i4
-40007f88:	92 10 00 19 	mov  %i1, %o1
-40007f8c:	b8 0f 00 01 	and  %i4, %g1, %i4
-40007f90:	94 10 00 1a 	mov  %i2, %o2
-40007f94:	b8 07 00 01 	add  %i4, %g1, %i4
-40007f98:	96 10 00 1b 	mov  %i3, %o3
-40007f9c:	98 10 20 00 	clr  %o4
-40007fa0:	7f ff fd d0 	call  400076e0 <readFromDmaConfigRegister>
-40007fa4:	90 10 00 18 	mov  %i0, %o0
-40007fa8:	86 0f 60 0f 	and  %i5, 0xf, %g3
-40007fac:	83 2e 60 02 	sll  %i1, 2, %g1
-40007fb0:	82 00 40 1a 	add  %g1, %i2, %g1
-40007fb4:	83 28 60 02 	sll  %g1, 2, %g1
-40007fb8:	82 00 40 1b 	add  %g1, %i3, %g1
-40007fbc:	82 00 60 06 	add  %g1, 6, %g1
-40007fc0:	83 28 60 02 	sll  %g1, 2, %g1
-40007fc4:	82 06 00 01 	add  %i0, %g1, %g1
-40007fc8:	9e 0a 20 fe 	and  %o0, 0xfe, %o7
-40007fcc:	c8 00 60 04 	ld  [ %g1 + 4 ], %g4
-40007fd0:	97 28 e0 14 	sll  %g3, 0x14, %o3
-40007fd4:	ba 01 20 01 	add  %g4, 1, %i5
-40007fd8:	86 0c e0 0f 	and  %l3, 0xf, %g3
-40007fdc:	fa 20 60 04 	st  %i5, [ %g1 + 4 ]
-40007fe0:	85 28 e0 10 	sll  %g3, 0x10, %g2
-40007fe4:	89 29 20 08 	sll  %g4, 8, %g4
-40007fe8:	15 00 00 3f 	sethi  %hi(0xfc00), %o2
-40007fec:	94 12 a3 ff 	or  %o2, 0x3ff, %o2	! ffff <__DYNAMIC+0xffff>
-40007ff0:	88 09 00 0a 	and  %g4, %o2, %g4
-40007ff4:	88 11 20 01 	or  %g4, 1, %g4
-40007ff8:	88 11 00 0b 	or  %g4, %o3, %g4
-40007ffc:	82 11 00 02 	or  %g4, %g2, %g1
-40008000:	98 10 20 01 	mov  1, %o4
-40008004:	b8 10 40 1c 	or  %g1, %i4, %i4
-40008008:	9a 10 00 15 	mov  %l5, %o5
-4000800c:	b8 17 00 0f 	or  %i4, %o7, %i4
-40008010:	90 10 00 18 	mov  %i0, %o0
-40008014:	92 10 00 19 	mov  %i1, %o1
-40008018:	94 10 00 1a 	mov  %i2, %o2
-4000801c:	7f ff fd a6 	call  400076b4 <writeToDmaConfigRegister>
-40008020:	96 10 00 1b 	mov  %i3, %o3
-40008024:	90 10 00 18 	mov  %i0, %o0
-40008028:	92 10 00 19 	mov  %i1, %o1
-4000802c:	94 10 00 1a 	mov  %i2, %o2
-40008030:	96 10 00 1b 	mov  %i3, %o3
-40008034:	98 10 20 02 	mov  2, %o4
-40008038:	7f ff fd 9f 	call  400076b4 <writeToDmaConfigRegister>
-4000803c:	9a 10 00 12 	mov  %l2, %o5
+40007f64 <scheduleDmaTaskOnEngine>:
+40007f64:	9d e3 bf a0 	save  %sp, -96, %sp
+40007f68:	ea 07 a0 5c 	ld  [ %fp + 0x5c ], %l5
+40007f6c:	e6 07 a0 60 	ld  [ %fp + 0x60 ], %l3
+40007f70:	e4 07 a0 64 	ld  [ %fp + 0x64 ], %l2
+40007f74:	e0 07 a0 68 	ld  [ %fp + 0x68 ], %l0
+40007f78:	e2 07 a0 70 	ld  [ %fp + 0x70 ], %l1
+40007f7c:	90 10 00 18 	mov  %i0, %o0
+40007f80:	92 10 00 19 	mov  %i1, %o1
+40007f84:	94 10 00 1a 	mov  %i2, %o2
+40007f88:	7f ff ff db 	call  40007ef4 <acquireDmaChannel>
+40007f8c:	96 10 00 1b 	mov  %i3, %o3
+40007f90:	a8 92 20 00 	orcc  %o0, 0, %l4
+40007f94:	12 80 00 55 	bne  400080e8 <scheduleDmaTaskOnEngine+0x184>
+40007f98:	80 a0 00 1c 	cmp  %g0, %i4
+40007f9c:	03 00 40 00 	sethi  %hi(0x1000000), %g1
+40007fa0:	b8 40 3f ff 	addx  %g0, -1, %i4
+40007fa4:	92 10 00 19 	mov  %i1, %o1
+40007fa8:	b8 0f 00 01 	and  %i4, %g1, %i4
+40007fac:	94 10 00 1a 	mov  %i2, %o2
+40007fb0:	b8 07 00 01 	add  %i4, %g1, %i4
+40007fb4:	96 10 00 1b 	mov  %i3, %o3
+40007fb8:	98 10 20 00 	clr  %o4
+40007fbc:	7f ff fd d0 	call  400076fc <readFromDmaConfigRegister>
+40007fc0:	90 10 00 18 	mov  %i0, %o0
+40007fc4:	86 0f 60 0f 	and  %i5, 0xf, %g3
+40007fc8:	83 2e 60 02 	sll  %i1, 2, %g1
+40007fcc:	82 00 40 1a 	add  %g1, %i2, %g1
+40007fd0:	83 28 60 02 	sll  %g1, 2, %g1
+40007fd4:	82 00 40 1b 	add  %g1, %i3, %g1
+40007fd8:	82 00 60 06 	add  %g1, 6, %g1
+40007fdc:	83 28 60 02 	sll  %g1, 2, %g1
+40007fe0:	82 06 00 01 	add  %i0, %g1, %g1
+40007fe4:	9e 0a 20 fe 	and  %o0, 0xfe, %o7
+40007fe8:	c8 00 60 04 	ld  [ %g1 + 4 ], %g4
+40007fec:	97 28 e0 14 	sll  %g3, 0x14, %o3
+40007ff0:	ba 01 20 01 	add  %g4, 1, %i5
+40007ff4:	86 0c e0 0f 	and  %l3, 0xf, %g3
+40007ff8:	fa 20 60 04 	st  %i5, [ %g1 + 4 ]
+40007ffc:	85 28 e0 10 	sll  %g3, 0x10, %g2
+40008000:	89 29 20 08 	sll  %g4, 8, %g4
+40008004:	15 00 00 3f 	sethi  %hi(0xfc00), %o2
+40008008:	94 12 a3 ff 	or  %o2, 0x3ff, %o2	! ffff <__DYNAMIC+0xffff>
+4000800c:	88 09 00 0a 	and  %g4, %o2, %g4
+40008010:	88 11 20 01 	or  %g4, 1, %g4
+40008014:	88 11 00 0b 	or  %g4, %o3, %g4
+40008018:	82 11 00 02 	or  %g4, %g2, %g1
+4000801c:	98 10 20 01 	mov  1, %o4
+40008020:	b8 10 40 1c 	or  %g1, %i4, %i4
+40008024:	9a 10 00 15 	mov  %l5, %o5
+40008028:	b8 17 00 0f 	or  %i4, %o7, %i4
+4000802c:	90 10 00 18 	mov  %i0, %o0
+40008030:	92 10 00 19 	mov  %i1, %o1
+40008034:	94 10 00 1a 	mov  %i2, %o2
+40008038:	7f ff fd a6 	call  400076d0 <writeToDmaConfigRegister>
+4000803c:	96 10 00 1b 	mov  %i3, %o3
 40008040:	90 10 00 18 	mov  %i0, %o0
 40008044:	92 10 00 19 	mov  %i1, %o1
 40008048:	94 10 00 1a 	mov  %i2, %o2
 4000804c:	96 10 00 1b 	mov  %i3, %o3
-40008050:	98 10 20 03 	mov  3, %o4
-40008054:	7f ff fd 98 	call  400076b4 <writeToDmaConfigRegister>
-40008058:	9a 5c 40 10 	smul  %l1, %l0, %o5
+40008050:	98 10 20 02 	mov  2, %o4
+40008054:	7f ff fd 9f 	call  400076d0 <writeToDmaConfigRegister>
+40008058:	9a 10 00 12 	mov  %l2, %o5
 4000805c:	90 10 00 18 	mov  %i0, %o0
 40008060:	92 10 00 19 	mov  %i1, %o1
 40008064:	94 10 00 1a 	mov  %i2, %o2
 40008068:	96 10 00 1b 	mov  %i3, %o3
-4000806c:	98 10 20 04 	mov  4, %o4
-40008070:	7f ff fd 91 	call  400076b4 <writeToDmaConfigRegister>
-40008074:	9a 10 00 11 	mov  %l1, %o5
+4000806c:	98 10 20 03 	mov  3, %o4
+40008070:	7f ff fd 98 	call  400076d0 <writeToDmaConfigRegister>
+40008074:	9a 5c 40 10 	smul  %l1, %l0, %o5
 40008078:	90 10 00 18 	mov  %i0, %o0
 4000807c:	92 10 00 19 	mov  %i1, %o1
 40008080:	94 10 00 1a 	mov  %i2, %o2
 40008084:	96 10 00 1b 	mov  %i3, %o3
-40008088:	98 10 20 05 	mov  5, %o4
-4000808c:	7f ff fd 8a 	call  400076b4 <writeToDmaConfigRegister>
-40008090:	da 07 a0 6c 	ld  [ %fp + 0x6c ], %o5
+40008088:	98 10 20 04 	mov  4, %o4
+4000808c:	7f ff fd 91 	call  400076d0 <writeToDmaConfigRegister>
+40008090:	9a 10 00 11 	mov  %l1, %o5
 40008094:	90 10 00 18 	mov  %i0, %o0
 40008098:	92 10 00 19 	mov  %i1, %o1
 4000809c:	94 10 00 1a 	mov  %i2, %o2
 400080a0:	96 10 00 1b 	mov  %i3, %o3
-400080a4:	98 10 20 06 	mov  6, %o4
-400080a8:	7f ff fd 83 	call  400076b4 <writeToDmaConfigRegister>
-400080ac:	9a 10 00 10 	mov  %l0, %o5
+400080a4:	98 10 20 05 	mov  5, %o4
+400080a8:	7f ff fd 8a 	call  400076d0 <writeToDmaConfigRegister>
+400080ac:	da 07 a0 6c 	ld  [ %fp + 0x6c ], %o5
 400080b0:	90 10 00 18 	mov  %i0, %o0
 400080b4:	92 10 00 19 	mov  %i1, %o1
 400080b8:	94 10 00 1a 	mov  %i2, %o2
 400080bc:	96 10 00 1b 	mov  %i3, %o3
-400080c0:	98 10 20 00 	clr  %o4
-400080c4:	7f ff fd 7c 	call  400076b4 <writeToDmaConfigRegister>
-400080c8:	9a 10 00 1c 	mov  %i4, %o5
-400080cc:	81 c7 e0 08 	ret 
-400080d0:	91 e8 00 14 	restore  %g0, %l4, %o0
+400080c0:	98 10 20 06 	mov  6, %o4
+400080c4:	7f ff fd 83 	call  400076d0 <writeToDmaConfigRegister>
+400080c8:	9a 10 00 10 	mov  %l0, %o5
+400080cc:	90 10 00 18 	mov  %i0, %o0
+400080d0:	92 10 00 19 	mov  %i1, %o1
+400080d4:	94 10 00 1a 	mov  %i2, %o2
+400080d8:	96 10 00 1b 	mov  %i3, %o3
+400080dc:	98 10 20 00 	clr  %o4
+400080e0:	7f ff fd 7c 	call  400076d0 <writeToDmaConfigRegister>
+400080e4:	9a 10 00 1c 	mov  %i4, %o5
+400080e8:	81 c7 e0 08 	ret 
+400080ec:	91 e8 00 14 	restore  %g0, %l4, %o0
 
-400080d4 <readDmaChannelTaskStatus>:
-400080d4:	9d e3 bf a0 	save  %sp, -96, %sp
-400080d8:	98 10 20 00 	clr  %o4
-400080dc:	90 10 00 18 	mov  %i0, %o0
-400080e0:	92 10 00 19 	mov  %i1, %o1
-400080e4:	94 10 00 1a 	mov  %i2, %o2
-400080e8:	7f ff fd 7e 	call  400076e0 <readFromDmaConfigRegister>
-400080ec:	96 10 00 1b 	mov  %i3, %o3
-400080f0:	80 a7 20 00 	cmp  %i4, 0
-400080f4:	32 80 00 02 	bne,a   400080fc <readDmaChannelTaskStatus+0x28>
-400080f8:	d0 27 00 00 	st  %o0, [ %i4 ]
-400080fc:	b0 0a 20 07 	and  %o0, 7, %i0
-40008100:	81 c7 e0 08 	ret 
-40008104:	81 e8 00 00 	restore 
+400080f0 <readDmaChannelTaskStatus>:
+400080f0:	9d e3 bf a0 	save  %sp, -96, %sp
+400080f4:	98 10 20 00 	clr  %o4
+400080f8:	90 10 00 18 	mov  %i0, %o0
+400080fc:	92 10 00 19 	mov  %i1, %o1
+40008100:	94 10 00 1a 	mov  %i2, %o2
+40008104:	7f ff fd 7e 	call  400076fc <readFromDmaConfigRegister>
+40008108:	96 10 00 1b 	mov  %i3, %o3
+4000810c:	80 a7 20 00 	cmp  %i4, 0
+40008110:	32 80 00 02 	bne,a   40008118 <readDmaChannelTaskStatus+0x28>
+40008114:	d0 27 00 00 	st  %o0, [ %i4 ]
+40008118:	b0 0a 20 07 	and  %o0, 7, %i0
+4000811c:	81 c7 e0 08 	ret 
+40008120:	81 e8 00 00 	restore 
 
-40008108 <closeDmaChannelTask>:
-40008108:	9d e3 bf a0 	save  %sp, -96, %sp
-4000810c:	90 10 00 18 	mov  %i0, %o0
-40008110:	92 10 00 19 	mov  %i1, %o1
-40008114:	94 10 00 1a 	mov  %i2, %o2
-40008118:	7f ff ff 7b 	call  40007f04 <releaseDmaChannel>
-4000811c:	96 10 00 1b 	mov  %i3, %o3
-40008120:	80 a2 20 00 	cmp  %o0, 0
-40008124:	12 bf ff fb 	bne  40008110 <closeDmaChannelTask+0x8>
+40008124 <closeDmaChannelTask>:
+40008124:	9d e3 bf a0 	save  %sp, -96, %sp
 40008128:	90 10 00 18 	mov  %i0, %o0
-4000812c:	81 c7 e0 08 	ret 
-40008130:	81 e8 00 00 	restore 
+4000812c:	92 10 00 19 	mov  %i1, %o1
+40008130:	94 10 00 1a 	mov  %i2, %o2
+40008134:	7f ff ff 7b 	call  40007f20 <releaseDmaChannel>
+40008138:	96 10 00 1b 	mov  %i3, %o3
+4000813c:	80 a2 20 00 	cmp  %o0, 0
+40008140:	12 bf ff fb 	bne  4000812c <closeDmaChannelTask+0x8>
+40008144:	90 10 00 18 	mov  %i0, %o0
+40008148:	81 c7 e0 08 	ret 
+4000814c:	81 e8 00 00 	restore 
 
-40008134 <enableThreadCommandDaemon>:
-40008134:	9d e3 bf a0 	save  %sp, -96, %sp
-40008138:	98 10 20 00 	clr  %o4
-4000813c:	90 10 00 18 	mov  %i0, %o0
-40008140:	92 10 00 19 	mov  %i1, %o1
-40008144:	94 10 00 1a 	mov  %i2, %o2
-40008148:	7f ff fd 0c 	call  40007578 <readFromEngineConfigRegister>
-4000814c:	96 10 00 1b 	mov  %i3, %o3
-40008150:	80 8a 20 10 	btst  0x10, %o0
-40008154:	02 80 00 04 	be  40008164 <enableThreadCommandDaemon+0x30>
-40008158:	01 00 00 00 	nop 
-4000815c:	81 c7 e0 08 	ret 
-40008160:	81 e8 00 00 	restore 
-40008164:	7f ff fd 48 	call  40007684 <__set_thread_flags__>
-40008168:	99 e8 20 10 	restore  %g0, 0x10, %o4
+40008150 <enableThreadCommandDaemon>:
+40008150:	9d e3 bf a0 	save  %sp, -96, %sp
+40008154:	98 10 20 00 	clr  %o4
+40008158:	90 10 00 18 	mov  %i0, %o0
+4000815c:	92 10 00 19 	mov  %i1, %o1
+40008160:	94 10 00 1a 	mov  %i2, %o2
+40008164:	7f ff fd 0c 	call  40007594 <readFromEngineConfigRegister>
+40008168:	96 10 00 1b 	mov  %i3, %o3
+4000816c:	80 8a 20 10 	btst  0x10, %o0
+40008170:	02 80 00 04 	be  40008180 <enableThreadCommandDaemon+0x30>
+40008174:	01 00 00 00 	nop 
+40008178:	81 c7 e0 08 	ret 
+4000817c:	81 e8 00 00 	restore 
+40008180:	7f ff fd 48 	call  400076a0 <__set_thread_flags__>
+40008184:	99 e8 20 10 	restore  %g0, 0x10, %o4
 
-4000816c <enableThreadInterrupt>:
-4000816c:	98 10 20 20 	mov  0x20, %o4
-40008170:	82 13 c0 00 	mov  %o7, %g1
-40008174:	7f ff fd 44 	call  40007684 <__set_thread_flags__>
-40008178:	9e 10 40 00 	mov  %g1, %o7
+40008188 <enableThreadInterrupt>:
+40008188:	98 10 20 20 	mov  0x20, %o4
+4000818c:	82 13 c0 00 	mov  %o7, %g1
+40008190:	7f ff fd 44 	call  400076a0 <__set_thread_flags__>
+40008194:	9e 10 40 00 	mov  %g1, %o7
 
-4000817c <disableThreadInterrupt>:
-4000817c:	98 10 20 20 	mov  0x20, %o4
-40008180:	82 13 c0 00 	mov  %o7, %g1
-40008184:	7f ff fd 23 	call  40007610 <__clear_thread_flags__>
-40008188:	9e 10 40 00 	mov  %g1, %o7
+40008198 <disableThreadInterrupt>:
+40008198:	98 10 20 20 	mov  0x20, %o4
+4000819c:	82 13 c0 00 	mov  %o7, %g1
+400081a0:	7f ff fd 23 	call  4000762c <__clear_thread_flags__>
+400081a4:	9e 10 40 00 	mov  %g1, %o7
 
-4000818c <clearThreadInterrupt>:
-4000818c:	98 10 20 08 	mov  8, %o4
-40008190:	82 13 c0 00 	mov  %o7, %g1
-40008194:	7f ff fd 1f 	call  40007610 <__clear_thread_flags__>
-40008198:	9e 10 40 00 	mov  %g1, %o7
+400081a8 <clearThreadInterrupt>:
+400081a8:	98 10 20 08 	mov  8, %o4
+400081ac:	82 13 c0 00 	mov  %o7, %g1
+400081b0:	7f ff fd 1f 	call  4000762c <__clear_thread_flags__>
+400081b4:	9e 10 40 00 	mov  %g1, %o7
 
-4000819c <threadInterruptIsSet>:
-4000819c:	9d e3 bf a0 	save  %sp, -96, %sp
-400081a0:	98 10 20 00 	clr  %o4
-400081a4:	90 10 00 18 	mov  %i0, %o0
-400081a8:	92 10 00 19 	mov  %i1, %o1
-400081ac:	94 10 00 1a 	mov  %i2, %o2
-400081b0:	7f ff fc f2 	call  40007578 <readFromEngineConfigRegister>
-400081b4:	96 10 00 1b 	mov  %i3, %o3
-400081b8:	90 0a 20 28 	and  %o0, 0x28, %o0
-400081bc:	90 1a 20 28 	xor  %o0, 0x28, %o0
-400081c0:	80 a0 00 08 	cmp  %g0, %o0
-400081c4:	b0 60 3f ff 	subx  %g0, -1, %i0
-400081c8:	81 c7 e0 08 	ret 
-400081cc:	81 e8 00 00 	restore 
+400081b8 <threadInterruptIsSet>:
+400081b8:	9d e3 bf a0 	save  %sp, -96, %sp
+400081bc:	98 10 20 00 	clr  %o4
+400081c0:	90 10 00 18 	mov  %i0, %o0
+400081c4:	92 10 00 19 	mov  %i1, %o1
+400081c8:	94 10 00 1a 	mov  %i2, %o2
+400081cc:	7f ff fc f2 	call  40007594 <readFromEngineConfigRegister>
+400081d0:	96 10 00 1b 	mov  %i3, %o3
+400081d4:	90 0a 20 28 	and  %o0, 0x28, %o0
+400081d8:	90 1a 20 28 	xor  %o0, 0x28, %o0
+400081dc:	80 a0 00 08 	cmp  %g0, %o0
+400081e0:	b0 60 3f ff 	subx  %g0, -1, %i0
+400081e4:	81 c7 e0 08 	ret 
+400081e8:	81 e8 00 00 	restore 
 
-400081d0 <threadInterruptIsEnabled>:
-400081d0:	9d e3 bf a0 	save  %sp, -96, %sp
-400081d4:	98 10 20 00 	clr  %o4
-400081d8:	90 10 00 18 	mov  %i0, %o0
-400081dc:	92 10 00 19 	mov  %i1, %o1
-400081e0:	94 10 00 1a 	mov  %i2, %o2
-400081e4:	7f ff fc e5 	call  40007578 <readFromEngineConfigRegister>
-400081e8:	96 10 00 1b 	mov  %i3, %o3
-400081ec:	b1 32 20 05 	srl  %o0, 5, %i0
-400081f0:	b0 0e 20 01 	and  %i0, 1, %i0
-400081f4:	81 c7 e0 08 	ret 
-400081f8:	81 e8 00 00 	restore 
+400081ec <threadInterruptIsEnabled>:
+400081ec:	9d e3 bf a0 	save  %sp, -96, %sp
+400081f0:	98 10 20 00 	clr  %o4
+400081f4:	90 10 00 18 	mov  %i0, %o0
+400081f8:	92 10 00 19 	mov  %i1, %o1
+400081fc:	94 10 00 1a 	mov  %i2, %o2
+40008200:	7f ff fc e5 	call  40007594 <readFromEngineConfigRegister>
+40008204:	96 10 00 1b 	mov  %i3, %o3
+40008208:	b1 32 20 05 	srl  %o0, 5, %i0
+4000820c:	b0 0e 20 01 	and  %i0, 1, %i0
+40008210:	81 c7 e0 08 	ret 
+40008214:	81 e8 00 00 	restore 
 
-400081fc <runEngineThreadAndInterrupt>:
-400081fc:	9d e3 bf a0 	save  %sp, -96, %sp
-40008200:	90 10 00 18 	mov  %i0, %o0
-40008204:	ba 10 00 18 	mov  %i0, %i5
-40008208:	92 10 00 19 	mov  %i1, %o1
-4000820c:	94 10 00 1a 	mov  %i2, %o2
-40008210:	96 10 00 1b 	mov  %i3, %o3
-40008214:	7f ff ff ef 	call  400081d0 <threadInterruptIsEnabled>
-40008218:	b0 10 20 01 	mov  1, %i0
-4000821c:	80 a2 20 00 	cmp  %o0, 0
-40008220:	02 80 00 2c 	be  400082d0 <runEngineThreadAndInterrupt+0xd4>
-40008224:	90 10 00 1d 	mov  %i5, %o0
-40008228:	92 10 00 19 	mov  %i1, %o1
-4000822c:	94 10 00 1a 	mov  %i2, %o2
-40008230:	7f ff fc e1 	call  400075b4 <acquireEngineThread>
-40008234:	96 10 00 1b 	mov  %i3, %o3
-40008238:	b0 92 20 00 	orcc  %o0, 0, %i0
-4000823c:	12 80 00 25 	bne  400082d0 <runEngineThreadAndInterrupt+0xd4>
-40008240:	92 10 00 19 	mov  %i1, %o1
-40008244:	94 10 00 1a 	mov  %i2, %o2
-40008248:	96 10 00 1b 	mov  %i3, %o3
-4000824c:	98 10 20 00 	clr  %o4
-40008250:	7f ff fc ca 	call  40007578 <readFromEngineConfigRegister>
-40008254:	90 10 00 1d 	mov  %i5, %o0
-40008258:	83 2e 60 02 	sll  %i1, 2, %g1
-4000825c:	86 0a 20 fe 	and  %o0, 0xfe, %g3
-40008260:	82 00 40 1a 	add  %g1, %i2, %g1
-40008264:	83 28 60 02 	sll  %g1, 2, %g1
-40008268:	82 00 40 1b 	add  %g1, %i3, %g1
-4000826c:	82 00 60 06 	add  %g1, 6, %g1
-40008270:	83 28 60 02 	sll  %g1, 2, %g1
-40008274:	82 07 40 01 	add  %i5, %g1, %g1
-40008278:	c4 00 60 04 	ld  [ %g1 + 4 ], %g2
-4000827c:	88 00 a0 01 	add  %g2, 1, %g4
-40008280:	85 28 a0 10 	sll  %g2, 0x10, %g2
-40008284:	9a 10 00 1c 	mov  %i4, %o5
-40008288:	90 10 00 1d 	mov  %i5, %o0
-4000828c:	92 10 00 19 	mov  %i1, %o1
-40008290:	94 10 00 1a 	mov  %i2, %o2
-40008294:	96 10 00 1b 	mov  %i3, %o3
-40008298:	98 10 20 01 	mov  1, %o4
-4000829c:	b9 2e e0 0e 	sll  %i3, 0xe, %i4
-400082a0:	c8 20 60 04 	st  %g4, [ %g1 + 4 ]
-400082a4:	b8 17 24 01 	or  %i4, 0x401, %i4
-400082a8:	b8 17 00 02 	or  %i4, %g2, %i4
-400082ac:	7f ff fc a8 	call  4000754c <writeToEngineConfigRegister>
-400082b0:	b8 17 00 03 	or  %i4, %g3, %i4
-400082b4:	90 10 00 1d 	mov  %i5, %o0
-400082b8:	92 10 00 19 	mov  %i1, %o1
-400082bc:	94 10 00 1a 	mov  %i2, %o2
-400082c0:	96 10 00 1b 	mov  %i3, %o3
-400082c4:	98 10 20 00 	clr  %o4
-400082c8:	7f ff fc a1 	call  4000754c <writeToEngineConfigRegister>
-400082cc:	9a 10 00 1c 	mov  %i4, %o5
-400082d0:	81 c7 e0 08 	ret 
-400082d4:	81 e8 00 00 	restore 
+40008218 <runEngineThreadAndInterrupt>:
+40008218:	9d e3 bf a0 	save  %sp, -96, %sp
+4000821c:	90 10 00 18 	mov  %i0, %o0
+40008220:	ba 10 00 18 	mov  %i0, %i5
+40008224:	92 10 00 19 	mov  %i1, %o1
+40008228:	94 10 00 1a 	mov  %i2, %o2
+4000822c:	96 10 00 1b 	mov  %i3, %o3
+40008230:	7f ff ff ef 	call  400081ec <threadInterruptIsEnabled>
+40008234:	b0 10 20 01 	mov  1, %i0
+40008238:	80 a2 20 00 	cmp  %o0, 0
+4000823c:	02 80 00 2c 	be  400082ec <runEngineThreadAndInterrupt+0xd4>
+40008240:	90 10 00 1d 	mov  %i5, %o0
+40008244:	92 10 00 19 	mov  %i1, %o1
+40008248:	94 10 00 1a 	mov  %i2, %o2
+4000824c:	7f ff fc e1 	call  400075d0 <acquireEngineThread>
+40008250:	96 10 00 1b 	mov  %i3, %o3
+40008254:	b0 92 20 00 	orcc  %o0, 0, %i0
+40008258:	12 80 00 25 	bne  400082ec <runEngineThreadAndInterrupt+0xd4>
+4000825c:	92 10 00 19 	mov  %i1, %o1
+40008260:	94 10 00 1a 	mov  %i2, %o2
+40008264:	96 10 00 1b 	mov  %i3, %o3
+40008268:	98 10 20 00 	clr  %o4
+4000826c:	7f ff fc ca 	call  40007594 <readFromEngineConfigRegister>
+40008270:	90 10 00 1d 	mov  %i5, %o0
+40008274:	83 2e 60 02 	sll  %i1, 2, %g1
+40008278:	86 0a 20 fe 	and  %o0, 0xfe, %g3
+4000827c:	82 00 40 1a 	add  %g1, %i2, %g1
+40008280:	83 28 60 02 	sll  %g1, 2, %g1
+40008284:	82 00 40 1b 	add  %g1, %i3, %g1
+40008288:	82 00 60 06 	add  %g1, 6, %g1
+4000828c:	83 28 60 02 	sll  %g1, 2, %g1
+40008290:	82 07 40 01 	add  %i5, %g1, %g1
+40008294:	c4 00 60 04 	ld  [ %g1 + 4 ], %g2
+40008298:	88 00 a0 01 	add  %g2, 1, %g4
+4000829c:	85 28 a0 10 	sll  %g2, 0x10, %g2
+400082a0:	9a 10 00 1c 	mov  %i4, %o5
+400082a4:	90 10 00 1d 	mov  %i5, %o0
+400082a8:	92 10 00 19 	mov  %i1, %o1
+400082ac:	94 10 00 1a 	mov  %i2, %o2
+400082b0:	96 10 00 1b 	mov  %i3, %o3
+400082b4:	98 10 20 01 	mov  1, %o4
+400082b8:	b9 2e e0 0e 	sll  %i3, 0xe, %i4
+400082bc:	c8 20 60 04 	st  %g4, [ %g1 + 4 ]
+400082c0:	b8 17 24 01 	or  %i4, 0x401, %i4
+400082c4:	b8 17 00 02 	or  %i4, %g2, %i4
+400082c8:	7f ff fc a8 	call  40007568 <writeToEngineConfigRegister>
+400082cc:	b8 17 00 03 	or  %i4, %g3, %i4
+400082d0:	90 10 00 1d 	mov  %i5, %o0
+400082d4:	92 10 00 19 	mov  %i1, %o1
+400082d8:	94 10 00 1a 	mov  %i2, %o2
+400082dc:	96 10 00 1b 	mov  %i3, %o3
+400082e0:	98 10 20 00 	clr  %o4
+400082e4:	7f ff fc a1 	call  40007568 <writeToEngineConfigRegister>
+400082e8:	9a 10 00 1c 	mov  %i4, %o5
+400082ec:	81 c7 e0 08 	ret 
+400082f0:	81 e8 00 00 	restore 
 
-400082d8 <runEngineThreadAndPoll>:
-400082d8:	9d e3 bf a0 	save  %sp, -96, %sp
-400082dc:	90 10 00 18 	mov  %i0, %o0
-400082e0:	92 10 00 19 	mov  %i1, %o1
-400082e4:	94 10 00 1a 	mov  %i2, %o2
-400082e8:	7f ff ff ba 	call  400081d0 <threadInterruptIsEnabled>
-400082ec:	96 10 00 1b 	mov  %i3, %o3
-400082f0:	80 a2 20 00 	cmp  %o0, 0
-400082f4:	02 80 00 04 	be  40008304 <runEngineThreadAndPoll+0x2c>
-400082f8:	82 10 20 01 	mov  1, %g1
-400082fc:	81 c7 e0 08 	ret 
-40008300:	91 e8 00 01 	restore  %g0, %g1, %o0
-40008304:	90 10 00 18 	mov  %i0, %o0
-40008308:	92 10 00 19 	mov  %i1, %o1
-4000830c:	94 10 00 1a 	mov  %i2, %o2
-40008310:	7f ff fc a9 	call  400075b4 <acquireEngineThread>
-40008314:	96 10 00 1b 	mov  %i3, %o3
-40008318:	82 92 20 00 	orcc  %o0, 0, %g1
-4000831c:	12 bf ff f8 	bne  400082fc <runEngineThreadAndPoll+0x24>
-40008320:	92 10 00 19 	mov  %i1, %o1
-40008324:	94 10 00 1a 	mov  %i2, %o2
-40008328:	96 10 00 1b 	mov  %i3, %o3
-4000832c:	98 10 20 00 	clr  %o4
-40008330:	7f ff fc 92 	call  40007578 <readFromEngineConfigRegister>
-40008334:	90 10 00 18 	mov  %i0, %o0
-40008338:	83 2e 60 02 	sll  %i1, 2, %g1
-4000833c:	86 0a 20 fe 	and  %o0, 0xfe, %g3
-40008340:	82 00 40 1a 	add  %g1, %i2, %g1
-40008344:	83 28 60 02 	sll  %g1, 2, %g1
-40008348:	82 00 40 1b 	add  %g1, %i3, %g1
-4000834c:	82 00 60 06 	add  %g1, 6, %g1
-40008350:	83 28 60 02 	sll  %g1, 2, %g1
-40008354:	82 06 00 01 	add  %i0, %g1, %g1
-40008358:	c4 00 60 04 	ld  [ %g1 + 4 ], %g2
-4000835c:	88 00 a0 01 	add  %g2, 1, %g4
-40008360:	85 28 a0 10 	sll  %g2, 0x10, %g2
-40008364:	98 10 20 01 	mov  1, %o4
-40008368:	9a 10 00 1c 	mov  %i4, %o5
-4000836c:	90 10 00 18 	mov  %i0, %o0
-40008370:	92 10 00 19 	mov  %i1, %o1
-40008374:	94 10 00 1a 	mov  %i2, %o2
-40008378:	96 10 00 1b 	mov  %i3, %o3
-4000837c:	c8 20 60 04 	st  %g4, [ %g1 + 4 ]
-40008380:	bb 2e e0 0e 	sll  %i3, 0xe, %i5
-40008384:	ba 17 64 01 	or  %i5, 0x401, %i5
-40008388:	ba 17 40 02 	or  %i5, %g2, %i5
-4000838c:	7f ff fc 70 	call  4000754c <writeToEngineConfigRegister>
-40008390:	ba 17 40 03 	or  %i5, %g3, %i5
-40008394:	90 10 00 18 	mov  %i0, %o0
-40008398:	92 10 00 19 	mov  %i1, %o1
-4000839c:	94 10 00 1a 	mov  %i2, %o2
-400083a0:	96 10 00 1b 	mov  %i3, %o3
-400083a4:	98 10 20 00 	clr  %o4
-400083a8:	7f ff fc 69 	call  4000754c <writeToEngineConfigRegister>
-400083ac:	9a 10 00 1d 	mov  %i5, %o5
+400082f4 <runEngineThreadAndPoll>:
+400082f4:	9d e3 bf a0 	save  %sp, -96, %sp
+400082f8:	90 10 00 18 	mov  %i0, %o0
+400082fc:	92 10 00 19 	mov  %i1, %o1
+40008300:	94 10 00 1a 	mov  %i2, %o2
+40008304:	7f ff ff ba 	call  400081ec <threadInterruptIsEnabled>
+40008308:	96 10 00 1b 	mov  %i3, %o3
+4000830c:	80 a2 20 00 	cmp  %o0, 0
+40008310:	02 80 00 04 	be  40008320 <runEngineThreadAndPoll+0x2c>
+40008314:	82 10 20 01 	mov  1, %g1
+40008318:	81 c7 e0 08 	ret 
+4000831c:	91 e8 00 01 	restore  %g0, %g1, %o0
+40008320:	90 10 00 18 	mov  %i0, %o0
+40008324:	92 10 00 19 	mov  %i1, %o1
+40008328:	94 10 00 1a 	mov  %i2, %o2
+4000832c:	7f ff fc a9 	call  400075d0 <acquireEngineThread>
+40008330:	96 10 00 1b 	mov  %i3, %o3
+40008334:	82 92 20 00 	orcc  %o0, 0, %g1
+40008338:	12 bf ff f8 	bne  40008318 <runEngineThreadAndPoll+0x24>
+4000833c:	92 10 00 19 	mov  %i1, %o1
+40008340:	94 10 00 1a 	mov  %i2, %o2
+40008344:	96 10 00 1b 	mov  %i3, %o3
+40008348:	98 10 20 00 	clr  %o4
+4000834c:	7f ff fc 92 	call  40007594 <readFromEngineConfigRegister>
+40008350:	90 10 00 18 	mov  %i0, %o0
+40008354:	83 2e 60 02 	sll  %i1, 2, %g1
+40008358:	86 0a 20 fe 	and  %o0, 0xfe, %g3
+4000835c:	82 00 40 1a 	add  %g1, %i2, %g1
+40008360:	83 28 60 02 	sll  %g1, 2, %g1
+40008364:	82 00 40 1b 	add  %g1, %i3, %g1
+40008368:	82 00 60 06 	add  %g1, 6, %g1
+4000836c:	83 28 60 02 	sll  %g1, 2, %g1
+40008370:	82 06 00 01 	add  %i0, %g1, %g1
+40008374:	c4 00 60 04 	ld  [ %g1 + 4 ], %g2
+40008378:	88 00 a0 01 	add  %g2, 1, %g4
+4000837c:	85 28 a0 10 	sll  %g2, 0x10, %g2
+40008380:	98 10 20 01 	mov  1, %o4
+40008384:	9a 10 00 1c 	mov  %i4, %o5
+40008388:	90 10 00 18 	mov  %i0, %o0
+4000838c:	92 10 00 19 	mov  %i1, %o1
+40008390:	94 10 00 1a 	mov  %i2, %o2
+40008394:	96 10 00 1b 	mov  %i3, %o3
+40008398:	c8 20 60 04 	st  %g4, [ %g1 + 4 ]
+4000839c:	bb 2e e0 0e 	sll  %i3, 0xe, %i5
+400083a0:	ba 17 64 01 	or  %i5, 0x401, %i5
+400083a4:	ba 17 40 02 	or  %i5, %g2, %i5
+400083a8:	7f ff fc 70 	call  40007568 <writeToEngineConfigRegister>
+400083ac:	ba 17 40 03 	or  %i5, %g3, %i5
 400083b0:	90 10 00 18 	mov  %i0, %o0
 400083b4:	92 10 00 19 	mov  %i1, %o1
 400083b8:	94 10 00 1a 	mov  %i2, %o2
-400083bc:	7f ff fc 89 	call  400075e0 <waitOnEngineThreadCompletion>
-400083c0:	96 10 00 1b 	mov  %i3, %o3
-400083c4:	90 10 00 18 	mov  %i0, %o0
-400083c8:	92 10 00 19 	mov  %i1, %o1
-400083cc:	94 10 00 1a 	mov  %i2, %o2
-400083d0:	7f ff fc 9c 	call  40007640 <releaseEngineThread>
-400083d4:	96 10 00 1b 	mov  %i3, %o3
-400083d8:	82 92 20 00 	orcc  %o0, 0, %g1
-400083dc:	12 bf ff fb 	bne  400083c8 <runEngineThreadAndPoll+0xf0>
+400083bc:	96 10 00 1b 	mov  %i3, %o3
+400083c0:	98 10 20 00 	clr  %o4
+400083c4:	7f ff fc 69 	call  40007568 <writeToEngineConfigRegister>
+400083c8:	9a 10 00 1d 	mov  %i5, %o5
+400083cc:	90 10 00 18 	mov  %i0, %o0
+400083d0:	92 10 00 19 	mov  %i1, %o1
+400083d4:	94 10 00 1a 	mov  %i2, %o2
+400083d8:	7f ff fc 89 	call  400075fc <waitOnEngineThreadCompletion>
+400083dc:	96 10 00 1b 	mov  %i3, %o3
 400083e0:	90 10 00 18 	mov  %i0, %o0
-400083e4:	81 c7 e0 08 	ret 
-400083e8:	91 e8 00 01 	restore  %g0, %g1, %o0
+400083e4:	92 10 00 19 	mov  %i1, %o1
+400083e8:	94 10 00 1a 	mov  %i2, %o2
+400083ec:	7f ff fc 9c 	call  4000765c <releaseEngineThread>
+400083f0:	96 10 00 1b 	mov  %i3, %o3
+400083f4:	82 92 20 00 	orcc  %o0, 0, %g1
+400083f8:	12 bf ff fb 	bne  400083e4 <runEngineThreadAndPoll+0xf0>
+400083fc:	90 10 00 18 	mov  %i0, %o0
+40008400:	81 c7 e0 08 	ret 
+40008404:	91 e8 00 01 	restore  %g0, %g1, %o0
 
-400083ec <enableDmaCommandDaemon>:
-400083ec:	81 c3 e0 08 	retl 
-400083f0:	01 00 00 00 	nop 
+40008408 <enableDmaCommandDaemon>:
+40008408:	81 c3 e0 08 	retl 
+4000840c:	01 00 00 00 	nop 
 
-400083f4 <enableDmaInterrupt>:
-400083f4:	98 10 20 20 	mov  0x20, %o4	! 20 <__DYNAMIC+0x20>
-400083f8:	82 13 c0 00 	mov  %o7, %g1
-400083fc:	7f ff fc e0 	call  4000777c <__set_dma_flags__>
-40008400:	9e 10 40 00 	mov  %g1, %o7
+40008410 <enableDmaInterrupt>:
+40008410:	98 10 20 20 	mov  0x20, %o4	! 20 <__DYNAMIC+0x20>
+40008414:	82 13 c0 00 	mov  %o7, %g1
+40008418:	7f ff fc e0 	call  40007798 <__set_dma_flags__>
+4000841c:	9e 10 40 00 	mov  %g1, %o7
 
-40008404 <disableDmaInterrupt>:
-40008404:	98 10 20 20 	mov  0x20, %o4
-40008408:	82 13 c0 00 	mov  %o7, %g1
-4000840c:	7f ff fc d0 	call  4000774c <__clear_dma_flags__>
-40008410:	9e 10 40 00 	mov  %g1, %o7
+40008420 <disableDmaInterrupt>:
+40008420:	98 10 20 20 	mov  0x20, %o4
+40008424:	82 13 c0 00 	mov  %o7, %g1
+40008428:	7f ff fc d0 	call  40007768 <__clear_dma_flags__>
+4000842c:	9e 10 40 00 	mov  %g1, %o7
 
-40008414 <clearDmaInterrupt>:
-40008414:	98 10 20 08 	mov  8, %o4
-40008418:	82 13 c0 00 	mov  %o7, %g1
-4000841c:	7f ff fc cc 	call  4000774c <__clear_dma_flags__>
-40008420:	9e 10 40 00 	mov  %g1, %o7
+40008430 <clearDmaInterrupt>:
+40008430:	98 10 20 08 	mov  8, %o4
+40008434:	82 13 c0 00 	mov  %o7, %g1
+40008438:	7f ff fc cc 	call  40007768 <__clear_dma_flags__>
+4000843c:	9e 10 40 00 	mov  %g1, %o7
 
-40008424 <dmaInterruptIsSet>:
-40008424:	9d e3 bf a0 	save  %sp, -96, %sp
-40008428:	98 10 20 00 	clr  %o4
-4000842c:	90 10 00 18 	mov  %i0, %o0
-40008430:	92 10 00 19 	mov  %i1, %o1
-40008434:	94 10 00 1a 	mov  %i2, %o2
-40008438:	7f ff fc aa 	call  400076e0 <readFromDmaConfigRegister>
-4000843c:	96 10 00 1b 	mov  %i3, %o3
-40008440:	90 0a 20 28 	and  %o0, 0x28, %o0
-40008444:	90 1a 20 28 	xor  %o0, 0x28, %o0
-40008448:	80 a0 00 08 	cmp  %g0, %o0
-4000844c:	b0 60 3f ff 	subx  %g0, -1, %i0
-40008450:	81 c7 e0 08 	ret 
-40008454:	81 e8 00 00 	restore 
+40008440 <dmaInterruptIsSet>:
+40008440:	9d e3 bf a0 	save  %sp, -96, %sp
+40008444:	98 10 20 00 	clr  %o4
+40008448:	90 10 00 18 	mov  %i0, %o0
+4000844c:	92 10 00 19 	mov  %i1, %o1
+40008450:	94 10 00 1a 	mov  %i2, %o2
+40008454:	7f ff fc aa 	call  400076fc <readFromDmaConfigRegister>
+40008458:	96 10 00 1b 	mov  %i3, %o3
+4000845c:	90 0a 20 28 	and  %o0, 0x28, %o0
+40008460:	90 1a 20 28 	xor  %o0, 0x28, %o0
+40008464:	80 a0 00 08 	cmp  %g0, %o0
+40008468:	b0 60 3f ff 	subx  %g0, -1, %i0
+4000846c:	81 c7 e0 08 	ret 
+40008470:	81 e8 00 00 	restore 
 
-40008458 <decodeRetireMessage>:
-40008458:	83 32 20 1c 	srl  %o0, 0x1c, %g1
-4000845c:	c2 2a 40 00 	stb  %g1, [ %o1 ]
-40008460:	83 32 20 1a 	srl  %o0, 0x1a, %g1
-40008464:	82 08 60 01 	and  %g1, 1, %g1
-40008468:	c2 2a 80 00 	stb  %g1, [ %o2 ]
-4000846c:	83 32 20 18 	srl  %o0, 0x18, %g1
-40008470:	82 08 60 03 	and  %g1, 3, %g1
-40008474:	c2 2a c0 00 	stb  %g1, [ %o3 ]
-40008478:	83 32 20 10 	srl  %o0, 0x10, %g1
-4000847c:	c2 2b 00 00 	stb  %g1, [ %o4 ]
-40008480:	81 c3 e0 08 	retl 
-40008484:	d0 33 40 00 	sth  %o0, [ %o5 ]
+40008474 <decodeRetireMessage>:
+40008474:	83 32 20 1c 	srl  %o0, 0x1c, %g1
+40008478:	c2 2a 40 00 	stb  %g1, [ %o1 ]
+4000847c:	83 32 20 1a 	srl  %o0, 0x1a, %g1
+40008480:	82 08 60 01 	and  %g1, 1, %g1
+40008484:	c2 2a 80 00 	stb  %g1, [ %o2 ]
+40008488:	83 32 20 18 	srl  %o0, 0x18, %g1
+4000848c:	82 08 60 03 	and  %g1, 3, %g1
+40008490:	c2 2a c0 00 	stb  %g1, [ %o3 ]
+40008494:	83 32 20 10 	srl  %o0, 0x10, %g1
+40008498:	c2 2b 00 00 	stb  %g1, [ %o4 ]
+4000849c:	81 c3 e0 08 	retl 
+400084a0:	d0 33 40 00 	sth  %o0, [ %o5 ]
 
-40008488 <readGlobalTickTimer>:
-40008488:	9d e3 bf 98 	save  %sp, -104, %sp
-4000848c:	b8 10 20 00 	clr  %i4
-40008490:	90 10 00 18 	mov  %i0, %o0
-40008494:	92 10 00 19 	mov  %i1, %o1
-40008498:	94 10 00 1a 	mov  %i2, %o2
-4000849c:	96 10 00 1b 	mov  %i3, %o3
-400084a0:	7f ff fc 45 	call  400075b4 <acquireEngineThread>
-400084a4:	ba 10 20 00 	clr  %i5
-400084a8:	80 a2 20 00 	cmp  %o0, 0
-400084ac:	02 80 00 05 	be  400084c0 <readGlobalTickTimer+0x38>
+400084a4 <readGlobalTickTimer>:
+400084a4:	9d e3 bf 98 	save  %sp, -104, %sp
+400084a8:	b8 10 20 00 	clr  %i4
+400084ac:	90 10 00 18 	mov  %i0, %o0
 400084b0:	92 10 00 19 	mov  %i1, %o1
-400084b4:	b0 10 00 1c 	mov  %i4, %i0
-400084b8:	81 c7 e0 08 	ret 
-400084bc:	93 e8 00 1d 	restore  %g0, %i5, %o1
-400084c0:	94 10 00 1a 	mov  %i2, %o2
-400084c4:	96 10 00 1b 	mov  %i3, %o3
-400084c8:	98 10 20 00 	clr  %o4
-400084cc:	7f ff fc 2b 	call  40007578 <readFromEngineConfigRegister>
-400084d0:	90 10 00 18 	mov  %i0, %o0
-400084d4:	83 2e 60 02 	sll  %i1, 2, %g1
-400084d8:	86 0a 20 fe 	and  %o0, 0xfe, %g3
-400084dc:	89 2e e0 0e 	sll  %i3, 0xe, %g4
-400084e0:	82 00 40 1a 	add  %g1, %i2, %g1
-400084e4:	88 11 2a 01 	or  %g4, 0xa01, %g4
-400084e8:	83 28 60 02 	sll  %g1, 2, %g1
-400084ec:	82 00 40 1b 	add  %g1, %i3, %g1
-400084f0:	82 00 60 06 	add  %g1, 6, %g1
-400084f4:	83 28 60 02 	sll  %g1, 2, %g1
-400084f8:	82 06 00 01 	add  %i0, %g1, %g1
-400084fc:	c4 00 60 04 	ld  [ %g1 + 4 ], %g2
-40008500:	ba 00 a0 01 	add  %g2, 1, %i5
-40008504:	85 28 a0 10 	sll  %g2, 0x10, %g2
-40008508:	fa 20 60 04 	st  %i5, [ %g1 + 4 ]
-4000850c:	84 11 00 02 	or  %g4, %g2, %g2
-40008510:	84 10 80 03 	or  %g2, %g3, %g2
-40008514:	9a 10 20 00 	clr  %o5
-40008518:	c4 23 a0 5c 	st  %g2, [ %sp + 0x5c ]
-4000851c:	98 10 00 1b 	mov  %i3, %o4
-40008520:	90 10 00 18 	mov  %i0, %o0
-40008524:	92 10 20 00 	clr  %o1
-40008528:	94 10 00 19 	mov  %i1, %o2
-4000852c:	40 00 00 9a 	call  40008794 <writeToConfigRegister>
-40008530:	96 10 00 1a 	mov  %i2, %o3
-40008534:	90 10 00 18 	mov  %i0, %o0
-40008538:	92 10 00 19 	mov  %i1, %o1
-4000853c:	94 10 00 1a 	mov  %i2, %o2
-40008540:	7f ff fc 28 	call  400075e0 <waitOnEngineThreadCompletion>
-40008544:	96 10 00 1b 	mov  %i3, %o3
-40008548:	92 10 00 19 	mov  %i1, %o1
-4000854c:	94 10 00 1a 	mov  %i2, %o2
-40008550:	96 10 00 1b 	mov  %i3, %o3
-40008554:	98 10 20 03 	mov  3, %o4
-40008558:	7f ff fc 08 	call  40007578 <readFromEngineConfigRegister>
-4000855c:	90 10 00 18 	mov  %i0, %o0
-40008560:	92 10 00 19 	mov  %i1, %o1
-40008564:	a0 10 00 08 	mov  %o0, %l0
+400084b4:	94 10 00 1a 	mov  %i2, %o2
+400084b8:	96 10 00 1b 	mov  %i3, %o3
+400084bc:	7f ff fc 45 	call  400075d0 <acquireEngineThread>
+400084c0:	ba 10 20 00 	clr  %i5
+400084c4:	80 a2 20 00 	cmp  %o0, 0
+400084c8:	02 80 00 05 	be  400084dc <readGlobalTickTimer+0x38>
+400084cc:	92 10 00 19 	mov  %i1, %o1
+400084d0:	b0 10 00 1c 	mov  %i4, %i0
+400084d4:	81 c7 e0 08 	ret 
+400084d8:	93 e8 00 1d 	restore  %g0, %i5, %o1
+400084dc:	94 10 00 1a 	mov  %i2, %o2
+400084e0:	96 10 00 1b 	mov  %i3, %o3
+400084e4:	98 10 20 00 	clr  %o4
+400084e8:	7f ff fc 2b 	call  40007594 <readFromEngineConfigRegister>
+400084ec:	90 10 00 18 	mov  %i0, %o0
+400084f0:	83 2e 60 02 	sll  %i1, 2, %g1
+400084f4:	86 0a 20 fe 	and  %o0, 0xfe, %g3
+400084f8:	89 2e e0 0e 	sll  %i3, 0xe, %g4
+400084fc:	82 00 40 1a 	add  %g1, %i2, %g1
+40008500:	88 11 2a 01 	or  %g4, 0xa01, %g4
+40008504:	83 28 60 02 	sll  %g1, 2, %g1
+40008508:	82 00 40 1b 	add  %g1, %i3, %g1
+4000850c:	82 00 60 06 	add  %g1, 6, %g1
+40008510:	83 28 60 02 	sll  %g1, 2, %g1
+40008514:	82 06 00 01 	add  %i0, %g1, %g1
+40008518:	c4 00 60 04 	ld  [ %g1 + 4 ], %g2
+4000851c:	ba 00 a0 01 	add  %g2, 1, %i5
+40008520:	85 28 a0 10 	sll  %g2, 0x10, %g2
+40008524:	fa 20 60 04 	st  %i5, [ %g1 + 4 ]
+40008528:	84 11 00 02 	or  %g4, %g2, %g2
+4000852c:	84 10 80 03 	or  %g2, %g3, %g2
+40008530:	9a 10 20 00 	clr  %o5
+40008534:	c4 23 a0 5c 	st  %g2, [ %sp + 0x5c ]
+40008538:	98 10 00 1b 	mov  %i3, %o4
+4000853c:	90 10 00 18 	mov  %i0, %o0
+40008540:	92 10 20 00 	clr  %o1
+40008544:	94 10 00 19 	mov  %i1, %o2
+40008548:	40 00 00 e8 	call  400088e8 <writeToConfigRegister>
+4000854c:	96 10 00 1a 	mov  %i2, %o3
+40008550:	90 10 00 18 	mov  %i0, %o0
+40008554:	92 10 00 19 	mov  %i1, %o1
+40008558:	94 10 00 1a 	mov  %i2, %o2
+4000855c:	7f ff fc 28 	call  400075fc <waitOnEngineThreadCompletion>
+40008560:	96 10 00 1b 	mov  %i3, %o3
+40008564:	92 10 00 19 	mov  %i1, %o1
 40008568:	94 10 00 1a 	mov  %i2, %o2
-4000856c:	90 10 00 18 	mov  %i0, %o0
-40008570:	96 10 00 1b 	mov  %i3, %o3
-40008574:	7f ff fc 01 	call  40007578 <readFromEngineConfigRegister>
-40008578:	98 10 20 04 	mov  4, %o4
-4000857c:	86 10 20 00 	clr  %g3
-40008580:	92 10 00 08 	mov  %o0, %o1
-40008584:	90 10 20 00 	clr  %o0
-40008588:	ba 10 c0 09 	or  %g3, %o1, %i5
-4000858c:	b8 14 00 08 	or  %l0, %o0, %i4
-40008590:	90 10 00 18 	mov  %i0, %o0
-40008594:	92 10 00 19 	mov  %i1, %o1
-40008598:	94 10 00 1a 	mov  %i2, %o2
-4000859c:	7f ff fc 29 	call  40007640 <releaseEngineThread>
-400085a0:	96 10 00 1b 	mov  %i3, %o3
-400085a4:	80 a2 20 00 	cmp  %o0, 0
-400085a8:	32 bf ff fb 	bne,a   40008594 <readGlobalTickTimer+0x10c>
+4000856c:	96 10 00 1b 	mov  %i3, %o3
+40008570:	98 10 20 03 	mov  3, %o4
+40008574:	7f ff fc 08 	call  40007594 <readFromEngineConfigRegister>
+40008578:	90 10 00 18 	mov  %i0, %o0
+4000857c:	92 10 00 19 	mov  %i1, %o1
+40008580:	a0 10 00 08 	mov  %o0, %l0
+40008584:	94 10 00 1a 	mov  %i2, %o2
+40008588:	90 10 00 18 	mov  %i0, %o0
+4000858c:	96 10 00 1b 	mov  %i3, %o3
+40008590:	7f ff fc 01 	call  40007594 <readFromEngineConfigRegister>
+40008594:	98 10 20 04 	mov  4, %o4
+40008598:	86 10 20 00 	clr  %g3
+4000859c:	92 10 00 08 	mov  %o0, %o1
+400085a0:	90 10 20 00 	clr  %o0
+400085a4:	ba 10 c0 09 	or  %g3, %o1, %i5
+400085a8:	b8 14 00 08 	or  %l0, %o0, %i4
 400085ac:	90 10 00 18 	mov  %i0, %o0
-400085b0:	b0 10 00 1c 	mov  %i4, %i0
-400085b4:	81 c7 e0 08 	ret 
-400085b8:	93 e8 00 1d 	restore  %g0, %i5, %o1
+400085b0:	92 10 00 19 	mov  %i1, %o1
+400085b4:	94 10 00 1a 	mov  %i2, %o2
+400085b8:	7f ff fc 29 	call  4000765c <releaseEngineThread>
+400085bc:	96 10 00 1b 	mov  %i3, %o3
+400085c0:	80 a2 20 00 	cmp  %o0, 0
+400085c4:	32 bf ff fb 	bne,a   400085b0 <readGlobalTickTimer+0x10c>
+400085c8:	90 10 00 18 	mov  %i0, %o0
+400085cc:	b0 10 00 1c 	mov  %i4, %i0
+400085d0:	81 c7 e0 08 	ret 
+400085d4:	93 e8 00 1d 	restore  %g0, %i5, %o1
 
-400085bc <printExceptionKind>:
-400085bc:	80 a2 60 06 	cmp  %o1, 6
-400085c0:	08 80 00 08 	bleu  400085e0 <printExceptionKind+0x24>
-400085c4:	93 2a 60 02 	sll  %o1, 2, %o1
-400085c8:	92 10 00 08 	mov  %o0, %o1
-400085cc:	11 10 00 49 	sethi  %hi(0x40012400), %o0
-400085d0:	90 12 22 78 	or  %o0, 0x278, %o0	! 40012678 <__clz_tab+0x5e8>
-400085d4:	82 13 c0 00 	mov  %o7, %g1
-400085d8:	7f ff e3 a8 	call  40001478 <cortos_printf>
-400085dc:	9e 10 40 00 	mov  %g1, %o7
-400085e0:	03 10 00 1c 	sethi  %hi(0x40007000), %g1
-400085e4:	82 10 63 e8 	or  %g1, 0x3e8, %g1	! 400073e8 <got_result+0x14>
-400085e8:	c2 00 40 09 	ld  [ %g1 + %o1 ], %g1
-400085ec:	81 c0 40 00 	jmp  %g1
-400085f0:	01 00 00 00 	nop 
-400085f4:	92 10 00 08 	mov  %o0, %o1
-400085f8:	11 10 00 49 	sethi  %hi(0x40012400), %o0
-400085fc:	90 12 22 48 	or  %o0, 0x248, %o0	! 40012648 <__clz_tab+0x5b8>
-40008600:	82 13 c0 00 	mov  %o7, %g1
-40008604:	7f ff e3 9d 	call  40001478 <cortos_printf>
-40008608:	9e 10 40 00 	mov  %g1, %o7
-4000860c:	92 10 00 08 	mov  %o0, %o1
-40008610:	11 10 00 49 	sethi  %hi(0x40012400), %o0
-40008614:	90 12 21 68 	or  %o0, 0x168, %o0	! 40012568 <__clz_tab+0x4d8>
-40008618:	82 13 c0 00 	mov  %o7, %g1
-4000861c:	7f ff e3 97 	call  40001478 <cortos_printf>
-40008620:	9e 10 40 00 	mov  %g1, %o7
-40008624:	92 10 00 08 	mov  %o0, %o1
-40008628:	11 10 00 49 	sethi  %hi(0x40012400), %o0
-4000862c:	90 12 21 90 	or  %o0, 0x190, %o0	! 40012590 <__clz_tab+0x500>
-40008630:	82 13 c0 00 	mov  %o7, %g1
-40008634:	7f ff e3 91 	call  40001478 <cortos_printf>
-40008638:	9e 10 40 00 	mov  %g1, %o7
-4000863c:	92 10 00 08 	mov  %o0, %o1
-40008640:	11 10 00 49 	sethi  %hi(0x40012400), %o0
-40008644:	90 12 21 b8 	or  %o0, 0x1b8, %o0	! 400125b8 <__clz_tab+0x528>
-40008648:	82 13 c0 00 	mov  %o7, %g1
-4000864c:	7f ff e3 8b 	call  40001478 <cortos_printf>
-40008650:	9e 10 40 00 	mov  %g1, %o7
-40008654:	92 10 00 08 	mov  %o0, %o1
-40008658:	11 10 00 49 	sethi  %hi(0x40012400), %o0
-4000865c:	90 12 21 e8 	or  %o0, 0x1e8, %o0	! 400125e8 <__clz_tab+0x558>
-40008660:	82 13 c0 00 	mov  %o7, %g1
-40008664:	7f ff e3 85 	call  40001478 <cortos_printf>
-40008668:	9e 10 40 00 	mov  %g1, %o7
-4000866c:	92 10 00 08 	mov  %o0, %o1
-40008670:	11 10 00 49 	sethi  %hi(0x40012400), %o0
-40008674:	90 12 22 18 	or  %o0, 0x218, %o0	! 40012618 <__clz_tab+0x588>
-40008678:	82 13 c0 00 	mov  %o7, %g1
-4000867c:	7f ff e3 7f 	call  40001478 <cortos_printf>
-40008680:	9e 10 40 00 	mov  %g1, %o7
+400085d8 <fillLaneException>:
+400085d8:	c0 2a 00 00 	clrb  [ %o0 ]
+400085dc:	c0 2a 20 01 	clrb  [ %o0 + 1 ]
+400085e0:	c0 2a 20 02 	clrb  [ %o0 + 2 ]
+400085e4:	c0 2a 20 03 	clrb  [ %o0 + 3 ]
+400085e8:	c0 2a 20 04 	clrb  [ %o0 + 4 ]
+400085ec:	c0 2a 20 05 	clrb  [ %o0 + 5 ]
+400085f0:	80 a2 60 06 	cmp  %o1, 6
+400085f4:	08 80 00 05 	bleu  40008608 <fillLaneException+0x30>
+400085f8:	c0 2a 20 06 	clrb  [ %o0 + 6 ]
+400085fc:	82 10 20 01 	mov  1, %g1
+40008600:	81 c3 e0 08 	retl 
+40008604:	c2 2a 20 06 	stb  %g1, [ %o0 + 6 ]
+40008608:	93 2a 60 02 	sll  %o1, 2, %o1
+4000860c:	03 10 00 1c 	sethi  %hi(0x40007000), %g1
+40008610:	82 10 63 e8 	or  %g1, 0x3e8, %g1	! 400073e8 <got_result+0x14>
+40008614:	c2 00 40 09 	ld  [ %g1 + %o1 ], %g1
+40008618:	81 c0 40 00 	jmp  %g1
+4000861c:	01 00 00 00 	nop 
+40008620:	82 10 20 01 	mov  1, %g1	! 1 <__DYNAMIC+0x1>
+40008624:	81 c3 e0 08 	retl 
+40008628:	c2 2a 20 05 	stb  %g1, [ %o0 + 5 ]
+4000862c:	82 10 20 01 	mov  1, %g1
+40008630:	81 c3 e0 08 	retl 
+40008634:	c2 2a 00 00 	stb  %g1, [ %o0 ]
+40008638:	82 10 20 01 	mov  1, %g1
+4000863c:	81 c3 e0 08 	retl 
+40008640:	c2 2a 20 01 	stb  %g1, [ %o0 + 1 ]
+40008644:	82 10 20 01 	mov  1, %g1
+40008648:	81 c3 e0 08 	retl 
+4000864c:	c2 2a 20 02 	stb  %g1, [ %o0 + 2 ]
+40008650:	82 10 20 01 	mov  1, %g1
+40008654:	81 c3 e0 08 	retl 
+40008658:	c2 2a 20 03 	stb  %g1, [ %o0 + 3 ]
+4000865c:	82 10 20 01 	mov  1, %g1
+40008660:	81 c3 e0 08 	retl 
+40008664:	c2 2a 20 04 	stb  %g1, [ %o0 + 4 ]
 
-40008684 <parseEngineThreadExceptions>:
-40008684:	9d e3 bf a0 	save  %sp, -96, %sp
-40008688:	11 10 00 49 	sethi  %hi(0x40012400), %o0
-4000868c:	7f ff e3 7b 	call  40001478 <cortos_printf>
-40008690:	90 12 22 90 	or  %o0, 0x290, %o0	! 40012690 <__clz_tab+0x600>
-40008694:	a9 36 20 1a 	srl  %i0, 0x1a, %l4
-40008698:	a7 36 20 18 	srl  %i0, 0x18, %l3
-4000869c:	a5 36 20 15 	srl  %i0, 0x15, %l2
-400086a0:	a3 36 20 12 	srl  %i0, 0x12, %l1
-400086a4:	a1 36 20 0f 	srl  %i0, 0xf, %l0
-400086a8:	b5 36 20 0c 	srl  %i0, 0xc, %i2
-400086ac:	b7 36 20 09 	srl  %i0, 9, %i3
-400086b0:	b9 36 20 06 	srl  %i0, 6, %i4
-400086b4:	bb 36 20 03 	srl  %i0, 3, %i5
-400086b8:	b2 0e 20 07 	and  %i0, 7, %i1
-400086bc:	a8 0d 20 01 	and  %l4, 1, %l4
-400086c0:	b1 36 20 19 	srl  %i0, 0x19, %i0
-400086c4:	a6 0c e0 01 	and  %l3, 1, %l3
-400086c8:	a4 0c a0 07 	and  %l2, 7, %l2
-400086cc:	a2 0c 60 07 	and  %l1, 7, %l1
-400086d0:	a0 0c 20 07 	and  %l0, 7, %l0
-400086d4:	b4 0e a0 07 	and  %i2, 7, %i2
-400086d8:	b6 0e e0 07 	and  %i3, 7, %i3
-400086dc:	b8 0f 20 07 	and  %i4, 7, %i4
-400086e0:	80 8e 20 01 	btst  1, %i0
-400086e4:	12 80 00 27 	bne  40008780 <parseEngineThreadExceptions+0xfc>
-400086e8:	ba 0f 60 07 	and  %i5, 7, %i5
-400086ec:	80 a5 20 00 	cmp  %l4, 0
-400086f0:	32 80 00 20 	bne,a   40008770 <parseEngineThreadExceptions+0xec>
-400086f4:	11 10 00 49 	sethi  %hi(0x40012400), %o0
-400086f8:	80 a4 e0 00 	cmp  %l3, 0
-400086fc:	02 80 00 06 	be  40008714 <parseEngineThreadExceptions+0x90>
-40008700:	92 10 00 12 	mov  %l2, %o1
-40008704:	11 10 00 49 	sethi  %hi(0x40012400), %o0
-40008708:	7f ff e3 5c 	call  40001478 <cortos_printf>
-4000870c:	90 12 22 d8 	or  %o0, 0x2d8, %o0	! 400126d8 <__clz_tab+0x648>
-40008710:	92 10 00 12 	mov  %l2, %o1
-40008714:	7f ff ff aa 	call  400085bc <printExceptionKind>
-40008718:	90 10 20 00 	clr  %o0
-4000871c:	92 10 00 11 	mov  %l1, %o1
-40008720:	7f ff ff a7 	call  400085bc <printExceptionKind>
-40008724:	90 10 20 01 	mov  1, %o0
-40008728:	92 10 00 10 	mov  %l0, %o1
-4000872c:	7f ff ff a4 	call  400085bc <printExceptionKind>
-40008730:	90 10 20 02 	mov  2, %o0
-40008734:	92 10 00 1a 	mov  %i2, %o1
-40008738:	7f ff ff a1 	call  400085bc <printExceptionKind>
-4000873c:	90 10 20 03 	mov  3, %o0
-40008740:	92 10 00 1b 	mov  %i3, %o1
-40008744:	7f ff ff 9e 	call  400085bc <printExceptionKind>
-40008748:	90 10 20 04 	mov  4, %o0
-4000874c:	92 10 00 1c 	mov  %i4, %o1
-40008750:	7f ff ff 9b 	call  400085bc <printExceptionKind>
-40008754:	90 10 20 05 	mov  5, %o0
-40008758:	90 10 20 06 	mov  6, %o0
-4000875c:	92 10 00 1d 	mov  %i5, %o1
-40008760:	7f ff ff 97 	call  400085bc <printExceptionKind>
-40008764:	b0 10 20 07 	mov  7, %i0
-40008768:	7f ff ff 95 	call  400085bc <printExceptionKind>
-4000876c:	81 e8 00 00 	restore 
+40008668 <fillEngineThreadExceptions>:
+40008668:	9d e3 bf a0 	save  %sp, -96, %sp
+4000866c:	83 36 60 19 	srl  %i1, 0x19, %g1
+40008670:	82 08 60 01 	and  %g1, 1, %g1
+40008674:	85 36 60 1a 	srl  %i1, 0x1a, %g2
+40008678:	c2 2e 20 01 	stb  %g1, [ %i0 + 1 ]
+4000867c:	84 08 a0 01 	and  %g2, 1, %g2
+40008680:	83 36 60 18 	srl  %i1, 0x18, %g1
+40008684:	82 08 60 01 	and  %g1, 1, %g1
+40008688:	c4 2e 00 00 	stb  %g2, [ %i0 ]
+4000868c:	c2 2e 20 02 	stb  %g1, [ %i0 + 2 ]
+40008690:	90 06 20 03 	add  %i0, 3, %o0
+40008694:	93 36 60 15 	srl  %i1, 0x15, %o1
+40008698:	7f ff ff d0 	call  400085d8 <fillLaneException>
+4000869c:	92 0a 60 07 	and  %o1, 7, %o1
+400086a0:	90 06 20 0a 	add  %i0, 0xa, %o0
+400086a4:	93 36 60 12 	srl  %i1, 0x12, %o1
+400086a8:	7f ff ff cc 	call  400085d8 <fillLaneException>
+400086ac:	92 0a 60 07 	and  %o1, 7, %o1
+400086b0:	90 06 20 11 	add  %i0, 0x11, %o0
+400086b4:	93 36 60 0f 	srl  %i1, 0xf, %o1
+400086b8:	7f ff ff c8 	call  400085d8 <fillLaneException>
+400086bc:	92 0a 60 07 	and  %o1, 7, %o1
+400086c0:	90 06 20 18 	add  %i0, 0x18, %o0
+400086c4:	93 36 60 0c 	srl  %i1, 0xc, %o1
+400086c8:	7f ff ff c4 	call  400085d8 <fillLaneException>
+400086cc:	92 0a 60 07 	and  %o1, 7, %o1
+400086d0:	90 06 20 1f 	add  %i0, 0x1f, %o0
+400086d4:	93 36 60 09 	srl  %i1, 9, %o1
+400086d8:	7f ff ff c0 	call  400085d8 <fillLaneException>
+400086dc:	92 0a 60 07 	and  %o1, 7, %o1
+400086e0:	90 06 20 26 	add  %i0, 0x26, %o0
+400086e4:	93 36 60 06 	srl  %i1, 6, %o1
+400086e8:	7f ff ff bc 	call  400085d8 <fillLaneException>
+400086ec:	92 0a 60 07 	and  %o1, 7, %o1
+400086f0:	90 06 20 2d 	add  %i0, 0x2d, %o0
+400086f4:	93 36 60 03 	srl  %i1, 3, %o1
+400086f8:	b0 06 20 34 	add  %i0, 0x34, %i0
+400086fc:	92 0a 60 07 	and  %o1, 7, %o1
+40008700:	7f ff ff b6 	call  400085d8 <fillLaneException>
+40008704:	b2 0e 60 07 	and  %i1, 7, %i1
+40008708:	7f ff ff b4 	call  400085d8 <fillLaneException>
+4000870c:	81 e8 00 00 	restore 
+
+40008710 <printExceptionKind>:
+40008710:	80 a2 60 06 	cmp  %o1, 6
+40008714:	08 80 00 08 	bleu  40008734 <printExceptionKind+0x24>
+40008718:	93 2a 60 02 	sll  %o1, 2, %o1
+4000871c:	92 10 00 08 	mov  %o0, %o1
+40008720:	11 10 00 49 	sethi  %hi(0x40012400), %o0
+40008724:	90 12 22 78 	or  %o0, 0x278, %o0	! 40012678 <__clz_tab+0x5e8>
+40008728:	82 13 c0 00 	mov  %o7, %g1
+4000872c:	7f ff e3 53 	call  40001478 <cortos_printf>
+40008730:	9e 10 40 00 	mov  %g1, %o7
+40008734:	03 10 00 1d 	sethi  %hi(0x40007400), %g1
+40008738:	82 10 60 04 	or  %g1, 4, %g1	! 40007404 <got_result+0x30>
+4000873c:	c2 00 40 09 	ld  [ %g1 + %o1 ], %g1
+40008740:	81 c0 40 00 	jmp  %g1
+40008744:	01 00 00 00 	nop 
+40008748:	92 10 00 08 	mov  %o0, %o1
+4000874c:	11 10 00 49 	sethi  %hi(0x40012400), %o0
+40008750:	90 12 22 48 	or  %o0, 0x248, %o0	! 40012648 <__clz_tab+0x5b8>
+40008754:	82 13 c0 00 	mov  %o7, %g1
+40008758:	7f ff e3 48 	call  40001478 <cortos_printf>
+4000875c:	9e 10 40 00 	mov  %g1, %o7
+40008760:	92 10 00 08 	mov  %o0, %o1
+40008764:	11 10 00 49 	sethi  %hi(0x40012400), %o0
+40008768:	90 12 21 68 	or  %o0, 0x168, %o0	! 40012568 <__clz_tab+0x4d8>
+4000876c:	82 13 c0 00 	mov  %o7, %g1
 40008770:	7f ff e3 42 	call  40001478 <cortos_printf>
-40008774:	90 12 22 c0 	or  %o0, 0x2c0, %o0
-40008778:	10 bf ff e1 	b  400086fc <parseEngineThreadExceptions+0x78>
-4000877c:	80 a4 e0 00 	cmp  %l3, 0
-40008780:	11 10 00 49 	sethi  %hi(0x40012400), %o0
-40008784:	7f ff e3 3d 	call  40001478 <cortos_printf>
-40008788:	90 12 22 b0 	or  %o0, 0x2b0, %o0	! 400126b0 <__clz_tab+0x620>
-4000878c:	10 bf ff d9 	b  400086f0 <parseEngineThreadExceptions+0x6c>
-40008790:	80 a5 20 00 	cmp  %l4, 0
+40008774:	9e 10 40 00 	mov  %g1, %o7
+40008778:	92 10 00 08 	mov  %o0, %o1
+4000877c:	11 10 00 49 	sethi  %hi(0x40012400), %o0
+40008780:	90 12 21 90 	or  %o0, 0x190, %o0	! 40012590 <__clz_tab+0x500>
+40008784:	82 13 c0 00 	mov  %o7, %g1
+40008788:	7f ff e3 3c 	call  40001478 <cortos_printf>
+4000878c:	9e 10 40 00 	mov  %g1, %o7
+40008790:	92 10 00 08 	mov  %o0, %o1
+40008794:	11 10 00 49 	sethi  %hi(0x40012400), %o0
+40008798:	90 12 21 b8 	or  %o0, 0x1b8, %o0	! 400125b8 <__clz_tab+0x528>
+4000879c:	82 13 c0 00 	mov  %o7, %g1
+400087a0:	7f ff e3 36 	call  40001478 <cortos_printf>
+400087a4:	9e 10 40 00 	mov  %g1, %o7
+400087a8:	92 10 00 08 	mov  %o0, %o1
+400087ac:	11 10 00 49 	sethi  %hi(0x40012400), %o0
+400087b0:	90 12 21 e8 	or  %o0, 0x1e8, %o0	! 400125e8 <__clz_tab+0x558>
+400087b4:	82 13 c0 00 	mov  %o7, %g1
+400087b8:	7f ff e3 30 	call  40001478 <cortos_printf>
+400087bc:	9e 10 40 00 	mov  %g1, %o7
+400087c0:	92 10 00 08 	mov  %o0, %o1
+400087c4:	11 10 00 49 	sethi  %hi(0x40012400), %o0
+400087c8:	90 12 22 18 	or  %o0, 0x218, %o0	! 40012618 <__clz_tab+0x588>
+400087cc:	82 13 c0 00 	mov  %o7, %g1
+400087d0:	7f ff e3 2a 	call  40001478 <cortos_printf>
+400087d4:	9e 10 40 00 	mov  %g1, %o7
 
-40008794 <writeToConfigRegister>:
-40008794:	95 2a a0 09 	sll  %o2, 9, %o2
-40008798:	97 2a e0 07 	sll  %o3, 7, %o3
-4000879c:	80 a2 60 00 	cmp  %o1, 0
-400087a0:	02 80 00 03 	be  400087ac <writeToConfigRegister+0x18>
-400087a4:	03 3f ff 80 	sethi  %hi(0xfffe0000), %g1
-400087a8:	03 3f ff 88 	sethi  %hi(0xfffe2000), %g1
-400087ac:	94 02 80 01 	add  %o2, %g1, %o2
-400087b0:	99 2b 20 05 	sll  %o4, 5, %o4
-400087b4:	96 02 80 0b 	add  %o2, %o3, %o3
-400087b8:	9b 2b 60 02 	sll  %o5, 2, %o5
-400087bc:	98 02 c0 0c 	add  %o3, %o4, %o4
-400087c0:	9a 0b 60 1f 	and  %o5, 0x1f, %o5
-400087c4:	c2 03 a0 5c 	ld  [ %sp + 0x5c ], %g1
-400087c8:	9a 03 00 0d 	add  %o4, %o5, %o5
-400087cc:	81 c3 e0 08 	retl 
-400087d0:	c2 23 40 00 	st  %g1, [ %o5 ]
-
-400087d4 <readFromConfigRegister>:
-400087d4:	95 2a a0 09 	sll  %o2, 9, %o2
-400087d8:	97 2a e0 07 	sll  %o3, 7, %o3
-400087dc:	80 a2 60 00 	cmp  %o1, 0
-400087e0:	02 80 00 03 	be  400087ec <readFromConfigRegister+0x18>
-400087e4:	03 3f ff 80 	sethi  %hi(0xfffe0000), %g1
-400087e8:	03 3f ff 88 	sethi  %hi(0xfffe2000), %g1
-400087ec:	94 02 80 01 	add  %o2, %g1, %o2
-400087f0:	99 2b 20 05 	sll  %o4, 5, %o4
-400087f4:	96 02 80 0b 	add  %o2, %o3, %o3
-400087f8:	9b 2b 60 02 	sll  %o5, 2, %o5
-400087fc:	98 02 c0 0c 	add  %o3, %o4, %o4
-40008800:	9a 0b 60 1f 	and  %o5, 0x1f, %o5
-40008804:	9a 03 00 0d 	add  %o4, %o5, %o5
-40008808:	81 c3 e0 08 	retl 
-4000880c:	d0 03 40 00 	ld  [ %o5 ], %o0
-
-40008810 <writeDwordToDataMem>:
-40008810:	92 02 60 40 	add  %o1, 0x40, %o1
-40008814:	93 2a 60 02 	sll  %o1, 2, %o1
-40008818:	da 23 a0 58 	st  %o5, [ %sp + 0x58 ]
-4000881c:	99 2b 20 03 	sll  %o4, 3, %o4
-40008820:	94 02 40 0a 	add  %o1, %o2, %o2
-40008824:	03 00 00 3f 	sethi  %hi(0xfc00), %g1
-40008828:	93 2a a0 10 	sll  %o2, 0x10, %o1
-4000882c:	82 10 63 ff 	or  %g1, 0x3ff, %g1
-40008830:	c4 1b a0 58 	ldd  [ %sp + 0x58 ], %g2
-40008834:	98 0b 00 01 	and  %o4, %g1, %o4
-40008838:	81 c3 e0 08 	retl 
-4000883c:	c4 3b 00 09 	std  %g2, [ %o4 + %o1 ]
-
-40008840 <readDwordFromDataMem>:
-40008840:	92 02 60 40 	add  %o1, 0x40, %o1
-40008844:	03 00 00 3f 	sethi  %hi(0xfc00), %g1
-40008848:	93 2a 60 02 	sll  %o1, 2, %o1
-4000884c:	82 10 63 ff 	or  %g1, 0x3ff, %g1
-40008850:	94 02 40 0a 	add  %o1, %o2, %o2
-40008854:	99 2b 20 03 	sll  %o4, 3, %o4
-40008858:	95 2a a0 10 	sll  %o2, 0x10, %o2
-4000885c:	98 0b 00 01 	and  %o4, %g1, %o4
-40008860:	82 03 00 0a 	add  %o4, %o2, %g1
-40008864:	d0 03 00 0a 	ld  [ %o4 + %o2 ], %o0
-40008868:	81 c3 e0 08 	retl 
-4000886c:	d2 00 60 04 	ld  [ %g1 + 4 ], %o1
-
-40008870 <generic_vectored_isr>:
-40008870:	a9 50 00 00 	rd  %wim, %l4
-40008874:	a9 35 00 10 	srl  %l4, %l0, %l4
-40008878:	80 a5 20 01 	cmp  %l4, 1
-4000887c:	12 80 00 13 	bne  400088c8 <continue_with_valid_T>
-40008880:	01 00 00 00 	nop 
-
-40008884 <handle_invalid_T>:
-40008884:	a7 50 00 00 	rd  %wim, %l3
-40008888:	a9 2c e0 07 	sll  %l3, 7, %l4
-4000888c:	a7 34 e0 01 	srl  %l3, 1, %l3
-40008890:	a6 14 c0 14 	or  %l3, %l4, %l3
-40008894:	a6 0c e0 ff 	and  %l3, 0xff, %l3
-40008898:	81 90 00 00 	mov  %g0, %wim
-4000889c:	81 e0 00 00 	save 
-400088a0:	e0 3b a0 00 	std  %l0, [ %sp ]
-400088a4:	e4 3b a0 08 	std  %l2, [ %sp + 8 ]
-400088a8:	e8 3b a0 10 	std  %l4, [ %sp + 0x10 ]
-400088ac:	ec 3b a0 18 	std  %l6, [ %sp + 0x18 ]
-400088b0:	f0 3b a0 20 	std  %i0, [ %sp + 0x20 ]
-400088b4:	f4 3b a0 28 	std  %i2, [ %sp + 0x28 ]
-400088b8:	f8 3b a0 30 	std  %i4, [ %sp + 0x30 ]
-400088bc:	fc 3b a0 38 	std  %fp, [ %sp + 0x38 ]
+400087d8 <parseEngineThreadExceptions>:
+400087d8:	9d e3 bf a0 	save  %sp, -96, %sp
+400087dc:	11 10 00 49 	sethi  %hi(0x40012400), %o0
+400087e0:	7f ff e3 26 	call  40001478 <cortos_printf>
+400087e4:	90 12 22 90 	or  %o0, 0x290, %o0	! 40012690 <__clz_tab+0x600>
+400087e8:	a9 36 20 1a 	srl  %i0, 0x1a, %l4
+400087ec:	a7 36 20 18 	srl  %i0, 0x18, %l3
+400087f0:	a5 36 20 15 	srl  %i0, 0x15, %l2
+400087f4:	a3 36 20 12 	srl  %i0, 0x12, %l1
+400087f8:	a1 36 20 0f 	srl  %i0, 0xf, %l0
+400087fc:	b5 36 20 0c 	srl  %i0, 0xc, %i2
+40008800:	b7 36 20 09 	srl  %i0, 9, %i3
+40008804:	b9 36 20 06 	srl  %i0, 6, %i4
+40008808:	bb 36 20 03 	srl  %i0, 3, %i5
+4000880c:	b2 0e 20 07 	and  %i0, 7, %i1
+40008810:	a8 0d 20 01 	and  %l4, 1, %l4
+40008814:	b1 36 20 19 	srl  %i0, 0x19, %i0
+40008818:	a6 0c e0 01 	and  %l3, 1, %l3
+4000881c:	a4 0c a0 07 	and  %l2, 7, %l2
+40008820:	a2 0c 60 07 	and  %l1, 7, %l1
+40008824:	a0 0c 20 07 	and  %l0, 7, %l0
+40008828:	b4 0e a0 07 	and  %i2, 7, %i2
+4000882c:	b6 0e e0 07 	and  %i3, 7, %i3
+40008830:	b8 0f 20 07 	and  %i4, 7, %i4
+40008834:	80 8e 20 01 	btst  1, %i0
+40008838:	12 80 00 27 	bne  400088d4 <parseEngineThreadExceptions+0xfc>
+4000883c:	ba 0f 60 07 	and  %i5, 7, %i5
+40008840:	80 a5 20 00 	cmp  %l4, 0
+40008844:	32 80 00 20 	bne,a   400088c4 <parseEngineThreadExceptions+0xec>
+40008848:	11 10 00 49 	sethi  %hi(0x40012400), %o0
+4000884c:	80 a4 e0 00 	cmp  %l3, 0
+40008850:	02 80 00 06 	be  40008868 <parseEngineThreadExceptions+0x90>
+40008854:	92 10 00 12 	mov  %l2, %o1
+40008858:	11 10 00 49 	sethi  %hi(0x40012400), %o0
+4000885c:	7f ff e3 07 	call  40001478 <cortos_printf>
+40008860:	90 12 22 d8 	or  %o0, 0x2d8, %o0	! 400126d8 <__clz_tab+0x648>
+40008864:	92 10 00 12 	mov  %l2, %o1
+40008868:	7f ff ff aa 	call  40008710 <printExceptionKind>
+4000886c:	90 10 20 00 	clr  %o0
+40008870:	92 10 00 11 	mov  %l1, %o1
+40008874:	7f ff ff a7 	call  40008710 <printExceptionKind>
+40008878:	90 10 20 01 	mov  1, %o0
+4000887c:	92 10 00 10 	mov  %l0, %o1
+40008880:	7f ff ff a4 	call  40008710 <printExceptionKind>
+40008884:	90 10 20 02 	mov  2, %o0
+40008888:	92 10 00 1a 	mov  %i2, %o1
+4000888c:	7f ff ff a1 	call  40008710 <printExceptionKind>
+40008890:	90 10 20 03 	mov  3, %o0
+40008894:	92 10 00 1b 	mov  %i3, %o1
+40008898:	7f ff ff 9e 	call  40008710 <printExceptionKind>
+4000889c:	90 10 20 04 	mov  4, %o0
+400088a0:	92 10 00 1c 	mov  %i4, %o1
+400088a4:	7f ff ff 9b 	call  40008710 <printExceptionKind>
+400088a8:	90 10 20 05 	mov  5, %o0
+400088ac:	90 10 20 06 	mov  6, %o0
+400088b0:	92 10 00 1d 	mov  %i5, %o1
+400088b4:	7f ff ff 97 	call  40008710 <printExceptionKind>
+400088b8:	b0 10 20 07 	mov  7, %i0
+400088bc:	7f ff ff 95 	call  40008710 <printExceptionKind>
 400088c0:	81 e8 00 00 	restore 
-400088c4:	81 90 00 13 	mov  %l3, %wim
+400088c4:	7f ff e2 ed 	call  40001478 <cortos_printf>
+400088c8:	90 12 22 c0 	or  %o0, 0x2c0, %o0
+400088cc:	10 bf ff e1 	b  40008850 <parseEngineThreadExceptions+0x78>
+400088d0:	80 a4 e0 00 	cmp  %l3, 0
+400088d4:	11 10 00 49 	sethi  %hi(0x40012400), %o0
+400088d8:	7f ff e2 e8 	call  40001478 <cortos_printf>
+400088dc:	90 12 22 b0 	or  %o0, 0x2b0, %o0	! 400126b0 <__clz_tab+0x620>
+400088e0:	10 bf ff d9 	b  40008844 <parseEngineThreadExceptions+0x6c>
+400088e4:	80 a5 20 00 	cmp  %l4, 0
 
-400088c8 <continue_with_valid_T>:
-400088c8:	9c 27 a0 60 	sub  %fp, 0x60, %sp
-400088cc:	e0 23 80 00 	st  %l0, [ %sp ]
-400088d0:	c2 23 a0 04 	st  %g1, [ %sp + 4 ]
-400088d4:	c4 3b a0 08 	std  %g2, [ %sp + 8 ]
-400088d8:	c8 3b a0 10 	std  %g4, [ %sp + 0x10 ]
-400088dc:	cc 3b a0 18 	std  %g6, [ %sp + 0x18 ]
-400088e0:	e2 23 a0 20 	st  %l1, [ %sp + 0x20 ]
-400088e4:	e4 23 a0 24 	st  %l2, [ %sp + 0x24 ]
-400088e8:	af 40 00 00 	rd  %y, %l7
-400088ec:	ee 23 a0 28 	st  %l7, [ %sp + 0x28 ]
-400088f0:	9c 23 a0 60 	sub  %sp, 0x60, %sp
-400088f4:	91 58 00 00 	rd  %tbr, %o0
-400088f8:	a7 32 20 04 	srl  %o0, 4, %l3
-400088fc:	a6 0c e0 0f 	and  %l3, 0xf, %l3
-40008900:	a6 a4 e0 0f 	subcc  %l3, 0xf, %l3
-40008904:	02 80 00 05 	be  40008918 <continue_after_enabling_traps_or_nmi>
-40008908:	01 00 00 00 	nop 
-4000890c:	ae 14 20 20 	or  %l0, 0x20, %l7
-40008910:	ae 15 ef 00 	or  %l7, 0xf00, %l7
-40008914:	81 88 00 17 	mov  %l7, %psr
+400088e8 <writeToConfigRegister>:
+400088e8:	95 2a a0 09 	sll  %o2, 9, %o2
+400088ec:	97 2a e0 07 	sll  %o3, 7, %o3
+400088f0:	80 a2 60 00 	cmp  %o1, 0
+400088f4:	02 80 00 03 	be  40008900 <writeToConfigRegister+0x18>
+400088f8:	03 3f ff 80 	sethi  %hi(0xfffe0000), %g1
+400088fc:	03 3f ff 88 	sethi  %hi(0xfffe2000), %g1
+40008900:	94 02 80 01 	add  %o2, %g1, %o2
+40008904:	99 2b 20 05 	sll  %o4, 5, %o4
+40008908:	96 02 80 0b 	add  %o2, %o3, %o3
+4000890c:	9b 2b 60 02 	sll  %o5, 2, %o5
+40008910:	98 02 c0 0c 	add  %o3, %o4, %o4
+40008914:	9a 0b 60 1f 	and  %o5, 0x1f, %o5
+40008918:	c2 03 a0 5c 	ld  [ %sp + 0x5c ], %g1
+4000891c:	9a 03 00 0d 	add  %o4, %o5, %o5
+40008920:	81 c3 e0 08 	retl 
+40008924:	c2 23 40 00 	st  %g1, [ %o5 ]
 
-40008918 <continue_after_enabling_traps_or_nmi>:
-40008918:	7f ff e2 1e 	call  40001190 <ajit_generic_interrupt_handler>
-4000891c:	01 00 00 00 	nop 
+40008928 <readFromConfigRegister>:
+40008928:	95 2a a0 09 	sll  %o2, 9, %o2
+4000892c:	97 2a e0 07 	sll  %o3, 7, %o3
+40008930:	80 a2 60 00 	cmp  %o1, 0
+40008934:	02 80 00 03 	be  40008940 <readFromConfigRegister+0x18>
+40008938:	03 3f ff 80 	sethi  %hi(0xfffe0000), %g1
+4000893c:	03 3f ff 88 	sethi  %hi(0xfffe2000), %g1
+40008940:	94 02 80 01 	add  %o2, %g1, %o2
+40008944:	99 2b 20 05 	sll  %o4, 5, %o4
+40008948:	96 02 80 0b 	add  %o2, %o3, %o3
+4000894c:	9b 2b 60 02 	sll  %o5, 2, %o5
+40008950:	98 02 c0 0c 	add  %o3, %o4, %o4
+40008954:	9a 0b 60 1f 	and  %o5, 0x1f, %o5
+40008958:	9a 03 00 0d 	add  %o4, %o5, %o5
+4000895c:	81 c3 e0 08 	retl 
+40008960:	d0 03 40 00 	ld  [ %o5 ], %o0
 
-40008920 <prepare_window_for_rett>:
-40008920:	81 e8 00 00 	restore 
-40008924:	81 e0 00 00 	save 
+40008964 <writeDwordToDataMem>:
+40008964:	92 02 60 40 	add  %o1, 0x40, %o1
+40008968:	93 2a 60 02 	sll  %o1, 2, %o1
+4000896c:	da 23 a0 58 	st  %o5, [ %sp + 0x58 ]
+40008970:	99 2b 20 03 	sll  %o4, 3, %o4
+40008974:	94 02 40 0a 	add  %o1, %o2, %o2
+40008978:	03 00 00 3f 	sethi  %hi(0xfc00), %g1
+4000897c:	93 2a a0 10 	sll  %o2, 0x10, %o1
+40008980:	82 10 63 ff 	or  %g1, 0x3ff, %g1
+40008984:	c4 1b a0 58 	ldd  [ %sp + 0x58 ], %g2
+40008988:	98 0b 00 01 	and  %o4, %g1, %o4
+4000898c:	81 c3 e0 08 	retl 
+40008990:	c4 3b 00 09 	std  %g2, [ %o4 + %o1 ]
 
-40008928 <recover_and_leave>:
-40008928:	9c 03 a0 60 	add  %sp, 0x60, %sp
-4000892c:	ee 03 80 00 	ld  [ %sp ], %l7
-40008930:	81 88 00 17 	mov  %l7, %psr
-40008934:	c2 03 a0 04 	ld  [ %sp + 4 ], %g1
-40008938:	c4 1b a0 08 	ldd  [ %sp + 8 ], %g2
-4000893c:	c8 1b a0 10 	ldd  [ %sp + 0x10 ], %g4
-40008940:	cc 1b a0 18 	ldd  [ %sp + 0x18 ], %g6
-40008944:	e2 03 a0 20 	ld  [ %sp + 0x20 ], %l1
-40008948:	e4 03 a0 24 	ld  [ %sp + 0x24 ], %l2
-4000894c:	ee 03 a0 28 	ld  [ %sp + 0x28 ], %l7
-40008950:	81 80 00 17 	mov  %l7, %y
+40008994 <readDwordFromDataMem>:
+40008994:	92 02 60 40 	add  %o1, 0x40, %o1
+40008998:	03 00 00 3f 	sethi  %hi(0xfc00), %g1
+4000899c:	93 2a 60 02 	sll  %o1, 2, %o1
+400089a0:	82 10 63 ff 	or  %g1, 0x3ff, %g1
+400089a4:	94 02 40 0a 	add  %o1, %o2, %o2
+400089a8:	99 2b 20 03 	sll  %o4, 3, %o4
+400089ac:	95 2a a0 10 	sll  %o2, 0x10, %o2
+400089b0:	98 0b 00 01 	and  %o4, %g1, %o4
+400089b4:	82 03 00 0a 	add  %o4, %o2, %g1
+400089b8:	d0 03 00 0a 	ld  [ %o4 + %o2 ], %o0
+400089bc:	81 c3 e0 08 	retl 
+400089c0:	d2 00 60 04 	ld  [ %g1 + 4 ], %o1
 
-40008954 <jmpl_and_return>:
-40008954:	81 c4 40 00 	jmp  %l1
-40008958:	81 cc 80 00 	rett  %l2
-4000895c:	01 00 00 00 	nop 
+400089c4 <generic_vectored_isr>:
+400089c4:	a9 50 00 00 	rd  %wim, %l4
+400089c8:	a9 35 00 10 	srl  %l4, %l0, %l4
+400089cc:	80 a5 20 01 	cmp  %l4, 1
+400089d0:	12 80 00 13 	bne  40008a1c <continue_with_valid_T>
+400089d4:	01 00 00 00 	nop 
 
-40008960 <generic_vectored_sw_trap>:
-40008960:	a9 50 00 00 	rd  %wim, %l4
-40008964:	a9 35 00 10 	srl  %l4, %l0, %l4
-40008968:	80 a5 20 01 	cmp  %l4, 1
-4000896c:	12 80 00 13 	bne  400089b8 <continue_with_valid_T>
-40008970:	01 00 00 00 	nop 
+400089d8 <handle_invalid_T>:
+400089d8:	a7 50 00 00 	rd  %wim, %l3
+400089dc:	a9 2c e0 07 	sll  %l3, 7, %l4
+400089e0:	a7 34 e0 01 	srl  %l3, 1, %l3
+400089e4:	a6 14 c0 14 	or  %l3, %l4, %l3
+400089e8:	a6 0c e0 ff 	and  %l3, 0xff, %l3
+400089ec:	81 90 00 00 	mov  %g0, %wim
+400089f0:	81 e0 00 00 	save 
+400089f4:	e0 3b a0 00 	std  %l0, [ %sp ]
+400089f8:	e4 3b a0 08 	std  %l2, [ %sp + 8 ]
+400089fc:	e8 3b a0 10 	std  %l4, [ %sp + 0x10 ]
+40008a00:	ec 3b a0 18 	std  %l6, [ %sp + 0x18 ]
+40008a04:	f0 3b a0 20 	std  %i0, [ %sp + 0x20 ]
+40008a08:	f4 3b a0 28 	std  %i2, [ %sp + 0x28 ]
+40008a0c:	f8 3b a0 30 	std  %i4, [ %sp + 0x30 ]
+40008a10:	fc 3b a0 38 	std  %fp, [ %sp + 0x38 ]
+40008a14:	81 e8 00 00 	restore 
+40008a18:	81 90 00 13 	mov  %l3, %wim
 
-40008974 <handle_invalid_T>:
-40008974:	a7 50 00 00 	rd  %wim, %l3
-40008978:	a9 2c e0 07 	sll  %l3, 7, %l4
-4000897c:	a7 34 e0 01 	srl  %l3, 1, %l3
-40008980:	a6 14 c0 14 	or  %l3, %l4, %l3
-40008984:	a6 0c e0 ff 	and  %l3, 0xff, %l3
-40008988:	81 90 00 00 	mov  %g0, %wim
-4000898c:	81 e0 00 00 	save 
-40008990:	e0 3b a0 00 	std  %l0, [ %sp ]
-40008994:	e4 3b a0 08 	std  %l2, [ %sp + 8 ]
-40008998:	e8 3b a0 10 	std  %l4, [ %sp + 0x10 ]
-4000899c:	ec 3b a0 18 	std  %l6, [ %sp + 0x18 ]
-400089a0:	f0 3b a0 20 	std  %i0, [ %sp + 0x20 ]
-400089a4:	f4 3b a0 28 	std  %i2, [ %sp + 0x28 ]
-400089a8:	f8 3b a0 30 	std  %i4, [ %sp + 0x30 ]
-400089ac:	fc 3b a0 38 	std  %fp, [ %sp + 0x38 ]
-400089b0:	81 e8 00 00 	restore 
-400089b4:	81 90 00 13 	mov  %l3, %wim
+40008a1c <continue_with_valid_T>:
+40008a1c:	9c 27 a0 60 	sub  %fp, 0x60, %sp
+40008a20:	e0 23 80 00 	st  %l0, [ %sp ]
+40008a24:	c2 23 a0 04 	st  %g1, [ %sp + 4 ]
+40008a28:	c4 3b a0 08 	std  %g2, [ %sp + 8 ]
+40008a2c:	c8 3b a0 10 	std  %g4, [ %sp + 0x10 ]
+40008a30:	cc 3b a0 18 	std  %g6, [ %sp + 0x18 ]
+40008a34:	e2 23 a0 20 	st  %l1, [ %sp + 0x20 ]
+40008a38:	e4 23 a0 24 	st  %l2, [ %sp + 0x24 ]
+40008a3c:	af 40 00 00 	rd  %y, %l7
+40008a40:	ee 23 a0 28 	st  %l7, [ %sp + 0x28 ]
+40008a44:	9c 23 a0 60 	sub  %sp, 0x60, %sp
+40008a48:	91 58 00 00 	rd  %tbr, %o0
+40008a4c:	a7 32 20 04 	srl  %o0, 4, %l3
+40008a50:	a6 0c e0 0f 	and  %l3, 0xf, %l3
+40008a54:	a6 a4 e0 0f 	subcc  %l3, 0xf, %l3
+40008a58:	02 80 00 05 	be  40008a6c <continue_after_enabling_traps_or_nmi>
+40008a5c:	01 00 00 00 	nop 
+40008a60:	ae 14 20 20 	or  %l0, 0x20, %l7
+40008a64:	ae 15 ef 00 	or  %l7, 0xf00, %l7
+40008a68:	81 88 00 17 	mov  %l7, %psr
 
-400089b8 <continue_with_valid_T>:
-400089b8:	9c 27 a0 60 	sub  %fp, 0x60, %sp
-400089bc:	e0 23 80 00 	st  %l0, [ %sp ]
-400089c0:	c2 23 a0 04 	st  %g1, [ %sp + 4 ]
-400089c4:	c4 3b a0 08 	std  %g2, [ %sp + 8 ]
-400089c8:	c8 3b a0 10 	std  %g4, [ %sp + 0x10 ]
-400089cc:	cc 3b a0 18 	std  %g6, [ %sp + 0x18 ]
-400089d0:	e2 23 a0 20 	st  %l1, [ %sp + 0x20 ]
-400089d4:	e4 23 a0 24 	st  %l2, [ %sp + 0x24 ]
-400089d8:	af 40 00 00 	rd  %y, %l7
-400089dc:	ee 23 a0 28 	st  %l7, [ %sp + 0x28 ]
-400089e0:	9c 23 a0 60 	sub  %sp, 0x60, %sp
-400089e4:	ae 14 20 20 	or  %l0, 0x20, %l7
-400089e8:	ae 15 ef 00 	or  %l7, 0xf00, %l7
-400089ec:	81 88 00 17 	mov  %l7, %psr
-400089f0:	91 58 00 00 	rd  %tbr, %o0
-400089f4:	81 e8 00 00 	restore 
-400089f8:	90 10 00 18 	mov  %i0, %o0
-400089fc:	92 10 00 19 	mov  %i1, %o1
-40008a00:	94 10 00 1a 	mov  %i2, %o2
-40008a04:	81 e0 00 00 	save 
-40008a08:	92 10 00 18 	mov  %i0, %o1
-40008a0c:	94 10 00 19 	mov  %i1, %o2
-40008a10:	96 10 00 1a 	mov  %i2, %o3
-40008a14:	7f ff de 61 	call  40000398 <ajit_generic_sw_trap_handler>
-40008a18:	01 00 00 00 	nop 
-40008a1c:	81 e8 00 00 	restore 
-40008a20:	81 e0 00 00 	save 
+40008a6c <continue_after_enabling_traps_or_nmi>:
+40008a6c:	7f ff e1 c9 	call  40001190 <ajit_generic_interrupt_handler>
+40008a70:	01 00 00 00 	nop 
 
-40008a24 <recover_and_leave>:
-40008a24:	9c 03 a0 60 	add  %sp, 0x60, %sp
-40008a28:	ee 03 80 00 	ld  [ %sp ], %l7
-40008a2c:	81 88 00 17 	mov  %l7, %psr
-40008a30:	c2 03 a0 04 	ld  [ %sp + 4 ], %g1
-40008a34:	c4 1b a0 08 	ldd  [ %sp + 8 ], %g2
-40008a38:	c8 1b a0 10 	ldd  [ %sp + 0x10 ], %g4
-40008a3c:	cc 1b a0 18 	ldd  [ %sp + 0x18 ], %g6
-40008a40:	e2 03 a0 20 	ld  [ %sp + 0x20 ], %l1
-40008a44:	e4 03 a0 24 	ld  [ %sp + 0x24 ], %l2
-40008a48:	ee 03 a0 28 	ld  [ %sp + 0x28 ], %l7
-40008a4c:	81 80 00 17 	mov  %l7, %y
+40008a74 <prepare_window_for_rett>:
+40008a74:	81 e8 00 00 	restore 
+40008a78:	81 e0 00 00 	save 
 
-40008a50 <jmpl_and_return>:
-40008a50:	81 c4 80 00 	jmp  %l2
-40008a54:	81 cc a0 04 	rett  %l2 + 4
-40008a58:	01 00 00 00 	nop 
-40008a5c:	00 00 00 00 	unimp  0
+40008a7c <recover_and_leave>:
+40008a7c:	9c 03 a0 60 	add  %sp, 0x60, %sp
+40008a80:	ee 03 80 00 	ld  [ %sp ], %l7
+40008a84:	81 88 00 17 	mov  %l7, %psr
+40008a88:	c2 03 a0 04 	ld  [ %sp + 4 ], %g1
+40008a8c:	c4 1b a0 08 	ldd  [ %sp + 8 ], %g2
+40008a90:	c8 1b a0 10 	ldd  [ %sp + 0x10 ], %g4
+40008a94:	cc 1b a0 18 	ldd  [ %sp + 0x18 ], %g6
+40008a98:	e2 03 a0 20 	ld  [ %sp + 0x20 ], %l1
+40008a9c:	e4 03 a0 24 	ld  [ %sp + 0x24 ], %l2
+40008aa0:	ee 03 a0 28 	ld  [ %sp + 0x28 ], %l7
+40008aa4:	81 80 00 17 	mov  %l7, %y
 
-40008a60 <generic_read_asr>:
-40008a60:	81 e8 00 00 	restore 
-40008a64:	80 a2 20 1f 	cmp  %o0, 0x1f
-40008a68:	02 80 00 62 	be  40008bf0 <read_31>
-40008a6c:	01 00 00 00 	nop 
-40008a70:	80 a2 20 1e 	cmp  %o0, 0x1e
-40008a74:	02 80 00 62 	be  40008bfc <read_30>
-40008a78:	01 00 00 00 	nop 
-40008a7c:	80 a2 20 1d 	cmp  %o0, 0x1d
-40008a80:	02 80 00 62 	be  40008c08 <read_29>
-40008a84:	01 00 00 00 	nop 
-40008a88:	80 a2 20 1c 	cmp  %o0, 0x1c
-40008a8c:	02 80 00 62 	be  40008c14 <read_28>
-40008a90:	01 00 00 00 	nop 
-40008a94:	80 a2 20 1b 	cmp  %o0, 0x1b
-40008a98:	02 80 00 62 	be  40008c20 <read_27>
-40008a9c:	01 00 00 00 	nop 
-40008aa0:	80 a2 20 1a 	cmp  %o0, 0x1a
-40008aa4:	02 80 00 62 	be  40008c2c <read_26>
-40008aa8:	01 00 00 00 	nop 
-40008aac:	80 a2 20 19 	cmp  %o0, 0x19
-40008ab0:	02 80 00 62 	be  40008c38 <read_25>
-40008ab4:	01 00 00 00 	nop 
-40008ab8:	80 a2 20 18 	cmp  %o0, 0x18
-40008abc:	02 80 00 62 	be  40008c44 <read_24>
-40008ac0:	01 00 00 00 	nop 
-40008ac4:	80 a2 20 17 	cmp  %o0, 0x17
-40008ac8:	02 80 00 62 	be  40008c50 <read_23>
-40008acc:	01 00 00 00 	nop 
-40008ad0:	80 a2 20 16 	cmp  %o0, 0x16
-40008ad4:	02 80 00 62 	be  40008c5c <read_22>
-40008ad8:	01 00 00 00 	nop 
-40008adc:	80 a2 20 15 	cmp  %o0, 0x15
-40008ae0:	02 80 00 62 	be  40008c68 <read_21>
-40008ae4:	01 00 00 00 	nop 
-40008ae8:	80 a2 20 14 	cmp  %o0, 0x14
-40008aec:	02 80 00 62 	be  40008c74 <read_20>
-40008af0:	01 00 00 00 	nop 
-40008af4:	80 a2 20 13 	cmp  %o0, 0x13
-40008af8:	02 80 00 62 	be  40008c80 <read_19>
-40008afc:	01 00 00 00 	nop 
-40008b00:	80 a2 20 12 	cmp  %o0, 0x12
-40008b04:	02 80 00 62 	be  40008c8c <read_18>
-40008b08:	01 00 00 00 	nop 
-40008b0c:	80 a2 20 11 	cmp  %o0, 0x11
-40008b10:	02 80 00 62 	be  40008c98 <read_17>
-40008b14:	01 00 00 00 	nop 
-40008b18:	80 a2 20 10 	cmp  %o0, 0x10
-40008b1c:	02 80 00 62 	be  40008ca4 <read_16>
-40008b20:	01 00 00 00 	nop 
-40008b24:	80 a2 20 0f 	cmp  %o0, 0xf
-40008b28:	02 80 00 62 	be  40008cb0 <read_15>
-40008b2c:	01 00 00 00 	nop 
-40008b30:	80 a2 20 0e 	cmp  %o0, 0xe
-40008b34:	02 80 00 62 	be  40008cbc <read_14>
-40008b38:	01 00 00 00 	nop 
-40008b3c:	80 a2 20 0d 	cmp  %o0, 0xd
-40008b40:	02 80 00 62 	be  40008cc8 <read_13>
-40008b44:	01 00 00 00 	nop 
-40008b48:	80 a2 20 0c 	cmp  %o0, 0xc
-40008b4c:	02 80 00 62 	be  40008cd4 <read_12>
-40008b50:	01 00 00 00 	nop 
-40008b54:	80 a2 20 0b 	cmp  %o0, 0xb
-40008b58:	02 80 00 62 	be  40008ce0 <read_11>
-40008b5c:	01 00 00 00 	nop 
-40008b60:	80 a2 20 0a 	cmp  %o0, 0xa
-40008b64:	02 80 00 62 	be  40008cec <read_10>
-40008b68:	01 00 00 00 	nop 
-40008b6c:	80 a2 20 09 	cmp  %o0, 9
-40008b70:	02 80 00 62 	be  40008cf8 <read_9>
-40008b74:	01 00 00 00 	nop 
-40008b78:	80 a2 20 08 	cmp  %o0, 8
-40008b7c:	02 80 00 62 	be  40008d04 <read_8>
-40008b80:	01 00 00 00 	nop 
-40008b84:	80 a2 20 07 	cmp  %o0, 7
-40008b88:	02 80 00 62 	be  40008d10 <read_7>
-40008b8c:	01 00 00 00 	nop 
-40008b90:	80 a2 20 06 	cmp  %o0, 6
-40008b94:	02 80 00 62 	be  40008d1c <read_6>
-40008b98:	01 00 00 00 	nop 
-40008b9c:	80 a2 20 05 	cmp  %o0, 5
-40008ba0:	02 80 00 62 	be  40008d28 <read_5>
-40008ba4:	01 00 00 00 	nop 
-40008ba8:	80 a2 20 04 	cmp  %o0, 4
-40008bac:	02 80 00 62 	be  40008d34 <read_4>
-40008bb0:	01 00 00 00 	nop 
-40008bb4:	80 a2 20 03 	cmp  %o0, 3
-40008bb8:	02 80 00 62 	be  40008d40 <read_3>
+40008aa8 <jmpl_and_return>:
+40008aa8:	81 c4 40 00 	jmp  %l1
+40008aac:	81 cc 80 00 	rett  %l2
+40008ab0:	01 00 00 00 	nop 
+
+40008ab4 <generic_vectored_sw_trap>:
+40008ab4:	a9 50 00 00 	rd  %wim, %l4
+40008ab8:	a9 35 00 10 	srl  %l4, %l0, %l4
+40008abc:	80 a5 20 01 	cmp  %l4, 1
+40008ac0:	12 80 00 13 	bne  40008b0c <continue_with_valid_T>
+40008ac4:	01 00 00 00 	nop 
+
+40008ac8 <handle_invalid_T>:
+40008ac8:	a7 50 00 00 	rd  %wim, %l3
+40008acc:	a9 2c e0 07 	sll  %l3, 7, %l4
+40008ad0:	a7 34 e0 01 	srl  %l3, 1, %l3
+40008ad4:	a6 14 c0 14 	or  %l3, %l4, %l3
+40008ad8:	a6 0c e0 ff 	and  %l3, 0xff, %l3
+40008adc:	81 90 00 00 	mov  %g0, %wim
+40008ae0:	81 e0 00 00 	save 
+40008ae4:	e0 3b a0 00 	std  %l0, [ %sp ]
+40008ae8:	e4 3b a0 08 	std  %l2, [ %sp + 8 ]
+40008aec:	e8 3b a0 10 	std  %l4, [ %sp + 0x10 ]
+40008af0:	ec 3b a0 18 	std  %l6, [ %sp + 0x18 ]
+40008af4:	f0 3b a0 20 	std  %i0, [ %sp + 0x20 ]
+40008af8:	f4 3b a0 28 	std  %i2, [ %sp + 0x28 ]
+40008afc:	f8 3b a0 30 	std  %i4, [ %sp + 0x30 ]
+40008b00:	fc 3b a0 38 	std  %fp, [ %sp + 0x38 ]
+40008b04:	81 e8 00 00 	restore 
+40008b08:	81 90 00 13 	mov  %l3, %wim
+
+40008b0c <continue_with_valid_T>:
+40008b0c:	9c 27 a0 60 	sub  %fp, 0x60, %sp
+40008b10:	e0 23 80 00 	st  %l0, [ %sp ]
+40008b14:	c2 23 a0 04 	st  %g1, [ %sp + 4 ]
+40008b18:	c4 3b a0 08 	std  %g2, [ %sp + 8 ]
+40008b1c:	c8 3b a0 10 	std  %g4, [ %sp + 0x10 ]
+40008b20:	cc 3b a0 18 	std  %g6, [ %sp + 0x18 ]
+40008b24:	e2 23 a0 20 	st  %l1, [ %sp + 0x20 ]
+40008b28:	e4 23 a0 24 	st  %l2, [ %sp + 0x24 ]
+40008b2c:	af 40 00 00 	rd  %y, %l7
+40008b30:	ee 23 a0 28 	st  %l7, [ %sp + 0x28 ]
+40008b34:	9c 23 a0 60 	sub  %sp, 0x60, %sp
+40008b38:	ae 14 20 20 	or  %l0, 0x20, %l7
+40008b3c:	ae 15 ef 00 	or  %l7, 0xf00, %l7
+40008b40:	81 88 00 17 	mov  %l7, %psr
+40008b44:	91 58 00 00 	rd  %tbr, %o0
+40008b48:	81 e8 00 00 	restore 
+40008b4c:	90 10 00 18 	mov  %i0, %o0
+40008b50:	92 10 00 19 	mov  %i1, %o1
+40008b54:	94 10 00 1a 	mov  %i2, %o2
+40008b58:	81 e0 00 00 	save 
+40008b5c:	92 10 00 18 	mov  %i0, %o1
+40008b60:	94 10 00 19 	mov  %i1, %o2
+40008b64:	96 10 00 1a 	mov  %i2, %o3
+40008b68:	7f ff de 0c 	call  40000398 <ajit_generic_sw_trap_handler>
+40008b6c:	01 00 00 00 	nop 
+40008b70:	81 e8 00 00 	restore 
+40008b74:	81 e0 00 00 	save 
+
+40008b78 <recover_and_leave>:
+40008b78:	9c 03 a0 60 	add  %sp, 0x60, %sp
+40008b7c:	ee 03 80 00 	ld  [ %sp ], %l7
+40008b80:	81 88 00 17 	mov  %l7, %psr
+40008b84:	c2 03 a0 04 	ld  [ %sp + 4 ], %g1
+40008b88:	c4 1b a0 08 	ldd  [ %sp + 8 ], %g2
+40008b8c:	c8 1b a0 10 	ldd  [ %sp + 0x10 ], %g4
+40008b90:	cc 1b a0 18 	ldd  [ %sp + 0x18 ], %g6
+40008b94:	e2 03 a0 20 	ld  [ %sp + 0x20 ], %l1
+40008b98:	e4 03 a0 24 	ld  [ %sp + 0x24 ], %l2
+40008b9c:	ee 03 a0 28 	ld  [ %sp + 0x28 ], %l7
+40008ba0:	81 80 00 17 	mov  %l7, %y
+
+40008ba4 <jmpl_and_return>:
+40008ba4:	81 c4 80 00 	jmp  %l2
+40008ba8:	81 cc a0 04 	rett  %l2 + 4
+40008bac:	01 00 00 00 	nop 
+
+40008bb0 <generic_read_asr>:
+40008bb0:	81 e8 00 00 	restore 
+40008bb4:	80 a2 20 1f 	cmp  %o0, 0x1f
+40008bb8:	02 80 00 62 	be  40008d40 <read_31>
 40008bbc:	01 00 00 00 	nop 
-40008bc0:	80 a2 20 02 	cmp  %o0, 2
-40008bc4:	02 80 00 62 	be  40008d4c <read_2>
+40008bc0:	80 a2 20 1e 	cmp  %o0, 0x1e
+40008bc4:	02 80 00 62 	be  40008d4c <read_30>
 40008bc8:	01 00 00 00 	nop 
-40008bcc:	80 a2 20 01 	cmp  %o0, 1
-40008bd0:	02 80 00 62 	be  40008d58 <read_1>
+40008bcc:	80 a2 20 1d 	cmp  %o0, 0x1d
+40008bd0:	02 80 00 62 	be  40008d58 <read_29>
 40008bd4:	01 00 00 00 	nop 
-40008bd8:	80 a2 20 00 	cmp  %o0, 0
-40008bdc:	02 80 00 62 	be  40008d64 <read_0>
+40008bd8:	80 a2 20 1c 	cmp  %o0, 0x1c
+40008bdc:	02 80 00 62 	be  40008d64 <read_28>
 40008be0:	01 00 00 00 	nop 
-40008be4:	90 10 00 00 	mov  %g0, %o0
-40008be8:	10 80 00 62 	b  40008d70 <ret_block>
+40008be4:	80 a2 20 1b 	cmp  %o0, 0x1b
+40008be8:	02 80 00 62 	be  40008d70 <read_27>
 40008bec:	01 00 00 00 	nop 
-
-40008bf0 <read_31>:
-40008bf0:	91 47 c0 00 	rd  %asr31, %o0
-40008bf4:	10 80 00 5f 	b  40008d70 <ret_block>
+40008bf0:	80 a2 20 1a 	cmp  %o0, 0x1a
+40008bf4:	02 80 00 62 	be  40008d7c <read_26>
 40008bf8:	01 00 00 00 	nop 
-
-40008bfc <read_30>:
-40008bfc:	91 47 80 00 	rd  %asr30, %o0
-40008c00:	10 80 00 5c 	b  40008d70 <ret_block>
+40008bfc:	80 a2 20 19 	cmp  %o0, 0x19
+40008c00:	02 80 00 62 	be  40008d88 <read_25>
 40008c04:	01 00 00 00 	nop 
-
-40008c08 <read_29>:
-40008c08:	91 47 40 00 	rd  %asr29, %o0
-40008c0c:	10 80 00 59 	b  40008d70 <ret_block>
+40008c08:	80 a2 20 18 	cmp  %o0, 0x18
+40008c0c:	02 80 00 62 	be  40008d94 <read_24>
 40008c10:	01 00 00 00 	nop 
-
-40008c14 <read_28>:
-40008c14:	91 47 00 00 	rd  %asr28, %o0
-40008c18:	10 80 00 56 	b  40008d70 <ret_block>
+40008c14:	80 a2 20 17 	cmp  %o0, 0x17
+40008c18:	02 80 00 62 	be  40008da0 <read_23>
 40008c1c:	01 00 00 00 	nop 
-
-40008c20 <read_27>:
-40008c20:	91 46 c0 00 	rd  %asr27, %o0
-40008c24:	10 80 00 53 	b  40008d70 <ret_block>
+40008c20:	80 a2 20 16 	cmp  %o0, 0x16
+40008c24:	02 80 00 62 	be  40008dac <read_22>
 40008c28:	01 00 00 00 	nop 
-
-40008c2c <read_26>:
-40008c2c:	91 46 80 00 	rd  %asr26, %o0
-40008c30:	10 80 00 50 	b  40008d70 <ret_block>
+40008c2c:	80 a2 20 15 	cmp  %o0, 0x15
+40008c30:	02 80 00 62 	be  40008db8 <read_21>
 40008c34:	01 00 00 00 	nop 
-
-40008c38 <read_25>:
-40008c38:	91 46 40 00 	rd  %asr25, %o0
-40008c3c:	10 80 00 4d 	b  40008d70 <ret_block>
+40008c38:	80 a2 20 14 	cmp  %o0, 0x14
+40008c3c:	02 80 00 62 	be  40008dc4 <read_20>
 40008c40:	01 00 00 00 	nop 
-
-40008c44 <read_24>:
-40008c44:	91 46 00 00 	rd  %asr24, %o0
-40008c48:	10 80 00 4a 	b  40008d70 <ret_block>
+40008c44:	80 a2 20 13 	cmp  %o0, 0x13
+40008c48:	02 80 00 62 	be  40008dd0 <read_19>
 40008c4c:	01 00 00 00 	nop 
-
-40008c50 <read_23>:
-40008c50:	91 45 c0 00 	rd  %asr23, %o0
-40008c54:	10 80 00 47 	b  40008d70 <ret_block>
+40008c50:	80 a2 20 12 	cmp  %o0, 0x12
+40008c54:	02 80 00 62 	be  40008ddc <read_18>
 40008c58:	01 00 00 00 	nop 
-
-40008c5c <read_22>:
-40008c5c:	91 45 80 00 	rd  %asr22, %o0
-40008c60:	10 80 00 44 	b  40008d70 <ret_block>
+40008c5c:	80 a2 20 11 	cmp  %o0, 0x11
+40008c60:	02 80 00 62 	be  40008de8 <read_17>
 40008c64:	01 00 00 00 	nop 
-
-40008c68 <read_21>:
-40008c68:	91 45 40 00 	rd  %asr21, %o0
-40008c6c:	10 80 00 41 	b  40008d70 <ret_block>
+40008c68:	80 a2 20 10 	cmp  %o0, 0x10
+40008c6c:	02 80 00 62 	be  40008df4 <read_16>
 40008c70:	01 00 00 00 	nop 
-
-40008c74 <read_20>:
-40008c74:	91 45 00 00 	rd  %asr20, %o0
-40008c78:	10 80 00 3e 	b  40008d70 <ret_block>
+40008c74:	80 a2 20 0f 	cmp  %o0, 0xf
+40008c78:	02 80 00 62 	be  40008e00 <read_15>
 40008c7c:	01 00 00 00 	nop 
-
-40008c80 <read_19>:
-40008c80:	91 44 c0 00 	rd  %asr19, %o0
-40008c84:	10 80 00 3b 	b  40008d70 <ret_block>
+40008c80:	80 a2 20 0e 	cmp  %o0, 0xe
+40008c84:	02 80 00 62 	be  40008e0c <read_14>
 40008c88:	01 00 00 00 	nop 
-
-40008c8c <read_18>:
-40008c8c:	91 44 80 00 	rd  %asr18, %o0
-40008c90:	10 80 00 38 	b  40008d70 <ret_block>
+40008c8c:	80 a2 20 0d 	cmp  %o0, 0xd
+40008c90:	02 80 00 62 	be  40008e18 <read_13>
 40008c94:	01 00 00 00 	nop 
-
-40008c98 <read_17>:
-40008c98:	91 44 40 00 	rd  %asr17, %o0
-40008c9c:	10 80 00 35 	b  40008d70 <ret_block>
+40008c98:	80 a2 20 0c 	cmp  %o0, 0xc
+40008c9c:	02 80 00 62 	be  40008e24 <read_12>
 40008ca0:	01 00 00 00 	nop 
-
-40008ca4 <read_16>:
-40008ca4:	91 44 00 00 	rd  %asr16, %o0
-40008ca8:	10 80 00 32 	b  40008d70 <ret_block>
+40008ca4:	80 a2 20 0b 	cmp  %o0, 0xb
+40008ca8:	02 80 00 62 	be  40008e30 <read_11>
 40008cac:	01 00 00 00 	nop 
-
-40008cb0 <read_15>:
-40008cb0:	91 43 c0 00 	rd  %asr15, %o0
-40008cb4:	10 80 00 2f 	b  40008d70 <ret_block>
+40008cb0:	80 a2 20 0a 	cmp  %o0, 0xa
+40008cb4:	02 80 00 62 	be  40008e3c <read_10>
 40008cb8:	01 00 00 00 	nop 
-
-40008cbc <read_14>:
-40008cbc:	91 43 80 00 	rd  %asr14, %o0
-40008cc0:	10 80 00 2c 	b  40008d70 <ret_block>
+40008cbc:	80 a2 20 09 	cmp  %o0, 9
+40008cc0:	02 80 00 62 	be  40008e48 <read_9>
 40008cc4:	01 00 00 00 	nop 
-
-40008cc8 <read_13>:
-40008cc8:	91 43 40 00 	rd  %asr13, %o0
-40008ccc:	10 80 00 29 	b  40008d70 <ret_block>
+40008cc8:	80 a2 20 08 	cmp  %o0, 8
+40008ccc:	02 80 00 62 	be  40008e54 <read_8>
 40008cd0:	01 00 00 00 	nop 
-
-40008cd4 <read_12>:
-40008cd4:	91 43 00 00 	rd  %asr12, %o0
-40008cd8:	10 80 00 26 	b  40008d70 <ret_block>
+40008cd4:	80 a2 20 07 	cmp  %o0, 7
+40008cd8:	02 80 00 62 	be  40008e60 <read_7>
 40008cdc:	01 00 00 00 	nop 
-
-40008ce0 <read_11>:
-40008ce0:	91 42 c0 00 	rd  %asr11, %o0
-40008ce4:	10 80 00 23 	b  40008d70 <ret_block>
+40008ce0:	80 a2 20 06 	cmp  %o0, 6
+40008ce4:	02 80 00 62 	be  40008e6c <read_6>
 40008ce8:	01 00 00 00 	nop 
-
-40008cec <read_10>:
-40008cec:	91 42 80 00 	rd  %asr10, %o0
-40008cf0:	10 80 00 20 	b  40008d70 <ret_block>
+40008cec:	80 a2 20 05 	cmp  %o0, 5
+40008cf0:	02 80 00 62 	be  40008e78 <read_5>
 40008cf4:	01 00 00 00 	nop 
-
-40008cf8 <read_9>:
-40008cf8:	91 42 40 00 	rd  %asr9, %o0
-40008cfc:	10 80 00 1d 	b  40008d70 <ret_block>
+40008cf8:	80 a2 20 04 	cmp  %o0, 4
+40008cfc:	02 80 00 62 	be  40008e84 <read_4>
 40008d00:	01 00 00 00 	nop 
-
-40008d04 <read_8>:
-40008d04:	91 42 00 00 	rd  %asr8, %o0
-40008d08:	10 80 00 1a 	b  40008d70 <ret_block>
+40008d04:	80 a2 20 03 	cmp  %o0, 3
+40008d08:	02 80 00 62 	be  40008e90 <read_3>
 40008d0c:	01 00 00 00 	nop 
-
-40008d10 <read_7>:
-40008d10:	91 41 c0 00 	rd  %asr7, %o0
-40008d14:	10 80 00 17 	b  40008d70 <ret_block>
+40008d10:	80 a2 20 02 	cmp  %o0, 2
+40008d14:	02 80 00 62 	be  40008e9c <read_2>
 40008d18:	01 00 00 00 	nop 
-
-40008d1c <read_6>:
-40008d1c:	91 41 80 00 	rd  %asr6, %o0
-40008d20:	10 80 00 14 	b  40008d70 <ret_block>
+40008d1c:	80 a2 20 01 	cmp  %o0, 1
+40008d20:	02 80 00 62 	be  40008ea8 <read_1>
 40008d24:	01 00 00 00 	nop 
-
-40008d28 <read_5>:
-40008d28:	91 41 40 00 	rd  %asr5, %o0
-40008d2c:	10 80 00 11 	b  40008d70 <ret_block>
+40008d28:	80 a2 20 00 	cmp  %o0, 0
+40008d2c:	02 80 00 62 	be  40008eb4 <read_0>
 40008d30:	01 00 00 00 	nop 
-
-40008d34 <read_4>:
-40008d34:	91 41 00 00 	rd  %asr4, %o0
-40008d38:	10 80 00 0e 	b  40008d70 <ret_block>
+40008d34:	90 10 00 00 	mov  %g0, %o0
+40008d38:	10 80 00 62 	b  40008ec0 <ret_block>
 40008d3c:	01 00 00 00 	nop 
 
-40008d40 <read_3>:
-40008d40:	91 40 c0 00 	rd  %asr3, %o0
-40008d44:	10 80 00 0b 	b  40008d70 <ret_block>
+40008d40 <read_31>:
+40008d40:	91 47 c0 00 	rd  %asr31, %o0
+40008d44:	10 80 00 5f 	b  40008ec0 <ret_block>
 40008d48:	01 00 00 00 	nop 
 
-40008d4c <read_2>:
-40008d4c:	91 40 80 00 	rd  %asr2, %o0
-40008d50:	10 80 00 08 	b  40008d70 <ret_block>
+40008d4c <read_30>:
+40008d4c:	91 47 80 00 	rd  %asr30, %o0
+40008d50:	10 80 00 5c 	b  40008ec0 <ret_block>
 40008d54:	01 00 00 00 	nop 
 
-40008d58 <read_1>:
-40008d58:	91 40 40 00 	rd  %asr1, %o0
-40008d5c:	10 80 00 05 	b  40008d70 <ret_block>
+40008d58 <read_29>:
+40008d58:	91 47 40 00 	rd  %asr29, %o0
+40008d5c:	10 80 00 59 	b  40008ec0 <ret_block>
 40008d60:	01 00 00 00 	nop 
 
-40008d64 <read_0>:
-40008d64:	91 40 00 00 	rd  %y, %o0
-40008d68:	10 80 00 02 	b  40008d70 <ret_block>
+40008d64 <read_28>:
+40008d64:	91 47 00 00 	rd  %asr28, %o0
+40008d68:	10 80 00 56 	b  40008ec0 <ret_block>
 40008d6c:	01 00 00 00 	nop 
 
-40008d70 <ret_block>:
-40008d70:	81 e0 00 00 	save 
-40008d74:	81 c4 80 00 	jmp  %l2
-40008d78:	81 cc a0 04 	rett  %l2 + 4
-40008d7c:	01 00 00 00 	nop 
+40008d70 <read_27>:
+40008d70:	91 46 c0 00 	rd  %asr27, %o0
+40008d74:	10 80 00 53 	b  40008ec0 <ret_block>
+40008d78:	01 00 00 00 	nop 
 
-40008d80 <ajit_sys_read_asr>:
-40008d80:	91 d0 20 10 	ta  0x10
+40008d7c <read_26>:
+40008d7c:	91 46 80 00 	rd  %asr26, %o0
+40008d80:	10 80 00 50 	b  40008ec0 <ret_block>
 40008d84:	01 00 00 00 	nop 
-40008d88:	81 c3 e0 08 	retl 
-40008d8c:	01 00 00 00 	nop 
 
-40008d90 <ajit_sys_go_to_supervisor_mode>:
-40008d90:	91 d0 20 11 	ta  0x11
-40008d94:	01 00 00 00 	nop 
-40008d98:	81 c3 e0 08 	retl 
+40008d88 <read_25>:
+40008d88:	91 46 40 00 	rd  %asr25, %o0
+40008d8c:	10 80 00 4d 	b  40008ec0 <ret_block>
+40008d90:	01 00 00 00 	nop 
+
+40008d94 <read_24>:
+40008d94:	91 46 00 00 	rd  %asr24, %o0
+40008d98:	10 80 00 4a 	b  40008ec0 <ret_block>
 40008d9c:	01 00 00 00 	nop 
 
-40008da0 <generic_sys_go_to_supervisor>:
-40008da0:	ab 48 00 00 	rd  %psr, %l5
-40008da4:	b1 2e 20 05 	sll  %i0, 5, %i0
-40008da8:	b0 16 20 80 	or  %i0, 0x80, %i0
-40008dac:	aa 15 40 18 	or  %l5, %i0, %l5
-40008db0:	81 88 00 15 	mov  %l5, %psr
-40008db4:	81 c4 80 00 	jmp  %l2
-40008db8:	81 e8 00 00 	restore 
-40008dbc:	01 00 00 00 	nop 
+40008da0 <read_23>:
+40008da0:	91 45 c0 00 	rd  %asr23, %o0
+40008da4:	10 80 00 47 	b  40008ec0 <ret_block>
+40008da8:	01 00 00 00 	nop 
+
+40008dac <read_22>:
+40008dac:	91 45 80 00 	rd  %asr22, %o0
+40008db0:	10 80 00 44 	b  40008ec0 <ret_block>
+40008db4:	01 00 00 00 	nop 
+
+40008db8 <read_21>:
+40008db8:	91 45 40 00 	rd  %asr21, %o0
+40008dbc:	10 80 00 41 	b  40008ec0 <ret_block>
+40008dc0:	01 00 00 00 	nop 
+
+40008dc4 <read_20>:
+40008dc4:	91 45 00 00 	rd  %asr20, %o0
+40008dc8:	10 80 00 3e 	b  40008ec0 <ret_block>
+40008dcc:	01 00 00 00 	nop 
+
+40008dd0 <read_19>:
+40008dd0:	91 44 c0 00 	rd  %asr19, %o0
+40008dd4:	10 80 00 3b 	b  40008ec0 <ret_block>
+40008dd8:	01 00 00 00 	nop 
+
+40008ddc <read_18>:
+40008ddc:	91 44 80 00 	rd  %asr18, %o0
+40008de0:	10 80 00 38 	b  40008ec0 <ret_block>
+40008de4:	01 00 00 00 	nop 
+
+40008de8 <read_17>:
+40008de8:	91 44 40 00 	rd  %asr17, %o0
+40008dec:	10 80 00 35 	b  40008ec0 <ret_block>
+40008df0:	01 00 00 00 	nop 
+
+40008df4 <read_16>:
+40008df4:	91 44 00 00 	rd  %asr16, %o0
+40008df8:	10 80 00 32 	b  40008ec0 <ret_block>
+40008dfc:	01 00 00 00 	nop 
+
+40008e00 <read_15>:
+40008e00:	91 43 c0 00 	rd  %asr15, %o0
+40008e04:	10 80 00 2f 	b  40008ec0 <ret_block>
+40008e08:	01 00 00 00 	nop 
+
+40008e0c <read_14>:
+40008e0c:	91 43 80 00 	rd  %asr14, %o0
+40008e10:	10 80 00 2c 	b  40008ec0 <ret_block>
+40008e14:	01 00 00 00 	nop 
+
+40008e18 <read_13>:
+40008e18:	91 43 40 00 	rd  %asr13, %o0
+40008e1c:	10 80 00 29 	b  40008ec0 <ret_block>
+40008e20:	01 00 00 00 	nop 
+
+40008e24 <read_12>:
+40008e24:	91 43 00 00 	rd  %asr12, %o0
+40008e28:	10 80 00 26 	b  40008ec0 <ret_block>
+40008e2c:	01 00 00 00 	nop 
+
+40008e30 <read_11>:
+40008e30:	91 42 c0 00 	rd  %asr11, %o0
+40008e34:	10 80 00 23 	b  40008ec0 <ret_block>
+40008e38:	01 00 00 00 	nop 
+
+40008e3c <read_10>:
+40008e3c:	91 42 80 00 	rd  %asr10, %o0
+40008e40:	10 80 00 20 	b  40008ec0 <ret_block>
+40008e44:	01 00 00 00 	nop 
+
+40008e48 <read_9>:
+40008e48:	91 42 40 00 	rd  %asr9, %o0
+40008e4c:	10 80 00 1d 	b  40008ec0 <ret_block>
+40008e50:	01 00 00 00 	nop 
+
+40008e54 <read_8>:
+40008e54:	91 42 00 00 	rd  %asr8, %o0
+40008e58:	10 80 00 1a 	b  40008ec0 <ret_block>
+40008e5c:	01 00 00 00 	nop 
+
+40008e60 <read_7>:
+40008e60:	91 41 c0 00 	rd  %asr7, %o0
+40008e64:	10 80 00 17 	b  40008ec0 <ret_block>
+40008e68:	01 00 00 00 	nop 
+
+40008e6c <read_6>:
+40008e6c:	91 41 80 00 	rd  %asr6, %o0
+40008e70:	10 80 00 14 	b  40008ec0 <ret_block>
+40008e74:	01 00 00 00 	nop 
+
+40008e78 <read_5>:
+40008e78:	91 41 40 00 	rd  %asr5, %o0
+40008e7c:	10 80 00 11 	b  40008ec0 <ret_block>
+40008e80:	01 00 00 00 	nop 
+
+40008e84 <read_4>:
+40008e84:	91 41 00 00 	rd  %asr4, %o0
+40008e88:	10 80 00 0e 	b  40008ec0 <ret_block>
+40008e8c:	01 00 00 00 	nop 
+
+40008e90 <read_3>:
+40008e90:	91 40 c0 00 	rd  %asr3, %o0
+40008e94:	10 80 00 0b 	b  40008ec0 <ret_block>
+40008e98:	01 00 00 00 	nop 
+
+40008e9c <read_2>:
+40008e9c:	91 40 80 00 	rd  %asr2, %o0
+40008ea0:	10 80 00 08 	b  40008ec0 <ret_block>
+40008ea4:	01 00 00 00 	nop 
+
+40008ea8 <read_1>:
+40008ea8:	91 40 40 00 	rd  %asr1, %o0
+40008eac:	10 80 00 05 	b  40008ec0 <ret_block>
+40008eb0:	01 00 00 00 	nop 
+
+40008eb4 <read_0>:
+40008eb4:	91 40 00 00 	rd  %y, %o0
+40008eb8:	10 80 00 02 	b  40008ec0 <ret_block>
+40008ebc:	01 00 00 00 	nop 
+
+40008ec0 <ret_block>:
+40008ec0:	81 e0 00 00 	save 
+40008ec4:	81 c4 80 00 	jmp  %l2
+40008ec8:	81 cc a0 04 	rett  %l2 + 4
+40008ecc:	01 00 00 00 	nop 
+
+40008ed0 <ajit_sys_read_asr>:
+40008ed0:	91 d0 20 10 	ta  0x10
+40008ed4:	01 00 00 00 	nop 
+40008ed8:	81 c3 e0 08 	retl 
+40008edc:	01 00 00 00 	nop 
+
+40008ee0 <ajit_sys_go_to_supervisor_mode>:
+40008ee0:	91 d0 20 11 	ta  0x11
+40008ee4:	01 00 00 00 	nop 
+40008ee8:	81 c3 e0 08 	retl 
+40008eec:	01 00 00 00 	nop 
+
+40008ef0 <generic_sys_go_to_supervisor>:
+40008ef0:	ab 48 00 00 	rd  %psr, %l5
+40008ef4:	b1 2e 20 05 	sll  %i0, 5, %i0
+40008ef8:	b0 16 20 80 	or  %i0, 0x80, %i0
+40008efc:	aa 15 40 18 	or  %l5, %i0, %l5
+40008f00:	81 88 00 15 	mov  %l5, %psr
+40008f04:	81 c4 80 00 	jmp  %l2
+40008f08:	81 e8 00 00 	restore 
+40008f0c:	01 00 00 00 	nop 
 	...
 
 40009000 <page_table_setup>:
@@ -10425,91 +10513,91 @@ Disassembly of section .text:
 4000b110 <HW_trap_0x11>:
 4000b110:	a1 48 00 00 	rd  %psr, %l0
 4000b114:	a7 58 00 00 	rd  %tbr, %l3
-4000b118:	10 bf f5 d6 	b  40008870 <generic_vectored_isr>
+4000b118:	10 bf f6 2b 	b  400089c4 <generic_vectored_isr>
 4000b11c:	01 00 00 00 	nop 
 
 4000b120 <HW_trap_0x12>:
 4000b120:	a1 48 00 00 	rd  %psr, %l0
 4000b124:	a7 58 00 00 	rd  %tbr, %l3
-4000b128:	10 bf f5 d2 	b  40008870 <generic_vectored_isr>
+4000b128:	10 bf f6 27 	b  400089c4 <generic_vectored_isr>
 4000b12c:	01 00 00 00 	nop 
 
 4000b130 <HW_trap_0x13>:
 4000b130:	a1 48 00 00 	rd  %psr, %l0
 4000b134:	a7 58 00 00 	rd  %tbr, %l3
-4000b138:	10 bf f5 ce 	b  40008870 <generic_vectored_isr>
+4000b138:	10 bf f6 23 	b  400089c4 <generic_vectored_isr>
 4000b13c:	01 00 00 00 	nop 
 
 4000b140 <HW_trap_0x14>:
 4000b140:	a1 48 00 00 	rd  %psr, %l0
 4000b144:	a7 58 00 00 	rd  %tbr, %l3
-4000b148:	10 bf f5 ca 	b  40008870 <generic_vectored_isr>
+4000b148:	10 bf f6 1f 	b  400089c4 <generic_vectored_isr>
 4000b14c:	01 00 00 00 	nop 
 
 4000b150 <HW_trap_0x15>:
 4000b150:	a1 48 00 00 	rd  %psr, %l0
 4000b154:	a7 58 00 00 	rd  %tbr, %l3
-4000b158:	10 bf f5 c6 	b  40008870 <generic_vectored_isr>
+4000b158:	10 bf f6 1b 	b  400089c4 <generic_vectored_isr>
 4000b15c:	01 00 00 00 	nop 
 
 4000b160 <HW_trap_0x16>:
 4000b160:	a1 48 00 00 	rd  %psr, %l0
 4000b164:	a7 58 00 00 	rd  %tbr, %l3
-4000b168:	10 bf f5 c2 	b  40008870 <generic_vectored_isr>
+4000b168:	10 bf f6 17 	b  400089c4 <generic_vectored_isr>
 4000b16c:	01 00 00 00 	nop 
 
 4000b170 <HW_trap_0x17>:
 4000b170:	a1 48 00 00 	rd  %psr, %l0
 4000b174:	a7 58 00 00 	rd  %tbr, %l3
-4000b178:	10 bf f5 be 	b  40008870 <generic_vectored_isr>
+4000b178:	10 bf f6 13 	b  400089c4 <generic_vectored_isr>
 4000b17c:	01 00 00 00 	nop 
 
 4000b180 <HW_trap_0x18>:
 4000b180:	a1 48 00 00 	rd  %psr, %l0
 4000b184:	a7 58 00 00 	rd  %tbr, %l3
-4000b188:	10 bf f5 ba 	b  40008870 <generic_vectored_isr>
+4000b188:	10 bf f6 0f 	b  400089c4 <generic_vectored_isr>
 4000b18c:	01 00 00 00 	nop 
 
 4000b190 <HW_trap_0x19>:
 4000b190:	a1 48 00 00 	rd  %psr, %l0
 4000b194:	a7 58 00 00 	rd  %tbr, %l3
-4000b198:	10 bf f5 b6 	b  40008870 <generic_vectored_isr>
+4000b198:	10 bf f6 0b 	b  400089c4 <generic_vectored_isr>
 4000b19c:	01 00 00 00 	nop 
 
 4000b1a0 <HW_trap_0x1a>:
 4000b1a0:	a1 48 00 00 	rd  %psr, %l0
 4000b1a4:	a7 58 00 00 	rd  %tbr, %l3
-4000b1a8:	10 bf f5 b2 	b  40008870 <generic_vectored_isr>
+4000b1a8:	10 bf f6 07 	b  400089c4 <generic_vectored_isr>
 4000b1ac:	01 00 00 00 	nop 
 
 4000b1b0 <HW_trap_0x1b>:
 4000b1b0:	a1 48 00 00 	rd  %psr, %l0
 4000b1b4:	a7 58 00 00 	rd  %tbr, %l3
-4000b1b8:	10 bf f5 ae 	b  40008870 <generic_vectored_isr>
+4000b1b8:	10 bf f6 03 	b  400089c4 <generic_vectored_isr>
 4000b1bc:	01 00 00 00 	nop 
 
 4000b1c0 <HW_trap_0x1c>:
 4000b1c0:	a1 48 00 00 	rd  %psr, %l0
 4000b1c4:	a7 58 00 00 	rd  %tbr, %l3
-4000b1c8:	10 bf f5 aa 	b  40008870 <generic_vectored_isr>
+4000b1c8:	10 bf f5 ff 	b  400089c4 <generic_vectored_isr>
 4000b1cc:	01 00 00 00 	nop 
 
 4000b1d0 <HW_trap_0x1d>:
 4000b1d0:	a1 48 00 00 	rd  %psr, %l0
 4000b1d4:	a7 58 00 00 	rd  %tbr, %l3
-4000b1d8:	10 bf f5 a6 	b  40008870 <generic_vectored_isr>
+4000b1d8:	10 bf f5 fb 	b  400089c4 <generic_vectored_isr>
 4000b1dc:	01 00 00 00 	nop 
 
 4000b1e0 <HW_trap_0x1e>:
 4000b1e0:	a1 48 00 00 	rd  %psr, %l0
 4000b1e4:	a7 58 00 00 	rd  %tbr, %l3
-4000b1e8:	10 bf f5 a2 	b  40008870 <generic_vectored_isr>
+4000b1e8:	10 bf f5 f7 	b  400089c4 <generic_vectored_isr>
 4000b1ec:	01 00 00 00 	nop 
 
 4000b1f0 <HW_trap_0x1f>:
 4000b1f0:	a1 48 00 00 	rd  %psr, %l0
 4000b1f4:	a7 58 00 00 	rd  %tbr, %l3
-4000b1f8:	10 bf f5 9e 	b  40008870 <generic_vectored_isr>
+4000b1f8:	10 bf f5 f3 	b  400089c4 <generic_vectored_isr>
 4000b1fc:	01 00 00 00 	nop 
 
 4000b200 <HW_trap_0x20>:
@@ -11097,101 +11185,101 @@ Disassembly of section .text:
 4000b810 <SW_trap_0x81>:
 4000b810:	a1 48 00 00 	rd  %psr, %l0
 4000b814:	a7 58 00 00 	rd  %tbr, %l3
-4000b818:	10 bf f4 52 	b  40008960 <generic_vectored_sw_trap>
+4000b818:	10 bf f4 a7 	b  40008ab4 <generic_vectored_sw_trap>
 4000b81c:	01 00 00 00 	nop 
 
 4000b820 <SW_trap_0x82>:
 4000b820:	a1 48 00 00 	rd  %psr, %l0
 4000b824:	a7 58 00 00 	rd  %tbr, %l3
-4000b828:	10 bf f4 4e 	b  40008960 <generic_vectored_sw_trap>
+4000b828:	10 bf f4 a3 	b  40008ab4 <generic_vectored_sw_trap>
 4000b82c:	01 00 00 00 	nop 
 
 4000b830 <SW_trap_0x83>:
 4000b830:	a1 48 00 00 	rd  %psr, %l0
 4000b834:	a7 58 00 00 	rd  %tbr, %l3
-4000b838:	10 bf f4 4a 	b  40008960 <generic_vectored_sw_trap>
+4000b838:	10 bf f4 9f 	b  40008ab4 <generic_vectored_sw_trap>
 4000b83c:	01 00 00 00 	nop 
 
 4000b840 <SW_trap_0x84>:
 4000b840:	a1 48 00 00 	rd  %psr, %l0
 4000b844:	a7 58 00 00 	rd  %tbr, %l3
-4000b848:	10 bf f4 46 	b  40008960 <generic_vectored_sw_trap>
+4000b848:	10 bf f4 9b 	b  40008ab4 <generic_vectored_sw_trap>
 4000b84c:	01 00 00 00 	nop 
 
 4000b850 <SW_trap_0x85>:
 4000b850:	a1 48 00 00 	rd  %psr, %l0
 4000b854:	a7 58 00 00 	rd  %tbr, %l3
-4000b858:	10 bf f4 42 	b  40008960 <generic_vectored_sw_trap>
+4000b858:	10 bf f4 97 	b  40008ab4 <generic_vectored_sw_trap>
 4000b85c:	01 00 00 00 	nop 
 
 4000b860 <SW_trap_0x86>:
 4000b860:	a1 48 00 00 	rd  %psr, %l0
 4000b864:	a7 58 00 00 	rd  %tbr, %l3
-4000b868:	10 bf f4 3e 	b  40008960 <generic_vectored_sw_trap>
+4000b868:	10 bf f4 93 	b  40008ab4 <generic_vectored_sw_trap>
 4000b86c:	01 00 00 00 	nop 
 
 4000b870 <SW_trap_0x87>:
 4000b870:	a1 48 00 00 	rd  %psr, %l0
 4000b874:	a7 58 00 00 	rd  %tbr, %l3
-4000b878:	10 bf f4 3a 	b  40008960 <generic_vectored_sw_trap>
+4000b878:	10 bf f4 8f 	b  40008ab4 <generic_vectored_sw_trap>
 4000b87c:	01 00 00 00 	nop 
 
 4000b880 <SW_trap_0x88>:
 4000b880:	a1 48 00 00 	rd  %psr, %l0
 4000b884:	a7 58 00 00 	rd  %tbr, %l3
-4000b888:	10 bf f4 36 	b  40008960 <generic_vectored_sw_trap>
+4000b888:	10 bf f4 8b 	b  40008ab4 <generic_vectored_sw_trap>
 4000b88c:	01 00 00 00 	nop 
 
 4000b890 <SW_trap_0x89>:
 4000b890:	a1 48 00 00 	rd  %psr, %l0
 4000b894:	a7 58 00 00 	rd  %tbr, %l3
-4000b898:	10 bf f4 32 	b  40008960 <generic_vectored_sw_trap>
+4000b898:	10 bf f4 87 	b  40008ab4 <generic_vectored_sw_trap>
 4000b89c:	01 00 00 00 	nop 
 
 4000b8a0 <SW_trap_0x8a>:
 4000b8a0:	a1 48 00 00 	rd  %psr, %l0
 4000b8a4:	a7 58 00 00 	rd  %tbr, %l3
-4000b8a8:	10 bf f4 2e 	b  40008960 <generic_vectored_sw_trap>
+4000b8a8:	10 bf f4 83 	b  40008ab4 <generic_vectored_sw_trap>
 4000b8ac:	01 00 00 00 	nop 
 
 4000b8b0 <SW_trap_0x8b>:
 4000b8b0:	a1 48 00 00 	rd  %psr, %l0
 4000b8b4:	a7 58 00 00 	rd  %tbr, %l3
-4000b8b8:	10 bf f4 2a 	b  40008960 <generic_vectored_sw_trap>
+4000b8b8:	10 bf f4 7f 	b  40008ab4 <generic_vectored_sw_trap>
 4000b8bc:	01 00 00 00 	nop 
 
 4000b8c0 <SW_trap_0x8c>:
 4000b8c0:	a1 48 00 00 	rd  %psr, %l0
 4000b8c4:	a7 58 00 00 	rd  %tbr, %l3
-4000b8c8:	10 bf f4 26 	b  40008960 <generic_vectored_sw_trap>
+4000b8c8:	10 bf f4 7b 	b  40008ab4 <generic_vectored_sw_trap>
 4000b8cc:	01 00 00 00 	nop 
 
 4000b8d0 <SW_trap_0x8d>:
 4000b8d0:	a1 48 00 00 	rd  %psr, %l0
 4000b8d4:	a7 58 00 00 	rd  %tbr, %l3
-4000b8d8:	10 bf f4 22 	b  40008960 <generic_vectored_sw_trap>
+4000b8d8:	10 bf f4 77 	b  40008ab4 <generic_vectored_sw_trap>
 4000b8dc:	01 00 00 00 	nop 
 
 4000b8e0 <SW_trap_0x8e>:
 4000b8e0:	a1 48 00 00 	rd  %psr, %l0
 4000b8e4:	a7 58 00 00 	rd  %tbr, %l3
-4000b8e8:	10 bf f4 1e 	b  40008960 <generic_vectored_sw_trap>
+4000b8e8:	10 bf f4 73 	b  40008ab4 <generic_vectored_sw_trap>
 4000b8ec:	01 00 00 00 	nop 
 
 4000b8f0 <SW_trap_0x8f>:
 4000b8f0:	a1 48 00 00 	rd  %psr, %l0
 4000b8f4:	a7 58 00 00 	rd  %tbr, %l3
-4000b8f8:	10 bf f4 1a 	b  40008960 <generic_vectored_sw_trap>
+4000b8f8:	10 bf f4 6f 	b  40008ab4 <generic_vectored_sw_trap>
 4000b8fc:	01 00 00 00 	nop 
 
 4000b900 <SW_trap_0x90>:
 4000b900:	a1 48 00 00 	rd  %psr, %l0
 4000b904:	a7 58 00 00 	rd  %tbr, %l3
-4000b908:	10 bf f4 56 	b  40008a60 <generic_read_asr>
+4000b908:	10 bf f4 aa 	b  40008bb0 <generic_read_asr>
 4000b90c:	01 00 00 00 	nop 
 
 4000b910 <SW_trap_0x91>:
-4000b910:	10 bf f5 24 	b  40008da0 <generic_sys_go_to_supervisor>
+4000b910:	10 bf f5 78 	b  40008ef0 <generic_sys_go_to_supervisor>
 4000b914:	01 00 00 00 	nop 
 4000b918:	01 00 00 00 	nop 
 4000b91c:	01 00 00 00 	nop 

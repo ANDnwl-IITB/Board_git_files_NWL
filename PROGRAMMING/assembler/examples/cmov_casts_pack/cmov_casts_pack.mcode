@@ -1,0 +1,52 @@
+init :
+	||
+		$set $r1 0 1
+		$set $r2 0 2
+		$set $r3 0 3
+		$set $r4 0 4
+		$set $r5 0 5
+		$set $r6 0 6
+		$set $r7 0 7
+	;
+init2: 
+	||
+		$set $r9  0 _hdeadbeef
+		$set $r10 0 0
+		$pack 64 $r8 32 $r0
+		$slice  $r20 31 15 $r8
+	;
+action:
+	|| 
+		$cast ($i64) $r26 ($v $i32) $r8
+		$cmov ? ($i64) $r0  == $r9  $r8
+		$cmov ? ($i64) $r0  != $r10 $r8
+	;
+upcast1:
+	||
+		// r8,r9 -> r28.
+		$cast ($i16) $r28 ($v $i32) $r8
+		// r8 -> r12,r13
+		$cast ($i16) $r12 ($v $i8) $r8
+	;
+upcast2:
+	||
+		// r12 -> r14,r15
+		$cast ($i32) $r14 ($v $i16) $r12
+		// r13 -> r16,r17
+		$cast ($i32) $r16 ($v $i16) $r13
+	;
+upcast3:
+	||
+		// r14 -> r18,r19
+		$cast ($i64) $r18 ($v $i32) $r14
+		// r15 -> r20,r21
+		$cast ($i64) $r20 ($v $i32) $r15
+		$cast ($i64) $r22 ($v $i32) $r16
+		$cast ($i64) $r24 ($v $i32) $r17
+
+	;
+halt:
+	||
+		$halt
+	;
+

@@ -1,0 +1,207 @@
+Info: Thread 0 pc = 0
+Info: imem file = cmov.obj
+Info: dmem file = data.map
+Info: register init values from registers.txt
+Info: results file = results.txt
+Info: Init: IMEM[0] = 0x90810401
+Info: Init: IMEM[1] = 0x14820401
+Info: Init: IMEM[2] = 0x10830403
+Info: Init: IMEM[3] = 0x10840404
+Info: Init: IMEM[4] = 0x10850405
+Info: Init: IMEM[5] = 0x10860406
+Info: Init: IMEM[6] = 0x10870407
+Info: Init: IMEM[7] = 0x10880408
+Info: Init: IMEM[8] = 0xdc851900
+Info: Init: IMEM[9] = 0x5c862600
+Info: Init: IMEM[10] = 0x5c872ac1
+Info: Init: IMEM[11] = 0x5c883342
+Info: Init: IMEM[12] = 0xec000000
+Info: Loaded 13 instructions to i-mem
+Info: Init: DMEM[0] = 0x0
+Info: Loaded 1 words to d-mem
+Info: reading register-init-file registers.txt
+Info: Register[0][0] initialized to 0x0
+
+Info: RunLog[0]: Set_Register(0, 0x0)
+Info: Info: activate thread 0 to pc 0
+Info: Tick on thread 0
+Info: McodeAccelerator:: 0x90810401 = IMEM[0x0]
+Info: McodeAccelerator:: 0x14820401 = IMEM[0x1]
+Info: McodeAccelerator:: 0x10830403 = IMEM[0x2]
+Info: McodeAccelerator:: 0x10840404 = IMEM[0x3]
+Info: McodeAccelerator:: 0x10850405 = IMEM[0x4]
+Info: McodeAccelerator:: 0x10860406 = IMEM[0x5]
+Info: McodeAccelerator:: 0x10870407 = IMEM[0x6]
+Info: McodeAccelerator:: 0x10880408 = IMEM[0x7]
+Info: McodeMachine:Run_Machine PC=0x0
+Info: McodeMachine:Run_Machine: new bundle pc=0x0 (size=8)
+Info: RunLog[0]: 0x0 = Get_Register(0)
+
+LOG:Get_Operands: 0x0  McodeAluInstruction
+Info: RunLog[0]: 0x0 = Get_Register(0)
+
+LOG:Get_Operands: 0x1  McodeAluInstruction
+Info: RunLog[0]: 0x0 = Get_Register(0)
+
+LOG:Get_Operands: 0x2  McodeAluInstruction
+Info: RunLog[0]: 0x0 = Get_Register(0)
+
+LOG:Get_Operands: 0x3  McodeAluInstruction
+Info: RunLog[0]: 0x0 = Get_Register(0)
+
+LOG:Get_Operands: 0x4  McodeAluInstruction
+Info: RunLog[0]: 0x0 = Get_Register(0)
+
+LOG:Get_Operands: 0x5  McodeAluInstruction
+Info: RunLog[0]: 0x0 = Get_Register(0)
+
+LOG:Get_Operands: 0x6  McodeAluInstruction
+Info: RunLog[0]: 0x0 = Get_Register(0)
+
+LOG:Get_Operands: 0x7  McodeAluInstruction
+Info: ___execute_alu_operation___
+Info: 0: Alu!
+LOG:Execute     : 0x0  McodeAluInstruction
+Info: ___execute_alu_operation___
+Info: 1: Alu!
+LOG:Execute     : 0x1  McodeAluInstruction
+Info: ___execute_alu_operation___
+Info: 2: Alu!
+LOG:Execute     : 0x2  McodeAluInstruction
+Info: ___execute_alu_operation___
+Info: 3: Alu!
+LOG:Execute     : 0x3  McodeAluInstruction
+Info: ___execute_alu_operation___
+Info: 4: Alu!
+LOG:Execute     : 0x4  McodeAluInstruction
+Info: ___execute_alu_operation___
+Info: 5: Alu!
+LOG:Execute     : 0x5  McodeAluInstruction
+Info: ___execute_alu_operation___
+Info: 6: Alu!
+LOG:Execute     : 0x6  McodeAluInstruction
+Info: ___execute_alu_operation___
+Info: 7: Alu!
+LOG:Execute     : 0x7  McodeAluInstruction
+Info: RunLog[0]: Set_Register(1, 0x1)
+LOG:Set_Results  : 0x0  McodeAluInstruction
+Info: RunLog[0]: Set_Register(2, 0xffffffffffffffff)
+LOG:Set_Results  : 0x1  McodeAluInstruction
+Info: RunLog[0]: Set_Register(3, 0x3)
+LOG:Set_Results  : 0x2  McodeAluInstruction
+Info: RunLog[0]: Set_Register(4, 0x4)
+LOG:Set_Results  : 0x3  McodeAluInstruction
+Info: RunLog[0]: Set_Register(5, 0x5)
+LOG:Set_Results  : 0x4  McodeAluInstruction
+Info: RunLog[0]: Set_Register(6, 0x6)
+LOG:Set_Results  : 0x5  McodeAluInstruction
+Info: RunLog[0]: Set_Register(7, 0x7)
+LOG:Set_Results  : 0x6  McodeAluInstruction
+Info: RunLog[0]: Set_Register(8, 0x8)
+LOG:Set_Results  : 0x7  McodeAluInstruction
+RunLog[0]: l_0 pc=0x0  McodeInstructionBundle
+RunLog[0]: 0x0 +           0x0    0x1     -> 0x1    
+RunLog[0]: 0x1 -           0x0    0x1     -> 0xffffffffffffffff    
+RunLog[0]: 0x2 +           0x0    0x3     -> 0x3    
+RunLog[0]: 0x3 +           0x0    0x4     -> 0x4    
+RunLog[0]: 0x4 +           0x0    0x5     -> 0x5    
+RunLog[0]: 0x5 +           0x0    0x6     -> 0x6    
+RunLog[0]: 0x6 +           0x0    0x7     -> 0x7    
+RunLog[0]: 0x7 +           0x0    0x8     -> 0x8    
+Info: Tick on thread 0
+Info: McodeAccelerator:: 0xdc851900 = IMEM[0x8]
+Info: McodeAccelerator:: 0x5c862600 = IMEM[0x9]
+Info: McodeAccelerator:: 0x5c872ac1 = IMEM[0xa]
+Info: McodeAccelerator:: 0x5c883342 = IMEM[0xb]
+Info: McodeAccelerator:: 0xec000000 = IMEM[0xc]
+Info: McodeAccelerator:: 0x0 = IMEM[0xd]
+Info: McodeAccelerator:: 0x0 = IMEM[0xe]
+Info: McodeAccelerator:: 0x0 = IMEM[0xf]
+Info: McodeMachine:Run_Machine PC=0x8
+Info: McodeMachine:Run_Machine: new bundle pc=0x8 (size=4)
+Info: RunLog[0]: 0x3 = Get_Register(3)
+
+Info: RunLog[0]: 0x0 = Get_Register(0)
+
+Info: RunLog[0]: 0x5 = Get_Register(5)
+
+LOG:Get_Operands: 0x8  McodeCmovInstruction
+Info: RunLog[0]: 0x4 = Get_Register(4)
+
+Info: RunLog[0]: 0x0 = Get_Register(0)
+
+Info: RunLog[0]: 0x6 = Get_Register(6)
+
+LOG:Get_Operands: 0x9  McodeCmovInstruction
+Info: RunLog[0]: 0x5 = Get_Register(5)
+
+Info: RunLog[0]: 0x1 = Get_Register(1)
+
+Info: RunLog[0]: 0x7 = Get_Register(7)
+
+LOG:Get_Operands: 0xa  McodeCmovInstruction
+Info: RunLog[0]: 0x6 = Get_Register(6)
+
+Info: RunLog[0]: 0xffffffffffffffff = Get_Register(2)
+
+Info: RunLog[0]: 0x8 = Get_Register(8)
+
+LOG:Get_Operands: 0xb  McodeCmovInstruction
+Info: ___execute_cmov_operation___
+Info: 8: Cmov!
+LOG:Execute     : 0x8  McodeCmovInstruction
+Info: ___execute_cmov_operation___
+Info: 9: Cmov!
+LOG:Execute     : 0x9  McodeCmovInstruction
+Info: ___execute_cmov_operation___
+Info: 10: Cmov!
+LOG:Execute     : 0xa  McodeCmovInstruction
+Info: ___execute_cmov_operation___
+Info: 11: Cmov!
+LOG:Execute     : 0xb  McodeCmovInstruction
+Info: RunLog[0]: Set_Register(0, 0x0)
+Info: RunLog[0]: Set_Register(5, 0x3)
+LOG:Set_Results  : 0x8  McodeCmovInstruction
+Info: RunLog[0]: Set_Register(0, 0x0)
+Info: RunLog[0]: Set_Register(6, 0x6)
+LOG:Set_Results  : 0x9  McodeCmovInstruction
+Info: RunLog[0]: Set_Register(1, 0x0)
+Info: RunLog[0]: Set_Register(7, 0x5)
+LOG:Set_Results  : 0xa  McodeCmovInstruction
+Info: RunLog[0]: Set_Register(2, 0x0)
+Info: RunLog[0]: Set_Register(8, 0x6)
+LOG:Set_Results  : 0xb  McodeCmovInstruction
+RunLog[0]: l_8 pc=0x8  McodeInstructionBundle
+RunLog[0]: 0x8    0x3    0x0    0x5     -> 0x0    0x3    
+RunLog[0]: 0x9    0x4    0x0    0x6     -> 0x0    0x6    
+RunLog[0]: 0xa    0x5    0x1    0x7     -> 0x0    0x5    
+RunLog[0]: 0xb    0x6    0xffffffffffffffff    0x8     -> 0x0    0x6    
+Info: Tick on thread 0
+Info: McodeMachine:Run_Machine PC=0xc
+Info: McodeMachine:Run_Machine: new bundle pc=0xc (size=1)
+LOG:Get_Operands: 0xc  McodeHaltInstruction
+Info: 12: Halt!
+LOG:Execute     : 0xc  McodeHaltInstruction
+LOG:Set_Results  : 0xc  McodeHaltInstruction
+RunLog[0]: l_12 pc=0xc  McodeInstructionBundle
+RunLog[0]: 0xc $halt        -> 
+Info: Stopped after 3 ticks.
+
+Info: RunLog[0]: 0x0 = Get_Register(1)
+
+Info: PostCondition Reg[0][1] = 0x0 (mask=0xffffffffffffffff)
+Info: RunLog[0]: 0x0 = Get_Register(2)
+
+Info: PostCondition Reg[0][2] = 0x0 (mask=0xffffffffffffffff)
+Info: RunLog[0]: 0x3 = Get_Register(5)
+
+Info: PostCondition Reg[0][5] = 0x3 (mask=0xffffffffffffffff)
+Info: RunLog[0]: 0x6 = Get_Register(6)
+
+Info: PostCondition Reg[0][6] = 0x6 (mask=0xffffffffffffffff)
+Info: RunLog[0]: 0x5 = Get_Register(7)
+
+Info: PostCondition Reg[0][7] = 0x5 (mask=0xffffffffffffffff)
+Info: RunLog[0]: 0x6 = Get_Register(8)
+
+Info: PostCondition Reg[0][8] = 0x6 (mask=0xffffffffffffffff)

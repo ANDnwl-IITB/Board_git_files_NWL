@@ -1,0 +1,12 @@
+! format:
+!     <dword-index>     <dword>
+!      
+! Note: values are presented as hex, without
+! leading 0x
+!
+4:   0x0001020304050607
+5:   0x0102030405060708
+6:   0x0001020304050607
+7:   0x0102030405060708
+8:   0x0001020304050607
+9:   0x0102030405060708

@@ -1,0 +1,103 @@
+Info: Thread 0 pc = 0
+Info: imem file = alu.obj
+Info: register init values from registers.txt
+Info: dmem file = data.map
+Info: results file = results.txt
+Info: Init: IMEM[0] = 0xdb430900
+Info: Init: IMEM[1] = 0x5a440900
+Info: Init: IMEM[2] = 0x5b451100
+Info: Init: IMEM[3] = 0x5a461100
+Info: Init: IMEM[4] = 0x6c000000
+Info: Init: IMEM[5] = 0x68000000
+Info: Init: IMEM[6] = 0x68000000
+Info: Init: IMEM[7] = 0x68000000
+Info: Loaded 8 instructions to i-mem
+Info: Init: DMEM[0] = 0x0
+Info: Loaded 1 words to d-mem
+Info: reading register-init-file registers.txt
+Info: Register[0][1] initialized to 0x1020304050607
+
+Info: RunLog[0]: Set_Register(1, 0x1020304050607)
+Info: Register[0][2] initialized to 0x10101010101f0
+
+Info: RunLog[0]: Set_Register(2, 0x10101010101f0)
+Info: Info: activate thread 0 to pc 0
+Info: Tick on thread 0
+Info: McodeAccelerator:: 0xdb430900 = IMEM[0x0]
+Info: McodeAccelerator:: 0x5a440900 = IMEM[0x1]
+Info: McodeAccelerator:: 0x5b451100 = IMEM[0x2]
+Info: McodeAccelerator:: 0x5a461100 = IMEM[0x3]
+Info: McodeAccelerator:: 0x6c000000 = IMEM[0x4]
+Info: McodeAccelerator:: 0x68000000 = IMEM[0x5]
+Info: McodeAccelerator:: 0x68000000 = IMEM[0x6]
+Info: McodeAccelerator:: 0x68000000 = IMEM[0x7]
+Info: McodeMachine:Run_Machine PC=0x0
+Info: McodeMachine:Run_Machine: new bundle pc=0x0 (size=8)
+Info: RunLog[0]: 0x1020304050607 = Get_Register(1)
+
+LOG:Get_Operands: 0x0  McodeVreduceInstruction
+Info: RunLog[0]: 0x1020304050607 = Get_Register(1)
+
+LOG:Get_Operands: 0x1  McodeVreduceInstruction
+Info: RunLog[0]: 0x10101010101f0 = Get_Register(2)
+
+LOG:Get_Operands: 0x2  McodeVreduceInstruction
+Info: RunLog[0]: 0x10101010101f0 = Get_Register(2)
+
+LOG:Get_Operands: 0x3  McodeVreduceInstruction
+LOG:Get_Operands: 0x4  McodeHaltInstruction
+LOG:Get_Operands: 0x5  McodeNullInstruction
+LOG:Get_Operands: 0x6  McodeNullInstruction
+LOG:Get_Operands: 0x7  McodeNullInstruction
+Info: 0: Vreduce!
+LOG:Execute     : 0x0  McodeVreduceInstruction
+Info: 1: Vreduce!
+LOG:Execute     : 0x1  McodeVreduceInstruction
+Info: 2: Vreduce!
+LOG:Execute     : 0x2  McodeVreduceInstruction
+Info: 3: Vreduce!
+LOG:Execute     : 0x3  McodeVreduceInstruction
+Info: 4: Halt!
+LOG:Execute     : 0x4  McodeHaltInstruction
+Info: 5: Null!
+LOG:Execute     : 0x5  McodeNullInstruction
+Info: 6: Null!
+LOG:Execute     : 0x6  McodeNullInstruction
+Info: 7: Null!
+LOG:Execute     : 0x7  McodeNullInstruction
+Info: RunLog[0]: Set_Register(3, 0x1c)
+LOG:Set_Results  : 0x0  McodeVreduceInstruction
+Info: RunLog[0]: Set_Register(4, 0x1c)
+LOG:Set_Results  : 0x1  McodeVreduceInstruction
+Info: RunLog[0]: Set_Register(5, 0xfffffffffffffff6)
+LOG:Set_Results  : 0x2  McodeVreduceInstruction
+Info: RunLog[0]: Set_Register(6, 0xf6)
+LOG:Set_Results  : 0x3  McodeVreduceInstruction
+LOG:Set_Results  : 0x4  McodeHaltInstruction
+LOG:Set_Results  : 0x5  McodeNullInstruction
+LOG:Set_Results  : 0x6  McodeNullInstruction
+LOG:Set_Results  : 0x7  McodeNullInstruction
+RunLog[0]: l_0 pc=0x0  McodeInstructionBundle
+RunLog[0]: 0x0 $vreduce    0x1020304050607     -> 0x1c    
+RunLog[0]: 0x1 $vreduce    0x1020304050607     -> 0x1c    
+RunLog[0]: 0x2 $vreduce    0x10101010101f0     -> 0xfffffffffffffff6    
+RunLog[0]: 0x3 $vreduce    0x10101010101f0     -> 0xf6    
+RunLog[0]: 0x4 $halt        -> 
+RunLog[0]: 0x5 $null        -> 
+RunLog[0]: 0x6 $null        -> 
+RunLog[0]: 0x7 $null        -> 
+Info: Stopped after 1 ticks.
+Info: number of non-null instructions executed = 5
+Info: number of null instructions executed = 3
+Info: RunLog[0]: 0x1c = Get_Register(3)
+
+Info: PostCondition Reg[0][3] = 0x1c (mask=0xffffffffffffffff)
+Info: RunLog[0]: 0x1c = Get_Register(4)
+
+Info: PostCondition Reg[0][4] = 0x1c (mask=0xffffffffffffffff)
+Info: RunLog[0]: 0xfffffffffffffff6 = Get_Register(5)
+
+Info: PostCondition Reg[0][5] = 0xfffffffffffffff6 (mask=0xffffffffffffffff)
+Info: RunLog[0]: 0xf6 = Get_Register(6)
+
+Info: PostCondition Reg[0][6] = 0xf6 (mask=0xffffffffffffffff)

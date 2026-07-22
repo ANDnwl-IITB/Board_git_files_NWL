@@ -1,0 +1,77 @@
+load1: // pc=0x0
+    || 
+    $null
+    $null
+    $null
+    $null
+    $ld    ($u32)   $r4    [$r0 + 0]
+    $null
+    $null
+    $null
+    ;
+store1: // pc=0x8
+    || 
+    $null
+    $null
+    $null
+    $null
+    $st   ($u32)   [$r0  + 4]    $r4
+    $null
+    $null
+    $null
+    ;
+load2: // pc=0x10
+    || 
+    $null
+    $null
+    $null
+    $null
+    $ld    ($u32)   $r5    [$r0 + 4]
+    $null
+    $null
+    $null
+    ;
+store2: // pc=0x18
+    || 
+    $null
+    $null
+    $null
+    $null
+    $st   ($u32)   [$r0  + 8]    $r5
+    $null
+    $null
+    $null
+    ;
+load3: // pc=0x20
+    || 
+    $null
+    $null
+    $null
+    $null
+    $ld    ($u32)   $r6    [$r0 + 8]
+    $null
+    $null
+    $null
+    ;
+store3: // pc=0x28
+    || 
+    $null
+    $null
+    $null
+    $null
+    $st   ($u32)   [$r0  + 12]    $r6
+    $null
+    $null
+    $null
+    ;
+load4: // pc=0x30
+    || 
+    $halt
+    $null
+    $null
+    $null
+    $ld    ($u32)   $r7    [$r0 + 12]
+    $null
+    $null
+    $null
+    ;
