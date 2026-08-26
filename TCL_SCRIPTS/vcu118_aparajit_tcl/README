@@ -1,0 +1,9 @@
+TCL files for VCU118 Aparajit
+
+- Change bitfile location from both program_vcu118.tcl and reset_vcu118.tcl whenever bitfile gets updated 
+
+
+- Run this tcl script only in  nwl_3 system (currently in Research Park Powai Labs)
+
+
+- If need to run in other systems, change the path of Xilinx Vivado according to that system in program.sh and reset.sh
