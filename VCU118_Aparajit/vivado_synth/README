@@ -1,0 +1,8 @@
+- BITSTREAM GENERATION in  madhav system (lab server having vivado license) 
+
+1. make sure path to edn files are correct inside compile.tcl
+
+2. example : read_edif  $EDN/new_24aug/processor_1x1x32.edn  
+             read_edif  $EDN/new_24aug/engine_core.edn
+   - needs to be edited according to your ../edn/new_<date>/ directory
+   - line 121 and 122 in compile.tcl
