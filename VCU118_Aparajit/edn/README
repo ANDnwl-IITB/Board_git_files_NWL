@@ -1,0 +1,15 @@
+----------------------------------------------------------------------------
+
+-glue_ooc -- this directory have the other necessary edn files required.
+
+----------------------------------------------------------------------------
+
+-Because processor_1x1x32.edn & engine_core.edn file were too large , they could not be uploaded in repo
+
+-EDN files will be needed for bistream generation of VCU118 Aparajit in madhav system (lab server having vivado license) so follow:-
+   1. Make a directory named  " new_<date> " [useful for identifaction of latest edn].
+   2. Upload  processor_1x1x32.edn & engine_core.edn inside this directory.
+
+
+  NOTE : This repo is already git clonnned inside madhav system (lab server).
+                                              
