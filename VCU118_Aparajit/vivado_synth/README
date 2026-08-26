@@ -6,3 +6,5 @@
              read_edif  $EDN/new_24aug/engine_core.edn
    - needs to be edited according to your ../edn/new_<date>/ directory
    - line 121 and 122 in compile.tcl
+
+3. ./run.sh 
