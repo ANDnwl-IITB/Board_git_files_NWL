@@ -1,0 +1,5 @@
+- Upload the new bitfile for VCU118 Aparajit 
+  1. First make a directory inside VCU118_Aparajit_bitfiles naming bitfile_<generated_date>
+  2. Upload .bit and .ltx inside that directory and git push
+
+- The latest bitfile identfication will be according to dates in directory.
