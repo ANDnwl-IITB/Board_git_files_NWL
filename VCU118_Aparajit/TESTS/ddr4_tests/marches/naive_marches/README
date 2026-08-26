@@ -1,0 +1,16 @@
+Marches will check the following memories
+	1. SRAM    address range specified by sram_array. (cacheable, in 0x40000000 to 0x400FFFFF)
+	2. DPRAM0  address range 0x50000000  to 0x50007FFC  (4KB) // non-cacheable
+	3. DPRAM1  address range 0x60000000  to 0x60007FFC  (4KB) // non-cacheable
+	4. GNSS    address range 0x70000000  to 0x70100000  (1MB) // non-cacheable
+	5. MIL-1553-0 address range 0x80000D00 to 0x80000DFF      // non-cacheable.
+	6. MIL-1553-1 address range 0x80000C00 to 0x80000CFF      // non-cacheable.
+
+
+
+Cacheable RAM range        0x40000000 to 0x4000FFFF
+Non-cacheable RAM range    0x50000000 to 0x7FFFFFFF
+MMIO 			   0x80000000 to 0x8000FFFF
+	
+
+
