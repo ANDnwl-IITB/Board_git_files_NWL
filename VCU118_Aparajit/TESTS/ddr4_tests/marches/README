@@ -4,3 +4,17 @@ marches_dram_pages:
 marches_dram_full:
 		It  writes every word in memory during the write phase, and then reads from those 
         words after the write phase completes.
+
+---------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+
+naive_marches:
+        it performs a march test on the SRAM0 region from 0x40000000 to 0x4003FFFF.
+
+marches_dram:
+        it performs a March test on the SRAM region. During the write phase, it writes
+        the address value to every 32-bit word in the SRAM, and during the read phase,
+        it reads back every word and verifies it against the expected address value.
+
+
+
