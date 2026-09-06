@@ -1,27 +1,45 @@
-Stuff that is needed to build the
-1p1e accelerator.
+Stuff that is needed to build the 1p1e accelerator.
 
 component/
 	component with interfaces
 
-copy_vhdl_files.sh
-	ignore
 edn/
-	edn files of the processor
-	and engine_core (for ultrascale+
-	fpga's vcu118 (?), vcu128).
+	edn files of the processor and engine_core (kept in madhav systems i.e VLSI seminar room lab server having vivado license).
 
-README
-	this file
+hsys/
+   contains all the hsys files required .
 
-scripts
-	compile order etc.
+ip/
+   contains all the IPs used.
 
-vhdl/
+verilog/
+   contains verilog files of some units used in design.
+
+vhdl/ & additional vhdl/
 	VHDL files of design units.
 
 vhdl_libs/
-	libraries.
+	contains libraries.
+
+constraints/
+    have the constraints (.xdc file)
+
+TESTS/
+    contains tests for ethernet and ddr4.
+
+vivado_synth/
+    contains compile.tcl for vivado synthesis and bitstream generation of APARAJIT.
+
+docs/
+    1p1e figure + relevant docs
+
+copy_vhdl_files.sh
+    please ignore
 
 
-TODO: FPGA part numbers for VCU118, VCU128. 
+-----------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------
+
+FPGA part number for VCU118 : xcvu9p_0
+
+TODO: FPGA part numbers for VCU128. 
