@@ -1,0 +1,5 @@
+Ethernet_tests/testingNIC_1.2/
+   contains the test reuired for testing Ethernet functionality.
+
+ddr4_tests/
+   contains the ddr4 memory subsystem tests.
