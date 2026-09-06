@@ -1,0 +1,43 @@
+Directories	Contents
+-------------------------------------------------------
+SBC/kcu105
+		Infrastructure for building and using 
+			bitfiles for KCU105.
+		This is for the processor + ethernet + dram
+
+SBC/vcu118
+		Infrastructure for building and using 
+			bitfiles for VCU118.
+		This is for the processor + ethernet + dram
+
+VCU118_aparajit
+		Infrastructure for building and using 
+			bitfiles for VCU118.
+		This is for the processor + accelerator
+		(1p1e_red)
+-------------------------------------------------------
+-------------------------------------------------------
+
+The other directories are
+	APPLICATIONS_ON_APARAJIT:
+		This folder contains Matrix Multiplication and FFT implemented and tested for APARAJIT on VCU118 board.
+
+	KCU105_bitfiles:
+		contains KCU105 bitfiles for SBC
+
+	SBC:
+		Files for the SBC (Processor + DRAM + Ethernet) design on the VCU118 and KCU105
+
+
+	VCU118_Aparajit_bitfiles:
+		contains VCU118 bitfiles for APARAJIT SBC
+
+	VCU118_SBC_bitfiles:
+		contains VCU118 bitfiles for SBC
+
+	BUILD:
+		Implementation of NIC and NIC glue logic. (from AmanD15/AI_NIC_DEMO)
+
+	Networking:
+		Contains the NIC implementation. (from AmanD15/AI_NIC_DEMO)
+

@@ -1,1 +1,8 @@
-Put the path to the processor edn and  Run ./link.sh to setup the edn link.
+This directory contains the edn file for the processor
+(for now) and for other stuff. 
+
+Note that these edn files are not in git.   The
+following files are available at the indicated
+locations
+
+processor_1x1x32.edn    drive-lin??

@@ -1,7 +1,7 @@
-
 constraint/
 	Contains Master xdc file (KCU105_master.xdc).
         Contains  xdc file (kcu105_ethernet.xdc) 
+
 edn/
 	processor_edn here.
 
@@ -9,18 +9,36 @@ toplevel/
 	Contains the top level vhdl code of the SBC
 
 hsys/
-	We use this folder to construct our own core_library from highlevel to vhdl. It contains processor , Dram, Ethernet, serial and debug uarts
-        Just do ./build.sh inside this folder (in the ajit-toolchain docker).
+	hsys description of SBC core to be placed in kcu105.
+
+	It contains the processor (edn), SRAM,  serial 
+	and debug uarts
+
+        Just do ./build.sh inside this folder.
+
+	----------
+	Dependency:  AHIR V2 tools have to be installed!
+	----------
 
 hsys_dram/
+
 	It contains processor , Dram, serial and debug uarts
 
+        Just do ./build.sh inside this folder.
+
+	----------
+	Dependency:  AHIR V2 tools have to be installed!
+	----------
+
 vivado_synth/
-	Contains bitgen tcl file and run.sh script used to generate the bitfile and the working directory
+
+	Contains bitgen tcl file and run.sh script used to generate 
+	the bitfile (in this directory).
 	
 ip/
 	Contains the required ips.
 
 TESTS/
-	Contains Dram and Ethernet tests to verify the functionality. Ex : Marches test, Dram Profiler, Ping test, etc..
+	Contains Dram and Ethernet tests to verify the functionality. 
+	Exampls : Marches test, Dram Profiler, Ping test, etc..
 	

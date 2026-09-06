@@ -12,4 +12,7 @@ ila_dram/
 
 ddr4_0/
 	This is the Dram controller ip being used
-Incase you are using any other ip's such as DRAM, Ethernet (NIC) etc., add them in this directory.
+
+
+Incase you are using any other ip's such as DRAM, Ethernet (NIC) etc., 
+add them in this directory.
