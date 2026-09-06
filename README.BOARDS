@@ -41,3 +41,6 @@ The other directories are
 	Networking:
 		Contains the NIC implementation. (from AmanD15/AI_NIC_DEMO)
 
+    TCL_SCRIPTS:
+        Contains the tcl scripts to program and reset the FPGA Board.
+
