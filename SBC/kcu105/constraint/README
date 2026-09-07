@@ -1,2 +1,4 @@
+
 Note: DO NOT EDIT KCU105_master.xdc its a master constraint file!!!
 
+kcu105_ethernet.xdc : constraints for (processor + dram + ethernet).
