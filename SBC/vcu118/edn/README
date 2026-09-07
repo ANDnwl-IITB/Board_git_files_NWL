@@ -1,1 +1,15 @@
-Run ./link.sh to setup the edn link.
+## You need to link your new processor edn given by MPD Sir in this directory so that 
+   bitgen.tcl in vivado_synth can access it for bitstream generation.
+
+----------------------------------------------------------------------------------------
+
+-Because processor_1x1x32.edn file was too large , it could not be uploaded in repo
+
+-EDN files will be needed for bistream generation of VCU118 Aparajit in madhav system 
+   (VLSI lab server having vivado license) so follow:-
+   1. Make a directory named  " new_<date> " [useful for identifaction of latest edn].
+   2. Upload  processor_1x1x32.edn inside this directory.
+
+
+  NOTE : This repo is already git clonnned in madhav system (lab server) and latest edn files will be there.
+
