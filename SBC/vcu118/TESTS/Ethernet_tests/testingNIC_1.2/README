@@ -1,0 +1,4 @@
+- Ethernet test in VCU118 in main.c
+
+- host/ 
+   - python tests for ping, throughput, reliable image send etc.
