@@ -1,2 +1,13 @@
- relevant docs related to repo
+How to use the board and where necessary files related to them are situated?
+
+1. KCU105_essentials.pdf : KCU105 FPGA board documentation.
+
+2. VCU118_docs.pdf : VCU118 FPGA board documentation.
+
+----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
+
+- kcu105_mig_example_design.pdf : Reference to generate MIG IPs for KCU105 FPGA Board.
+
+- mig_vcu118.pdf : Reference to generate MIG IPs for VCU118 FPGA Board.
 
