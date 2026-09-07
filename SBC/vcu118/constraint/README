@@ -1,0 +1,3 @@
+vcu118_dram.xdc : constraints for (processor + dram)
+
+vcu118_ethernet.xdc : constraints for (processor + dram + ethernet).
